@@ -121,6 +121,7 @@ exports.Prisma.StatusScalarFieldEnum = {
   id: 'id',
   status: 'status',
   database: 'database',
+  redis: 'redis',
   timestamp: 'timestamp',
   error: 'error',
   createdAt: 'createdAt',

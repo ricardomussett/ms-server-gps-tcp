@@ -18,6 +18,7 @@ model Status {
   id        Int      @id @default(autoincrement())
   status    String   @default("active")
   database  String   @default("connected")
+  redis     String   @default("connected")
   timestamp DateTime @default(now())
   error     String?
   createdAt DateTime @default(now())

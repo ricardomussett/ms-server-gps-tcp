@@ -984,6 +984,7 @@ export namespace Prisma {
     id: number | null
     status: string | null
     database: string | null
+    redis: string | null
     timestamp: Date | null
     error: string | null
     createdAt: Date | null
@@ -994,6 +995,7 @@ export namespace Prisma {
     id: number | null
     status: string | null
     database: string | null
+    redis: string | null
     timestamp: Date | null
     error: string | null
     createdAt: Date | null
@@ -1004,6 +1006,7 @@ export namespace Prisma {
     id: number
     status: number
     database: number
+    redis: number
     timestamp: number
     error: number
     createdAt: number
@@ -1024,6 +1027,7 @@ export namespace Prisma {
     id?: true
     status?: true
     database?: true
+    redis?: true
     timestamp?: true
     error?: true
     createdAt?: true
@@ -1034,6 +1038,7 @@ export namespace Prisma {
     id?: true
     status?: true
     database?: true
+    redis?: true
     timestamp?: true
     error?: true
     createdAt?: true
@@ -1044,6 +1049,7 @@ export namespace Prisma {
     id?: true
     status?: true
     database?: true
+    redis?: true
     timestamp?: true
     error?: true
     createdAt?: true
@@ -1141,6 +1147,7 @@ export namespace Prisma {
     id: number
     status: string
     database: string
+    redis: string
     timestamp: Date
     error: string | null
     createdAt: Date
@@ -1170,6 +1177,7 @@ export namespace Prisma {
     id?: boolean
     status?: boolean
     database?: boolean
+    redis?: boolean
     timestamp?: boolean
     error?: boolean
     createdAt?: boolean
@@ -1180,6 +1188,7 @@ export namespace Prisma {
     id?: boolean
     status?: boolean
     database?: boolean
+    redis?: boolean
     timestamp?: boolean
     error?: boolean
     createdAt?: boolean
@@ -1190,6 +1199,7 @@ export namespace Prisma {
     id?: boolean
     status?: boolean
     database?: boolean
+    redis?: boolean
     timestamp?: boolean
     error?: boolean
     createdAt?: boolean
@@ -1200,13 +1210,14 @@ export namespace Prisma {
     id?: boolean
     status?: boolean
     database?: boolean
+    redis?: boolean
     timestamp?: boolean
     error?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type StatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "database" | "timestamp" | "error" | "createdAt" | "updatedAt", ExtArgs["result"]["status"]>
+  export type StatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "database" | "redis" | "timestamp" | "error" | "createdAt" | "updatedAt", ExtArgs["result"]["status"]>
 
   export type $StatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Status"
@@ -1215,6 +1226,7 @@ export namespace Prisma {
       id: number
       status: string
       database: string
+      redis: string
       timestamp: Date
       error: string | null
       createdAt: Date
@@ -1645,6 +1657,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Status", 'Int'>
     readonly status: FieldRef<"Status", 'String'>
     readonly database: FieldRef<"Status", 'String'>
+    readonly redis: FieldRef<"Status", 'String'>
     readonly timestamp: FieldRef<"Status", 'DateTime'>
     readonly error: FieldRef<"Status", 'String'>
     readonly createdAt: FieldRef<"Status", 'DateTime'>
@@ -3075,6 +3088,7 @@ export namespace Prisma {
     id: 'id',
     status: 'status',
     database: 'database',
+    redis: 'redis',
     timestamp: 'timestamp',
     error: 'error',
     createdAt: 'createdAt',
@@ -3191,6 +3205,7 @@ export namespace Prisma {
     id?: IntFilter<"Status"> | number
     status?: StringFilter<"Status"> | string
     database?: StringFilter<"Status"> | string
+    redis?: StringFilter<"Status"> | string
     timestamp?: DateTimeFilter<"Status"> | Date | string
     error?: StringNullableFilter<"Status"> | string | null
     createdAt?: DateTimeFilter<"Status"> | Date | string
@@ -3201,6 +3216,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     database?: SortOrder
+    redis?: SortOrder
     timestamp?: SortOrder
     error?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -3214,6 +3230,7 @@ export namespace Prisma {
     NOT?: StatusWhereInput | StatusWhereInput[]
     status?: StringFilter<"Status"> | string
     database?: StringFilter<"Status"> | string
+    redis?: StringFilter<"Status"> | string
     timestamp?: DateTimeFilter<"Status"> | Date | string
     error?: StringNullableFilter<"Status"> | string | null
     createdAt?: DateTimeFilter<"Status"> | Date | string
@@ -3224,6 +3241,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     database?: SortOrder
+    redis?: SortOrder
     timestamp?: SortOrder
     error?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -3242,6 +3260,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Status"> | number
     status?: StringWithAggregatesFilter<"Status"> | string
     database?: StringWithAggregatesFilter<"Status"> | string
+    redis?: StringWithAggregatesFilter<"Status"> | string
     timestamp?: DateTimeWithAggregatesFilter<"Status"> | Date | string
     error?: StringNullableWithAggregatesFilter<"Status"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Status"> | Date | string
@@ -3310,6 +3329,7 @@ export namespace Prisma {
   export type StatusCreateInput = {
     status?: string
     database?: string
+    redis?: string
     timestamp?: Date | string
     error?: string | null
     createdAt?: Date | string
@@ -3320,6 +3340,7 @@ export namespace Prisma {
     id?: number
     status?: string
     database?: string
+    redis?: string
     timestamp?: Date | string
     error?: string | null
     createdAt?: Date | string
@@ -3329,6 +3350,7 @@ export namespace Prisma {
   export type StatusUpdateInput = {
     status?: StringFieldUpdateOperationsInput | string
     database?: StringFieldUpdateOperationsInput | string
+    redis?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3339,6 +3361,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
     database?: StringFieldUpdateOperationsInput | string
+    redis?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3349,6 +3372,7 @@ export namespace Prisma {
     id?: number
     status?: string
     database?: string
+    redis?: string
     timestamp?: Date | string
     error?: string | null
     createdAt?: Date | string
@@ -3358,6 +3382,7 @@ export namespace Prisma {
   export type StatusUpdateManyMutationInput = {
     status?: StringFieldUpdateOperationsInput | string
     database?: StringFieldUpdateOperationsInput | string
+    redis?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3368,6 +3393,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
     database?: StringFieldUpdateOperationsInput | string
+    redis?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3495,6 +3521,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     database?: SortOrder
+    redis?: SortOrder
     timestamp?: SortOrder
     error?: SortOrder
     createdAt?: SortOrder
@@ -3509,6 +3536,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     database?: SortOrder
+    redis?: SortOrder
     timestamp?: SortOrder
     error?: SortOrder
     createdAt?: SortOrder
@@ -3519,6 +3547,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     database?: SortOrder
+    redis?: SortOrder
     timestamp?: SortOrder
     error?: SortOrder
     createdAt?: SortOrder
