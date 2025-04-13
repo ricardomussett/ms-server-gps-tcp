@@ -5,6 +5,7 @@ import { GpsDataProcessor } from './gps-data.processor';
 import { QueueService } from './queue.service';
 import { PrismaModule } from '../prisma/prisma.module';
 
+
 @Module({
   imports: [
     BullModule.forRoot({
@@ -24,7 +25,10 @@ import { PrismaModule } from '../prisma/prisma.module';
     }),
     PrismaModule,
   ],
-  providers: [GpsDataProcessor, QueueService],
+  providers: [
+    GpsDataProcessor, 
+    QueueService,
+  ],
   exports: [QueueService],
 })
 export class QueueModule {} 

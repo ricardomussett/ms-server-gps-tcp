@@ -23,6 +23,31 @@ export type Status = $Result.DefaultSelection<Prisma.$StatusPayload>
  * 
  */
 export type GpsData = $Result.DefaultSelection<Prisma.$GpsDataPayload>
+/**
+ * Model PositionData
+ * 
+ */
+export type PositionData = $Result.DefaultSelection<Prisma.$PositionDataPayload>
+/**
+ * Model AlarmData
+ * 
+ */
+export type AlarmData = $Result.DefaultSelection<Prisma.$AlarmDataPayload>
+/**
+ * Model HeartbeatData
+ * 
+ */
+export type HeartbeatData = $Result.DefaultSelection<Prisma.$HeartbeatDataPayload>
+/**
+ * Model TrackerStatus
+ * 
+ */
+export type TrackerStatus = $Result.DefaultSelection<Prisma.$TrackerStatusPayload>
+/**
+ * Model IButtonData
+ * 
+ */
+export type IButtonData = $Result.DefaultSelection<Prisma.$IButtonDataPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,6 +193,56 @@ export class PrismaClient<
     * ```
     */
   get gpsData(): Prisma.GpsDataDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.positionData`: Exposes CRUD operations for the **PositionData** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PositionData
+    * const positionData = await prisma.positionData.findMany()
+    * ```
+    */
+  get positionData(): Prisma.PositionDataDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.alarmData`: Exposes CRUD operations for the **AlarmData** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AlarmData
+    * const alarmData = await prisma.alarmData.findMany()
+    * ```
+    */
+  get alarmData(): Prisma.AlarmDataDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.heartbeatData`: Exposes CRUD operations for the **HeartbeatData** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more HeartbeatData
+    * const heartbeatData = await prisma.heartbeatData.findMany()
+    * ```
+    */
+  get heartbeatData(): Prisma.HeartbeatDataDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.trackerStatus`: Exposes CRUD operations for the **TrackerStatus** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackerStatuses
+    * const trackerStatuses = await prisma.trackerStatus.findMany()
+    * ```
+    */
+  get trackerStatus(): Prisma.TrackerStatusDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.iButtonData`: Exposes CRUD operations for the **IButtonData** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more IButtonData
+    * const iButtonData = await prisma.iButtonData.findMany()
+    * ```
+    */
+  get iButtonData(): Prisma.IButtonDataDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +684,12 @@ export namespace Prisma {
 
   export const ModelName: {
     Status: 'Status',
-    GpsData: 'GpsData'
+    GpsData: 'GpsData',
+    PositionData: 'PositionData',
+    AlarmData: 'AlarmData',
+    HeartbeatData: 'HeartbeatData',
+    TrackerStatus: 'TrackerStatus',
+    IButtonData: 'IButtonData'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "status" | "gpsData"
+      modelProps: "status" | "gpsData" | "positionData" | "alarmData" | "heartbeatData" | "trackerStatus" | "iButtonData"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -780,6 +860,376 @@ export namespace Prisma {
           }
         }
       }
+      PositionData: {
+        payload: Prisma.$PositionDataPayload<ExtArgs>
+        fields: Prisma.PositionDataFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PositionDataFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PositionDataFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>
+          }
+          findFirst: {
+            args: Prisma.PositionDataFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PositionDataFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>
+          }
+          findMany: {
+            args: Prisma.PositionDataFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>[]
+          }
+          create: {
+            args: Prisma.PositionDataCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>
+          }
+          createMany: {
+            args: Prisma.PositionDataCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PositionDataCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>[]
+          }
+          delete: {
+            args: Prisma.PositionDataDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>
+          }
+          update: {
+            args: Prisma.PositionDataUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>
+          }
+          deleteMany: {
+            args: Prisma.PositionDataDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PositionDataUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PositionDataUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>[]
+          }
+          upsert: {
+            args: Prisma.PositionDataUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PositionDataPayload>
+          }
+          aggregate: {
+            args: Prisma.PositionDataAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePositionData>
+          }
+          groupBy: {
+            args: Prisma.PositionDataGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PositionDataGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PositionDataCountArgs<ExtArgs>
+            result: $Utils.Optional<PositionDataCountAggregateOutputType> | number
+          }
+        }
+      }
+      AlarmData: {
+        payload: Prisma.$AlarmDataPayload<ExtArgs>
+        fields: Prisma.AlarmDataFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AlarmDataFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AlarmDataFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>
+          }
+          findFirst: {
+            args: Prisma.AlarmDataFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AlarmDataFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>
+          }
+          findMany: {
+            args: Prisma.AlarmDataFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>[]
+          }
+          create: {
+            args: Prisma.AlarmDataCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>
+          }
+          createMany: {
+            args: Prisma.AlarmDataCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AlarmDataCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>[]
+          }
+          delete: {
+            args: Prisma.AlarmDataDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>
+          }
+          update: {
+            args: Prisma.AlarmDataUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>
+          }
+          deleteMany: {
+            args: Prisma.AlarmDataDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AlarmDataUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AlarmDataUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>[]
+          }
+          upsert: {
+            args: Prisma.AlarmDataUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AlarmDataPayload>
+          }
+          aggregate: {
+            args: Prisma.AlarmDataAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAlarmData>
+          }
+          groupBy: {
+            args: Prisma.AlarmDataGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AlarmDataGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AlarmDataCountArgs<ExtArgs>
+            result: $Utils.Optional<AlarmDataCountAggregateOutputType> | number
+          }
+        }
+      }
+      HeartbeatData: {
+        payload: Prisma.$HeartbeatDataPayload<ExtArgs>
+        fields: Prisma.HeartbeatDataFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HeartbeatDataFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HeartbeatDataFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>
+          }
+          findFirst: {
+            args: Prisma.HeartbeatDataFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HeartbeatDataFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>
+          }
+          findMany: {
+            args: Prisma.HeartbeatDataFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>[]
+          }
+          create: {
+            args: Prisma.HeartbeatDataCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>
+          }
+          createMany: {
+            args: Prisma.HeartbeatDataCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.HeartbeatDataCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>[]
+          }
+          delete: {
+            args: Prisma.HeartbeatDataDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>
+          }
+          update: {
+            args: Prisma.HeartbeatDataUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>
+          }
+          deleteMany: {
+            args: Prisma.HeartbeatDataDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HeartbeatDataUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.HeartbeatDataUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>[]
+          }
+          upsert: {
+            args: Prisma.HeartbeatDataUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeartbeatDataPayload>
+          }
+          aggregate: {
+            args: Prisma.HeartbeatDataAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHeartbeatData>
+          }
+          groupBy: {
+            args: Prisma.HeartbeatDataGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HeartbeatDataGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.HeartbeatDataCountArgs<ExtArgs>
+            result: $Utils.Optional<HeartbeatDataCountAggregateOutputType> | number
+          }
+        }
+      }
+      TrackerStatus: {
+        payload: Prisma.$TrackerStatusPayload<ExtArgs>
+        fields: Prisma.TrackerStatusFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TrackerStatusFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TrackerStatusFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>
+          }
+          findFirst: {
+            args: Prisma.TrackerStatusFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TrackerStatusFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>
+          }
+          findMany: {
+            args: Prisma.TrackerStatusFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>[]
+          }
+          create: {
+            args: Prisma.TrackerStatusCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>
+          }
+          createMany: {
+            args: Prisma.TrackerStatusCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TrackerStatusCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>[]
+          }
+          delete: {
+            args: Prisma.TrackerStatusDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>
+          }
+          update: {
+            args: Prisma.TrackerStatusUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>
+          }
+          deleteMany: {
+            args: Prisma.TrackerStatusDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TrackerStatusUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TrackerStatusUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>[]
+          }
+          upsert: {
+            args: Prisma.TrackerStatusUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackerStatusPayload>
+          }
+          aggregate: {
+            args: Prisma.TrackerStatusAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTrackerStatus>
+          }
+          groupBy: {
+            args: Prisma.TrackerStatusGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TrackerStatusGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TrackerStatusCountArgs<ExtArgs>
+            result: $Utils.Optional<TrackerStatusCountAggregateOutputType> | number
+          }
+        }
+      }
+      IButtonData: {
+        payload: Prisma.$IButtonDataPayload<ExtArgs>
+        fields: Prisma.IButtonDataFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.IButtonDataFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.IButtonDataFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>
+          }
+          findFirst: {
+            args: Prisma.IButtonDataFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.IButtonDataFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>
+          }
+          findMany: {
+            args: Prisma.IButtonDataFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>[]
+          }
+          create: {
+            args: Prisma.IButtonDataCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>
+          }
+          createMany: {
+            args: Prisma.IButtonDataCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.IButtonDataCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>[]
+          }
+          delete: {
+            args: Prisma.IButtonDataDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>
+          }
+          update: {
+            args: Prisma.IButtonDataUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>
+          }
+          deleteMany: {
+            args: Prisma.IButtonDataDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.IButtonDataUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.IButtonDataUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>[]
+          }
+          upsert: {
+            args: Prisma.IButtonDataUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IButtonDataPayload>
+          }
+          aggregate: {
+            args: Prisma.IButtonDataAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateIButtonData>
+          }
+          groupBy: {
+            args: Prisma.IButtonDataGroupByArgs<ExtArgs>
+            result: $Utils.Optional<IButtonDataGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.IButtonDataCountArgs<ExtArgs>
+            result: $Utils.Optional<IButtonDataCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -866,6 +1316,11 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     status?: StatusOmit
     gpsData?: GpsDataOmit
+    positionData?: PositionDataOmit
+    alarmData?: AlarmDataOmit
+    heartbeatData?: HeartbeatDataOmit
+    trackerStatus?: TrackerStatusOmit
+    iButtonData?: IButtonDataOmit
   }
 
   /* Types for Logging */
@@ -988,6 +1443,7 @@ export namespace Prisma {
     error: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    redis: string | null
   }
 
   export type StatusMaxAggregateOutputType = {
@@ -998,6 +1454,7 @@ export namespace Prisma {
     error: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    redis: string | null
   }
 
   export type StatusCountAggregateOutputType = {
@@ -1008,6 +1465,7 @@ export namespace Prisma {
     error: number
     createdAt: number
     updatedAt: number
+    redis: number
     _all: number
   }
 
@@ -1028,6 +1486,7 @@ export namespace Prisma {
     error?: true
     createdAt?: true
     updatedAt?: true
+    redis?: true
   }
 
   export type StatusMaxAggregateInputType = {
@@ -1038,6 +1497,7 @@ export namespace Prisma {
     error?: true
     createdAt?: true
     updatedAt?: true
+    redis?: true
   }
 
   export type StatusCountAggregateInputType = {
@@ -1048,6 +1508,7 @@ export namespace Prisma {
     error?: true
     createdAt?: true
     updatedAt?: true
+    redis?: true
     _all?: true
   }
 
@@ -1145,6 +1606,7 @@ export namespace Prisma {
     error: string | null
     createdAt: Date
     updatedAt: Date
+    redis: string
     _count: StatusCountAggregateOutputType | null
     _avg: StatusAvgAggregateOutputType | null
     _sum: StatusSumAggregateOutputType | null
@@ -1174,6 +1636,7 @@ export namespace Prisma {
     error?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    redis?: boolean
   }, ExtArgs["result"]["status"]>
 
   export type StatusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1184,6 +1647,7 @@ export namespace Prisma {
     error?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    redis?: boolean
   }, ExtArgs["result"]["status"]>
 
   export type StatusSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1194,6 +1658,7 @@ export namespace Prisma {
     error?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    redis?: boolean
   }, ExtArgs["result"]["status"]>
 
   export type StatusSelectScalar = {
@@ -1204,9 +1669,10 @@ export namespace Prisma {
     error?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    redis?: boolean
   }
 
-  export type StatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "database" | "timestamp" | "error" | "createdAt" | "updatedAt", ExtArgs["result"]["status"]>
+  export type StatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "database" | "timestamp" | "error" | "createdAt" | "updatedAt" | "redis", ExtArgs["result"]["status"]>
 
   export type $StatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Status"
@@ -1219,6 +1685,7 @@ export namespace Prisma {
       error: string | null
       createdAt: Date
       updatedAt: Date
+      redis: string
     }, ExtArgs["result"]["status"]>
     composites: {}
   }
@@ -1649,6 +2116,7 @@ export namespace Prisma {
     readonly error: FieldRef<"Status", 'String'>
     readonly createdAt: FieldRef<"Status", 'DateTime'>
     readonly updatedAt: FieldRef<"Status", 'DateTime'>
+    readonly redis: FieldRef<"Status", 'String'>
   }
     
 
@@ -2037,29 +2505,38 @@ export namespace Prisma {
 
   export type GpsDataMinAggregateOutputType = {
     id: number | null
-    deviceId: string | null
     rawData: string | null
+    parsedData: string | null
+    packetInfo: string | null
+    mainCommand: string | null
     timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    from: string | null
   }
 
   export type GpsDataMaxAggregateOutputType = {
     id: number | null
-    deviceId: string | null
     rawData: string | null
+    parsedData: string | null
+    packetInfo: string | null
+    mainCommand: string | null
     timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    from: string | null
   }
 
   export type GpsDataCountAggregateOutputType = {
     id: number
-    deviceId: number
     rawData: number
+    parsedData: number
+    packetInfo: number
+    mainCommand: number
     timestamp: number
     createdAt: number
     updatedAt: number
+    from: number
     _all: number
   }
 
@@ -2074,29 +2551,38 @@ export namespace Prisma {
 
   export type GpsDataMinAggregateInputType = {
     id?: true
-    deviceId?: true
     rawData?: true
+    parsedData?: true
+    packetInfo?: true
+    mainCommand?: true
     timestamp?: true
     createdAt?: true
     updatedAt?: true
+    from?: true
   }
 
   export type GpsDataMaxAggregateInputType = {
     id?: true
-    deviceId?: true
     rawData?: true
+    parsedData?: true
+    packetInfo?: true
+    mainCommand?: true
     timestamp?: true
     createdAt?: true
     updatedAt?: true
+    from?: true
   }
 
   export type GpsDataCountAggregateInputType = {
     id?: true
-    deviceId?: true
     rawData?: true
+    parsedData?: true
+    packetInfo?: true
+    mainCommand?: true
     timestamp?: true
     createdAt?: true
     updatedAt?: true
+    from?: true
     _all?: true
   }
 
@@ -2188,11 +2674,14 @@ export namespace Prisma {
 
   export type GpsDataGroupByOutputType = {
     id: number
-    deviceId: string
     rawData: string
+    parsedData: string | null
+    packetInfo: string | null
+    mainCommand: string | null
     timestamp: Date
     createdAt: Date
     updatedAt: Date
+    from: string
     _count: GpsDataCountAggregateOutputType | null
     _avg: GpsDataAvgAggregateOutputType | null
     _sum: GpsDataSumAggregateOutputType | null
@@ -2216,52 +2705,67 @@ export namespace Prisma {
 
   export type GpsDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    deviceId?: boolean
     rawData?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
+    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    from?: boolean
   }, ExtArgs["result"]["gpsData"]>
 
   export type GpsDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    deviceId?: boolean
     rawData?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
+    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    from?: boolean
   }, ExtArgs["result"]["gpsData"]>
 
   export type GpsDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    deviceId?: boolean
     rawData?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
+    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    from?: boolean
   }, ExtArgs["result"]["gpsData"]>
 
   export type GpsDataSelectScalar = {
     id?: boolean
-    deviceId?: boolean
     rawData?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
+    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    from?: boolean
   }
 
-  export type GpsDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "deviceId" | "rawData" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["gpsData"]>
+  export type GpsDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rawData" | "parsedData" | "packetInfo" | "mainCommand" | "timestamp" | "createdAt" | "updatedAt" | "from", ExtArgs["result"]["gpsData"]>
 
   export type $GpsDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "GpsData"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      deviceId: string
       rawData: string
+      parsedData: string | null
+      packetInfo: string | null
+      mainCommand: string | null
       timestamp: Date
       createdAt: Date
       updatedAt: Date
+      from: string
     }, ExtArgs["result"]["gpsData"]>
     composites: {}
   }
@@ -2686,11 +3190,14 @@ export namespace Prisma {
    */
   interface GpsDataFieldRefs {
     readonly id: FieldRef<"GpsData", 'Int'>
-    readonly deviceId: FieldRef<"GpsData", 'String'>
     readonly rawData: FieldRef<"GpsData", 'String'>
+    readonly parsedData: FieldRef<"GpsData", 'String'>
+    readonly packetInfo: FieldRef<"GpsData", 'String'>
+    readonly mainCommand: FieldRef<"GpsData", 'String'>
     readonly timestamp: FieldRef<"GpsData", 'DateTime'>
     readonly createdAt: FieldRef<"GpsData", 'DateTime'>
     readonly updatedAt: FieldRef<"GpsData", 'DateTime'>
+    readonly from: FieldRef<"GpsData", 'String'>
   }
     
 
@@ -3058,6 +3565,6096 @@ export namespace Prisma {
 
 
   /**
+   * Model PositionData
+   */
+
+  export type AggregatePositionData = {
+    _count: PositionDataCountAggregateOutputType | null
+    _avg: PositionDataAvgAggregateOutputType | null
+    _sum: PositionDataSumAggregateOutputType | null
+    _min: PositionDataMinAggregateOutputType | null
+    _max: PositionDataMaxAggregateOutputType | null
+  }
+
+  export type PositionDataAvgAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    latitude: number | null
+    longitude: number | null
+    speed: number | null
+    angle: number | null
+    oilResistance: number | null
+    voltage: number | null
+    mileage: number | null
+    temperature: number | null
+  }
+
+  export type PositionDataSumAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    latitude: number | null
+    longitude: number | null
+    speed: number | null
+    angle: number | null
+    oilResistance: number | null
+    voltage: number | null
+    mileage: number | null
+    temperature: number | null
+  }
+
+  export type PositionDataMinAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    latitude: number | null
+    longitude: number | null
+    speed: number | null
+    angle: number | null
+    gpsStatus: string | null
+    digitalInputs: string | null
+    ignition: boolean | null
+    oilResistance: number | null
+    voltage: number | null
+    mileage: number | null
+    temperature: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PositionDataMaxAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    latitude: number | null
+    longitude: number | null
+    speed: number | null
+    angle: number | null
+    gpsStatus: string | null
+    digitalInputs: string | null
+    ignition: boolean | null
+    oilResistance: number | null
+    voltage: number | null
+    mileage: number | null
+    temperature: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PositionDataCountAggregateOutputType = {
+    id: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    latitude: number
+    longitude: number
+    speed: number
+    angle: number
+    gpsStatus: number
+    digitalInputs: number
+    ignition: number
+    oilResistance: number
+    voltage: number
+    mileage: number
+    temperature: number
+    timestamp: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PositionDataAvgAggregateInputType = {
+    id?: true
+    packetLength?: true
+    latitude?: true
+    longitude?: true
+    speed?: true
+    angle?: true
+    oilResistance?: true
+    voltage?: true
+    mileage?: true
+    temperature?: true
+  }
+
+  export type PositionDataSumAggregateInputType = {
+    id?: true
+    packetLength?: true
+    latitude?: true
+    longitude?: true
+    speed?: true
+    angle?: true
+    oilResistance?: true
+    voltage?: true
+    mileage?: true
+    temperature?: true
+  }
+
+  export type PositionDataMinAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    latitude?: true
+    longitude?: true
+    speed?: true
+    angle?: true
+    gpsStatus?: true
+    digitalInputs?: true
+    ignition?: true
+    oilResistance?: true
+    voltage?: true
+    mileage?: true
+    temperature?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PositionDataMaxAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    latitude?: true
+    longitude?: true
+    speed?: true
+    angle?: true
+    gpsStatus?: true
+    digitalInputs?: true
+    ignition?: true
+    oilResistance?: true
+    voltage?: true
+    mileage?: true
+    temperature?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PositionDataCountAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    latitude?: true
+    longitude?: true
+    speed?: true
+    angle?: true
+    gpsStatus?: true
+    digitalInputs?: true
+    ignition?: true
+    oilResistance?: true
+    voltage?: true
+    mileage?: true
+    temperature?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PositionDataAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PositionData to aggregate.
+     */
+    where?: PositionDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PositionData to fetch.
+     */
+    orderBy?: PositionDataOrderByWithRelationInput | PositionDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PositionDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PositionData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PositionData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PositionData
+    **/
+    _count?: true | PositionDataCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PositionDataAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PositionDataSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PositionDataMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PositionDataMaxAggregateInputType
+  }
+
+  export type GetPositionDataAggregateType<T extends PositionDataAggregateArgs> = {
+        [P in keyof T & keyof AggregatePositionData]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePositionData[P]>
+      : GetScalarType<T[P], AggregatePositionData[P]>
+  }
+
+
+
+
+  export type PositionDataGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PositionDataWhereInput
+    orderBy?: PositionDataOrderByWithAggregationInput | PositionDataOrderByWithAggregationInput[]
+    by: PositionDataScalarFieldEnum[] | PositionDataScalarFieldEnum
+    having?: PositionDataScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PositionDataCountAggregateInputType | true
+    _avg?: PositionDataAvgAggregateInputType
+    _sum?: PositionDataSumAggregateInputType
+    _min?: PositionDataMinAggregateInputType
+    _max?: PositionDataMaxAggregateInputType
+  }
+
+  export type PositionDataGroupByOutputType = {
+    id: number
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    latitude: number
+    longitude: number
+    speed: number | null
+    angle: number | null
+    gpsStatus: string | null
+    digitalInputs: string | null
+    ignition: boolean | null
+    oilResistance: number | null
+    voltage: number | null
+    mileage: number | null
+    temperature: number | null
+    timestamp: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: PositionDataCountAggregateOutputType | null
+    _avg: PositionDataAvgAggregateOutputType | null
+    _sum: PositionDataSumAggregateOutputType | null
+    _min: PositionDataMinAggregateOutputType | null
+    _max: PositionDataMaxAggregateOutputType | null
+  }
+
+  type GetPositionDataGroupByPayload<T extends PositionDataGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PositionDataGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PositionDataGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PositionDataGroupByOutputType[P]>
+            : GetScalarType<T[P], PositionDataGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PositionDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    speed?: boolean
+    angle?: boolean
+    gpsStatus?: boolean
+    digitalInputs?: boolean
+    ignition?: boolean
+    oilResistance?: boolean
+    voltage?: boolean
+    mileage?: boolean
+    temperature?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["positionData"]>
+
+  export type PositionDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    speed?: boolean
+    angle?: boolean
+    gpsStatus?: boolean
+    digitalInputs?: boolean
+    ignition?: boolean
+    oilResistance?: boolean
+    voltage?: boolean
+    mileage?: boolean
+    temperature?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["positionData"]>
+
+  export type PositionDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    speed?: boolean
+    angle?: boolean
+    gpsStatus?: boolean
+    digitalInputs?: boolean
+    ignition?: boolean
+    oilResistance?: boolean
+    voltage?: boolean
+    mileage?: boolean
+    temperature?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["positionData"]>
+
+  export type PositionDataSelectScalar = {
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    speed?: boolean
+    angle?: boolean
+    gpsStatus?: boolean
+    digitalInputs?: boolean
+    ignition?: boolean
+    oilResistance?: boolean
+    voltage?: boolean
+    mileage?: boolean
+    temperature?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PositionDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "latitude" | "longitude" | "speed" | "angle" | "gpsStatus" | "digitalInputs" | "ignition" | "oilResistance" | "voltage" | "mileage" | "temperature" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["positionData"]>
+
+  export type $PositionDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PositionData"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      latitude: number
+      longitude: number
+      speed: number | null
+      angle: number | null
+      gpsStatus: string | null
+      digitalInputs: string | null
+      ignition: boolean | null
+      oilResistance: number | null
+      voltage: number | null
+      mileage: number | null
+      temperature: number | null
+      timestamp: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["positionData"]>
+    composites: {}
+  }
+
+  type PositionDataGetPayload<S extends boolean | null | undefined | PositionDataDefaultArgs> = $Result.GetResult<Prisma.$PositionDataPayload, S>
+
+  type PositionDataCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PositionDataFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PositionDataCountAggregateInputType | true
+    }
+
+  export interface PositionDataDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PositionData'], meta: { name: 'PositionData' } }
+    /**
+     * Find zero or one PositionData that matches the filter.
+     * @param {PositionDataFindUniqueArgs} args - Arguments to find a PositionData
+     * @example
+     * // Get one PositionData
+     * const positionData = await prisma.positionData.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PositionDataFindUniqueArgs>(args: SelectSubset<T, PositionDataFindUniqueArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PositionData that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PositionDataFindUniqueOrThrowArgs} args - Arguments to find a PositionData
+     * @example
+     * // Get one PositionData
+     * const positionData = await prisma.positionData.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PositionDataFindUniqueOrThrowArgs>(args: SelectSubset<T, PositionDataFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PositionData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PositionDataFindFirstArgs} args - Arguments to find a PositionData
+     * @example
+     * // Get one PositionData
+     * const positionData = await prisma.positionData.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PositionDataFindFirstArgs>(args?: SelectSubset<T, PositionDataFindFirstArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PositionData that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PositionDataFindFirstOrThrowArgs} args - Arguments to find a PositionData
+     * @example
+     * // Get one PositionData
+     * const positionData = await prisma.positionData.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PositionDataFindFirstOrThrowArgs>(args?: SelectSubset<T, PositionDataFindFirstOrThrowArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PositionData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PositionDataFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PositionData
+     * const positionData = await prisma.positionData.findMany()
+     * 
+     * // Get first 10 PositionData
+     * const positionData = await prisma.positionData.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const positionDataWithIdOnly = await prisma.positionData.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PositionDataFindManyArgs>(args?: SelectSubset<T, PositionDataFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PositionData.
+     * @param {PositionDataCreateArgs} args - Arguments to create a PositionData.
+     * @example
+     * // Create one PositionData
+     * const PositionData = await prisma.positionData.create({
+     *   data: {
+     *     // ... data to create a PositionData
+     *   }
+     * })
+     * 
+     */
+    create<T extends PositionDataCreateArgs>(args: SelectSubset<T, PositionDataCreateArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PositionData.
+     * @param {PositionDataCreateManyArgs} args - Arguments to create many PositionData.
+     * @example
+     * // Create many PositionData
+     * const positionData = await prisma.positionData.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PositionDataCreateManyArgs>(args?: SelectSubset<T, PositionDataCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PositionData and returns the data saved in the database.
+     * @param {PositionDataCreateManyAndReturnArgs} args - Arguments to create many PositionData.
+     * @example
+     * // Create many PositionData
+     * const positionData = await prisma.positionData.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PositionData and only return the `id`
+     * const positionDataWithIdOnly = await prisma.positionData.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PositionDataCreateManyAndReturnArgs>(args?: SelectSubset<T, PositionDataCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PositionData.
+     * @param {PositionDataDeleteArgs} args - Arguments to delete one PositionData.
+     * @example
+     * // Delete one PositionData
+     * const PositionData = await prisma.positionData.delete({
+     *   where: {
+     *     // ... filter to delete one PositionData
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PositionDataDeleteArgs>(args: SelectSubset<T, PositionDataDeleteArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PositionData.
+     * @param {PositionDataUpdateArgs} args - Arguments to update one PositionData.
+     * @example
+     * // Update one PositionData
+     * const positionData = await prisma.positionData.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PositionDataUpdateArgs>(args: SelectSubset<T, PositionDataUpdateArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PositionData.
+     * @param {PositionDataDeleteManyArgs} args - Arguments to filter PositionData to delete.
+     * @example
+     * // Delete a few PositionData
+     * const { count } = await prisma.positionData.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PositionDataDeleteManyArgs>(args?: SelectSubset<T, PositionDataDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PositionData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PositionDataUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PositionData
+     * const positionData = await prisma.positionData.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PositionDataUpdateManyArgs>(args: SelectSubset<T, PositionDataUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PositionData and returns the data updated in the database.
+     * @param {PositionDataUpdateManyAndReturnArgs} args - Arguments to update many PositionData.
+     * @example
+     * // Update many PositionData
+     * const positionData = await prisma.positionData.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PositionData and only return the `id`
+     * const positionDataWithIdOnly = await prisma.positionData.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PositionDataUpdateManyAndReturnArgs>(args: SelectSubset<T, PositionDataUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PositionData.
+     * @param {PositionDataUpsertArgs} args - Arguments to update or create a PositionData.
+     * @example
+     * // Update or create a PositionData
+     * const positionData = await prisma.positionData.upsert({
+     *   create: {
+     *     // ... data to create a PositionData
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PositionData we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PositionDataUpsertArgs>(args: SelectSubset<T, PositionDataUpsertArgs<ExtArgs>>): Prisma__PositionDataClient<$Result.GetResult<Prisma.$PositionDataPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PositionData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PositionDataCountArgs} args - Arguments to filter PositionData to count.
+     * @example
+     * // Count the number of PositionData
+     * const count = await prisma.positionData.count({
+     *   where: {
+     *     // ... the filter for the PositionData we want to count
+     *   }
+     * })
+    **/
+    count<T extends PositionDataCountArgs>(
+      args?: Subset<T, PositionDataCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PositionDataCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PositionData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PositionDataAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PositionDataAggregateArgs>(args: Subset<T, PositionDataAggregateArgs>): Prisma.PrismaPromise<GetPositionDataAggregateType<T>>
+
+    /**
+     * Group by PositionData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PositionDataGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PositionDataGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PositionDataGroupByArgs['orderBy'] }
+        : { orderBy?: PositionDataGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PositionDataGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPositionDataGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PositionData model
+   */
+  readonly fields: PositionDataFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PositionData.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PositionDataClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PositionData model
+   */
+  interface PositionDataFieldRefs {
+    readonly id: FieldRef<"PositionData", 'Int'>
+    readonly mainCommand: FieldRef<"PositionData", 'String'>
+    readonly packetLength: FieldRef<"PositionData", 'Int'>
+    readonly pseudoIP: FieldRef<"PositionData", 'String'>
+    readonly rawData: FieldRef<"PositionData", 'String'>
+    readonly latitude: FieldRef<"PositionData", 'Float'>
+    readonly longitude: FieldRef<"PositionData", 'Float'>
+    readonly speed: FieldRef<"PositionData", 'Float'>
+    readonly angle: FieldRef<"PositionData", 'Float'>
+    readonly gpsStatus: FieldRef<"PositionData", 'String'>
+    readonly digitalInputs: FieldRef<"PositionData", 'String'>
+    readonly ignition: FieldRef<"PositionData", 'Boolean'>
+    readonly oilResistance: FieldRef<"PositionData", 'Int'>
+    readonly voltage: FieldRef<"PositionData", 'Float'>
+    readonly mileage: FieldRef<"PositionData", 'Int'>
+    readonly temperature: FieldRef<"PositionData", 'Float'>
+    readonly timestamp: FieldRef<"PositionData", 'DateTime'>
+    readonly createdAt: FieldRef<"PositionData", 'DateTime'>
+    readonly updatedAt: FieldRef<"PositionData", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PositionData findUnique
+   */
+  export type PositionDataFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * Filter, which PositionData to fetch.
+     */
+    where: PositionDataWhereUniqueInput
+  }
+
+  /**
+   * PositionData findUniqueOrThrow
+   */
+  export type PositionDataFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * Filter, which PositionData to fetch.
+     */
+    where: PositionDataWhereUniqueInput
+  }
+
+  /**
+   * PositionData findFirst
+   */
+  export type PositionDataFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * Filter, which PositionData to fetch.
+     */
+    where?: PositionDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PositionData to fetch.
+     */
+    orderBy?: PositionDataOrderByWithRelationInput | PositionDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PositionData.
+     */
+    cursor?: PositionDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PositionData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PositionData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PositionData.
+     */
+    distinct?: PositionDataScalarFieldEnum | PositionDataScalarFieldEnum[]
+  }
+
+  /**
+   * PositionData findFirstOrThrow
+   */
+  export type PositionDataFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * Filter, which PositionData to fetch.
+     */
+    where?: PositionDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PositionData to fetch.
+     */
+    orderBy?: PositionDataOrderByWithRelationInput | PositionDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PositionData.
+     */
+    cursor?: PositionDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PositionData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PositionData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PositionData.
+     */
+    distinct?: PositionDataScalarFieldEnum | PositionDataScalarFieldEnum[]
+  }
+
+  /**
+   * PositionData findMany
+   */
+  export type PositionDataFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * Filter, which PositionData to fetch.
+     */
+    where?: PositionDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PositionData to fetch.
+     */
+    orderBy?: PositionDataOrderByWithRelationInput | PositionDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PositionData.
+     */
+    cursor?: PositionDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PositionData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PositionData.
+     */
+    skip?: number
+    distinct?: PositionDataScalarFieldEnum | PositionDataScalarFieldEnum[]
+  }
+
+  /**
+   * PositionData create
+   */
+  export type PositionDataCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * The data needed to create a PositionData.
+     */
+    data: XOR<PositionDataCreateInput, PositionDataUncheckedCreateInput>
+  }
+
+  /**
+   * PositionData createMany
+   */
+  export type PositionDataCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PositionData.
+     */
+    data: PositionDataCreateManyInput | PositionDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PositionData createManyAndReturn
+   */
+  export type PositionDataCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * The data used to create many PositionData.
+     */
+    data: PositionDataCreateManyInput | PositionDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PositionData update
+   */
+  export type PositionDataUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * The data needed to update a PositionData.
+     */
+    data: XOR<PositionDataUpdateInput, PositionDataUncheckedUpdateInput>
+    /**
+     * Choose, which PositionData to update.
+     */
+    where: PositionDataWhereUniqueInput
+  }
+
+  /**
+   * PositionData updateMany
+   */
+  export type PositionDataUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PositionData.
+     */
+    data: XOR<PositionDataUpdateManyMutationInput, PositionDataUncheckedUpdateManyInput>
+    /**
+     * Filter which PositionData to update
+     */
+    where?: PositionDataWhereInput
+    /**
+     * Limit how many PositionData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PositionData updateManyAndReturn
+   */
+  export type PositionDataUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * The data used to update PositionData.
+     */
+    data: XOR<PositionDataUpdateManyMutationInput, PositionDataUncheckedUpdateManyInput>
+    /**
+     * Filter which PositionData to update
+     */
+    where?: PositionDataWhereInput
+    /**
+     * Limit how many PositionData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PositionData upsert
+   */
+  export type PositionDataUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * The filter to search for the PositionData to update in case it exists.
+     */
+    where: PositionDataWhereUniqueInput
+    /**
+     * In case the PositionData found by the `where` argument doesn't exist, create a new PositionData with this data.
+     */
+    create: XOR<PositionDataCreateInput, PositionDataUncheckedCreateInput>
+    /**
+     * In case the PositionData was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PositionDataUpdateInput, PositionDataUncheckedUpdateInput>
+  }
+
+  /**
+   * PositionData delete
+   */
+  export type PositionDataDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+    /**
+     * Filter which PositionData to delete.
+     */
+    where: PositionDataWhereUniqueInput
+  }
+
+  /**
+   * PositionData deleteMany
+   */
+  export type PositionDataDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PositionData to delete
+     */
+    where?: PositionDataWhereInput
+    /**
+     * Limit how many PositionData to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PositionData without action
+   */
+  export type PositionDataDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PositionData
+     */
+    select?: PositionDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PositionData
+     */
+    omit?: PositionDataOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AlarmData
+   */
+
+  export type AggregateAlarmData = {
+    _count: AlarmDataCountAggregateOutputType | null
+    _avg: AlarmDataAvgAggregateOutputType | null
+    _sum: AlarmDataSumAggregateOutputType | null
+    _min: AlarmDataMinAggregateOutputType | null
+    _max: AlarmDataMaxAggregateOutputType | null
+  }
+
+  export type AlarmDataAvgAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+  }
+
+  export type AlarmDataSumAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+  }
+
+  export type AlarmDataMinAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    alarms: string | null
+    oilChange: boolean | null
+    crossBorder: boolean | null
+    overVoltage: boolean | null
+    underVoltage: boolean | null
+    overload: boolean | null
+    overtimeDriving: boolean | null
+    enterBorder: boolean | null
+    illegalDoorOpen: boolean | null
+    illegalStart: boolean | null
+    vibration: boolean | null
+    centerEnabledAlarm: boolean | null
+    powerFailure: boolean | null
+    parking: boolean | null
+    overSpeed: boolean | null
+    emergency: boolean | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AlarmDataMaxAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    alarms: string | null
+    oilChange: boolean | null
+    crossBorder: boolean | null
+    overVoltage: boolean | null
+    underVoltage: boolean | null
+    overload: boolean | null
+    overtimeDriving: boolean | null
+    enterBorder: boolean | null
+    illegalDoorOpen: boolean | null
+    illegalStart: boolean | null
+    vibration: boolean | null
+    centerEnabledAlarm: boolean | null
+    powerFailure: boolean | null
+    parking: boolean | null
+    overSpeed: boolean | null
+    emergency: boolean | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AlarmDataCountAggregateOutputType = {
+    id: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    alarms: number
+    oilChange: number
+    crossBorder: number
+    overVoltage: number
+    underVoltage: number
+    overload: number
+    overtimeDriving: number
+    enterBorder: number
+    illegalDoorOpen: number
+    illegalStart: number
+    vibration: number
+    centerEnabledAlarm: number
+    powerFailure: number
+    parking: number
+    overSpeed: number
+    emergency: number
+    timestamp: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AlarmDataAvgAggregateInputType = {
+    id?: true
+    packetLength?: true
+  }
+
+  export type AlarmDataSumAggregateInputType = {
+    id?: true
+    packetLength?: true
+  }
+
+  export type AlarmDataMinAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    alarms?: true
+    oilChange?: true
+    crossBorder?: true
+    overVoltage?: true
+    underVoltage?: true
+    overload?: true
+    overtimeDriving?: true
+    enterBorder?: true
+    illegalDoorOpen?: true
+    illegalStart?: true
+    vibration?: true
+    centerEnabledAlarm?: true
+    powerFailure?: true
+    parking?: true
+    overSpeed?: true
+    emergency?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AlarmDataMaxAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    alarms?: true
+    oilChange?: true
+    crossBorder?: true
+    overVoltage?: true
+    underVoltage?: true
+    overload?: true
+    overtimeDriving?: true
+    enterBorder?: true
+    illegalDoorOpen?: true
+    illegalStart?: true
+    vibration?: true
+    centerEnabledAlarm?: true
+    powerFailure?: true
+    parking?: true
+    overSpeed?: true
+    emergency?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AlarmDataCountAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    alarms?: true
+    oilChange?: true
+    crossBorder?: true
+    overVoltage?: true
+    underVoltage?: true
+    overload?: true
+    overtimeDriving?: true
+    enterBorder?: true
+    illegalDoorOpen?: true
+    illegalStart?: true
+    vibration?: true
+    centerEnabledAlarm?: true
+    powerFailure?: true
+    parking?: true
+    overSpeed?: true
+    emergency?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AlarmDataAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AlarmData to aggregate.
+     */
+    where?: AlarmDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AlarmData to fetch.
+     */
+    orderBy?: AlarmDataOrderByWithRelationInput | AlarmDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AlarmDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AlarmData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AlarmData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AlarmData
+    **/
+    _count?: true | AlarmDataCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AlarmDataAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AlarmDataSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AlarmDataMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AlarmDataMaxAggregateInputType
+  }
+
+  export type GetAlarmDataAggregateType<T extends AlarmDataAggregateArgs> = {
+        [P in keyof T & keyof AggregateAlarmData]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAlarmData[P]>
+      : GetScalarType<T[P], AggregateAlarmData[P]>
+  }
+
+
+
+
+  export type AlarmDataGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AlarmDataWhereInput
+    orderBy?: AlarmDataOrderByWithAggregationInput | AlarmDataOrderByWithAggregationInput[]
+    by: AlarmDataScalarFieldEnum[] | AlarmDataScalarFieldEnum
+    having?: AlarmDataScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AlarmDataCountAggregateInputType | true
+    _avg?: AlarmDataAvgAggregateInputType
+    _sum?: AlarmDataSumAggregateInputType
+    _min?: AlarmDataMinAggregateInputType
+    _max?: AlarmDataMaxAggregateInputType
+  }
+
+  export type AlarmDataGroupByOutputType = {
+    id: number
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    alarms: string
+    oilChange: boolean | null
+    crossBorder: boolean | null
+    overVoltage: boolean | null
+    underVoltage: boolean | null
+    overload: boolean | null
+    overtimeDriving: boolean | null
+    enterBorder: boolean | null
+    illegalDoorOpen: boolean | null
+    illegalStart: boolean | null
+    vibration: boolean | null
+    centerEnabledAlarm: boolean | null
+    powerFailure: boolean | null
+    parking: boolean | null
+    overSpeed: boolean | null
+    emergency: boolean | null
+    timestamp: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: AlarmDataCountAggregateOutputType | null
+    _avg: AlarmDataAvgAggregateOutputType | null
+    _sum: AlarmDataSumAggregateOutputType | null
+    _min: AlarmDataMinAggregateOutputType | null
+    _max: AlarmDataMaxAggregateOutputType | null
+  }
+
+  type GetAlarmDataGroupByPayload<T extends AlarmDataGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AlarmDataGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AlarmDataGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AlarmDataGroupByOutputType[P]>
+            : GetScalarType<T[P], AlarmDataGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AlarmDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    alarms?: boolean
+    oilChange?: boolean
+    crossBorder?: boolean
+    overVoltage?: boolean
+    underVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    enterBorder?: boolean
+    illegalDoorOpen?: boolean
+    illegalStart?: boolean
+    vibration?: boolean
+    centerEnabledAlarm?: boolean
+    powerFailure?: boolean
+    parking?: boolean
+    overSpeed?: boolean
+    emergency?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["alarmData"]>
+
+  export type AlarmDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    alarms?: boolean
+    oilChange?: boolean
+    crossBorder?: boolean
+    overVoltage?: boolean
+    underVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    enterBorder?: boolean
+    illegalDoorOpen?: boolean
+    illegalStart?: boolean
+    vibration?: boolean
+    centerEnabledAlarm?: boolean
+    powerFailure?: boolean
+    parking?: boolean
+    overSpeed?: boolean
+    emergency?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["alarmData"]>
+
+  export type AlarmDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    alarms?: boolean
+    oilChange?: boolean
+    crossBorder?: boolean
+    overVoltage?: boolean
+    underVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    enterBorder?: boolean
+    illegalDoorOpen?: boolean
+    illegalStart?: boolean
+    vibration?: boolean
+    centerEnabledAlarm?: boolean
+    powerFailure?: boolean
+    parking?: boolean
+    overSpeed?: boolean
+    emergency?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["alarmData"]>
+
+  export type AlarmDataSelectScalar = {
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    alarms?: boolean
+    oilChange?: boolean
+    crossBorder?: boolean
+    overVoltage?: boolean
+    underVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    enterBorder?: boolean
+    illegalDoorOpen?: boolean
+    illegalStart?: boolean
+    vibration?: boolean
+    centerEnabledAlarm?: boolean
+    powerFailure?: boolean
+    parking?: boolean
+    overSpeed?: boolean
+    emergency?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AlarmDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "alarms" | "oilChange" | "crossBorder" | "overVoltage" | "underVoltage" | "overload" | "overtimeDriving" | "enterBorder" | "illegalDoorOpen" | "illegalStart" | "vibration" | "centerEnabledAlarm" | "powerFailure" | "parking" | "overSpeed" | "emergency" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["alarmData"]>
+
+  export type $AlarmDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AlarmData"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      alarms: string
+      oilChange: boolean | null
+      crossBorder: boolean | null
+      overVoltage: boolean | null
+      underVoltage: boolean | null
+      overload: boolean | null
+      overtimeDriving: boolean | null
+      enterBorder: boolean | null
+      illegalDoorOpen: boolean | null
+      illegalStart: boolean | null
+      vibration: boolean | null
+      centerEnabledAlarm: boolean | null
+      powerFailure: boolean | null
+      parking: boolean | null
+      overSpeed: boolean | null
+      emergency: boolean | null
+      timestamp: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["alarmData"]>
+    composites: {}
+  }
+
+  type AlarmDataGetPayload<S extends boolean | null | undefined | AlarmDataDefaultArgs> = $Result.GetResult<Prisma.$AlarmDataPayload, S>
+
+  type AlarmDataCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AlarmDataFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AlarmDataCountAggregateInputType | true
+    }
+
+  export interface AlarmDataDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AlarmData'], meta: { name: 'AlarmData' } }
+    /**
+     * Find zero or one AlarmData that matches the filter.
+     * @param {AlarmDataFindUniqueArgs} args - Arguments to find a AlarmData
+     * @example
+     * // Get one AlarmData
+     * const alarmData = await prisma.alarmData.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AlarmDataFindUniqueArgs>(args: SelectSubset<T, AlarmDataFindUniqueArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AlarmData that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AlarmDataFindUniqueOrThrowArgs} args - Arguments to find a AlarmData
+     * @example
+     * // Get one AlarmData
+     * const alarmData = await prisma.alarmData.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AlarmDataFindUniqueOrThrowArgs>(args: SelectSubset<T, AlarmDataFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AlarmData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AlarmDataFindFirstArgs} args - Arguments to find a AlarmData
+     * @example
+     * // Get one AlarmData
+     * const alarmData = await prisma.alarmData.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AlarmDataFindFirstArgs>(args?: SelectSubset<T, AlarmDataFindFirstArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AlarmData that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AlarmDataFindFirstOrThrowArgs} args - Arguments to find a AlarmData
+     * @example
+     * // Get one AlarmData
+     * const alarmData = await prisma.alarmData.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AlarmDataFindFirstOrThrowArgs>(args?: SelectSubset<T, AlarmDataFindFirstOrThrowArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AlarmData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AlarmDataFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AlarmData
+     * const alarmData = await prisma.alarmData.findMany()
+     * 
+     * // Get first 10 AlarmData
+     * const alarmData = await prisma.alarmData.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const alarmDataWithIdOnly = await prisma.alarmData.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AlarmDataFindManyArgs>(args?: SelectSubset<T, AlarmDataFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AlarmData.
+     * @param {AlarmDataCreateArgs} args - Arguments to create a AlarmData.
+     * @example
+     * // Create one AlarmData
+     * const AlarmData = await prisma.alarmData.create({
+     *   data: {
+     *     // ... data to create a AlarmData
+     *   }
+     * })
+     * 
+     */
+    create<T extends AlarmDataCreateArgs>(args: SelectSubset<T, AlarmDataCreateArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AlarmData.
+     * @param {AlarmDataCreateManyArgs} args - Arguments to create many AlarmData.
+     * @example
+     * // Create many AlarmData
+     * const alarmData = await prisma.alarmData.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AlarmDataCreateManyArgs>(args?: SelectSubset<T, AlarmDataCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AlarmData and returns the data saved in the database.
+     * @param {AlarmDataCreateManyAndReturnArgs} args - Arguments to create many AlarmData.
+     * @example
+     * // Create many AlarmData
+     * const alarmData = await prisma.alarmData.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AlarmData and only return the `id`
+     * const alarmDataWithIdOnly = await prisma.alarmData.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AlarmDataCreateManyAndReturnArgs>(args?: SelectSubset<T, AlarmDataCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AlarmData.
+     * @param {AlarmDataDeleteArgs} args - Arguments to delete one AlarmData.
+     * @example
+     * // Delete one AlarmData
+     * const AlarmData = await prisma.alarmData.delete({
+     *   where: {
+     *     // ... filter to delete one AlarmData
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AlarmDataDeleteArgs>(args: SelectSubset<T, AlarmDataDeleteArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AlarmData.
+     * @param {AlarmDataUpdateArgs} args - Arguments to update one AlarmData.
+     * @example
+     * // Update one AlarmData
+     * const alarmData = await prisma.alarmData.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AlarmDataUpdateArgs>(args: SelectSubset<T, AlarmDataUpdateArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AlarmData.
+     * @param {AlarmDataDeleteManyArgs} args - Arguments to filter AlarmData to delete.
+     * @example
+     * // Delete a few AlarmData
+     * const { count } = await prisma.alarmData.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AlarmDataDeleteManyArgs>(args?: SelectSubset<T, AlarmDataDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AlarmData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AlarmDataUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AlarmData
+     * const alarmData = await prisma.alarmData.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AlarmDataUpdateManyArgs>(args: SelectSubset<T, AlarmDataUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AlarmData and returns the data updated in the database.
+     * @param {AlarmDataUpdateManyAndReturnArgs} args - Arguments to update many AlarmData.
+     * @example
+     * // Update many AlarmData
+     * const alarmData = await prisma.alarmData.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AlarmData and only return the `id`
+     * const alarmDataWithIdOnly = await prisma.alarmData.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AlarmDataUpdateManyAndReturnArgs>(args: SelectSubset<T, AlarmDataUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AlarmData.
+     * @param {AlarmDataUpsertArgs} args - Arguments to update or create a AlarmData.
+     * @example
+     * // Update or create a AlarmData
+     * const alarmData = await prisma.alarmData.upsert({
+     *   create: {
+     *     // ... data to create a AlarmData
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AlarmData we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AlarmDataUpsertArgs>(args: SelectSubset<T, AlarmDataUpsertArgs<ExtArgs>>): Prisma__AlarmDataClient<$Result.GetResult<Prisma.$AlarmDataPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AlarmData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AlarmDataCountArgs} args - Arguments to filter AlarmData to count.
+     * @example
+     * // Count the number of AlarmData
+     * const count = await prisma.alarmData.count({
+     *   where: {
+     *     // ... the filter for the AlarmData we want to count
+     *   }
+     * })
+    **/
+    count<T extends AlarmDataCountArgs>(
+      args?: Subset<T, AlarmDataCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AlarmDataCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AlarmData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AlarmDataAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AlarmDataAggregateArgs>(args: Subset<T, AlarmDataAggregateArgs>): Prisma.PrismaPromise<GetAlarmDataAggregateType<T>>
+
+    /**
+     * Group by AlarmData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AlarmDataGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AlarmDataGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AlarmDataGroupByArgs['orderBy'] }
+        : { orderBy?: AlarmDataGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AlarmDataGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAlarmDataGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AlarmData model
+   */
+  readonly fields: AlarmDataFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AlarmData.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AlarmDataClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AlarmData model
+   */
+  interface AlarmDataFieldRefs {
+    readonly id: FieldRef<"AlarmData", 'Int'>
+    readonly mainCommand: FieldRef<"AlarmData", 'String'>
+    readonly packetLength: FieldRef<"AlarmData", 'Int'>
+    readonly pseudoIP: FieldRef<"AlarmData", 'String'>
+    readonly rawData: FieldRef<"AlarmData", 'String'>
+    readonly alarms: FieldRef<"AlarmData", 'String'>
+    readonly oilChange: FieldRef<"AlarmData", 'Boolean'>
+    readonly crossBorder: FieldRef<"AlarmData", 'Boolean'>
+    readonly overVoltage: FieldRef<"AlarmData", 'Boolean'>
+    readonly underVoltage: FieldRef<"AlarmData", 'Boolean'>
+    readonly overload: FieldRef<"AlarmData", 'Boolean'>
+    readonly overtimeDriving: FieldRef<"AlarmData", 'Boolean'>
+    readonly enterBorder: FieldRef<"AlarmData", 'Boolean'>
+    readonly illegalDoorOpen: FieldRef<"AlarmData", 'Boolean'>
+    readonly illegalStart: FieldRef<"AlarmData", 'Boolean'>
+    readonly vibration: FieldRef<"AlarmData", 'Boolean'>
+    readonly centerEnabledAlarm: FieldRef<"AlarmData", 'Boolean'>
+    readonly powerFailure: FieldRef<"AlarmData", 'Boolean'>
+    readonly parking: FieldRef<"AlarmData", 'Boolean'>
+    readonly overSpeed: FieldRef<"AlarmData", 'Boolean'>
+    readonly emergency: FieldRef<"AlarmData", 'Boolean'>
+    readonly timestamp: FieldRef<"AlarmData", 'DateTime'>
+    readonly createdAt: FieldRef<"AlarmData", 'DateTime'>
+    readonly updatedAt: FieldRef<"AlarmData", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AlarmData findUnique
+   */
+  export type AlarmDataFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * Filter, which AlarmData to fetch.
+     */
+    where: AlarmDataWhereUniqueInput
+  }
+
+  /**
+   * AlarmData findUniqueOrThrow
+   */
+  export type AlarmDataFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * Filter, which AlarmData to fetch.
+     */
+    where: AlarmDataWhereUniqueInput
+  }
+
+  /**
+   * AlarmData findFirst
+   */
+  export type AlarmDataFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * Filter, which AlarmData to fetch.
+     */
+    where?: AlarmDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AlarmData to fetch.
+     */
+    orderBy?: AlarmDataOrderByWithRelationInput | AlarmDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AlarmData.
+     */
+    cursor?: AlarmDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AlarmData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AlarmData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AlarmData.
+     */
+    distinct?: AlarmDataScalarFieldEnum | AlarmDataScalarFieldEnum[]
+  }
+
+  /**
+   * AlarmData findFirstOrThrow
+   */
+  export type AlarmDataFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * Filter, which AlarmData to fetch.
+     */
+    where?: AlarmDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AlarmData to fetch.
+     */
+    orderBy?: AlarmDataOrderByWithRelationInput | AlarmDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AlarmData.
+     */
+    cursor?: AlarmDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AlarmData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AlarmData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AlarmData.
+     */
+    distinct?: AlarmDataScalarFieldEnum | AlarmDataScalarFieldEnum[]
+  }
+
+  /**
+   * AlarmData findMany
+   */
+  export type AlarmDataFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * Filter, which AlarmData to fetch.
+     */
+    where?: AlarmDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AlarmData to fetch.
+     */
+    orderBy?: AlarmDataOrderByWithRelationInput | AlarmDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AlarmData.
+     */
+    cursor?: AlarmDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AlarmData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AlarmData.
+     */
+    skip?: number
+    distinct?: AlarmDataScalarFieldEnum | AlarmDataScalarFieldEnum[]
+  }
+
+  /**
+   * AlarmData create
+   */
+  export type AlarmDataCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * The data needed to create a AlarmData.
+     */
+    data: XOR<AlarmDataCreateInput, AlarmDataUncheckedCreateInput>
+  }
+
+  /**
+   * AlarmData createMany
+   */
+  export type AlarmDataCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AlarmData.
+     */
+    data: AlarmDataCreateManyInput | AlarmDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AlarmData createManyAndReturn
+   */
+  export type AlarmDataCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * The data used to create many AlarmData.
+     */
+    data: AlarmDataCreateManyInput | AlarmDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AlarmData update
+   */
+  export type AlarmDataUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * The data needed to update a AlarmData.
+     */
+    data: XOR<AlarmDataUpdateInput, AlarmDataUncheckedUpdateInput>
+    /**
+     * Choose, which AlarmData to update.
+     */
+    where: AlarmDataWhereUniqueInput
+  }
+
+  /**
+   * AlarmData updateMany
+   */
+  export type AlarmDataUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AlarmData.
+     */
+    data: XOR<AlarmDataUpdateManyMutationInput, AlarmDataUncheckedUpdateManyInput>
+    /**
+     * Filter which AlarmData to update
+     */
+    where?: AlarmDataWhereInput
+    /**
+     * Limit how many AlarmData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AlarmData updateManyAndReturn
+   */
+  export type AlarmDataUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * The data used to update AlarmData.
+     */
+    data: XOR<AlarmDataUpdateManyMutationInput, AlarmDataUncheckedUpdateManyInput>
+    /**
+     * Filter which AlarmData to update
+     */
+    where?: AlarmDataWhereInput
+    /**
+     * Limit how many AlarmData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AlarmData upsert
+   */
+  export type AlarmDataUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * The filter to search for the AlarmData to update in case it exists.
+     */
+    where: AlarmDataWhereUniqueInput
+    /**
+     * In case the AlarmData found by the `where` argument doesn't exist, create a new AlarmData with this data.
+     */
+    create: XOR<AlarmDataCreateInput, AlarmDataUncheckedCreateInput>
+    /**
+     * In case the AlarmData was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AlarmDataUpdateInput, AlarmDataUncheckedUpdateInput>
+  }
+
+  /**
+   * AlarmData delete
+   */
+  export type AlarmDataDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+    /**
+     * Filter which AlarmData to delete.
+     */
+    where: AlarmDataWhereUniqueInput
+  }
+
+  /**
+   * AlarmData deleteMany
+   */
+  export type AlarmDataDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AlarmData to delete
+     */
+    where?: AlarmDataWhereInput
+    /**
+     * Limit how many AlarmData to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AlarmData without action
+   */
+  export type AlarmDataDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AlarmData
+     */
+    select?: AlarmDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AlarmData
+     */
+    omit?: AlarmDataOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model HeartbeatData
+   */
+
+  export type AggregateHeartbeatData = {
+    _count: HeartbeatDataCountAggregateOutputType | null
+    _avg: HeartbeatDataAvgAggregateOutputType | null
+    _sum: HeartbeatDataSumAggregateOutputType | null
+    _min: HeartbeatDataMinAggregateOutputType | null
+    _max: HeartbeatDataMaxAggregateOutputType | null
+  }
+
+  export type HeartbeatDataAvgAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+  }
+
+  export type HeartbeatDataSumAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+  }
+
+  export type HeartbeatDataMinAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HeartbeatDataMaxAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HeartbeatDataCountAggregateOutputType = {
+    id: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    calibrationValue: number
+    mainOrderReply: number
+    slaveOrderReply: number
+    timestamp: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type HeartbeatDataAvgAggregateInputType = {
+    id?: true
+    packetLength?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+  }
+
+  export type HeartbeatDataSumAggregateInputType = {
+    id?: true
+    packetLength?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+  }
+
+  export type HeartbeatDataMinAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HeartbeatDataMaxAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HeartbeatDataCountAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type HeartbeatDataAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HeartbeatData to aggregate.
+     */
+    where?: HeartbeatDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeartbeatData to fetch.
+     */
+    orderBy?: HeartbeatDataOrderByWithRelationInput | HeartbeatDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HeartbeatDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeartbeatData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeartbeatData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned HeartbeatData
+    **/
+    _count?: true | HeartbeatDataCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HeartbeatDataAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HeartbeatDataSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HeartbeatDataMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HeartbeatDataMaxAggregateInputType
+  }
+
+  export type GetHeartbeatDataAggregateType<T extends HeartbeatDataAggregateArgs> = {
+        [P in keyof T & keyof AggregateHeartbeatData]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHeartbeatData[P]>
+      : GetScalarType<T[P], AggregateHeartbeatData[P]>
+  }
+
+
+
+
+  export type HeartbeatDataGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HeartbeatDataWhereInput
+    orderBy?: HeartbeatDataOrderByWithAggregationInput | HeartbeatDataOrderByWithAggregationInput[]
+    by: HeartbeatDataScalarFieldEnum[] | HeartbeatDataScalarFieldEnum
+    having?: HeartbeatDataScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HeartbeatDataCountAggregateInputType | true
+    _avg?: HeartbeatDataAvgAggregateInputType
+    _sum?: HeartbeatDataSumAggregateInputType
+    _min?: HeartbeatDataMinAggregateInputType
+    _max?: HeartbeatDataMaxAggregateInputType
+  }
+
+  export type HeartbeatDataGroupByOutputType = {
+    id: number
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+    timestamp: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: HeartbeatDataCountAggregateOutputType | null
+    _avg: HeartbeatDataAvgAggregateOutputType | null
+    _sum: HeartbeatDataSumAggregateOutputType | null
+    _min: HeartbeatDataMinAggregateOutputType | null
+    _max: HeartbeatDataMaxAggregateOutputType | null
+  }
+
+  type GetHeartbeatDataGroupByPayload<T extends HeartbeatDataGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HeartbeatDataGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HeartbeatDataGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HeartbeatDataGroupByOutputType[P]>
+            : GetScalarType<T[P], HeartbeatDataGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HeartbeatDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["heartbeatData"]>
+
+  export type HeartbeatDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["heartbeatData"]>
+
+  export type HeartbeatDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["heartbeatData"]>
+
+  export type HeartbeatDataSelectScalar = {
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type HeartbeatDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "calibrationValue" | "mainOrderReply" | "slaveOrderReply" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["heartbeatData"]>
+
+  export type $HeartbeatDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "HeartbeatData"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      calibrationValue: number | null
+      mainOrderReply: number | null
+      slaveOrderReply: number | null
+      timestamp: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["heartbeatData"]>
+    composites: {}
+  }
+
+  type HeartbeatDataGetPayload<S extends boolean | null | undefined | HeartbeatDataDefaultArgs> = $Result.GetResult<Prisma.$HeartbeatDataPayload, S>
+
+  type HeartbeatDataCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HeartbeatDataFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HeartbeatDataCountAggregateInputType | true
+    }
+
+  export interface HeartbeatDataDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['HeartbeatData'], meta: { name: 'HeartbeatData' } }
+    /**
+     * Find zero or one HeartbeatData that matches the filter.
+     * @param {HeartbeatDataFindUniqueArgs} args - Arguments to find a HeartbeatData
+     * @example
+     * // Get one HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HeartbeatDataFindUniqueArgs>(args: SelectSubset<T, HeartbeatDataFindUniqueArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one HeartbeatData that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HeartbeatDataFindUniqueOrThrowArgs} args - Arguments to find a HeartbeatData
+     * @example
+     * // Get one HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HeartbeatDataFindUniqueOrThrowArgs>(args: SelectSubset<T, HeartbeatDataFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HeartbeatData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeartbeatDataFindFirstArgs} args - Arguments to find a HeartbeatData
+     * @example
+     * // Get one HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HeartbeatDataFindFirstArgs>(args?: SelectSubset<T, HeartbeatDataFindFirstArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HeartbeatData that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeartbeatDataFindFirstOrThrowArgs} args - Arguments to find a HeartbeatData
+     * @example
+     * // Get one HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HeartbeatDataFindFirstOrThrowArgs>(args?: SelectSubset<T, HeartbeatDataFindFirstOrThrowArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HeartbeatData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeartbeatDataFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.findMany()
+     * 
+     * // Get first 10 HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const heartbeatDataWithIdOnly = await prisma.heartbeatData.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HeartbeatDataFindManyArgs>(args?: SelectSubset<T, HeartbeatDataFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a HeartbeatData.
+     * @param {HeartbeatDataCreateArgs} args - Arguments to create a HeartbeatData.
+     * @example
+     * // Create one HeartbeatData
+     * const HeartbeatData = await prisma.heartbeatData.create({
+     *   data: {
+     *     // ... data to create a HeartbeatData
+     *   }
+     * })
+     * 
+     */
+    create<T extends HeartbeatDataCreateArgs>(args: SelectSubset<T, HeartbeatDataCreateArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many HeartbeatData.
+     * @param {HeartbeatDataCreateManyArgs} args - Arguments to create many HeartbeatData.
+     * @example
+     * // Create many HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HeartbeatDataCreateManyArgs>(args?: SelectSubset<T, HeartbeatDataCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many HeartbeatData and returns the data saved in the database.
+     * @param {HeartbeatDataCreateManyAndReturnArgs} args - Arguments to create many HeartbeatData.
+     * @example
+     * // Create many HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many HeartbeatData and only return the `id`
+     * const heartbeatDataWithIdOnly = await prisma.heartbeatData.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends HeartbeatDataCreateManyAndReturnArgs>(args?: SelectSubset<T, HeartbeatDataCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a HeartbeatData.
+     * @param {HeartbeatDataDeleteArgs} args - Arguments to delete one HeartbeatData.
+     * @example
+     * // Delete one HeartbeatData
+     * const HeartbeatData = await prisma.heartbeatData.delete({
+     *   where: {
+     *     // ... filter to delete one HeartbeatData
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HeartbeatDataDeleteArgs>(args: SelectSubset<T, HeartbeatDataDeleteArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one HeartbeatData.
+     * @param {HeartbeatDataUpdateArgs} args - Arguments to update one HeartbeatData.
+     * @example
+     * // Update one HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HeartbeatDataUpdateArgs>(args: SelectSubset<T, HeartbeatDataUpdateArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more HeartbeatData.
+     * @param {HeartbeatDataDeleteManyArgs} args - Arguments to filter HeartbeatData to delete.
+     * @example
+     * // Delete a few HeartbeatData
+     * const { count } = await prisma.heartbeatData.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HeartbeatDataDeleteManyArgs>(args?: SelectSubset<T, HeartbeatDataDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HeartbeatData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeartbeatDataUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HeartbeatDataUpdateManyArgs>(args: SelectSubset<T, HeartbeatDataUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HeartbeatData and returns the data updated in the database.
+     * @param {HeartbeatDataUpdateManyAndReturnArgs} args - Arguments to update many HeartbeatData.
+     * @example
+     * // Update many HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more HeartbeatData and only return the `id`
+     * const heartbeatDataWithIdOnly = await prisma.heartbeatData.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends HeartbeatDataUpdateManyAndReturnArgs>(args: SelectSubset<T, HeartbeatDataUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one HeartbeatData.
+     * @param {HeartbeatDataUpsertArgs} args - Arguments to update or create a HeartbeatData.
+     * @example
+     * // Update or create a HeartbeatData
+     * const heartbeatData = await prisma.heartbeatData.upsert({
+     *   create: {
+     *     // ... data to create a HeartbeatData
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the HeartbeatData we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HeartbeatDataUpsertArgs>(args: SelectSubset<T, HeartbeatDataUpsertArgs<ExtArgs>>): Prisma__HeartbeatDataClient<$Result.GetResult<Prisma.$HeartbeatDataPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of HeartbeatData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeartbeatDataCountArgs} args - Arguments to filter HeartbeatData to count.
+     * @example
+     * // Count the number of HeartbeatData
+     * const count = await prisma.heartbeatData.count({
+     *   where: {
+     *     // ... the filter for the HeartbeatData we want to count
+     *   }
+     * })
+    **/
+    count<T extends HeartbeatDataCountArgs>(
+      args?: Subset<T, HeartbeatDataCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HeartbeatDataCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a HeartbeatData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeartbeatDataAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HeartbeatDataAggregateArgs>(args: Subset<T, HeartbeatDataAggregateArgs>): Prisma.PrismaPromise<GetHeartbeatDataAggregateType<T>>
+
+    /**
+     * Group by HeartbeatData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeartbeatDataGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HeartbeatDataGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HeartbeatDataGroupByArgs['orderBy'] }
+        : { orderBy?: HeartbeatDataGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HeartbeatDataGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHeartbeatDataGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the HeartbeatData model
+   */
+  readonly fields: HeartbeatDataFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for HeartbeatData.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HeartbeatDataClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the HeartbeatData model
+   */
+  interface HeartbeatDataFieldRefs {
+    readonly id: FieldRef<"HeartbeatData", 'Int'>
+    readonly mainCommand: FieldRef<"HeartbeatData", 'String'>
+    readonly packetLength: FieldRef<"HeartbeatData", 'Int'>
+    readonly pseudoIP: FieldRef<"HeartbeatData", 'String'>
+    readonly rawData: FieldRef<"HeartbeatData", 'String'>
+    readonly calibrationValue: FieldRef<"HeartbeatData", 'Int'>
+    readonly mainOrderReply: FieldRef<"HeartbeatData", 'Int'>
+    readonly slaveOrderReply: FieldRef<"HeartbeatData", 'Int'>
+    readonly timestamp: FieldRef<"HeartbeatData", 'DateTime'>
+    readonly createdAt: FieldRef<"HeartbeatData", 'DateTime'>
+    readonly updatedAt: FieldRef<"HeartbeatData", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * HeartbeatData findUnique
+   */
+  export type HeartbeatDataFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * Filter, which HeartbeatData to fetch.
+     */
+    where: HeartbeatDataWhereUniqueInput
+  }
+
+  /**
+   * HeartbeatData findUniqueOrThrow
+   */
+  export type HeartbeatDataFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * Filter, which HeartbeatData to fetch.
+     */
+    where: HeartbeatDataWhereUniqueInput
+  }
+
+  /**
+   * HeartbeatData findFirst
+   */
+  export type HeartbeatDataFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * Filter, which HeartbeatData to fetch.
+     */
+    where?: HeartbeatDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeartbeatData to fetch.
+     */
+    orderBy?: HeartbeatDataOrderByWithRelationInput | HeartbeatDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HeartbeatData.
+     */
+    cursor?: HeartbeatDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeartbeatData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeartbeatData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HeartbeatData.
+     */
+    distinct?: HeartbeatDataScalarFieldEnum | HeartbeatDataScalarFieldEnum[]
+  }
+
+  /**
+   * HeartbeatData findFirstOrThrow
+   */
+  export type HeartbeatDataFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * Filter, which HeartbeatData to fetch.
+     */
+    where?: HeartbeatDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeartbeatData to fetch.
+     */
+    orderBy?: HeartbeatDataOrderByWithRelationInput | HeartbeatDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HeartbeatData.
+     */
+    cursor?: HeartbeatDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeartbeatData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeartbeatData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HeartbeatData.
+     */
+    distinct?: HeartbeatDataScalarFieldEnum | HeartbeatDataScalarFieldEnum[]
+  }
+
+  /**
+   * HeartbeatData findMany
+   */
+  export type HeartbeatDataFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * Filter, which HeartbeatData to fetch.
+     */
+    where?: HeartbeatDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeartbeatData to fetch.
+     */
+    orderBy?: HeartbeatDataOrderByWithRelationInput | HeartbeatDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing HeartbeatData.
+     */
+    cursor?: HeartbeatDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeartbeatData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeartbeatData.
+     */
+    skip?: number
+    distinct?: HeartbeatDataScalarFieldEnum | HeartbeatDataScalarFieldEnum[]
+  }
+
+  /**
+   * HeartbeatData create
+   */
+  export type HeartbeatDataCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * The data needed to create a HeartbeatData.
+     */
+    data: XOR<HeartbeatDataCreateInput, HeartbeatDataUncheckedCreateInput>
+  }
+
+  /**
+   * HeartbeatData createMany
+   */
+  export type HeartbeatDataCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many HeartbeatData.
+     */
+    data: HeartbeatDataCreateManyInput | HeartbeatDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * HeartbeatData createManyAndReturn
+   */
+  export type HeartbeatDataCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * The data used to create many HeartbeatData.
+     */
+    data: HeartbeatDataCreateManyInput | HeartbeatDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * HeartbeatData update
+   */
+  export type HeartbeatDataUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * The data needed to update a HeartbeatData.
+     */
+    data: XOR<HeartbeatDataUpdateInput, HeartbeatDataUncheckedUpdateInput>
+    /**
+     * Choose, which HeartbeatData to update.
+     */
+    where: HeartbeatDataWhereUniqueInput
+  }
+
+  /**
+   * HeartbeatData updateMany
+   */
+  export type HeartbeatDataUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update HeartbeatData.
+     */
+    data: XOR<HeartbeatDataUpdateManyMutationInput, HeartbeatDataUncheckedUpdateManyInput>
+    /**
+     * Filter which HeartbeatData to update
+     */
+    where?: HeartbeatDataWhereInput
+    /**
+     * Limit how many HeartbeatData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HeartbeatData updateManyAndReturn
+   */
+  export type HeartbeatDataUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * The data used to update HeartbeatData.
+     */
+    data: XOR<HeartbeatDataUpdateManyMutationInput, HeartbeatDataUncheckedUpdateManyInput>
+    /**
+     * Filter which HeartbeatData to update
+     */
+    where?: HeartbeatDataWhereInput
+    /**
+     * Limit how many HeartbeatData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HeartbeatData upsert
+   */
+  export type HeartbeatDataUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * The filter to search for the HeartbeatData to update in case it exists.
+     */
+    where: HeartbeatDataWhereUniqueInput
+    /**
+     * In case the HeartbeatData found by the `where` argument doesn't exist, create a new HeartbeatData with this data.
+     */
+    create: XOR<HeartbeatDataCreateInput, HeartbeatDataUncheckedCreateInput>
+    /**
+     * In case the HeartbeatData was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HeartbeatDataUpdateInput, HeartbeatDataUncheckedUpdateInput>
+  }
+
+  /**
+   * HeartbeatData delete
+   */
+  export type HeartbeatDataDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+    /**
+     * Filter which HeartbeatData to delete.
+     */
+    where: HeartbeatDataWhereUniqueInput
+  }
+
+  /**
+   * HeartbeatData deleteMany
+   */
+  export type HeartbeatDataDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HeartbeatData to delete
+     */
+    where?: HeartbeatDataWhereInput
+    /**
+     * Limit how many HeartbeatData to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * HeartbeatData without action
+   */
+  export type HeartbeatDataDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeartbeatData
+     */
+    select?: HeartbeatDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeartbeatData
+     */
+    omit?: HeartbeatDataOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TrackerStatus
+   */
+
+  export type AggregateTrackerStatus = {
+    _count: TrackerStatusCountAggregateOutputType | null
+    _avg: TrackerStatusAvgAggregateOutputType | null
+    _sum: TrackerStatusSumAggregateOutputType | null
+    _min: TrackerStatusMinAggregateOutputType | null
+    _max: TrackerStatusMaxAggregateOutputType | null
+  }
+
+  export type TrackerStatusAvgAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    alarmStatus: number | null
+    samplingValue: number | null
+    carStopSetting: number | null
+    overspeedSetting: number | null
+    safeSetting: number | null
+    longTimeDriving: number | null
+    samplingValueAccOff: number | null
+    photographRelated: number | null
+  }
+
+  export type TrackerStatusSumAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    alarmStatus: number | null
+    samplingValue: number | null
+    carStopSetting: number | null
+    overspeedSetting: number | null
+    safeSetting: number | null
+    longTimeDriving: number | null
+    samplingValueAccOff: number | null
+    photographRelated: number | null
+  }
+
+  export type TrackerStatusMinAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    samplingTime: string | null
+    alarmStatus: number | null
+    located: boolean | null
+    samplingType: string | null
+    samplingValue: number | null
+    sendingType: string | null
+    carStopSetting: number | null
+    overspeedSetting: number | null
+    phoneLimit: boolean | null
+    areaNodeLimit: boolean | null
+    safeSetting: number | null
+    longTimeDriving: number | null
+    samplingValueAccOff: number | null
+    emergencyAlarmSwitch: boolean | null
+    photographRelated: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TrackerStatusMaxAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    samplingTime: string | null
+    alarmStatus: number | null
+    located: boolean | null
+    samplingType: string | null
+    samplingValue: number | null
+    sendingType: string | null
+    carStopSetting: number | null
+    overspeedSetting: number | null
+    phoneLimit: boolean | null
+    areaNodeLimit: boolean | null
+    safeSetting: number | null
+    longTimeDriving: number | null
+    samplingValueAccOff: number | null
+    emergencyAlarmSwitch: boolean | null
+    photographRelated: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TrackerStatusCountAggregateOutputType = {
+    id: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    samplingTime: number
+    alarmStatus: number
+    located: number
+    samplingType: number
+    samplingValue: number
+    sendingType: number
+    carStopSetting: number
+    overspeedSetting: number
+    phoneLimit: number
+    areaNodeLimit: number
+    safeSetting: number
+    longTimeDriving: number
+    samplingValueAccOff: number
+    emergencyAlarmSwitch: number
+    photographRelated: number
+    timestamp: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TrackerStatusAvgAggregateInputType = {
+    id?: true
+    packetLength?: true
+    alarmStatus?: true
+    samplingValue?: true
+    carStopSetting?: true
+    overspeedSetting?: true
+    safeSetting?: true
+    longTimeDriving?: true
+    samplingValueAccOff?: true
+    photographRelated?: true
+  }
+
+  export type TrackerStatusSumAggregateInputType = {
+    id?: true
+    packetLength?: true
+    alarmStatus?: true
+    samplingValue?: true
+    carStopSetting?: true
+    overspeedSetting?: true
+    safeSetting?: true
+    longTimeDriving?: true
+    samplingValueAccOff?: true
+    photographRelated?: true
+  }
+
+  export type TrackerStatusMinAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    samplingTime?: true
+    alarmStatus?: true
+    located?: true
+    samplingType?: true
+    samplingValue?: true
+    sendingType?: true
+    carStopSetting?: true
+    overspeedSetting?: true
+    phoneLimit?: true
+    areaNodeLimit?: true
+    safeSetting?: true
+    longTimeDriving?: true
+    samplingValueAccOff?: true
+    emergencyAlarmSwitch?: true
+    photographRelated?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TrackerStatusMaxAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    samplingTime?: true
+    alarmStatus?: true
+    located?: true
+    samplingType?: true
+    samplingValue?: true
+    sendingType?: true
+    carStopSetting?: true
+    overspeedSetting?: true
+    phoneLimit?: true
+    areaNodeLimit?: true
+    safeSetting?: true
+    longTimeDriving?: true
+    samplingValueAccOff?: true
+    emergencyAlarmSwitch?: true
+    photographRelated?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TrackerStatusCountAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    samplingTime?: true
+    alarmStatus?: true
+    located?: true
+    samplingType?: true
+    samplingValue?: true
+    sendingType?: true
+    carStopSetting?: true
+    overspeedSetting?: true
+    phoneLimit?: true
+    areaNodeLimit?: true
+    safeSetting?: true
+    longTimeDriving?: true
+    samplingValueAccOff?: true
+    emergencyAlarmSwitch?: true
+    photographRelated?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TrackerStatusAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrackerStatus to aggregate.
+     */
+    where?: TrackerStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrackerStatuses to fetch.
+     */
+    orderBy?: TrackerStatusOrderByWithRelationInput | TrackerStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TrackerStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrackerStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrackerStatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TrackerStatuses
+    **/
+    _count?: true | TrackerStatusCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TrackerStatusAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TrackerStatusSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TrackerStatusMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TrackerStatusMaxAggregateInputType
+  }
+
+  export type GetTrackerStatusAggregateType<T extends TrackerStatusAggregateArgs> = {
+        [P in keyof T & keyof AggregateTrackerStatus]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTrackerStatus[P]>
+      : GetScalarType<T[P], AggregateTrackerStatus[P]>
+  }
+
+
+
+
+  export type TrackerStatusGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrackerStatusWhereInput
+    orderBy?: TrackerStatusOrderByWithAggregationInput | TrackerStatusOrderByWithAggregationInput[]
+    by: TrackerStatusScalarFieldEnum[] | TrackerStatusScalarFieldEnum
+    having?: TrackerStatusScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TrackerStatusCountAggregateInputType | true
+    _avg?: TrackerStatusAvgAggregateInputType
+    _sum?: TrackerStatusSumAggregateInputType
+    _min?: TrackerStatusMinAggregateInputType
+    _max?: TrackerStatusMaxAggregateInputType
+  }
+
+  export type TrackerStatusGroupByOutputType = {
+    id: number
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    samplingTime: string
+    alarmStatus: number | null
+    located: boolean | null
+    samplingType: string | null
+    samplingValue: number | null
+    sendingType: string | null
+    carStopSetting: number | null
+    overspeedSetting: number | null
+    phoneLimit: boolean | null
+    areaNodeLimit: boolean | null
+    safeSetting: number | null
+    longTimeDriving: number | null
+    samplingValueAccOff: number | null
+    emergencyAlarmSwitch: boolean | null
+    photographRelated: number | null
+    timestamp: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: TrackerStatusCountAggregateOutputType | null
+    _avg: TrackerStatusAvgAggregateOutputType | null
+    _sum: TrackerStatusSumAggregateOutputType | null
+    _min: TrackerStatusMinAggregateOutputType | null
+    _max: TrackerStatusMaxAggregateOutputType | null
+  }
+
+  type GetTrackerStatusGroupByPayload<T extends TrackerStatusGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TrackerStatusGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TrackerStatusGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TrackerStatusGroupByOutputType[P]>
+            : GetScalarType<T[P], TrackerStatusGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TrackerStatusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    samplingTime?: boolean
+    alarmStatus?: boolean
+    located?: boolean
+    samplingType?: boolean
+    samplingValue?: boolean
+    sendingType?: boolean
+    carStopSetting?: boolean
+    overspeedSetting?: boolean
+    phoneLimit?: boolean
+    areaNodeLimit?: boolean
+    safeSetting?: boolean
+    longTimeDriving?: boolean
+    samplingValueAccOff?: boolean
+    emergencyAlarmSwitch?: boolean
+    photographRelated?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["trackerStatus"]>
+
+  export type TrackerStatusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    samplingTime?: boolean
+    alarmStatus?: boolean
+    located?: boolean
+    samplingType?: boolean
+    samplingValue?: boolean
+    sendingType?: boolean
+    carStopSetting?: boolean
+    overspeedSetting?: boolean
+    phoneLimit?: boolean
+    areaNodeLimit?: boolean
+    safeSetting?: boolean
+    longTimeDriving?: boolean
+    samplingValueAccOff?: boolean
+    emergencyAlarmSwitch?: boolean
+    photographRelated?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["trackerStatus"]>
+
+  export type TrackerStatusSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    samplingTime?: boolean
+    alarmStatus?: boolean
+    located?: boolean
+    samplingType?: boolean
+    samplingValue?: boolean
+    sendingType?: boolean
+    carStopSetting?: boolean
+    overspeedSetting?: boolean
+    phoneLimit?: boolean
+    areaNodeLimit?: boolean
+    safeSetting?: boolean
+    longTimeDriving?: boolean
+    samplingValueAccOff?: boolean
+    emergencyAlarmSwitch?: boolean
+    photographRelated?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["trackerStatus"]>
+
+  export type TrackerStatusSelectScalar = {
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    samplingTime?: boolean
+    alarmStatus?: boolean
+    located?: boolean
+    samplingType?: boolean
+    samplingValue?: boolean
+    sendingType?: boolean
+    carStopSetting?: boolean
+    overspeedSetting?: boolean
+    phoneLimit?: boolean
+    areaNodeLimit?: boolean
+    safeSetting?: boolean
+    longTimeDriving?: boolean
+    samplingValueAccOff?: boolean
+    emergencyAlarmSwitch?: boolean
+    photographRelated?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TrackerStatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "samplingTime" | "alarmStatus" | "located" | "samplingType" | "samplingValue" | "sendingType" | "carStopSetting" | "overspeedSetting" | "phoneLimit" | "areaNodeLimit" | "safeSetting" | "longTimeDriving" | "samplingValueAccOff" | "emergencyAlarmSwitch" | "photographRelated" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["trackerStatus"]>
+
+  export type $TrackerStatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TrackerStatus"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      samplingTime: string
+      alarmStatus: number | null
+      located: boolean | null
+      samplingType: string | null
+      samplingValue: number | null
+      sendingType: string | null
+      carStopSetting: number | null
+      overspeedSetting: number | null
+      phoneLimit: boolean | null
+      areaNodeLimit: boolean | null
+      safeSetting: number | null
+      longTimeDriving: number | null
+      samplingValueAccOff: number | null
+      emergencyAlarmSwitch: boolean | null
+      photographRelated: number | null
+      timestamp: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["trackerStatus"]>
+    composites: {}
+  }
+
+  type TrackerStatusGetPayload<S extends boolean | null | undefined | TrackerStatusDefaultArgs> = $Result.GetResult<Prisma.$TrackerStatusPayload, S>
+
+  type TrackerStatusCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TrackerStatusFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TrackerStatusCountAggregateInputType | true
+    }
+
+  export interface TrackerStatusDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TrackerStatus'], meta: { name: 'TrackerStatus' } }
+    /**
+     * Find zero or one TrackerStatus that matches the filter.
+     * @param {TrackerStatusFindUniqueArgs} args - Arguments to find a TrackerStatus
+     * @example
+     * // Get one TrackerStatus
+     * const trackerStatus = await prisma.trackerStatus.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TrackerStatusFindUniqueArgs>(args: SelectSubset<T, TrackerStatusFindUniqueArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TrackerStatus that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TrackerStatusFindUniqueOrThrowArgs} args - Arguments to find a TrackerStatus
+     * @example
+     * // Get one TrackerStatus
+     * const trackerStatus = await prisma.trackerStatus.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TrackerStatusFindUniqueOrThrowArgs>(args: SelectSubset<T, TrackerStatusFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TrackerStatus that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackerStatusFindFirstArgs} args - Arguments to find a TrackerStatus
+     * @example
+     * // Get one TrackerStatus
+     * const trackerStatus = await prisma.trackerStatus.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TrackerStatusFindFirstArgs>(args?: SelectSubset<T, TrackerStatusFindFirstArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TrackerStatus that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackerStatusFindFirstOrThrowArgs} args - Arguments to find a TrackerStatus
+     * @example
+     * // Get one TrackerStatus
+     * const trackerStatus = await prisma.trackerStatus.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TrackerStatusFindFirstOrThrowArgs>(args?: SelectSubset<T, TrackerStatusFindFirstOrThrowArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TrackerStatuses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackerStatusFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TrackerStatuses
+     * const trackerStatuses = await prisma.trackerStatus.findMany()
+     * 
+     * // Get first 10 TrackerStatuses
+     * const trackerStatuses = await prisma.trackerStatus.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const trackerStatusWithIdOnly = await prisma.trackerStatus.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TrackerStatusFindManyArgs>(args?: SelectSubset<T, TrackerStatusFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TrackerStatus.
+     * @param {TrackerStatusCreateArgs} args - Arguments to create a TrackerStatus.
+     * @example
+     * // Create one TrackerStatus
+     * const TrackerStatus = await prisma.trackerStatus.create({
+     *   data: {
+     *     // ... data to create a TrackerStatus
+     *   }
+     * })
+     * 
+     */
+    create<T extends TrackerStatusCreateArgs>(args: SelectSubset<T, TrackerStatusCreateArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TrackerStatuses.
+     * @param {TrackerStatusCreateManyArgs} args - Arguments to create many TrackerStatuses.
+     * @example
+     * // Create many TrackerStatuses
+     * const trackerStatus = await prisma.trackerStatus.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TrackerStatusCreateManyArgs>(args?: SelectSubset<T, TrackerStatusCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TrackerStatuses and returns the data saved in the database.
+     * @param {TrackerStatusCreateManyAndReturnArgs} args - Arguments to create many TrackerStatuses.
+     * @example
+     * // Create many TrackerStatuses
+     * const trackerStatus = await prisma.trackerStatus.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TrackerStatuses and only return the `id`
+     * const trackerStatusWithIdOnly = await prisma.trackerStatus.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TrackerStatusCreateManyAndReturnArgs>(args?: SelectSubset<T, TrackerStatusCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TrackerStatus.
+     * @param {TrackerStatusDeleteArgs} args - Arguments to delete one TrackerStatus.
+     * @example
+     * // Delete one TrackerStatus
+     * const TrackerStatus = await prisma.trackerStatus.delete({
+     *   where: {
+     *     // ... filter to delete one TrackerStatus
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TrackerStatusDeleteArgs>(args: SelectSubset<T, TrackerStatusDeleteArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TrackerStatus.
+     * @param {TrackerStatusUpdateArgs} args - Arguments to update one TrackerStatus.
+     * @example
+     * // Update one TrackerStatus
+     * const trackerStatus = await prisma.trackerStatus.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TrackerStatusUpdateArgs>(args: SelectSubset<T, TrackerStatusUpdateArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TrackerStatuses.
+     * @param {TrackerStatusDeleteManyArgs} args - Arguments to filter TrackerStatuses to delete.
+     * @example
+     * // Delete a few TrackerStatuses
+     * const { count } = await prisma.trackerStatus.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TrackerStatusDeleteManyArgs>(args?: SelectSubset<T, TrackerStatusDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TrackerStatuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackerStatusUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TrackerStatuses
+     * const trackerStatus = await prisma.trackerStatus.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TrackerStatusUpdateManyArgs>(args: SelectSubset<T, TrackerStatusUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TrackerStatuses and returns the data updated in the database.
+     * @param {TrackerStatusUpdateManyAndReturnArgs} args - Arguments to update many TrackerStatuses.
+     * @example
+     * // Update many TrackerStatuses
+     * const trackerStatus = await prisma.trackerStatus.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TrackerStatuses and only return the `id`
+     * const trackerStatusWithIdOnly = await prisma.trackerStatus.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TrackerStatusUpdateManyAndReturnArgs>(args: SelectSubset<T, TrackerStatusUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TrackerStatus.
+     * @param {TrackerStatusUpsertArgs} args - Arguments to update or create a TrackerStatus.
+     * @example
+     * // Update or create a TrackerStatus
+     * const trackerStatus = await prisma.trackerStatus.upsert({
+     *   create: {
+     *     // ... data to create a TrackerStatus
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TrackerStatus we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TrackerStatusUpsertArgs>(args: SelectSubset<T, TrackerStatusUpsertArgs<ExtArgs>>): Prisma__TrackerStatusClient<$Result.GetResult<Prisma.$TrackerStatusPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TrackerStatuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackerStatusCountArgs} args - Arguments to filter TrackerStatuses to count.
+     * @example
+     * // Count the number of TrackerStatuses
+     * const count = await prisma.trackerStatus.count({
+     *   where: {
+     *     // ... the filter for the TrackerStatuses we want to count
+     *   }
+     * })
+    **/
+    count<T extends TrackerStatusCountArgs>(
+      args?: Subset<T, TrackerStatusCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TrackerStatusCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TrackerStatus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackerStatusAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TrackerStatusAggregateArgs>(args: Subset<T, TrackerStatusAggregateArgs>): Prisma.PrismaPromise<GetTrackerStatusAggregateType<T>>
+
+    /**
+     * Group by TrackerStatus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackerStatusGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TrackerStatusGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TrackerStatusGroupByArgs['orderBy'] }
+        : { orderBy?: TrackerStatusGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TrackerStatusGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTrackerStatusGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TrackerStatus model
+   */
+  readonly fields: TrackerStatusFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TrackerStatus.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TrackerStatusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TrackerStatus model
+   */
+  interface TrackerStatusFieldRefs {
+    readonly id: FieldRef<"TrackerStatus", 'Int'>
+    readonly mainCommand: FieldRef<"TrackerStatus", 'String'>
+    readonly packetLength: FieldRef<"TrackerStatus", 'Int'>
+    readonly pseudoIP: FieldRef<"TrackerStatus", 'String'>
+    readonly rawData: FieldRef<"TrackerStatus", 'String'>
+    readonly samplingTime: FieldRef<"TrackerStatus", 'String'>
+    readonly alarmStatus: FieldRef<"TrackerStatus", 'Int'>
+    readonly located: FieldRef<"TrackerStatus", 'Boolean'>
+    readonly samplingType: FieldRef<"TrackerStatus", 'String'>
+    readonly samplingValue: FieldRef<"TrackerStatus", 'Int'>
+    readonly sendingType: FieldRef<"TrackerStatus", 'String'>
+    readonly carStopSetting: FieldRef<"TrackerStatus", 'Int'>
+    readonly overspeedSetting: FieldRef<"TrackerStatus", 'Int'>
+    readonly phoneLimit: FieldRef<"TrackerStatus", 'Boolean'>
+    readonly areaNodeLimit: FieldRef<"TrackerStatus", 'Boolean'>
+    readonly safeSetting: FieldRef<"TrackerStatus", 'Int'>
+    readonly longTimeDriving: FieldRef<"TrackerStatus", 'Int'>
+    readonly samplingValueAccOff: FieldRef<"TrackerStatus", 'Int'>
+    readonly emergencyAlarmSwitch: FieldRef<"TrackerStatus", 'Boolean'>
+    readonly photographRelated: FieldRef<"TrackerStatus", 'Int'>
+    readonly timestamp: FieldRef<"TrackerStatus", 'DateTime'>
+    readonly createdAt: FieldRef<"TrackerStatus", 'DateTime'>
+    readonly updatedAt: FieldRef<"TrackerStatus", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TrackerStatus findUnique
+   */
+  export type TrackerStatusFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * Filter, which TrackerStatus to fetch.
+     */
+    where: TrackerStatusWhereUniqueInput
+  }
+
+  /**
+   * TrackerStatus findUniqueOrThrow
+   */
+  export type TrackerStatusFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * Filter, which TrackerStatus to fetch.
+     */
+    where: TrackerStatusWhereUniqueInput
+  }
+
+  /**
+   * TrackerStatus findFirst
+   */
+  export type TrackerStatusFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * Filter, which TrackerStatus to fetch.
+     */
+    where?: TrackerStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrackerStatuses to fetch.
+     */
+    orderBy?: TrackerStatusOrderByWithRelationInput | TrackerStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TrackerStatuses.
+     */
+    cursor?: TrackerStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrackerStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrackerStatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TrackerStatuses.
+     */
+    distinct?: TrackerStatusScalarFieldEnum | TrackerStatusScalarFieldEnum[]
+  }
+
+  /**
+   * TrackerStatus findFirstOrThrow
+   */
+  export type TrackerStatusFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * Filter, which TrackerStatus to fetch.
+     */
+    where?: TrackerStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrackerStatuses to fetch.
+     */
+    orderBy?: TrackerStatusOrderByWithRelationInput | TrackerStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TrackerStatuses.
+     */
+    cursor?: TrackerStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrackerStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrackerStatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TrackerStatuses.
+     */
+    distinct?: TrackerStatusScalarFieldEnum | TrackerStatusScalarFieldEnum[]
+  }
+
+  /**
+   * TrackerStatus findMany
+   */
+  export type TrackerStatusFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * Filter, which TrackerStatuses to fetch.
+     */
+    where?: TrackerStatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrackerStatuses to fetch.
+     */
+    orderBy?: TrackerStatusOrderByWithRelationInput | TrackerStatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TrackerStatuses.
+     */
+    cursor?: TrackerStatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrackerStatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrackerStatuses.
+     */
+    skip?: number
+    distinct?: TrackerStatusScalarFieldEnum | TrackerStatusScalarFieldEnum[]
+  }
+
+  /**
+   * TrackerStatus create
+   */
+  export type TrackerStatusCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * The data needed to create a TrackerStatus.
+     */
+    data: XOR<TrackerStatusCreateInput, TrackerStatusUncheckedCreateInput>
+  }
+
+  /**
+   * TrackerStatus createMany
+   */
+  export type TrackerStatusCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TrackerStatuses.
+     */
+    data: TrackerStatusCreateManyInput | TrackerStatusCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TrackerStatus createManyAndReturn
+   */
+  export type TrackerStatusCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * The data used to create many TrackerStatuses.
+     */
+    data: TrackerStatusCreateManyInput | TrackerStatusCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TrackerStatus update
+   */
+  export type TrackerStatusUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * The data needed to update a TrackerStatus.
+     */
+    data: XOR<TrackerStatusUpdateInput, TrackerStatusUncheckedUpdateInput>
+    /**
+     * Choose, which TrackerStatus to update.
+     */
+    where: TrackerStatusWhereUniqueInput
+  }
+
+  /**
+   * TrackerStatus updateMany
+   */
+  export type TrackerStatusUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TrackerStatuses.
+     */
+    data: XOR<TrackerStatusUpdateManyMutationInput, TrackerStatusUncheckedUpdateManyInput>
+    /**
+     * Filter which TrackerStatuses to update
+     */
+    where?: TrackerStatusWhereInput
+    /**
+     * Limit how many TrackerStatuses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TrackerStatus updateManyAndReturn
+   */
+  export type TrackerStatusUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * The data used to update TrackerStatuses.
+     */
+    data: XOR<TrackerStatusUpdateManyMutationInput, TrackerStatusUncheckedUpdateManyInput>
+    /**
+     * Filter which TrackerStatuses to update
+     */
+    where?: TrackerStatusWhereInput
+    /**
+     * Limit how many TrackerStatuses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TrackerStatus upsert
+   */
+  export type TrackerStatusUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * The filter to search for the TrackerStatus to update in case it exists.
+     */
+    where: TrackerStatusWhereUniqueInput
+    /**
+     * In case the TrackerStatus found by the `where` argument doesn't exist, create a new TrackerStatus with this data.
+     */
+    create: XOR<TrackerStatusCreateInput, TrackerStatusUncheckedCreateInput>
+    /**
+     * In case the TrackerStatus was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TrackerStatusUpdateInput, TrackerStatusUncheckedUpdateInput>
+  }
+
+  /**
+   * TrackerStatus delete
+   */
+  export type TrackerStatusDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+    /**
+     * Filter which TrackerStatus to delete.
+     */
+    where: TrackerStatusWhereUniqueInput
+  }
+
+  /**
+   * TrackerStatus deleteMany
+   */
+  export type TrackerStatusDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrackerStatuses to delete
+     */
+    where?: TrackerStatusWhereInput
+    /**
+     * Limit how many TrackerStatuses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TrackerStatus without action
+   */
+  export type TrackerStatusDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackerStatus
+     */
+    select?: TrackerStatusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrackerStatus
+     */
+    omit?: TrackerStatusOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model IButtonData
+   */
+
+  export type AggregateIButtonData = {
+    _count: IButtonDataCountAggregateOutputType | null
+    _avg: IButtonDataAvgAggregateOutputType | null
+    _sum: IButtonDataSumAggregateOutputType | null
+    _min: IButtonDataMinAggregateOutputType | null
+    _max: IButtonDataMaxAggregateOutputType | null
+  }
+
+  export type IButtonDataAvgAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    subCommand: number | null
+  }
+
+  export type IButtonDataSumAggregateOutputType = {
+    id: number | null
+    packetLength: number | null
+    subCommand: number | null
+  }
+
+  export type IButtonDataMinAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    subCommand: number | null
+    message: string | null
+    driverName: string | null
+    driverId: string | null
+    swipeData: string | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type IButtonDataMaxAggregateOutputType = {
+    id: number | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    subCommand: number | null
+    message: string | null
+    driverName: string | null
+    driverId: string | null
+    swipeData: string | null
+    timestamp: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type IButtonDataCountAggregateOutputType = {
+    id: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    subCommand: number
+    message: number
+    driverName: number
+    driverId: number
+    swipeData: number
+    timestamp: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type IButtonDataAvgAggregateInputType = {
+    id?: true
+    packetLength?: true
+    subCommand?: true
+  }
+
+  export type IButtonDataSumAggregateInputType = {
+    id?: true
+    packetLength?: true
+    subCommand?: true
+  }
+
+  export type IButtonDataMinAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    subCommand?: true
+    message?: true
+    driverName?: true
+    driverId?: true
+    swipeData?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type IButtonDataMaxAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    subCommand?: true
+    message?: true
+    driverName?: true
+    driverId?: true
+    swipeData?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type IButtonDataCountAggregateInputType = {
+    id?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    subCommand?: true
+    message?: true
+    driverName?: true
+    driverId?: true
+    swipeData?: true
+    timestamp?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type IButtonDataAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which IButtonData to aggregate.
+     */
+    where?: IButtonDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of IButtonData to fetch.
+     */
+    orderBy?: IButtonDataOrderByWithRelationInput | IButtonDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: IButtonDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` IButtonData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` IButtonData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned IButtonData
+    **/
+    _count?: true | IButtonDataCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: IButtonDataAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: IButtonDataSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: IButtonDataMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: IButtonDataMaxAggregateInputType
+  }
+
+  export type GetIButtonDataAggregateType<T extends IButtonDataAggregateArgs> = {
+        [P in keyof T & keyof AggregateIButtonData]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateIButtonData[P]>
+      : GetScalarType<T[P], AggregateIButtonData[P]>
+  }
+
+
+
+
+  export type IButtonDataGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IButtonDataWhereInput
+    orderBy?: IButtonDataOrderByWithAggregationInput | IButtonDataOrderByWithAggregationInput[]
+    by: IButtonDataScalarFieldEnum[] | IButtonDataScalarFieldEnum
+    having?: IButtonDataScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: IButtonDataCountAggregateInputType | true
+    _avg?: IButtonDataAvgAggregateInputType
+    _sum?: IButtonDataSumAggregateInputType
+    _min?: IButtonDataMinAggregateInputType
+    _max?: IButtonDataMaxAggregateInputType
+  }
+
+  export type IButtonDataGroupByOutputType = {
+    id: number
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    subCommand: number | null
+    message: string | null
+    driverName: string | null
+    driverId: string | null
+    swipeData: string | null
+    timestamp: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: IButtonDataCountAggregateOutputType | null
+    _avg: IButtonDataAvgAggregateOutputType | null
+    _sum: IButtonDataSumAggregateOutputType | null
+    _min: IButtonDataMinAggregateOutputType | null
+    _max: IButtonDataMaxAggregateOutputType | null
+  }
+
+  type GetIButtonDataGroupByPayload<T extends IButtonDataGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<IButtonDataGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof IButtonDataGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], IButtonDataGroupByOutputType[P]>
+            : GetScalarType<T[P], IButtonDataGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type IButtonDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    subCommand?: boolean
+    message?: boolean
+    driverName?: boolean
+    driverId?: boolean
+    swipeData?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["iButtonData"]>
+
+  export type IButtonDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    subCommand?: boolean
+    message?: boolean
+    driverName?: boolean
+    driverId?: boolean
+    swipeData?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["iButtonData"]>
+
+  export type IButtonDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    subCommand?: boolean
+    message?: boolean
+    driverName?: boolean
+    driverId?: boolean
+    swipeData?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["iButtonData"]>
+
+  export type IButtonDataSelectScalar = {
+    id?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    subCommand?: boolean
+    message?: boolean
+    driverName?: boolean
+    driverId?: boolean
+    swipeData?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type IButtonDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "subCommand" | "message" | "driverName" | "driverId" | "swipeData" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["iButtonData"]>
+
+  export type $IButtonDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "IButtonData"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      subCommand: number | null
+      message: string | null
+      driverName: string | null
+      driverId: string | null
+      swipeData: string | null
+      timestamp: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["iButtonData"]>
+    composites: {}
+  }
+
+  type IButtonDataGetPayload<S extends boolean | null | undefined | IButtonDataDefaultArgs> = $Result.GetResult<Prisma.$IButtonDataPayload, S>
+
+  type IButtonDataCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<IButtonDataFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: IButtonDataCountAggregateInputType | true
+    }
+
+  export interface IButtonDataDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['IButtonData'], meta: { name: 'IButtonData' } }
+    /**
+     * Find zero or one IButtonData that matches the filter.
+     * @param {IButtonDataFindUniqueArgs} args - Arguments to find a IButtonData
+     * @example
+     * // Get one IButtonData
+     * const iButtonData = await prisma.iButtonData.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends IButtonDataFindUniqueArgs>(args: SelectSubset<T, IButtonDataFindUniqueArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one IButtonData that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {IButtonDataFindUniqueOrThrowArgs} args - Arguments to find a IButtonData
+     * @example
+     * // Get one IButtonData
+     * const iButtonData = await prisma.iButtonData.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends IButtonDataFindUniqueOrThrowArgs>(args: SelectSubset<T, IButtonDataFindUniqueOrThrowArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first IButtonData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IButtonDataFindFirstArgs} args - Arguments to find a IButtonData
+     * @example
+     * // Get one IButtonData
+     * const iButtonData = await prisma.iButtonData.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends IButtonDataFindFirstArgs>(args?: SelectSubset<T, IButtonDataFindFirstArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first IButtonData that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IButtonDataFindFirstOrThrowArgs} args - Arguments to find a IButtonData
+     * @example
+     * // Get one IButtonData
+     * const iButtonData = await prisma.iButtonData.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends IButtonDataFindFirstOrThrowArgs>(args?: SelectSubset<T, IButtonDataFindFirstOrThrowArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more IButtonData that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IButtonDataFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all IButtonData
+     * const iButtonData = await prisma.iButtonData.findMany()
+     * 
+     * // Get first 10 IButtonData
+     * const iButtonData = await prisma.iButtonData.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const iButtonDataWithIdOnly = await prisma.iButtonData.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends IButtonDataFindManyArgs>(args?: SelectSubset<T, IButtonDataFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a IButtonData.
+     * @param {IButtonDataCreateArgs} args - Arguments to create a IButtonData.
+     * @example
+     * // Create one IButtonData
+     * const IButtonData = await prisma.iButtonData.create({
+     *   data: {
+     *     // ... data to create a IButtonData
+     *   }
+     * })
+     * 
+     */
+    create<T extends IButtonDataCreateArgs>(args: SelectSubset<T, IButtonDataCreateArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many IButtonData.
+     * @param {IButtonDataCreateManyArgs} args - Arguments to create many IButtonData.
+     * @example
+     * // Create many IButtonData
+     * const iButtonData = await prisma.iButtonData.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends IButtonDataCreateManyArgs>(args?: SelectSubset<T, IButtonDataCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many IButtonData and returns the data saved in the database.
+     * @param {IButtonDataCreateManyAndReturnArgs} args - Arguments to create many IButtonData.
+     * @example
+     * // Create many IButtonData
+     * const iButtonData = await prisma.iButtonData.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many IButtonData and only return the `id`
+     * const iButtonDataWithIdOnly = await prisma.iButtonData.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends IButtonDataCreateManyAndReturnArgs>(args?: SelectSubset<T, IButtonDataCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a IButtonData.
+     * @param {IButtonDataDeleteArgs} args - Arguments to delete one IButtonData.
+     * @example
+     * // Delete one IButtonData
+     * const IButtonData = await prisma.iButtonData.delete({
+     *   where: {
+     *     // ... filter to delete one IButtonData
+     *   }
+     * })
+     * 
+     */
+    delete<T extends IButtonDataDeleteArgs>(args: SelectSubset<T, IButtonDataDeleteArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one IButtonData.
+     * @param {IButtonDataUpdateArgs} args - Arguments to update one IButtonData.
+     * @example
+     * // Update one IButtonData
+     * const iButtonData = await prisma.iButtonData.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends IButtonDataUpdateArgs>(args: SelectSubset<T, IButtonDataUpdateArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more IButtonData.
+     * @param {IButtonDataDeleteManyArgs} args - Arguments to filter IButtonData to delete.
+     * @example
+     * // Delete a few IButtonData
+     * const { count } = await prisma.iButtonData.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends IButtonDataDeleteManyArgs>(args?: SelectSubset<T, IButtonDataDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more IButtonData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IButtonDataUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many IButtonData
+     * const iButtonData = await prisma.iButtonData.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends IButtonDataUpdateManyArgs>(args: SelectSubset<T, IButtonDataUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more IButtonData and returns the data updated in the database.
+     * @param {IButtonDataUpdateManyAndReturnArgs} args - Arguments to update many IButtonData.
+     * @example
+     * // Update many IButtonData
+     * const iButtonData = await prisma.iButtonData.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more IButtonData and only return the `id`
+     * const iButtonDataWithIdOnly = await prisma.iButtonData.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends IButtonDataUpdateManyAndReturnArgs>(args: SelectSubset<T, IButtonDataUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one IButtonData.
+     * @param {IButtonDataUpsertArgs} args - Arguments to update or create a IButtonData.
+     * @example
+     * // Update or create a IButtonData
+     * const iButtonData = await prisma.iButtonData.upsert({
+     *   create: {
+     *     // ... data to create a IButtonData
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the IButtonData we want to update
+     *   }
+     * })
+     */
+    upsert<T extends IButtonDataUpsertArgs>(args: SelectSubset<T, IButtonDataUpsertArgs<ExtArgs>>): Prisma__IButtonDataClient<$Result.GetResult<Prisma.$IButtonDataPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of IButtonData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IButtonDataCountArgs} args - Arguments to filter IButtonData to count.
+     * @example
+     * // Count the number of IButtonData
+     * const count = await prisma.iButtonData.count({
+     *   where: {
+     *     // ... the filter for the IButtonData we want to count
+     *   }
+     * })
+    **/
+    count<T extends IButtonDataCountArgs>(
+      args?: Subset<T, IButtonDataCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], IButtonDataCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a IButtonData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IButtonDataAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends IButtonDataAggregateArgs>(args: Subset<T, IButtonDataAggregateArgs>): Prisma.PrismaPromise<GetIButtonDataAggregateType<T>>
+
+    /**
+     * Group by IButtonData.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IButtonDataGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends IButtonDataGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: IButtonDataGroupByArgs['orderBy'] }
+        : { orderBy?: IButtonDataGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, IButtonDataGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIButtonDataGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the IButtonData model
+   */
+  readonly fields: IButtonDataFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for IButtonData.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__IButtonDataClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the IButtonData model
+   */
+  interface IButtonDataFieldRefs {
+    readonly id: FieldRef<"IButtonData", 'Int'>
+    readonly mainCommand: FieldRef<"IButtonData", 'String'>
+    readonly packetLength: FieldRef<"IButtonData", 'Int'>
+    readonly pseudoIP: FieldRef<"IButtonData", 'String'>
+    readonly rawData: FieldRef<"IButtonData", 'String'>
+    readonly subCommand: FieldRef<"IButtonData", 'Int'>
+    readonly message: FieldRef<"IButtonData", 'String'>
+    readonly driverName: FieldRef<"IButtonData", 'String'>
+    readonly driverId: FieldRef<"IButtonData", 'String'>
+    readonly swipeData: FieldRef<"IButtonData", 'String'>
+    readonly timestamp: FieldRef<"IButtonData", 'DateTime'>
+    readonly createdAt: FieldRef<"IButtonData", 'DateTime'>
+    readonly updatedAt: FieldRef<"IButtonData", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * IButtonData findUnique
+   */
+  export type IButtonDataFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * Filter, which IButtonData to fetch.
+     */
+    where: IButtonDataWhereUniqueInput
+  }
+
+  /**
+   * IButtonData findUniqueOrThrow
+   */
+  export type IButtonDataFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * Filter, which IButtonData to fetch.
+     */
+    where: IButtonDataWhereUniqueInput
+  }
+
+  /**
+   * IButtonData findFirst
+   */
+  export type IButtonDataFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * Filter, which IButtonData to fetch.
+     */
+    where?: IButtonDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of IButtonData to fetch.
+     */
+    orderBy?: IButtonDataOrderByWithRelationInput | IButtonDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for IButtonData.
+     */
+    cursor?: IButtonDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` IButtonData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` IButtonData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of IButtonData.
+     */
+    distinct?: IButtonDataScalarFieldEnum | IButtonDataScalarFieldEnum[]
+  }
+
+  /**
+   * IButtonData findFirstOrThrow
+   */
+  export type IButtonDataFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * Filter, which IButtonData to fetch.
+     */
+    where?: IButtonDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of IButtonData to fetch.
+     */
+    orderBy?: IButtonDataOrderByWithRelationInput | IButtonDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for IButtonData.
+     */
+    cursor?: IButtonDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` IButtonData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` IButtonData.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of IButtonData.
+     */
+    distinct?: IButtonDataScalarFieldEnum | IButtonDataScalarFieldEnum[]
+  }
+
+  /**
+   * IButtonData findMany
+   */
+  export type IButtonDataFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * Filter, which IButtonData to fetch.
+     */
+    where?: IButtonDataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of IButtonData to fetch.
+     */
+    orderBy?: IButtonDataOrderByWithRelationInput | IButtonDataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing IButtonData.
+     */
+    cursor?: IButtonDataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` IButtonData from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` IButtonData.
+     */
+    skip?: number
+    distinct?: IButtonDataScalarFieldEnum | IButtonDataScalarFieldEnum[]
+  }
+
+  /**
+   * IButtonData create
+   */
+  export type IButtonDataCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * The data needed to create a IButtonData.
+     */
+    data: XOR<IButtonDataCreateInput, IButtonDataUncheckedCreateInput>
+  }
+
+  /**
+   * IButtonData createMany
+   */
+  export type IButtonDataCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many IButtonData.
+     */
+    data: IButtonDataCreateManyInput | IButtonDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * IButtonData createManyAndReturn
+   */
+  export type IButtonDataCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * The data used to create many IButtonData.
+     */
+    data: IButtonDataCreateManyInput | IButtonDataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * IButtonData update
+   */
+  export type IButtonDataUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * The data needed to update a IButtonData.
+     */
+    data: XOR<IButtonDataUpdateInput, IButtonDataUncheckedUpdateInput>
+    /**
+     * Choose, which IButtonData to update.
+     */
+    where: IButtonDataWhereUniqueInput
+  }
+
+  /**
+   * IButtonData updateMany
+   */
+  export type IButtonDataUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update IButtonData.
+     */
+    data: XOR<IButtonDataUpdateManyMutationInput, IButtonDataUncheckedUpdateManyInput>
+    /**
+     * Filter which IButtonData to update
+     */
+    where?: IButtonDataWhereInput
+    /**
+     * Limit how many IButtonData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * IButtonData updateManyAndReturn
+   */
+  export type IButtonDataUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * The data used to update IButtonData.
+     */
+    data: XOR<IButtonDataUpdateManyMutationInput, IButtonDataUncheckedUpdateManyInput>
+    /**
+     * Filter which IButtonData to update
+     */
+    where?: IButtonDataWhereInput
+    /**
+     * Limit how many IButtonData to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * IButtonData upsert
+   */
+  export type IButtonDataUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * The filter to search for the IButtonData to update in case it exists.
+     */
+    where: IButtonDataWhereUniqueInput
+    /**
+     * In case the IButtonData found by the `where` argument doesn't exist, create a new IButtonData with this data.
+     */
+    create: XOR<IButtonDataCreateInput, IButtonDataUncheckedCreateInput>
+    /**
+     * In case the IButtonData was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<IButtonDataUpdateInput, IButtonDataUncheckedUpdateInput>
+  }
+
+  /**
+   * IButtonData delete
+   */
+  export type IButtonDataDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+    /**
+     * Filter which IButtonData to delete.
+     */
+    where: IButtonDataWhereUniqueInput
+  }
+
+  /**
+   * IButtonData deleteMany
+   */
+  export type IButtonDataDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which IButtonData to delete
+     */
+    where?: IButtonDataWhereInput
+    /**
+     * Limit how many IButtonData to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * IButtonData without action
+   */
+  export type IButtonDataDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IButtonData
+     */
+    select?: IButtonDataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IButtonData
+     */
+    omit?: IButtonDataOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3078,7 +9675,8 @@ export namespace Prisma {
     timestamp: 'timestamp',
     error: 'error',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    redis: 'redis'
   };
 
   export type StatusScalarFieldEnum = (typeof StatusScalarFieldEnum)[keyof typeof StatusScalarFieldEnum]
@@ -3086,14 +9684,137 @@ export namespace Prisma {
 
   export const GpsDataScalarFieldEnum: {
     id: 'id',
-    deviceId: 'deviceId',
     rawData: 'rawData',
+    parsedData: 'parsedData',
+    packetInfo: 'packetInfo',
+    mainCommand: 'mainCommand',
+    timestamp: 'timestamp',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    from: 'from'
+  };
+
+  export type GpsDataScalarFieldEnum = (typeof GpsDataScalarFieldEnum)[keyof typeof GpsDataScalarFieldEnum]
+
+
+  export const PositionDataScalarFieldEnum: {
+    id: 'id',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    latitude: 'latitude',
+    longitude: 'longitude',
+    speed: 'speed',
+    angle: 'angle',
+    gpsStatus: 'gpsStatus',
+    digitalInputs: 'digitalInputs',
+    ignition: 'ignition',
+    oilResistance: 'oilResistance',
+    voltage: 'voltage',
+    mileage: 'mileage',
+    temperature: 'temperature',
     timestamp: 'timestamp',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type GpsDataScalarFieldEnum = (typeof GpsDataScalarFieldEnum)[keyof typeof GpsDataScalarFieldEnum]
+  export type PositionDataScalarFieldEnum = (typeof PositionDataScalarFieldEnum)[keyof typeof PositionDataScalarFieldEnum]
+
+
+  export const AlarmDataScalarFieldEnum: {
+    id: 'id',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    alarms: 'alarms',
+    oilChange: 'oilChange',
+    crossBorder: 'crossBorder',
+    overVoltage: 'overVoltage',
+    underVoltage: 'underVoltage',
+    overload: 'overload',
+    overtimeDriving: 'overtimeDriving',
+    enterBorder: 'enterBorder',
+    illegalDoorOpen: 'illegalDoorOpen',
+    illegalStart: 'illegalStart',
+    vibration: 'vibration',
+    centerEnabledAlarm: 'centerEnabledAlarm',
+    powerFailure: 'powerFailure',
+    parking: 'parking',
+    overSpeed: 'overSpeed',
+    emergency: 'emergency',
+    timestamp: 'timestamp',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AlarmDataScalarFieldEnum = (typeof AlarmDataScalarFieldEnum)[keyof typeof AlarmDataScalarFieldEnum]
+
+
+  export const HeartbeatDataScalarFieldEnum: {
+    id: 'id',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    calibrationValue: 'calibrationValue',
+    mainOrderReply: 'mainOrderReply',
+    slaveOrderReply: 'slaveOrderReply',
+    timestamp: 'timestamp',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type HeartbeatDataScalarFieldEnum = (typeof HeartbeatDataScalarFieldEnum)[keyof typeof HeartbeatDataScalarFieldEnum]
+
+
+  export const TrackerStatusScalarFieldEnum: {
+    id: 'id',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    samplingTime: 'samplingTime',
+    alarmStatus: 'alarmStatus',
+    located: 'located',
+    samplingType: 'samplingType',
+    samplingValue: 'samplingValue',
+    sendingType: 'sendingType',
+    carStopSetting: 'carStopSetting',
+    overspeedSetting: 'overspeedSetting',
+    phoneLimit: 'phoneLimit',
+    areaNodeLimit: 'areaNodeLimit',
+    safeSetting: 'safeSetting',
+    longTimeDriving: 'longTimeDriving',
+    samplingValueAccOff: 'samplingValueAccOff',
+    emergencyAlarmSwitch: 'emergencyAlarmSwitch',
+    photographRelated: 'photographRelated',
+    timestamp: 'timestamp',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TrackerStatusScalarFieldEnum = (typeof TrackerStatusScalarFieldEnum)[keyof typeof TrackerStatusScalarFieldEnum]
+
+
+  export const IButtonDataScalarFieldEnum: {
+    id: 'id',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    subCommand: 'subCommand',
+    message: 'message',
+    driverName: 'driverName',
+    driverId: 'driverId',
+    swipeData: 'swipeData',
+    timestamp: 'timestamp',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type IButtonDataScalarFieldEnum = (typeof IButtonDataScalarFieldEnum)[keyof typeof IButtonDataScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3179,6 +9900,13 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
   /**
    * Deep Input Types
    */
@@ -3195,6 +9923,7 @@ export namespace Prisma {
     error?: StringNullableFilter<"Status"> | string | null
     createdAt?: DateTimeFilter<"Status"> | Date | string
     updatedAt?: DateTimeFilter<"Status"> | Date | string
+    redis?: StringFilter<"Status"> | string
   }
 
   export type StatusOrderByWithRelationInput = {
@@ -3205,6 +9934,7 @@ export namespace Prisma {
     error?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    redis?: SortOrder
   }
 
   export type StatusWhereUniqueInput = Prisma.AtLeast<{
@@ -3218,6 +9948,7 @@ export namespace Prisma {
     error?: StringNullableFilter<"Status"> | string | null
     createdAt?: DateTimeFilter<"Status"> | Date | string
     updatedAt?: DateTimeFilter<"Status"> | Date | string
+    redis?: StringFilter<"Status"> | string
   }, "id">
 
   export type StatusOrderByWithAggregationInput = {
@@ -3228,6 +9959,7 @@ export namespace Prisma {
     error?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    redis?: SortOrder
     _count?: StatusCountOrderByAggregateInput
     _avg?: StatusAvgOrderByAggregateInput
     _max?: StatusMaxOrderByAggregateInput
@@ -3246,6 +9978,7 @@ export namespace Prisma {
     error?: StringNullableWithAggregatesFilter<"Status"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Status"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Status"> | Date | string
+    redis?: StringWithAggregatesFilter<"Status"> | string
   }
 
   export type GpsDataWhereInput = {
@@ -3253,20 +9986,26 @@ export namespace Prisma {
     OR?: GpsDataWhereInput[]
     NOT?: GpsDataWhereInput | GpsDataWhereInput[]
     id?: IntFilter<"GpsData"> | number
-    deviceId?: StringFilter<"GpsData"> | string
     rawData?: StringFilter<"GpsData"> | string
+    parsedData?: StringNullableFilter<"GpsData"> | string | null
+    packetInfo?: StringNullableFilter<"GpsData"> | string | null
+    mainCommand?: StringNullableFilter<"GpsData"> | string | null
     timestamp?: DateTimeFilter<"GpsData"> | Date | string
     createdAt?: DateTimeFilter<"GpsData"> | Date | string
     updatedAt?: DateTimeFilter<"GpsData"> | Date | string
+    from?: StringFilter<"GpsData"> | string
   }
 
   export type GpsDataOrderByWithRelationInput = {
     id?: SortOrder
-    deviceId?: SortOrder
     rawData?: SortOrder
+    parsedData?: SortOrderInput | SortOrder
+    packetInfo?: SortOrderInput | SortOrder
+    mainCommand?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    from?: SortOrder
   }
 
   export type GpsDataWhereUniqueInput = Prisma.AtLeast<{
@@ -3274,20 +10013,26 @@ export namespace Prisma {
     AND?: GpsDataWhereInput | GpsDataWhereInput[]
     OR?: GpsDataWhereInput[]
     NOT?: GpsDataWhereInput | GpsDataWhereInput[]
-    deviceId?: StringFilter<"GpsData"> | string
     rawData?: StringFilter<"GpsData"> | string
+    parsedData?: StringNullableFilter<"GpsData"> | string | null
+    packetInfo?: StringNullableFilter<"GpsData"> | string | null
+    mainCommand?: StringNullableFilter<"GpsData"> | string | null
     timestamp?: DateTimeFilter<"GpsData"> | Date | string
     createdAt?: DateTimeFilter<"GpsData"> | Date | string
     updatedAt?: DateTimeFilter<"GpsData"> | Date | string
+    from?: StringFilter<"GpsData"> | string
   }, "id">
 
   export type GpsDataOrderByWithAggregationInput = {
     id?: SortOrder
-    deviceId?: SortOrder
     rawData?: SortOrder
+    parsedData?: SortOrderInput | SortOrder
+    packetInfo?: SortOrderInput | SortOrder
+    mainCommand?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    from?: SortOrder
     _count?: GpsDataCountOrderByAggregateInput
     _avg?: GpsDataAvgOrderByAggregateInput
     _max?: GpsDataMaxOrderByAggregateInput
@@ -3300,11 +10045,609 @@ export namespace Prisma {
     OR?: GpsDataScalarWhereWithAggregatesInput[]
     NOT?: GpsDataScalarWhereWithAggregatesInput | GpsDataScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"GpsData"> | number
-    deviceId?: StringWithAggregatesFilter<"GpsData"> | string
     rawData?: StringWithAggregatesFilter<"GpsData"> | string
+    parsedData?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
+    packetInfo?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
+    mainCommand?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"GpsData"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"GpsData"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"GpsData"> | Date | string
+    from?: StringWithAggregatesFilter<"GpsData"> | string
+  }
+
+  export type PositionDataWhereInput = {
+    AND?: PositionDataWhereInput | PositionDataWhereInput[]
+    OR?: PositionDataWhereInput[]
+    NOT?: PositionDataWhereInput | PositionDataWhereInput[]
+    id?: IntFilter<"PositionData"> | number
+    mainCommand?: StringNullableFilter<"PositionData"> | string | null
+    packetLength?: IntNullableFilter<"PositionData"> | number | null
+    pseudoIP?: StringNullableFilter<"PositionData"> | string | null
+    rawData?: StringNullableFilter<"PositionData"> | string | null
+    latitude?: FloatFilter<"PositionData"> | number
+    longitude?: FloatFilter<"PositionData"> | number
+    speed?: FloatNullableFilter<"PositionData"> | number | null
+    angle?: FloatNullableFilter<"PositionData"> | number | null
+    gpsStatus?: StringNullableFilter<"PositionData"> | string | null
+    digitalInputs?: StringNullableFilter<"PositionData"> | string | null
+    ignition?: BoolNullableFilter<"PositionData"> | boolean | null
+    oilResistance?: IntNullableFilter<"PositionData"> | number | null
+    voltage?: FloatNullableFilter<"PositionData"> | number | null
+    mileage?: IntNullableFilter<"PositionData"> | number | null
+    temperature?: FloatNullableFilter<"PositionData"> | number | null
+    timestamp?: DateTimeFilter<"PositionData"> | Date | string
+    createdAt?: DateTimeFilter<"PositionData"> | Date | string
+    updatedAt?: DateTimeFilter<"PositionData"> | Date | string
+  }
+
+  export type PositionDataOrderByWithRelationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrderInput | SortOrder
+    angle?: SortOrderInput | SortOrder
+    gpsStatus?: SortOrderInput | SortOrder
+    digitalInputs?: SortOrderInput | SortOrder
+    ignition?: SortOrderInput | SortOrder
+    oilResistance?: SortOrderInput | SortOrder
+    voltage?: SortOrderInput | SortOrder
+    mileage?: SortOrderInput | SortOrder
+    temperature?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PositionDataWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PositionDataWhereInput | PositionDataWhereInput[]
+    OR?: PositionDataWhereInput[]
+    NOT?: PositionDataWhereInput | PositionDataWhereInput[]
+    mainCommand?: StringNullableFilter<"PositionData"> | string | null
+    packetLength?: IntNullableFilter<"PositionData"> | number | null
+    pseudoIP?: StringNullableFilter<"PositionData"> | string | null
+    rawData?: StringNullableFilter<"PositionData"> | string | null
+    latitude?: FloatFilter<"PositionData"> | number
+    longitude?: FloatFilter<"PositionData"> | number
+    speed?: FloatNullableFilter<"PositionData"> | number | null
+    angle?: FloatNullableFilter<"PositionData"> | number | null
+    gpsStatus?: StringNullableFilter<"PositionData"> | string | null
+    digitalInputs?: StringNullableFilter<"PositionData"> | string | null
+    ignition?: BoolNullableFilter<"PositionData"> | boolean | null
+    oilResistance?: IntNullableFilter<"PositionData"> | number | null
+    voltage?: FloatNullableFilter<"PositionData"> | number | null
+    mileage?: IntNullableFilter<"PositionData"> | number | null
+    temperature?: FloatNullableFilter<"PositionData"> | number | null
+    timestamp?: DateTimeFilter<"PositionData"> | Date | string
+    createdAt?: DateTimeFilter<"PositionData"> | Date | string
+    updatedAt?: DateTimeFilter<"PositionData"> | Date | string
+  }, "id">
+
+  export type PositionDataOrderByWithAggregationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrderInput | SortOrder
+    angle?: SortOrderInput | SortOrder
+    gpsStatus?: SortOrderInput | SortOrder
+    digitalInputs?: SortOrderInput | SortOrder
+    ignition?: SortOrderInput | SortOrder
+    oilResistance?: SortOrderInput | SortOrder
+    voltage?: SortOrderInput | SortOrder
+    mileage?: SortOrderInput | SortOrder
+    temperature?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PositionDataCountOrderByAggregateInput
+    _avg?: PositionDataAvgOrderByAggregateInput
+    _max?: PositionDataMaxOrderByAggregateInput
+    _min?: PositionDataMinOrderByAggregateInput
+    _sum?: PositionDataSumOrderByAggregateInput
+  }
+
+  export type PositionDataScalarWhereWithAggregatesInput = {
+    AND?: PositionDataScalarWhereWithAggregatesInput | PositionDataScalarWhereWithAggregatesInput[]
+    OR?: PositionDataScalarWhereWithAggregatesInput[]
+    NOT?: PositionDataScalarWhereWithAggregatesInput | PositionDataScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PositionData"> | number
+    mainCommand?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    latitude?: FloatWithAggregatesFilter<"PositionData"> | number
+    longitude?: FloatWithAggregatesFilter<"PositionData"> | number
+    speed?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
+    angle?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
+    gpsStatus?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    digitalInputs?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    ignition?: BoolNullableWithAggregatesFilter<"PositionData"> | boolean | null
+    oilResistance?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
+    voltage?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
+    mileage?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
+    temperature?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
+    timestamp?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
+  }
+
+  export type AlarmDataWhereInput = {
+    AND?: AlarmDataWhereInput | AlarmDataWhereInput[]
+    OR?: AlarmDataWhereInput[]
+    NOT?: AlarmDataWhereInput | AlarmDataWhereInput[]
+    id?: IntFilter<"AlarmData"> | number
+    mainCommand?: StringNullableFilter<"AlarmData"> | string | null
+    packetLength?: IntNullableFilter<"AlarmData"> | number | null
+    pseudoIP?: StringNullableFilter<"AlarmData"> | string | null
+    rawData?: StringNullableFilter<"AlarmData"> | string | null
+    alarms?: StringFilter<"AlarmData"> | string
+    oilChange?: BoolNullableFilter<"AlarmData"> | boolean | null
+    crossBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    underVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overload?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overtimeDriving?: BoolNullableFilter<"AlarmData"> | boolean | null
+    enterBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
+    illegalDoorOpen?: BoolNullableFilter<"AlarmData"> | boolean | null
+    illegalStart?: BoolNullableFilter<"AlarmData"> | boolean | null
+    vibration?: BoolNullableFilter<"AlarmData"> | boolean | null
+    centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
+    powerFailure?: BoolNullableFilter<"AlarmData"> | boolean | null
+    parking?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overSpeed?: BoolNullableFilter<"AlarmData"> | boolean | null
+    emergency?: BoolNullableFilter<"AlarmData"> | boolean | null
+    timestamp?: DateTimeFilter<"AlarmData"> | Date | string
+    createdAt?: DateTimeFilter<"AlarmData"> | Date | string
+    updatedAt?: DateTimeFilter<"AlarmData"> | Date | string
+  }
+
+  export type AlarmDataOrderByWithRelationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    alarms?: SortOrder
+    oilChange?: SortOrderInput | SortOrder
+    crossBorder?: SortOrderInput | SortOrder
+    overVoltage?: SortOrderInput | SortOrder
+    underVoltage?: SortOrderInput | SortOrder
+    overload?: SortOrderInput | SortOrder
+    overtimeDriving?: SortOrderInput | SortOrder
+    enterBorder?: SortOrderInput | SortOrder
+    illegalDoorOpen?: SortOrderInput | SortOrder
+    illegalStart?: SortOrderInput | SortOrder
+    vibration?: SortOrderInput | SortOrder
+    centerEnabledAlarm?: SortOrderInput | SortOrder
+    powerFailure?: SortOrderInput | SortOrder
+    parking?: SortOrderInput | SortOrder
+    overSpeed?: SortOrderInput | SortOrder
+    emergency?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AlarmDataWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AlarmDataWhereInput | AlarmDataWhereInput[]
+    OR?: AlarmDataWhereInput[]
+    NOT?: AlarmDataWhereInput | AlarmDataWhereInput[]
+    mainCommand?: StringNullableFilter<"AlarmData"> | string | null
+    packetLength?: IntNullableFilter<"AlarmData"> | number | null
+    pseudoIP?: StringNullableFilter<"AlarmData"> | string | null
+    rawData?: StringNullableFilter<"AlarmData"> | string | null
+    alarms?: StringFilter<"AlarmData"> | string
+    oilChange?: BoolNullableFilter<"AlarmData"> | boolean | null
+    crossBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    underVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overload?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overtimeDriving?: BoolNullableFilter<"AlarmData"> | boolean | null
+    enterBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
+    illegalDoorOpen?: BoolNullableFilter<"AlarmData"> | boolean | null
+    illegalStart?: BoolNullableFilter<"AlarmData"> | boolean | null
+    vibration?: BoolNullableFilter<"AlarmData"> | boolean | null
+    centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
+    powerFailure?: BoolNullableFilter<"AlarmData"> | boolean | null
+    parking?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overSpeed?: BoolNullableFilter<"AlarmData"> | boolean | null
+    emergency?: BoolNullableFilter<"AlarmData"> | boolean | null
+    timestamp?: DateTimeFilter<"AlarmData"> | Date | string
+    createdAt?: DateTimeFilter<"AlarmData"> | Date | string
+    updatedAt?: DateTimeFilter<"AlarmData"> | Date | string
+  }, "id">
+
+  export type AlarmDataOrderByWithAggregationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    alarms?: SortOrder
+    oilChange?: SortOrderInput | SortOrder
+    crossBorder?: SortOrderInput | SortOrder
+    overVoltage?: SortOrderInput | SortOrder
+    underVoltage?: SortOrderInput | SortOrder
+    overload?: SortOrderInput | SortOrder
+    overtimeDriving?: SortOrderInput | SortOrder
+    enterBorder?: SortOrderInput | SortOrder
+    illegalDoorOpen?: SortOrderInput | SortOrder
+    illegalStart?: SortOrderInput | SortOrder
+    vibration?: SortOrderInput | SortOrder
+    centerEnabledAlarm?: SortOrderInput | SortOrder
+    powerFailure?: SortOrderInput | SortOrder
+    parking?: SortOrderInput | SortOrder
+    overSpeed?: SortOrderInput | SortOrder
+    emergency?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AlarmDataCountOrderByAggregateInput
+    _avg?: AlarmDataAvgOrderByAggregateInput
+    _max?: AlarmDataMaxOrderByAggregateInput
+    _min?: AlarmDataMinOrderByAggregateInput
+    _sum?: AlarmDataSumOrderByAggregateInput
+  }
+
+  export type AlarmDataScalarWhereWithAggregatesInput = {
+    AND?: AlarmDataScalarWhereWithAggregatesInput | AlarmDataScalarWhereWithAggregatesInput[]
+    OR?: AlarmDataScalarWhereWithAggregatesInput[]
+    NOT?: AlarmDataScalarWhereWithAggregatesInput | AlarmDataScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AlarmData"> | number
+    mainCommand?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"AlarmData"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
+    alarms?: StringWithAggregatesFilter<"AlarmData"> | string
+    oilChange?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    crossBorder?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    overVoltage?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    underVoltage?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    overload?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    overtimeDriving?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    enterBorder?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    illegalDoorOpen?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    illegalStart?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    vibration?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    centerEnabledAlarm?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    powerFailure?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    parking?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    overSpeed?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    emergency?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    timestamp?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
+  }
+
+  export type HeartbeatDataWhereInput = {
+    AND?: HeartbeatDataWhereInput | HeartbeatDataWhereInput[]
+    OR?: HeartbeatDataWhereInput[]
+    NOT?: HeartbeatDataWhereInput | HeartbeatDataWhereInput[]
+    id?: IntFilter<"HeartbeatData"> | number
+    mainCommand?: StringNullableFilter<"HeartbeatData"> | string | null
+    packetLength?: IntNullableFilter<"HeartbeatData"> | number | null
+    pseudoIP?: StringNullableFilter<"HeartbeatData"> | string | null
+    rawData?: StringNullableFilter<"HeartbeatData"> | string | null
+    calibrationValue?: IntNullableFilter<"HeartbeatData"> | number | null
+    mainOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    slaveOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    timestamp?: DateTimeFilter<"HeartbeatData"> | Date | string
+    createdAt?: DateTimeFilter<"HeartbeatData"> | Date | string
+    updatedAt?: DateTimeFilter<"HeartbeatData"> | Date | string
+  }
+
+  export type HeartbeatDataOrderByWithRelationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    calibrationValue?: SortOrderInput | SortOrder
+    mainOrderReply?: SortOrderInput | SortOrder
+    slaveOrderReply?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HeartbeatDataWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: HeartbeatDataWhereInput | HeartbeatDataWhereInput[]
+    OR?: HeartbeatDataWhereInput[]
+    NOT?: HeartbeatDataWhereInput | HeartbeatDataWhereInput[]
+    mainCommand?: StringNullableFilter<"HeartbeatData"> | string | null
+    packetLength?: IntNullableFilter<"HeartbeatData"> | number | null
+    pseudoIP?: StringNullableFilter<"HeartbeatData"> | string | null
+    rawData?: StringNullableFilter<"HeartbeatData"> | string | null
+    calibrationValue?: IntNullableFilter<"HeartbeatData"> | number | null
+    mainOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    slaveOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    timestamp?: DateTimeFilter<"HeartbeatData"> | Date | string
+    createdAt?: DateTimeFilter<"HeartbeatData"> | Date | string
+    updatedAt?: DateTimeFilter<"HeartbeatData"> | Date | string
+  }, "id">
+
+  export type HeartbeatDataOrderByWithAggregationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    calibrationValue?: SortOrderInput | SortOrder
+    mainOrderReply?: SortOrderInput | SortOrder
+    slaveOrderReply?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: HeartbeatDataCountOrderByAggregateInput
+    _avg?: HeartbeatDataAvgOrderByAggregateInput
+    _max?: HeartbeatDataMaxOrderByAggregateInput
+    _min?: HeartbeatDataMinOrderByAggregateInput
+    _sum?: HeartbeatDataSumOrderByAggregateInput
+  }
+
+  export type HeartbeatDataScalarWhereWithAggregatesInput = {
+    AND?: HeartbeatDataScalarWhereWithAggregatesInput | HeartbeatDataScalarWhereWithAggregatesInput[]
+    OR?: HeartbeatDataScalarWhereWithAggregatesInput[]
+    NOT?: HeartbeatDataScalarWhereWithAggregatesInput | HeartbeatDataScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"HeartbeatData"> | number
+    mainCommand?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
+    calibrationValue?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
+    mainOrderReply?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
+    slaveOrderReply?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
+    timestamp?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
+  }
+
+  export type TrackerStatusWhereInput = {
+    AND?: TrackerStatusWhereInput | TrackerStatusWhereInput[]
+    OR?: TrackerStatusWhereInput[]
+    NOT?: TrackerStatusWhereInput | TrackerStatusWhereInput[]
+    id?: IntFilter<"TrackerStatus"> | number
+    mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
+    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
+    pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
+    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    samplingTime?: StringFilter<"TrackerStatus"> | string
+    alarmStatus?: IntNullableFilter<"TrackerStatus"> | number | null
+    located?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    samplingType?: StringNullableFilter<"TrackerStatus"> | string | null
+    samplingValue?: IntNullableFilter<"TrackerStatus"> | number | null
+    sendingType?: StringNullableFilter<"TrackerStatus"> | string | null
+    carStopSetting?: IntNullableFilter<"TrackerStatus"> | number | null
+    overspeedSetting?: IntNullableFilter<"TrackerStatus"> | number | null
+    phoneLimit?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    areaNodeLimit?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    safeSetting?: IntNullableFilter<"TrackerStatus"> | number | null
+    longTimeDriving?: IntNullableFilter<"TrackerStatus"> | number | null
+    samplingValueAccOff?: IntNullableFilter<"TrackerStatus"> | number | null
+    emergencyAlarmSwitch?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    photographRelated?: IntNullableFilter<"TrackerStatus"> | number | null
+    timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
+    createdAt?: DateTimeFilter<"TrackerStatus"> | Date | string
+    updatedAt?: DateTimeFilter<"TrackerStatus"> | Date | string
+  }
+
+  export type TrackerStatusOrderByWithRelationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    samplingTime?: SortOrder
+    alarmStatus?: SortOrderInput | SortOrder
+    located?: SortOrderInput | SortOrder
+    samplingType?: SortOrderInput | SortOrder
+    samplingValue?: SortOrderInput | SortOrder
+    sendingType?: SortOrderInput | SortOrder
+    carStopSetting?: SortOrderInput | SortOrder
+    overspeedSetting?: SortOrderInput | SortOrder
+    phoneLimit?: SortOrderInput | SortOrder
+    areaNodeLimit?: SortOrderInput | SortOrder
+    safeSetting?: SortOrderInput | SortOrder
+    longTimeDriving?: SortOrderInput | SortOrder
+    samplingValueAccOff?: SortOrderInput | SortOrder
+    emergencyAlarmSwitch?: SortOrderInput | SortOrder
+    photographRelated?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TrackerStatusWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TrackerStatusWhereInput | TrackerStatusWhereInput[]
+    OR?: TrackerStatusWhereInput[]
+    NOT?: TrackerStatusWhereInput | TrackerStatusWhereInput[]
+    mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
+    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
+    pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
+    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    samplingTime?: StringFilter<"TrackerStatus"> | string
+    alarmStatus?: IntNullableFilter<"TrackerStatus"> | number | null
+    located?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    samplingType?: StringNullableFilter<"TrackerStatus"> | string | null
+    samplingValue?: IntNullableFilter<"TrackerStatus"> | number | null
+    sendingType?: StringNullableFilter<"TrackerStatus"> | string | null
+    carStopSetting?: IntNullableFilter<"TrackerStatus"> | number | null
+    overspeedSetting?: IntNullableFilter<"TrackerStatus"> | number | null
+    phoneLimit?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    areaNodeLimit?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    safeSetting?: IntNullableFilter<"TrackerStatus"> | number | null
+    longTimeDriving?: IntNullableFilter<"TrackerStatus"> | number | null
+    samplingValueAccOff?: IntNullableFilter<"TrackerStatus"> | number | null
+    emergencyAlarmSwitch?: BoolNullableFilter<"TrackerStatus"> | boolean | null
+    photographRelated?: IntNullableFilter<"TrackerStatus"> | number | null
+    timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
+    createdAt?: DateTimeFilter<"TrackerStatus"> | Date | string
+    updatedAt?: DateTimeFilter<"TrackerStatus"> | Date | string
+  }, "id">
+
+  export type TrackerStatusOrderByWithAggregationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    samplingTime?: SortOrder
+    alarmStatus?: SortOrderInput | SortOrder
+    located?: SortOrderInput | SortOrder
+    samplingType?: SortOrderInput | SortOrder
+    samplingValue?: SortOrderInput | SortOrder
+    sendingType?: SortOrderInput | SortOrder
+    carStopSetting?: SortOrderInput | SortOrder
+    overspeedSetting?: SortOrderInput | SortOrder
+    phoneLimit?: SortOrderInput | SortOrder
+    areaNodeLimit?: SortOrderInput | SortOrder
+    safeSetting?: SortOrderInput | SortOrder
+    longTimeDriving?: SortOrderInput | SortOrder
+    samplingValueAccOff?: SortOrderInput | SortOrder
+    emergencyAlarmSwitch?: SortOrderInput | SortOrder
+    photographRelated?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TrackerStatusCountOrderByAggregateInput
+    _avg?: TrackerStatusAvgOrderByAggregateInput
+    _max?: TrackerStatusMaxOrderByAggregateInput
+    _min?: TrackerStatusMinOrderByAggregateInput
+    _sum?: TrackerStatusSumOrderByAggregateInput
+  }
+
+  export type TrackerStatusScalarWhereWithAggregatesInput = {
+    AND?: TrackerStatusScalarWhereWithAggregatesInput | TrackerStatusScalarWhereWithAggregatesInput[]
+    OR?: TrackerStatusScalarWhereWithAggregatesInput[]
+    NOT?: TrackerStatusScalarWhereWithAggregatesInput | TrackerStatusScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TrackerStatus"> | number
+    mainCommand?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    samplingTime?: StringWithAggregatesFilter<"TrackerStatus"> | string
+    alarmStatus?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    located?: BoolNullableWithAggregatesFilter<"TrackerStatus"> | boolean | null
+    samplingType?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    samplingValue?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    sendingType?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    carStopSetting?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    overspeedSetting?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    phoneLimit?: BoolNullableWithAggregatesFilter<"TrackerStatus"> | boolean | null
+    areaNodeLimit?: BoolNullableWithAggregatesFilter<"TrackerStatus"> | boolean | null
+    safeSetting?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    longTimeDriving?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    samplingValueAccOff?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    emergencyAlarmSwitch?: BoolNullableWithAggregatesFilter<"TrackerStatus"> | boolean | null
+    photographRelated?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    timestamp?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
+  }
+
+  export type IButtonDataWhereInput = {
+    AND?: IButtonDataWhereInput | IButtonDataWhereInput[]
+    OR?: IButtonDataWhereInput[]
+    NOT?: IButtonDataWhereInput | IButtonDataWhereInput[]
+    id?: IntFilter<"IButtonData"> | number
+    mainCommand?: StringNullableFilter<"IButtonData"> | string | null
+    packetLength?: IntNullableFilter<"IButtonData"> | number | null
+    pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
+    rawData?: StringNullableFilter<"IButtonData"> | string | null
+    subCommand?: IntNullableFilter<"IButtonData"> | number | null
+    message?: StringNullableFilter<"IButtonData"> | string | null
+    driverName?: StringNullableFilter<"IButtonData"> | string | null
+    driverId?: StringNullableFilter<"IButtonData"> | string | null
+    swipeData?: StringNullableFilter<"IButtonData"> | string | null
+    timestamp?: DateTimeFilter<"IButtonData"> | Date | string
+    createdAt?: DateTimeFilter<"IButtonData"> | Date | string
+    updatedAt?: DateTimeFilter<"IButtonData"> | Date | string
+  }
+
+  export type IButtonDataOrderByWithRelationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    subCommand?: SortOrderInput | SortOrder
+    message?: SortOrderInput | SortOrder
+    driverName?: SortOrderInput | SortOrder
+    driverId?: SortOrderInput | SortOrder
+    swipeData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type IButtonDataWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: IButtonDataWhereInput | IButtonDataWhereInput[]
+    OR?: IButtonDataWhereInput[]
+    NOT?: IButtonDataWhereInput | IButtonDataWhereInput[]
+    mainCommand?: StringNullableFilter<"IButtonData"> | string | null
+    packetLength?: IntNullableFilter<"IButtonData"> | number | null
+    pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
+    rawData?: StringNullableFilter<"IButtonData"> | string | null
+    subCommand?: IntNullableFilter<"IButtonData"> | number | null
+    message?: StringNullableFilter<"IButtonData"> | string | null
+    driverName?: StringNullableFilter<"IButtonData"> | string | null
+    driverId?: StringNullableFilter<"IButtonData"> | string | null
+    swipeData?: StringNullableFilter<"IButtonData"> | string | null
+    timestamp?: DateTimeFilter<"IButtonData"> | Date | string
+    createdAt?: DateTimeFilter<"IButtonData"> | Date | string
+    updatedAt?: DateTimeFilter<"IButtonData"> | Date | string
+  }, "id">
+
+  export type IButtonDataOrderByWithAggregationInput = {
+    id?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    subCommand?: SortOrderInput | SortOrder
+    message?: SortOrderInput | SortOrder
+    driverName?: SortOrderInput | SortOrder
+    driverId?: SortOrderInput | SortOrder
+    swipeData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: IButtonDataCountOrderByAggregateInput
+    _avg?: IButtonDataAvgOrderByAggregateInput
+    _max?: IButtonDataMaxOrderByAggregateInput
+    _min?: IButtonDataMinOrderByAggregateInput
+    _sum?: IButtonDataSumOrderByAggregateInput
+  }
+
+  export type IButtonDataScalarWhereWithAggregatesInput = {
+    AND?: IButtonDataScalarWhereWithAggregatesInput | IButtonDataScalarWhereWithAggregatesInput[]
+    OR?: IButtonDataScalarWhereWithAggregatesInput[]
+    NOT?: IButtonDataScalarWhereWithAggregatesInput | IButtonDataScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"IButtonData"> | number
+    mainCommand?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"IButtonData"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    subCommand?: IntNullableWithAggregatesFilter<"IButtonData"> | number | null
+    message?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    driverName?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    driverId?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    swipeData?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    timestamp?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
   }
 
   export type StatusCreateInput = {
@@ -3314,6 +10657,7 @@ export namespace Prisma {
     error?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    redis?: string
   }
 
   export type StatusUncheckedCreateInput = {
@@ -3324,6 +10668,7 @@ export namespace Prisma {
     error?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    redis?: string
   }
 
   export type StatusUpdateInput = {
@@ -3333,6 +10678,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    redis?: StringFieldUpdateOperationsInput | string
   }
 
   export type StatusUncheckedUpdateInput = {
@@ -3343,6 +10689,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    redis?: StringFieldUpdateOperationsInput | string
   }
 
   export type StatusCreateManyInput = {
@@ -3353,6 +10700,7 @@ export namespace Prisma {
     error?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    redis?: string
   }
 
   export type StatusUpdateManyMutationInput = {
@@ -3362,6 +10710,7 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    redis?: StringFieldUpdateOperationsInput | string
   }
 
   export type StatusUncheckedUpdateManyInput = {
@@ -3372,63 +10721,805 @@ export namespace Prisma {
     error?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    redis?: StringFieldUpdateOperationsInput | string
   }
 
   export type GpsDataCreateInput = {
-    deviceId: string
     rawData: string
+    parsedData?: string | null
+    packetInfo?: string | null
+    mainCommand?: string | null
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    from: string
   }
 
   export type GpsDataUncheckedCreateInput = {
     id?: number
-    deviceId: string
     rawData: string
+    parsedData?: string | null
+    packetInfo?: string | null
+    mainCommand?: string | null
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    from: string
   }
 
   export type GpsDataUpdateInput = {
-    deviceId?: StringFieldUpdateOperationsInput | string
     rawData?: StringFieldUpdateOperationsInput | string
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    from?: StringFieldUpdateOperationsInput | string
   }
 
   export type GpsDataUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    deviceId?: StringFieldUpdateOperationsInput | string
     rawData?: StringFieldUpdateOperationsInput | string
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    from?: StringFieldUpdateOperationsInput | string
   }
 
   export type GpsDataCreateManyInput = {
     id?: number
-    deviceId: string
     rawData: string
+    parsedData?: string | null
+    packetInfo?: string | null
+    mainCommand?: string | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    from: string
+  }
+
+  export type GpsDataUpdateManyMutationInput = {
+    rawData?: StringFieldUpdateOperationsInput | string
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    from?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type GpsDataUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    rawData?: StringFieldUpdateOperationsInput | string
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    from?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PositionDataCreateInput = {
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    latitude: number
+    longitude: number
+    speed?: number | null
+    angle?: number | null
+    gpsStatus?: string | null
+    digitalInputs?: string | null
+    ignition?: boolean | null
+    oilResistance?: number | null
+    voltage?: number | null
+    mileage?: number | null
+    temperature?: number | null
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type GpsDataUpdateManyMutationInput = {
-    deviceId?: StringFieldUpdateOperationsInput | string
-    rawData?: StringFieldUpdateOperationsInput | string
+  export type PositionDataUncheckedCreateInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    latitude: number
+    longitude: number
+    speed?: number | null
+    angle?: number | null
+    gpsStatus?: string | null
+    digitalInputs?: string | null
+    ignition?: boolean | null
+    oilResistance?: number | null
+    voltage?: number | null
+    mileage?: number | null
+    temperature?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PositionDataUpdateInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+    speed?: NullableFloatFieldUpdateOperationsInput | number | null
+    angle?: NullableFloatFieldUpdateOperationsInput | number | null
+    gpsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    digitalInputs?: NullableStringFieldUpdateOperationsInput | string | null
+    ignition?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilResistance?: NullableIntFieldUpdateOperationsInput | number | null
+    voltage?: NullableFloatFieldUpdateOperationsInput | number | null
+    mileage?: NullableIntFieldUpdateOperationsInput | number | null
+    temperature?: NullableFloatFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GpsDataUncheckedUpdateManyInput = {
+  export type PositionDataUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    deviceId?: StringFieldUpdateOperationsInput | string
-    rawData?: StringFieldUpdateOperationsInput | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+    speed?: NullableFloatFieldUpdateOperationsInput | number | null
+    angle?: NullableFloatFieldUpdateOperationsInput | number | null
+    gpsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    digitalInputs?: NullableStringFieldUpdateOperationsInput | string | null
+    ignition?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilResistance?: NullableIntFieldUpdateOperationsInput | number | null
+    voltage?: NullableFloatFieldUpdateOperationsInput | number | null
+    mileage?: NullableIntFieldUpdateOperationsInput | number | null
+    temperature?: NullableFloatFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PositionDataCreateManyInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    latitude: number
+    longitude: number
+    speed?: number | null
+    angle?: number | null
+    gpsStatus?: string | null
+    digitalInputs?: string | null
+    ignition?: boolean | null
+    oilResistance?: number | null
+    voltage?: number | null
+    mileage?: number | null
+    temperature?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PositionDataUpdateManyMutationInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+    speed?: NullableFloatFieldUpdateOperationsInput | number | null
+    angle?: NullableFloatFieldUpdateOperationsInput | number | null
+    gpsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    digitalInputs?: NullableStringFieldUpdateOperationsInput | string | null
+    ignition?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilResistance?: NullableIntFieldUpdateOperationsInput | number | null
+    voltage?: NullableFloatFieldUpdateOperationsInput | number | null
+    mileage?: NullableIntFieldUpdateOperationsInput | number | null
+    temperature?: NullableFloatFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PositionDataUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+    speed?: NullableFloatFieldUpdateOperationsInput | number | null
+    angle?: NullableFloatFieldUpdateOperationsInput | number | null
+    gpsStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    digitalInputs?: NullableStringFieldUpdateOperationsInput | string | null
+    ignition?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilResistance?: NullableIntFieldUpdateOperationsInput | number | null
+    voltage?: NullableFloatFieldUpdateOperationsInput | number | null
+    mileage?: NullableIntFieldUpdateOperationsInput | number | null
+    temperature?: NullableFloatFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AlarmDataCreateInput = {
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    alarms: string
+    oilChange?: boolean | null
+    crossBorder?: boolean | null
+    overVoltage?: boolean | null
+    underVoltage?: boolean | null
+    overload?: boolean | null
+    overtimeDriving?: boolean | null
+    enterBorder?: boolean | null
+    illegalDoorOpen?: boolean | null
+    illegalStart?: boolean | null
+    vibration?: boolean | null
+    centerEnabledAlarm?: boolean | null
+    powerFailure?: boolean | null
+    parking?: boolean | null
+    overSpeed?: boolean | null
+    emergency?: boolean | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AlarmDataUncheckedCreateInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    alarms: string
+    oilChange?: boolean | null
+    crossBorder?: boolean | null
+    overVoltage?: boolean | null
+    underVoltage?: boolean | null
+    overload?: boolean | null
+    overtimeDriving?: boolean | null
+    enterBorder?: boolean | null
+    illegalDoorOpen?: boolean | null
+    illegalStart?: boolean | null
+    vibration?: boolean | null
+    centerEnabledAlarm?: boolean | null
+    powerFailure?: boolean | null
+    parking?: boolean | null
+    overSpeed?: boolean | null
+    emergency?: boolean | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AlarmDataUpdateInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    alarms?: StringFieldUpdateOperationsInput | string
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AlarmDataUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    alarms?: StringFieldUpdateOperationsInput | string
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AlarmDataCreateManyInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    alarms: string
+    oilChange?: boolean | null
+    crossBorder?: boolean | null
+    overVoltage?: boolean | null
+    underVoltage?: boolean | null
+    overload?: boolean | null
+    overtimeDriving?: boolean | null
+    enterBorder?: boolean | null
+    illegalDoorOpen?: boolean | null
+    illegalStart?: boolean | null
+    vibration?: boolean | null
+    centerEnabledAlarm?: boolean | null
+    powerFailure?: boolean | null
+    parking?: boolean | null
+    overSpeed?: boolean | null
+    emergency?: boolean | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AlarmDataUpdateManyMutationInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    alarms?: StringFieldUpdateOperationsInput | string
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AlarmDataUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    alarms?: StringFieldUpdateOperationsInput | string
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HeartbeatDataCreateInput = {
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    calibrationValue?: number | null
+    mainOrderReply?: number | null
+    slaveOrderReply?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HeartbeatDataUncheckedCreateInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    calibrationValue?: number | null
+    mainOrderReply?: number | null
+    slaveOrderReply?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HeartbeatDataUpdateInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HeartbeatDataUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HeartbeatDataCreateManyInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    calibrationValue?: number | null
+    mainOrderReply?: number | null
+    slaveOrderReply?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HeartbeatDataUpdateManyMutationInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HeartbeatDataUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrackerStatusCreateInput = {
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    samplingTime: string
+    alarmStatus?: number | null
+    located?: boolean | null
+    samplingType?: string | null
+    samplingValue?: number | null
+    sendingType?: string | null
+    carStopSetting?: number | null
+    overspeedSetting?: number | null
+    phoneLimit?: boolean | null
+    areaNodeLimit?: boolean | null
+    safeSetting?: number | null
+    longTimeDriving?: number | null
+    samplingValueAccOff?: number | null
+    emergencyAlarmSwitch?: boolean | null
+    photographRelated?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TrackerStatusUncheckedCreateInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    samplingTime: string
+    alarmStatus?: number | null
+    located?: boolean | null
+    samplingType?: string | null
+    samplingValue?: number | null
+    sendingType?: string | null
+    carStopSetting?: number | null
+    overspeedSetting?: number | null
+    phoneLimit?: boolean | null
+    areaNodeLimit?: boolean | null
+    safeSetting?: number | null
+    longTimeDriving?: number | null
+    samplingValueAccOff?: number | null
+    emergencyAlarmSwitch?: boolean | null
+    photographRelated?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TrackerStatusUpdateInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingTime?: StringFieldUpdateOperationsInput | string
+    alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    located?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    samplingType?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingValue?: NullableIntFieldUpdateOperationsInput | number | null
+    sendingType?: NullableStringFieldUpdateOperationsInput | string | null
+    carStopSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    overspeedSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    areaNodeLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    safeSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    longTimeDriving?: NullableIntFieldUpdateOperationsInput | number | null
+    samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
+    emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrackerStatusUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingTime?: StringFieldUpdateOperationsInput | string
+    alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    located?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    samplingType?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingValue?: NullableIntFieldUpdateOperationsInput | number | null
+    sendingType?: NullableStringFieldUpdateOperationsInput | string | null
+    carStopSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    overspeedSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    areaNodeLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    safeSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    longTimeDriving?: NullableIntFieldUpdateOperationsInput | number | null
+    samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
+    emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrackerStatusCreateManyInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    samplingTime: string
+    alarmStatus?: number | null
+    located?: boolean | null
+    samplingType?: string | null
+    samplingValue?: number | null
+    sendingType?: string | null
+    carStopSetting?: number | null
+    overspeedSetting?: number | null
+    phoneLimit?: boolean | null
+    areaNodeLimit?: boolean | null
+    safeSetting?: number | null
+    longTimeDriving?: number | null
+    samplingValueAccOff?: number | null
+    emergencyAlarmSwitch?: boolean | null
+    photographRelated?: number | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TrackerStatusUpdateManyMutationInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingTime?: StringFieldUpdateOperationsInput | string
+    alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    located?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    samplingType?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingValue?: NullableIntFieldUpdateOperationsInput | number | null
+    sendingType?: NullableStringFieldUpdateOperationsInput | string | null
+    carStopSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    overspeedSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    areaNodeLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    safeSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    longTimeDriving?: NullableIntFieldUpdateOperationsInput | number | null
+    samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
+    emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrackerStatusUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingTime?: StringFieldUpdateOperationsInput | string
+    alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    located?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    samplingType?: NullableStringFieldUpdateOperationsInput | string | null
+    samplingValue?: NullableIntFieldUpdateOperationsInput | number | null
+    sendingType?: NullableStringFieldUpdateOperationsInput | string | null
+    carStopSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    overspeedSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    areaNodeLimit?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    safeSetting?: NullableIntFieldUpdateOperationsInput | number | null
+    longTimeDriving?: NullableIntFieldUpdateOperationsInput | number | null
+    samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
+    emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IButtonDataCreateInput = {
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    subCommand?: number | null
+    message?: string | null
+    driverName?: string | null
+    driverId?: string | null
+    swipeData?: string | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type IButtonDataUncheckedCreateInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    subCommand?: number | null
+    message?: string | null
+    driverName?: string | null
+    driverId?: string | null
+    swipeData?: string | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type IButtonDataUpdateInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    subCommand?: NullableIntFieldUpdateOperationsInput | number | null
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    driverName?: NullableStringFieldUpdateOperationsInput | string | null
+    driverId?: NullableStringFieldUpdateOperationsInput | string | null
+    swipeData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IButtonDataUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    subCommand?: NullableIntFieldUpdateOperationsInput | number | null
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    driverName?: NullableStringFieldUpdateOperationsInput | string | null
+    driverId?: NullableStringFieldUpdateOperationsInput | string | null
+    swipeData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IButtonDataCreateManyInput = {
+    id?: number
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    subCommand?: number | null
+    message?: string | null
+    driverName?: string | null
+    driverId?: string | null
+    swipeData?: string | null
+    timestamp?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type IButtonDataUpdateManyMutationInput = {
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    subCommand?: NullableIntFieldUpdateOperationsInput | number | null
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    driverName?: NullableStringFieldUpdateOperationsInput | string | null
+    driverId?: NullableStringFieldUpdateOperationsInput | string | null
+    swipeData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type IButtonDataUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    subCommand?: NullableIntFieldUpdateOperationsInput | number | null
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    driverName?: NullableStringFieldUpdateOperationsInput | string | null
+    driverId?: NullableStringFieldUpdateOperationsInput | string | null
+    swipeData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3499,6 +11590,7 @@ export namespace Prisma {
     error?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    redis?: SortOrder
   }
 
   export type StatusAvgOrderByAggregateInput = {
@@ -3513,6 +11605,7 @@ export namespace Prisma {
     error?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    redis?: SortOrder
   }
 
   export type StatusMinOrderByAggregateInput = {
@@ -3523,6 +11616,7 @@ export namespace Prisma {
     error?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    redis?: SortOrder
   }
 
   export type StatusSumOrderByAggregateInput = {
@@ -3597,11 +11691,14 @@ export namespace Prisma {
 
   export type GpsDataCountOrderByAggregateInput = {
     id?: SortOrder
-    deviceId?: SortOrder
     rawData?: SortOrder
+    parsedData?: SortOrder
+    packetInfo?: SortOrder
+    mainCommand?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    from?: SortOrder
   }
 
   export type GpsDataAvgOrderByAggregateInput = {
@@ -3610,24 +11707,529 @@ export namespace Prisma {
 
   export type GpsDataMaxOrderByAggregateInput = {
     id?: SortOrder
-    deviceId?: SortOrder
     rawData?: SortOrder
+    parsedData?: SortOrder
+    packetInfo?: SortOrder
+    mainCommand?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    from?: SortOrder
   }
 
   export type GpsDataMinOrderByAggregateInput = {
     id?: SortOrder
-    deviceId?: SortOrder
     rawData?: SortOrder
+    parsedData?: SortOrder
+    packetInfo?: SortOrder
+    mainCommand?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    from?: SortOrder
+  }
+
+  export type GpsDataSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type PositionDataCountOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    gpsStatus?: SortOrder
+    digitalInputs?: SortOrder
+    ignition?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type GpsDataSumOrderByAggregateInput = {
+  export type PositionDataAvgOrderByAggregateInput = {
     id?: SortOrder
+    packetLength?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+  }
+
+  export type PositionDataMaxOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    gpsStatus?: SortOrder
+    digitalInputs?: SortOrder
+    ignition?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PositionDataMinOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    gpsStatus?: SortOrder
+    digitalInputs?: SortOrder
+    ignition?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PositionDataSumOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type AlarmDataCountOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    alarms?: SortOrder
+    oilChange?: SortOrder
+    crossBorder?: SortOrder
+    overVoltage?: SortOrder
+    underVoltage?: SortOrder
+    overload?: SortOrder
+    overtimeDriving?: SortOrder
+    enterBorder?: SortOrder
+    illegalDoorOpen?: SortOrder
+    illegalStart?: SortOrder
+    vibration?: SortOrder
+    centerEnabledAlarm?: SortOrder
+    powerFailure?: SortOrder
+    parking?: SortOrder
+    overSpeed?: SortOrder
+    emergency?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AlarmDataAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+  }
+
+  export type AlarmDataMaxOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    alarms?: SortOrder
+    oilChange?: SortOrder
+    crossBorder?: SortOrder
+    overVoltage?: SortOrder
+    underVoltage?: SortOrder
+    overload?: SortOrder
+    overtimeDriving?: SortOrder
+    enterBorder?: SortOrder
+    illegalDoorOpen?: SortOrder
+    illegalStart?: SortOrder
+    vibration?: SortOrder
+    centerEnabledAlarm?: SortOrder
+    powerFailure?: SortOrder
+    parking?: SortOrder
+    overSpeed?: SortOrder
+    emergency?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AlarmDataMinOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    alarms?: SortOrder
+    oilChange?: SortOrder
+    crossBorder?: SortOrder
+    overVoltage?: SortOrder
+    underVoltage?: SortOrder
+    overload?: SortOrder
+    overtimeDriving?: SortOrder
+    enterBorder?: SortOrder
+    illegalDoorOpen?: SortOrder
+    illegalStart?: SortOrder
+    vibration?: SortOrder
+    centerEnabledAlarm?: SortOrder
+    powerFailure?: SortOrder
+    parking?: SortOrder
+    overSpeed?: SortOrder
+    emergency?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AlarmDataSumOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+  }
+
+  export type HeartbeatDataCountOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HeartbeatDataAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+  }
+
+  export type HeartbeatDataMaxOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HeartbeatDataMinOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HeartbeatDataSumOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+  }
+
+  export type TrackerStatusCountOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    samplingTime?: SortOrder
+    alarmStatus?: SortOrder
+    located?: SortOrder
+    samplingType?: SortOrder
+    samplingValue?: SortOrder
+    sendingType?: SortOrder
+    carStopSetting?: SortOrder
+    overspeedSetting?: SortOrder
+    phoneLimit?: SortOrder
+    areaNodeLimit?: SortOrder
+    safeSetting?: SortOrder
+    longTimeDriving?: SortOrder
+    samplingValueAccOff?: SortOrder
+    emergencyAlarmSwitch?: SortOrder
+    photographRelated?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TrackerStatusAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+    alarmStatus?: SortOrder
+    samplingValue?: SortOrder
+    carStopSetting?: SortOrder
+    overspeedSetting?: SortOrder
+    safeSetting?: SortOrder
+    longTimeDriving?: SortOrder
+    samplingValueAccOff?: SortOrder
+    photographRelated?: SortOrder
+  }
+
+  export type TrackerStatusMaxOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    samplingTime?: SortOrder
+    alarmStatus?: SortOrder
+    located?: SortOrder
+    samplingType?: SortOrder
+    samplingValue?: SortOrder
+    sendingType?: SortOrder
+    carStopSetting?: SortOrder
+    overspeedSetting?: SortOrder
+    phoneLimit?: SortOrder
+    areaNodeLimit?: SortOrder
+    safeSetting?: SortOrder
+    longTimeDriving?: SortOrder
+    samplingValueAccOff?: SortOrder
+    emergencyAlarmSwitch?: SortOrder
+    photographRelated?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TrackerStatusMinOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    samplingTime?: SortOrder
+    alarmStatus?: SortOrder
+    located?: SortOrder
+    samplingType?: SortOrder
+    samplingValue?: SortOrder
+    sendingType?: SortOrder
+    carStopSetting?: SortOrder
+    overspeedSetting?: SortOrder
+    phoneLimit?: SortOrder
+    areaNodeLimit?: SortOrder
+    safeSetting?: SortOrder
+    longTimeDriving?: SortOrder
+    samplingValueAccOff?: SortOrder
+    emergencyAlarmSwitch?: SortOrder
+    photographRelated?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TrackerStatusSumOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+    alarmStatus?: SortOrder
+    samplingValue?: SortOrder
+    carStopSetting?: SortOrder
+    overspeedSetting?: SortOrder
+    safeSetting?: SortOrder
+    longTimeDriving?: SortOrder
+    samplingValueAccOff?: SortOrder
+    photographRelated?: SortOrder
+  }
+
+  export type IButtonDataCountOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    subCommand?: SortOrder
+    message?: SortOrder
+    driverName?: SortOrder
+    driverId?: SortOrder
+    swipeData?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type IButtonDataAvgOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+    subCommand?: SortOrder
+  }
+
+  export type IButtonDataMaxOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    subCommand?: SortOrder
+    message?: SortOrder
+    driverName?: SortOrder
+    driverId?: SortOrder
+    swipeData?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type IButtonDataMinOrderByAggregateInput = {
+    id?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    subCommand?: SortOrder
+    message?: SortOrder
+    driverName?: SortOrder
+    driverId?: SortOrder
+    swipeData?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type IButtonDataSumOrderByAggregateInput = {
+    id?: SortOrder
+    packetLength?: SortOrder
+    subCommand?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3648,6 +12250,34 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -3784,6 +12414,78 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
 

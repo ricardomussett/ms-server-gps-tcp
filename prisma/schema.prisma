@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -22,13 +16,122 @@ model Status {
   error     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  redis     String   @default("connected")
 }
 
 model GpsData {
-  id        Int      @id @default(autoincrement())
-  deviceId  String
-  rawData   String
-  timestamp DateTime @default(now())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  rawData     String
+  parsedData  String?
+  packetInfo  String?
+  mainCommand String?
+  timestamp   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  from        String
+}
+
+model PositionData {
+  id          Int      @id @default(autoincrement())
+  mainCommand String?
+  packetLength Int?
+  pseudoIP    String?
+  rawData     String?
+  latitude    Float
+  longitude   Float
+  speed       Float?
+  angle       Float?
+  gpsStatus   String?
+  digitalInputs String?
+  ignition    Boolean?
+  oilResistance Int?
+  voltage     Float?
+  mileage     Int?
+  temperature Float?
+  timestamp   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model AlarmData {
+  id          Int      @id @default(autoincrement())
+  mainCommand String?
+  packetLength Int?
+  pseudoIP    String?
+  rawData     String?
+  alarms      String
+  oilChange   Boolean?
+  crossBorder Boolean?
+  overVoltage Boolean?
+  underVoltage Boolean?
+  overload    Boolean?
+  overtimeDriving Boolean?
+  enterBorder Boolean?
+  illegalDoorOpen Boolean?
+  illegalStart Boolean?
+  vibration   Boolean?
+  centerEnabledAlarm Boolean?
+  powerFailure Boolean?
+  parking     Boolean?
+  overSpeed   Boolean?
+  emergency   Boolean?
+  timestamp   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model HeartbeatData {
+  id              Int      @id @default(autoincrement())
+  mainCommand     String?
+  packetLength    Int?
+  pseudoIP        String?
+  rawData         String?
+  calibrationValue Int?
+  mainOrderReply  Int?
+  slaveOrderReply Int?
+  timestamp   DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model TrackerStatus {
+  id                Int      @id @default(autoincrement())
+  mainCommand       String?
+  packetLength      Int?
+  pseudoIP          String?
+  rawData           String?
+  samplingTime      String
+  alarmStatus       Int?
+  located           Boolean?
+  samplingType      String?
+  samplingValue     Int?
+  sendingType       String?
+  carStopSetting    Int?
+  overspeedSetting  Int?
+  phoneLimit        Boolean?
+  areaNodeLimit     Boolean?
+  safeSetting       Int?
+  longTimeDriving   Int?
+  samplingValueAccOff Int?
+  emergencyAlarmSwitch Boolean?
+  photographRelated Int?
+  timestamp   DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model IButtonData {
+  id          Int      @id @default(autoincrement())
+  mainCommand String?
+  packetLength Int?
+  pseudoIP    String?
+  rawData     String?
+  subCommand  Int?
+  message     String?
+  driverName  String?
+  driverId    String?
+  swipeData   String?
+  timestamp   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
