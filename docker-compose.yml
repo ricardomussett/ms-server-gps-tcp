@@ -9,9 +9,9 @@ services:
     environment:
       - PORT=${PORT}
       - TCP_PORT=${TCP_PORT}
-      - DATABASE_URL=postgresql://postgres:postgres@172.16.5.199:5432/msservergpstcp?schema=public
-      - REDIS_HOST=172.16.5.199
-      - REDIS_PORT=6379
+      - DATABASE_URL=postgresql://postgres:postgres@${DATABASE_URL}/msservergpstcp?schema=public
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
     networks:
       - postgres_network
     restart: unless-stopped
