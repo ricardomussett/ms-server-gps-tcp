@@ -285,7 +285,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:postgres@localhost:5432/msservergpstcp?schema=public"
+        "value": "postgresql://postgres:postgres@172.16.5.199:5432/msservergpstcp?schema=public"
       }
     }
   },
