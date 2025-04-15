@@ -35,6 +35,10 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
 
       socket.on('data', async (data: Buffer) => {
         try {
+          // data [Nest] 18  - 04/15/2025, 8:46:40 PM     LOG [TcpService] Datos recibidos (hex): 24242100066204c724a20d
+          // Imprimir datos de entrada en formato hexadecimal
+          this.logger.log(`Datos recibidos (hex): ${data.toString('hex')}`);
+          this.logger.log(`Datos recibidos (raw): ${data.toString()}`);
 
           // validar longitud del paquete
           if (data.length < 6) {
@@ -53,12 +57,15 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           const length = data.readUInt16BE(3);
           const pseudoIp = data.slice(5, 9);
           const payload = data.slice(9, 9 + length);
-          const checksum = data[9 + length];
-          const footer = data[9 + length + 1];
+          const checksum = data[data.length - 2];  // Checksum es el penúltimo byte
+          const footer = data[data.length - 1];    // Footer es el último byte
+
+          // Log de depuración
+          this.logger.log(`Packet info - Type: ${packetType}, Length: ${length}, Footer position: ${data.length - 1}, Footer value: ${footer.toString(16)}`);
 
           // Verificar footer
           if (footer !== 0x0D) {
-            this.logger.warn(`Paquete inválido recibido de ${clientId}: Footer incorrecto`);
+            this.logger.warn(`Paquete inválido recibido de ${clientId}: Footer incorrecto (${footer.toString(16)})`);
             return;
           }
 
