@@ -44,18 +44,53 @@ export class StatusService {
     this.connectRedis();
   }
 
+  /**
+   * Intenta establecer una conexión con el servidor Redis
+   * Solo intenta conectar si el cliente no está ya conectado
+   * 
+   * @private
+   * @async
+   * @returns {Promise<void>}
+   * 
+   * @description
+   * - Verifica si el cliente Redis está abierto
+   * - Si no está abierto, intenta establecer la conexión
+   * - Actualiza el estado de la conexión (redisConnected)
+   * - En caso de error, registra el error y marca la conexión como fallida
+   */
   private async connectRedis() {
     try {
+      // Verificar si el cliente ya está conectado
       if (!this.redisClient.isOpen) {
+        // Intentar establecer la conexión
         await this.redisClient.connect();
         this.redisConnected = true;
       }
     } catch (error) {
+      // Registrar el error y marcar como desconectado
       console.error('Error al conectar a Redis:', error);
       this.redisConnected = false;
     }
   }
 
+  /**
+   * Verifica y registra el estado de las conexiones del sistema
+   * 
+   * Este método realiza las siguientes acciones:
+   * 1. Verifica la conexión a la base de datos mediante una consulta simple
+   * 2. Verifica la conexión a Redis usando checkRedisConnection()
+   * 3. Crea un registro en la base de datos con el estado de las conexiones
+   * 4. En caso de error:
+   *    - Registra el error en consola
+   *    - Crea un registro de error en la base de datos
+   * 
+   * @returns {Promise<Object>} Objeto con el estado del sistema que incluye:
+   *  - status: Estado general del sistema ('active' o 'error')
+   *  - database: Estado de la conexión a la base de datos ('connected' o 'disconnected') 
+   *  - redis: Estado de la conexión a Redis ('connected' o 'disconnected')
+   *  - error?: Mensaje de error si ocurrió alguno
+   *  - timestamp: Fecha y hora del registro
+   */
   async status() {
     try {
       // Verificamos la conexión a la base de datos
@@ -102,24 +137,41 @@ export class StatusService {
     }
   }
 
+  /**
+   * Verifica el estado de la conexión con Redis
+   * 
+   * Este método realiza las siguientes acciones:
+   * 1. Si el cliente Redis está abierto:
+   *    - Intenta hacer un ping con un timeout de 1 segundo
+   *    - Si el ping es exitoso, marca la conexión como activa
+   * 2. Si el cliente está cerrado:
+   *    - Intenta reconectar usando connectRedis()
+   * 3. En caso de error:
+   *    - Registra el error y marca la conexión como inactiva
+   * 
+   * @returns {Promise<string>} Estado de la conexión ('connected' o 'disconnected')
+   */
   private async checkRedisConnection(): Promise<string> {
     try {
-      // Si el cliente está abierto, intentamos hacer ping
+      // Verificamos si el cliente Redis está abierto
       if (this.redisClient.isOpen) {
+        // Creamos una promesa para el ping con timeout de 1 segundo
         const pingPromise = this.redisClient.ping();
         const timeoutPromise = new Promise((_, reject) => 
           setTimeout(() => reject(new Error('Timeout')), 1000)
         );
         
+        // Ejecutamos el ping con timeout
         await Promise.race([pingPromise, timeoutPromise]);
         this.redisConnected = true;
         return 'connected';
       }
 
-      // Si no está abierto, intentamos reconectar
+      // Si el cliente está cerrado, intentamos reconectar
       await this.connectRedis();
       return this.redisConnected ? 'connected' : 'disconnected';
     } catch (error) {
+      // En caso de error, registramos y marcamos como desconectado
       console.error('Error de conexión a Redis:', error);
       this.redisConnected = false;
       return 'disconnected';
