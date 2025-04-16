@@ -9,9 +9,9 @@ services:
     environment:
       - PORT=${PORT}
       - TCP_PORT=${TCP_PORT}
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/msservergpstcp?schema=public
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
     networks:
       - postgres_network
     depends_on:
