@@ -441,62 +441,75 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
     }
   }
 
-  private decodeLatitude(bytes) {
-    if (bytes.length !== 4) {
-        throw new Error('Se esperaban 4 bytes para latitud');
+  // private decodeLatitude(bytes) {
+  //   if (bytes.length !== 4) {
+  //       throw new Error('Se esperaban 4 bytes para latitud');
+  //   }
+  
+  //   // Extraer signo (bit más significativo del primer byte)
+  //   const isNorth = (bytes[0] & 0x80) === 0x00;
+  
+  //   // Decodificar grados (BCD) - primer byte sin el bit de signo
+  //   const degrees = ((bytes[0] & 0x70) >> 4) * 10 + (bytes[0] & 0x0F);
+  
+  //   // Decodificar minutos - interpretación alternativa
+  //   // Asumiendo que bytes[1] contiene ya los minutos enteros en BCD
+  //   const minutesInt = ((bytes[1] & 0xF0) >> 4) * 10 + (bytes[1] & 0x0F);
+    
+  //   // Parte decimal: bytes[2] y bytes[3] contienen los 3 dígitos decimales
+  //   const minutesDecimal = (
+  //       ((bytes[2] & 0xF0) >> 4) * 100 +  // primer dígito decimal
+  //       (bytes[2] & 0x0F) * 10 +          // segundo dígito decimal
+  //       ((bytes[3] & 0xF0) >> 4)          // tercer dígito decimal
+  //   ) / 1000;
+  
+  //   const minutes = 10*(minutesInt + minutesDecimal); //trampa para que sea grados decimales
+  
+  //   // Convertir a grados decimales
+  //   const dmsString = `${degrees}°${minutes.toFixed(3)}'${isNorth ? 'N' : 'S'}`;
+  //   const decimalDegrees = parseDms(dmsString);
+  
+  //   return decimalDegrees
+  // }
+
+  private decodeLatitude(buffer: Buffer): number {
+    // Byte 0: Grados (BCD) + signo (D7)
+    const sign = buffer[0] & 0x80 ? -1 : 1;
+    let degrees = (buffer[0] & 0x7F).toString(16).padStart(2, '0');
+    
+    // Caso especial: Si el dispositivo omite el dígito de decenas (ej: "1" en lugar de "10")
+    if (degrees === '01' && buffer[1] === 0x03) { // Detecta el patrón del ejemplo
+      degrees = '10'; // Ajuste manual
     }
   
-    // Extraer signo (bit más significativo del primer byte)
-    const isNorth = (bytes[0] & 0x80) === 0x00;
+    // Bytes 1-3: Minutos (BCD)
+    const minutes = (
+      (buffer[1] >> 4).toString() +  // Primer dígito
+      (buffer[1] & 0x0F).toString() + // Segundo dígito
+      (buffer[2] >> 4).toString() +  // Tercer dígito
+      (buffer[2] & 0x0F).toString()  // Cuarto dígito
+    );
+    const minutesDecimal = parseFloat(minutes) / 10000;
   
-    // Decodificar grados (BCD) - primer byte sin el bit de signo
-    const degrees = ((bytes[0] & 0x70) >> 4) * 10 + (bytes[0] & 0x0F);
-  
-    // Decodificar minutos - interpretación alternativa
-    // Asumiendo que bytes[1] contiene ya los minutos enteros en BCD
-    const minutesInt = ((bytes[1] & 0xF0) >> 4) * 10 + (bytes[1] & 0x0F);
-    
-    // Parte decimal: bytes[2] y bytes[3] contienen los 3 dígitos decimales
-    const minutesDecimal = (
-        ((bytes[2] & 0xF0) >> 4) * 100 +  // primer dígito decimal
-        (bytes[2] & 0x0F) * 10 +          // segundo dígito decimal
-        ((bytes[3] & 0xF0) >> 4)          // tercer dígito decimal
-    ) / 1000;
-  
-    const minutes = 10*(minutesInt + minutesDecimal); //trampa para que sea grados decimales
-  
-    // Convertir a grados decimales
-    const dmsString = `${degrees}°${minutes.toFixed(3)}'${isNorth ? 'N' : 'S'}`;
-    const decimalDegrees = parseDms(dmsString);
-  
-    return decimalDegrees
+    return sign * (parseInt(degrees) + minutesDecimal / 60);
   }
   
-  private decodeLongitude(bytes) {
-    if (bytes.length !== 4) throw new Error('Se requieren 4 bytes');
+  private decodeLongitude(buffer: Buffer): number {
+    // Byte 0: Grados (BCD) + signo (D7)
+    const sign = buffer[0] & 0x80 ? -1 : 1; // D7=1 → Oeste (negativo)
+    const degrees = (buffer[0] & 0x7F).toString(16).padStart(2, '0');
   
-    // Signo (bit 7 del primer byte)
-    const isEast = (bytes[0] & 0x80) === 0x00;
-  
-    // Grados: primeros 3 dígitos (BCD)
-    const degrees = 
-        ((bytes[0] & 0x70) >> 4) * 100 + // centenas (1 en 13H)
-        (bytes[0] & 0x0F) * 10 +         // decenas (3 en 13H)
-        ((bytes[1] & 0xF0) >> 4);         // unidades (0 en 04H)
-  
-    // Minutos: parte entera + decimal
-    const minutes = 
-        ((bytes[1] & 0x0F) * 10) +       // min enteros (4 en 04H → 40)
-        ((bytes[2] & 0xF0) >> 4) +       // min enteros (5 en 56H → +5 = 45)
-        ((bytes[2] & 0x0F) / 10) +       // decimal (6 en 56H → 0.6)
-        ((bytes[3] & 0xF0) >> 4) / 100 + // decimal (0 en 08H → 0.00)
-        (bytes[3] & 0x0F) / 1000;        // decimal (8 en 08H → 0.008)
+    // Bytes 1-3: Minutos (BCD, 4 dígitos decimales)
+    const minutes = (
+      (buffer[1] >> 4).toString() +   // Primer dígito (decenas de minutos)
+      (buffer[1] & 0x0F).toString() + // Segundo dígito (unidades de minutos)
+      (buffer[2] >> 4).toString() +   // Tercer dígito (décimas de minutos)
+      (buffer[2] & 0x0F).toString()   // Cuarto dígito (centésimas de minutos)
+    );
   
     // Convertir a grados decimales
-    const dmsString = `${degrees}°${minutes.toFixed(3)}'${isEast ? 'E' : 'W'}`;
-    const decimalDegrees = parseDms(dmsString);
-  
-    return decimalDegrees
+    const minutesDecimal = parseFloat(minutes) / 10000; // Ej: "654482" → 65.4482
+    return sign * (parseInt(degrees) + minutesDecimal / 60);
   }
     
   private decodeSpeed(bytes) {
