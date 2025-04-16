@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bull';
 import { redisConfig } from '../config/redis.config';
 import { GpsDataProcessor } from './gps-data.processor';
-import { QueueService } from './queue.service';
+import { QueueService } from './service/queue.service';
 import { PrismaModule } from '../prisma/prisma.module';
 
 
