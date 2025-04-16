@@ -473,43 +473,38 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
   // }
 
   private decodeLatitude(buffer: Buffer): number {
-    // Byte 0: Grados (BCD) + signo (D7)
+    if (buffer.length < 4) return 0; // Validación básica
+  
     const sign = buffer[0] & 0x80 ? -1 : 1;
-    let degrees = (buffer[0] & 0x7F).toString(16).padStart(2, '0');
+    const degrees = (buffer[0] & 0x7F).toString(16).padStart(2, '0');
     
-    // Caso especial: Si el dispositivo omite el dígito de decenas (ej: "1" en lugar de "10")
-    if (degrees === '01' && buffer[1] === 0x03) { // Detecta el patrón del ejemplo
-      degrees = '10'; // Ajuste manual
-    }
-  
-    // Bytes 1-3: Minutos (BCD)
-    const minutes = (
-      (buffer[1] >> 4).toString() +  // Primer dígito
-      (buffer[1] & 0x0F).toString() + // Segundo dígito
-      (buffer[2] >> 4).toString() +  // Tercer dígito
-      (buffer[2] & 0x0F).toString()  // Cuarto dígito
+    // Bytes 1-3: Minutos en BCD (4 dígitos)
+    const minutesBCD = (
+      (buffer[1] >> 4).toString() +
+      (buffer[1] & 0x0F).toString() +
+      (buffer[2] >> 4).toString() +
+      (buffer[2] & 0x0F).toString()
     );
-    const minutesDecimal = parseFloat(minutes) / 10000;
+    const minutes = parseFloat(minutesBCD) / 10000;
   
-    return sign * (parseInt(degrees) + minutesDecimal / 60);
+    return sign * (parseInt(degrees) + minutes / 60);
   }
   
   private decodeLongitude(buffer: Buffer): number {
-    // Byte 0: Grados (BCD) + signo (D7)
-    const sign = buffer[0] & 0x80 ? -1 : 1; // D7=1 → Oeste (negativo)
+    if (buffer.length < 4) return 0; // Validación básica
+  
+    const sign = buffer[0] & 0x80 ? -1 : 1;
     const degrees = (buffer[0] & 0x7F).toString(16).padStart(2, '0');
   
-    // Bytes 1-3: Minutos (BCD, 4 dígitos decimales)
-    const minutes = (
-      (buffer[1] >> 4).toString() +   // Primer dígito (decenas de minutos)
-      (buffer[1] & 0x0F).toString() + // Segundo dígito (unidades de minutos)
-      (buffer[2] >> 4).toString() +   // Tercer dígito (décimas de minutos)
-      (buffer[2] & 0x0F).toString()   // Cuarto dígito (centésimas de minutos)
+    const minutesBCD = (
+      (buffer[1] >> 4).toString() +
+      (buffer[1] & 0x0F).toString() +
+      (buffer[2] >> 4).toString() +
+      (buffer[2] & 0x0F).toString()
     );
+    const minutes = parseFloat(minutesBCD) / 10000;
   
-    // Convertir a grados decimales
-    const minutesDecimal = parseFloat(minutes) / 10000; // Ej: "654482" → 65.4482
-    return sign * (parseInt(degrees) + minutesDecimal / 60);
+    return sign * (parseInt(degrees) + minutes / 60);
   }
     
   private decodeSpeed(bytes) {
