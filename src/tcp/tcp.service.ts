@@ -55,8 +55,8 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           // Extraer información del paquete
           const packetType = data[2];
           const length = data.readUInt16BE(3);
-          const pseudoIp = data.slice(5, 9);
-          const payload = data.slice(9, 9 + length);
+          const pseudoIp = data.subarray(5, 9);
+          const payload = data.subarray(9, 9 + length);
           const checksum = data[data.length - 2];  // Checksum es el penúltimo byte
           const footer = data[data.length - 1];    // Footer es el último byte
 
@@ -70,7 +70,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           }
 
           // Verificar checksum
-          const calculatedChecksum = this.calculateXor(data.slice(2, 9 + length));
+          const calculatedChecksum = this.calculateXor(data.subarray(2, data.length - 2));
           if (calculatedChecksum !== checksum) {
             this.logger.warn(`Paquete inválido recibido de ${clientId}: Checksum incorrecto`);
             return;
@@ -122,10 +122,12 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
   }
 
   private calculateXor(buffer: Buffer): number {
+    console.log(buffer);
     let checksum = 0;
     for (let i = 0; i < buffer.length; i++) {
       checksum ^= buffer[i];
     }
+    console.log('checksum', checksum);
     return checksum;
   }
 
@@ -207,22 +209,22 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
 
   private parsePositionData(buffer: Buffer, result: any) {
     // Position data starts at byte 9 (after 24 24 cmd 00 len pseudoIP)
-    const posData = buffer.slice(9, 9 + 35); // 35 bytes position data
+    const posData = buffer.subarray(9, 9 + 35); // 35 bytes position data
     
     // Parse date and time (6 bytes)
-    result.timestamp = this.decodeTimestamp(posData.slice(0, 6));
+    result.timestamp = this.decodeTimestamp(posData.subarray(0, 6));
     
     // Parse latitude (4 bytes)
-    result.latitude = this.decodeLatitude(posData.slice(6, 10));
+    result.latitude = this.decodeLatitude(posData.subarray(6, 10));
     
     // Parse longitude (4 bytes)
-    result.longitude = this.decodeLongitude(posData.slice(10, 14));
+    result.longitude = this.decodeLongitude(posData.subarray(10, 14));
 
     // Parse speed (2 bytes) in km/h
-    result.speed = this.decodeSpeed(posData.slice(14, 16));
+    result.speed = this.decodeSpeed(posData.subarray(14, 16));
  
     // Parse angle (2 bytes) in degrees
-    result.angle = this.decodeAngle(posData.slice(16, 18));
+    result.angle = this.decodeAngle(posData.subarray(16, 18));
     
     // GPS status (1 byte)
     const gpsStatus = posData[18];
@@ -239,18 +241,18 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
     result.ignition = this.decodeIgnition(posData[20])
     
     // Analog inputs (4 bytes - 2 for oil, 2 for voltage)
-    result.oilResistance = this.decodeOilResistance(posData.slice(21, 23));
-    result.voltage = this.decodeVoltage(posData.slice(23, 25));
+    result.oilResistance = this.decodeOilResistance(posData.subarray(21, 23));
+    result.voltage = this.decodeVoltage(posData.subarray(23, 25));
     
     // Mileage (4 bytes) in meters
-    result.mileage = this.decodeMileage(posData.slice(25, 29));
+    result.mileage = this.decodeMileage(posData.subarray(25, 29));
     
     // Temperature (2 bytes)
     result.temperature = this.decodeTemperature(posData[29]);
     
     // Extended data if available
     if (buffer.length > 36) {
-      this.parseExtendedData(buffer.slice(36), result);
+      this.parseExtendedData(buffer.subarray(36), result);
     }
   }
 
@@ -297,9 +299,9 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
     switch (subSignal) {
       case 0x03: // Temperature sensors 2,3,4 and weight
         result.extended = {
-          temperature2: this.parseTemperature(buffer.slice(5, 7)),
-          temperature3: this.parseTemperature(buffer.slice(7, 9)),
-          temperature4: this.parseTemperature(buffer.slice(9, 11)),
+          temperature2: this.parseTemperature(buffer.subarray(5, 7)),
+          temperature3: this.parseTemperature(buffer.subarray(7, 9)),
+          temperature4: this.parseTemperature(buffer.subarray(9, 11)),
           weight: (buffer[11] << 8) | buffer[12],
         };
         break;
