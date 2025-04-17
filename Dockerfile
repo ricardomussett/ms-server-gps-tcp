@@ -13,7 +13,7 @@ RUN npm install -g pnpm
 COPY package.json pnpm-lock.yaml ./
 
 # Instalar dependencias
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 
 # Copiar schema de Prisma y generar cliente
 COPY prisma ./prisma
