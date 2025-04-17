@@ -2506,37 +2506,37 @@ export namespace Prisma {
   export type GpsDataMinAggregateOutputType = {
     id: number | null
     rawData: string | null
-    parsedData: string | null
-    packetInfo: string | null
-    mainCommand: string | null
     timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     from: string | null
+    mainCommand: string | null
+    parsedData: string | null
+    packetInfo: string | null
   }
 
   export type GpsDataMaxAggregateOutputType = {
     id: number | null
     rawData: string | null
-    parsedData: string | null
-    packetInfo: string | null
-    mainCommand: string | null
     timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     from: string | null
+    mainCommand: string | null
+    parsedData: string | null
+    packetInfo: string | null
   }
 
   export type GpsDataCountAggregateOutputType = {
     id: number
     rawData: number
-    parsedData: number
-    packetInfo: number
-    mainCommand: number
     timestamp: number
     createdAt: number
     updatedAt: number
     from: number
+    mainCommand: number
+    parsedData: number
+    packetInfo: number
     _all: number
   }
 
@@ -2552,37 +2552,37 @@ export namespace Prisma {
   export type GpsDataMinAggregateInputType = {
     id?: true
     rawData?: true
-    parsedData?: true
-    packetInfo?: true
-    mainCommand?: true
     timestamp?: true
     createdAt?: true
     updatedAt?: true
     from?: true
+    mainCommand?: true
+    parsedData?: true
+    packetInfo?: true
   }
 
   export type GpsDataMaxAggregateInputType = {
     id?: true
     rawData?: true
-    parsedData?: true
-    packetInfo?: true
-    mainCommand?: true
     timestamp?: true
     createdAt?: true
     updatedAt?: true
     from?: true
+    mainCommand?: true
+    parsedData?: true
+    packetInfo?: true
   }
 
   export type GpsDataCountAggregateInputType = {
     id?: true
     rawData?: true
-    parsedData?: true
-    packetInfo?: true
-    mainCommand?: true
     timestamp?: true
     createdAt?: true
     updatedAt?: true
     from?: true
+    mainCommand?: true
+    parsedData?: true
+    packetInfo?: true
     _all?: true
   }
 
@@ -2675,13 +2675,13 @@ export namespace Prisma {
   export type GpsDataGroupByOutputType = {
     id: number
     rawData: string
-    parsedData: string | null
-    packetInfo: string | null
-    mainCommand: string | null
     timestamp: Date
     createdAt: Date
     updatedAt: Date
     from: string
+    mainCommand: string | null
+    parsedData: string | null
+    packetInfo: string | null
     _count: GpsDataCountAggregateOutputType | null
     _avg: GpsDataAvgAggregateOutputType | null
     _sum: GpsDataSumAggregateOutputType | null
@@ -2706,52 +2706,52 @@ export namespace Prisma {
   export type GpsDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     rawData?: boolean
-    parsedData?: boolean
-    packetInfo?: boolean
-    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     from?: boolean
+    mainCommand?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
   }, ExtArgs["result"]["gpsData"]>
 
   export type GpsDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     rawData?: boolean
-    parsedData?: boolean
-    packetInfo?: boolean
-    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     from?: boolean
+    mainCommand?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
   }, ExtArgs["result"]["gpsData"]>
 
   export type GpsDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     rawData?: boolean
-    parsedData?: boolean
-    packetInfo?: boolean
-    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     from?: boolean
+    mainCommand?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
   }, ExtArgs["result"]["gpsData"]>
 
   export type GpsDataSelectScalar = {
     id?: boolean
     rawData?: boolean
-    parsedData?: boolean
-    packetInfo?: boolean
-    mainCommand?: boolean
     timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     from?: boolean
+    mainCommand?: boolean
+    parsedData?: boolean
+    packetInfo?: boolean
   }
 
-  export type GpsDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rawData" | "parsedData" | "packetInfo" | "mainCommand" | "timestamp" | "createdAt" | "updatedAt" | "from", ExtArgs["result"]["gpsData"]>
+  export type GpsDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rawData" | "timestamp" | "createdAt" | "updatedAt" | "from" | "mainCommand" | "parsedData" | "packetInfo", ExtArgs["result"]["gpsData"]>
 
   export type $GpsDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "GpsData"
@@ -2759,13 +2759,13 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       rawData: string
-      parsedData: string | null
-      packetInfo: string | null
-      mainCommand: string | null
       timestamp: Date
       createdAt: Date
       updatedAt: Date
       from: string
+      mainCommand: string | null
+      parsedData: string | null
+      packetInfo: string | null
     }, ExtArgs["result"]["gpsData"]>
     composites: {}
   }
@@ -3191,13 +3191,13 @@ export namespace Prisma {
   interface GpsDataFieldRefs {
     readonly id: FieldRef<"GpsData", 'Int'>
     readonly rawData: FieldRef<"GpsData", 'String'>
-    readonly parsedData: FieldRef<"GpsData", 'String'>
-    readonly packetInfo: FieldRef<"GpsData", 'String'>
-    readonly mainCommand: FieldRef<"GpsData", 'String'>
     readonly timestamp: FieldRef<"GpsData", 'DateTime'>
     readonly createdAt: FieldRef<"GpsData", 'DateTime'>
     readonly updatedAt: FieldRef<"GpsData", 'DateTime'>
     readonly from: FieldRef<"GpsData", 'String'>
+    readonly mainCommand: FieldRef<"GpsData", 'String'>
+    readonly parsedData: FieldRef<"GpsData", 'String'>
+    readonly packetInfo: FieldRef<"GpsData", 'String'>
   }
     
 
@@ -3578,7 +3578,6 @@ export namespace Prisma {
 
   export type PositionDataAvgAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     latitude: number | null
     longitude: number | null
     speed: number | null
@@ -3587,11 +3586,11 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
+    packetLength: number | null
   }
 
   export type PositionDataSumAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     latitude: number | null
     longitude: number | null
     speed: number | null
@@ -3600,14 +3599,12 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
+    packetLength: number | null
   }
 
   export type PositionDataMinAggregateOutputType = {
     id: number | null
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string | null
     latitude: number | null
     longitude: number | null
     speed: number | null
@@ -3619,17 +3616,18 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
-    timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date | null
   }
 
   export type PositionDataMaxAggregateOutputType = {
     id: number | null
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string | null
     latitude: number | null
     longitude: number | null
     speed: number | null
@@ -3641,17 +3639,18 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
-    timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date | null
   }
 
   export type PositionDataCountAggregateOutputType = {
     id: number
-    mainCommand: number
-    packetLength: number
-    pseudoIP: number
-    rawData: number
+    clientId: number
     latitude: number
     longitude: number
     speed: number
@@ -3663,16 +3662,19 @@ export namespace Prisma {
     voltage: number
     mileage: number
     temperature: number
-    timestamp: number
     createdAt: number
     updatedAt: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    timestamp: number
     _all: number
   }
 
 
   export type PositionDataAvgAggregateInputType = {
     id?: true
-    packetLength?: true
     latitude?: true
     longitude?: true
     speed?: true
@@ -3681,11 +3683,11 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
+    packetLength?: true
   }
 
   export type PositionDataSumAggregateInputType = {
     id?: true
-    packetLength?: true
     latitude?: true
     longitude?: true
     speed?: true
@@ -3694,14 +3696,12 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
+    packetLength?: true
   }
 
   export type PositionDataMinAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     latitude?: true
     longitude?: true
     speed?: true
@@ -3713,17 +3713,18 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
   }
 
   export type PositionDataMaxAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     latitude?: true
     longitude?: true
     speed?: true
@@ -3735,17 +3736,18 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
   }
 
   export type PositionDataCountAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     latitude?: true
     longitude?: true
     speed?: true
@@ -3757,9 +3759,13 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
     _all?: true
   }
 
@@ -3851,10 +3857,7 @@ export namespace Prisma {
 
   export type PositionDataGroupByOutputType = {
     id: number
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string
     latitude: number
     longitude: number
     speed: number | null
@@ -3866,9 +3869,13 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
-    timestamp: Date
     createdAt: Date
     updatedAt: Date
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date
     _count: PositionDataCountAggregateOutputType | null
     _avg: PositionDataAvgAggregateOutputType | null
     _sum: PositionDataSumAggregateOutputType | null
@@ -3892,10 +3899,7 @@ export namespace Prisma {
 
   export type PositionDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     latitude?: boolean
     longitude?: boolean
     speed?: boolean
@@ -3907,17 +3911,18 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["positionData"]>
 
   export type PositionDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     latitude?: boolean
     longitude?: boolean
     speed?: boolean
@@ -3929,17 +3934,18 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["positionData"]>
 
   export type PositionDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     latitude?: boolean
     longitude?: boolean
     speed?: boolean
@@ -3951,17 +3957,18 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["positionData"]>
 
   export type PositionDataSelectScalar = {
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     latitude?: boolean
     longitude?: boolean
     speed?: boolean
@@ -3973,22 +3980,23 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }
 
-  export type PositionDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "latitude" | "longitude" | "speed" | "angle" | "gpsStatus" | "digitalInputs" | "ignition" | "oilResistance" | "voltage" | "mileage" | "temperature" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["positionData"]>
+  export type PositionDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "latitude" | "longitude" | "speed" | "angle" | "gpsStatus" | "digitalInputs" | "ignition" | "oilResistance" | "voltage" | "mileage" | "temperature" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["positionData"]>
 
   export type $PositionDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PositionData"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      mainCommand: string | null
-      packetLength: number | null
-      pseudoIP: string | null
-      rawData: string | null
+      clientId: string
       latitude: number
       longitude: number
       speed: number | null
@@ -4000,9 +4008,13 @@ export namespace Prisma {
       voltage: number | null
       mileage: number | null
       temperature: number | null
-      timestamp: Date
       createdAt: Date
       updatedAt: Date
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      timestamp: Date
     }, ExtArgs["result"]["positionData"]>
     composites: {}
   }
@@ -4427,10 +4439,7 @@ export namespace Prisma {
    */
   interface PositionDataFieldRefs {
     readonly id: FieldRef<"PositionData", 'Int'>
-    readonly mainCommand: FieldRef<"PositionData", 'String'>
-    readonly packetLength: FieldRef<"PositionData", 'Int'>
-    readonly pseudoIP: FieldRef<"PositionData", 'String'>
-    readonly rawData: FieldRef<"PositionData", 'String'>
+    readonly clientId: FieldRef<"PositionData", 'String'>
     readonly latitude: FieldRef<"PositionData", 'Float'>
     readonly longitude: FieldRef<"PositionData", 'Float'>
     readonly speed: FieldRef<"PositionData", 'Float'>
@@ -4442,9 +4451,13 @@ export namespace Prisma {
     readonly voltage: FieldRef<"PositionData", 'Float'>
     readonly mileage: FieldRef<"PositionData", 'Int'>
     readonly temperature: FieldRef<"PositionData", 'Float'>
-    readonly timestamp: FieldRef<"PositionData", 'DateTime'>
     readonly createdAt: FieldRef<"PositionData", 'DateTime'>
     readonly updatedAt: FieldRef<"PositionData", 'DateTime'>
+    readonly mainCommand: FieldRef<"PositionData", 'String'>
+    readonly packetLength: FieldRef<"PositionData", 'Int'>
+    readonly pseudoIP: FieldRef<"PositionData", 'String'>
+    readonly rawData: FieldRef<"PositionData", 'String'>
+    readonly timestamp: FieldRef<"PositionData", 'DateTime'>
   }
     
 
@@ -4835,83 +4848,86 @@ export namespace Prisma {
 
   export type AlarmDataMinAggregateOutputType = {
     id: number | null
+    clientId: string | null
+    alarms: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
     rawData: string | null
-    alarms: string | null
-    oilChange: boolean | null
+    centerEnabledAlarm: boolean | null
     crossBorder: boolean | null
-    overVoltage: boolean | null
-    underVoltage: boolean | null
-    overload: boolean | null
-    overtimeDriving: boolean | null
+    emergency: boolean | null
     enterBorder: boolean | null
     illegalDoorOpen: boolean | null
     illegalStart: boolean | null
-    vibration: boolean | null
-    centerEnabledAlarm: boolean | null
-    powerFailure: boolean | null
-    parking: boolean | null
+    oilChange: boolean | null
     overSpeed: boolean | null
-    emergency: boolean | null
+    overVoltage: boolean | null
+    overload: boolean | null
+    overtimeDriving: boolean | null
+    parking: boolean | null
+    powerFailure: boolean | null
+    underVoltage: boolean | null
+    vibration: boolean | null
     timestamp: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type AlarmDataMaxAggregateOutputType = {
     id: number | null
+    clientId: string | null
+    alarms: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
     rawData: string | null
-    alarms: string | null
-    oilChange: boolean | null
+    centerEnabledAlarm: boolean | null
     crossBorder: boolean | null
-    overVoltage: boolean | null
-    underVoltage: boolean | null
-    overload: boolean | null
-    overtimeDriving: boolean | null
+    emergency: boolean | null
     enterBorder: boolean | null
     illegalDoorOpen: boolean | null
     illegalStart: boolean | null
-    vibration: boolean | null
-    centerEnabledAlarm: boolean | null
-    powerFailure: boolean | null
-    parking: boolean | null
+    oilChange: boolean | null
     overSpeed: boolean | null
-    emergency: boolean | null
+    overVoltage: boolean | null
+    overload: boolean | null
+    overtimeDriving: boolean | null
+    parking: boolean | null
+    powerFailure: boolean | null
+    underVoltage: boolean | null
+    vibration: boolean | null
     timestamp: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type AlarmDataCountAggregateOutputType = {
     id: number
+    clientId: number
+    alarms: number
+    createdAt: number
+    updatedAt: number
     mainCommand: number
     packetLength: number
     pseudoIP: number
     rawData: number
-    alarms: number
-    oilChange: number
+    centerEnabledAlarm: number
     crossBorder: number
-    overVoltage: number
-    underVoltage: number
-    overload: number
-    overtimeDriving: number
+    emergency: number
     enterBorder: number
     illegalDoorOpen: number
     illegalStart: number
-    vibration: number
-    centerEnabledAlarm: number
-    powerFailure: number
-    parking: number
+    oilChange: number
     overSpeed: number
-    emergency: number
+    overVoltage: number
+    overload: number
+    overtimeDriving: number
+    parking: number
+    powerFailure: number
+    underVoltage: number
+    vibration: number
     timestamp: number
-    createdAt: number
-    updatedAt: number
     _all: number
   }
 
@@ -4928,83 +4944,86 @@ export namespace Prisma {
 
   export type AlarmDataMinAggregateInputType = {
     id?: true
+    clientId?: true
+    alarms?: true
+    createdAt?: true
+    updatedAt?: true
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
     rawData?: true
-    alarms?: true
-    oilChange?: true
+    centerEnabledAlarm?: true
     crossBorder?: true
-    overVoltage?: true
-    underVoltage?: true
-    overload?: true
-    overtimeDriving?: true
+    emergency?: true
     enterBorder?: true
     illegalDoorOpen?: true
     illegalStart?: true
-    vibration?: true
-    centerEnabledAlarm?: true
-    powerFailure?: true
-    parking?: true
+    oilChange?: true
     overSpeed?: true
-    emergency?: true
+    overVoltage?: true
+    overload?: true
+    overtimeDriving?: true
+    parking?: true
+    powerFailure?: true
+    underVoltage?: true
+    vibration?: true
     timestamp?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type AlarmDataMaxAggregateInputType = {
     id?: true
+    clientId?: true
+    alarms?: true
+    createdAt?: true
+    updatedAt?: true
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
     rawData?: true
-    alarms?: true
-    oilChange?: true
+    centerEnabledAlarm?: true
     crossBorder?: true
-    overVoltage?: true
-    underVoltage?: true
-    overload?: true
-    overtimeDriving?: true
+    emergency?: true
     enterBorder?: true
     illegalDoorOpen?: true
     illegalStart?: true
-    vibration?: true
-    centerEnabledAlarm?: true
-    powerFailure?: true
-    parking?: true
+    oilChange?: true
     overSpeed?: true
-    emergency?: true
+    overVoltage?: true
+    overload?: true
+    overtimeDriving?: true
+    parking?: true
+    powerFailure?: true
+    underVoltage?: true
+    vibration?: true
     timestamp?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type AlarmDataCountAggregateInputType = {
     id?: true
+    clientId?: true
+    alarms?: true
+    createdAt?: true
+    updatedAt?: true
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
     rawData?: true
-    alarms?: true
-    oilChange?: true
+    centerEnabledAlarm?: true
     crossBorder?: true
-    overVoltage?: true
-    underVoltage?: true
-    overload?: true
-    overtimeDriving?: true
+    emergency?: true
     enterBorder?: true
     illegalDoorOpen?: true
     illegalStart?: true
-    vibration?: true
-    centerEnabledAlarm?: true
-    powerFailure?: true
-    parking?: true
+    oilChange?: true
     overSpeed?: true
-    emergency?: true
+    overVoltage?: true
+    overload?: true
+    overtimeDriving?: true
+    parking?: true
+    powerFailure?: true
+    underVoltage?: true
+    vibration?: true
     timestamp?: true
-    createdAt?: true
-    updatedAt?: true
     _all?: true
   }
 
@@ -5096,29 +5115,30 @@ export namespace Prisma {
 
   export type AlarmDataGroupByOutputType = {
     id: number
+    clientId: string
+    alarms: string
+    createdAt: Date
+    updatedAt: Date
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
     rawData: string | null
-    alarms: string
-    oilChange: boolean | null
+    centerEnabledAlarm: boolean | null
     crossBorder: boolean | null
-    overVoltage: boolean | null
-    underVoltage: boolean | null
-    overload: boolean | null
-    overtimeDriving: boolean | null
+    emergency: boolean | null
     enterBorder: boolean | null
     illegalDoorOpen: boolean | null
     illegalStart: boolean | null
-    vibration: boolean | null
-    centerEnabledAlarm: boolean | null
-    powerFailure: boolean | null
-    parking: boolean | null
+    oilChange: boolean | null
     overSpeed: boolean | null
-    emergency: boolean | null
+    overVoltage: boolean | null
+    overload: boolean | null
+    overtimeDriving: boolean | null
+    parking: boolean | null
+    powerFailure: boolean | null
+    underVoltage: boolean | null
+    vibration: boolean | null
     timestamp: Date
-    createdAt: Date
-    updatedAt: Date
     _count: AlarmDataCountAggregateOutputType | null
     _avg: AlarmDataAvgAggregateOutputType | null
     _sum: AlarmDataSumAggregateOutputType | null
@@ -5142,142 +5162,147 @@ export namespace Prisma {
 
   export type AlarmDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    clientId?: boolean
+    alarms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    alarms?: boolean
-    oilChange?: boolean
+    centerEnabledAlarm?: boolean
     crossBorder?: boolean
-    overVoltage?: boolean
-    underVoltage?: boolean
-    overload?: boolean
-    overtimeDriving?: boolean
+    emergency?: boolean
     enterBorder?: boolean
     illegalDoorOpen?: boolean
     illegalStart?: boolean
-    vibration?: boolean
-    centerEnabledAlarm?: boolean
-    powerFailure?: boolean
-    parking?: boolean
+    oilChange?: boolean
     overSpeed?: boolean
-    emergency?: boolean
+    overVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    parking?: boolean
+    powerFailure?: boolean
+    underVoltage?: boolean
+    vibration?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["alarmData"]>
 
   export type AlarmDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    clientId?: boolean
+    alarms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    alarms?: boolean
-    oilChange?: boolean
+    centerEnabledAlarm?: boolean
     crossBorder?: boolean
-    overVoltage?: boolean
-    underVoltage?: boolean
-    overload?: boolean
-    overtimeDriving?: boolean
+    emergency?: boolean
     enterBorder?: boolean
     illegalDoorOpen?: boolean
     illegalStart?: boolean
-    vibration?: boolean
-    centerEnabledAlarm?: boolean
-    powerFailure?: boolean
-    parking?: boolean
+    oilChange?: boolean
     overSpeed?: boolean
-    emergency?: boolean
+    overVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    parking?: boolean
+    powerFailure?: boolean
+    underVoltage?: boolean
+    vibration?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["alarmData"]>
 
   export type AlarmDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    clientId?: boolean
+    alarms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    alarms?: boolean
-    oilChange?: boolean
+    centerEnabledAlarm?: boolean
     crossBorder?: boolean
-    overVoltage?: boolean
-    underVoltage?: boolean
-    overload?: boolean
-    overtimeDriving?: boolean
+    emergency?: boolean
     enterBorder?: boolean
     illegalDoorOpen?: boolean
     illegalStart?: boolean
-    vibration?: boolean
-    centerEnabledAlarm?: boolean
-    powerFailure?: boolean
-    parking?: boolean
+    oilChange?: boolean
     overSpeed?: boolean
-    emergency?: boolean
+    overVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    parking?: boolean
+    powerFailure?: boolean
+    underVoltage?: boolean
+    vibration?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["alarmData"]>
 
   export type AlarmDataSelectScalar = {
     id?: boolean
+    clientId?: boolean
+    alarms?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    alarms?: boolean
-    oilChange?: boolean
+    centerEnabledAlarm?: boolean
     crossBorder?: boolean
-    overVoltage?: boolean
-    underVoltage?: boolean
-    overload?: boolean
-    overtimeDriving?: boolean
+    emergency?: boolean
     enterBorder?: boolean
     illegalDoorOpen?: boolean
     illegalStart?: boolean
-    vibration?: boolean
-    centerEnabledAlarm?: boolean
-    powerFailure?: boolean
-    parking?: boolean
+    oilChange?: boolean
     overSpeed?: boolean
-    emergency?: boolean
+    overVoltage?: boolean
+    overload?: boolean
+    overtimeDriving?: boolean
+    parking?: boolean
+    powerFailure?: boolean
+    underVoltage?: boolean
+    vibration?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }
 
-  export type AlarmDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "alarms" | "oilChange" | "crossBorder" | "overVoltage" | "underVoltage" | "overload" | "overtimeDriving" | "enterBorder" | "illegalDoorOpen" | "illegalStart" | "vibration" | "centerEnabledAlarm" | "powerFailure" | "parking" | "overSpeed" | "emergency" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["alarmData"]>
+  export type AlarmDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "alarms" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "centerEnabledAlarm" | "crossBorder" | "emergency" | "enterBorder" | "illegalDoorOpen" | "illegalStart" | "oilChange" | "overSpeed" | "overVoltage" | "overload" | "overtimeDriving" | "parking" | "powerFailure" | "underVoltage" | "vibration" | "timestamp", ExtArgs["result"]["alarmData"]>
 
   export type $AlarmDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AlarmData"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      clientId: string
+      alarms: string
+      createdAt: Date
+      updatedAt: Date
       mainCommand: string | null
       packetLength: number | null
       pseudoIP: string | null
       rawData: string | null
-      alarms: string
-      oilChange: boolean | null
+      centerEnabledAlarm: boolean | null
       crossBorder: boolean | null
-      overVoltage: boolean | null
-      underVoltage: boolean | null
-      overload: boolean | null
-      overtimeDriving: boolean | null
+      emergency: boolean | null
       enterBorder: boolean | null
       illegalDoorOpen: boolean | null
       illegalStart: boolean | null
-      vibration: boolean | null
-      centerEnabledAlarm: boolean | null
-      powerFailure: boolean | null
-      parking: boolean | null
+      oilChange: boolean | null
       overSpeed: boolean | null
-      emergency: boolean | null
+      overVoltage: boolean | null
+      overload: boolean | null
+      overtimeDriving: boolean | null
+      parking: boolean | null
+      powerFailure: boolean | null
+      underVoltage: boolean | null
+      vibration: boolean | null
       timestamp: Date
-      createdAt: Date
-      updatedAt: Date
     }, ExtArgs["result"]["alarmData"]>
     composites: {}
   }
@@ -5702,29 +5727,30 @@ export namespace Prisma {
    */
   interface AlarmDataFieldRefs {
     readonly id: FieldRef<"AlarmData", 'Int'>
+    readonly clientId: FieldRef<"AlarmData", 'String'>
+    readonly alarms: FieldRef<"AlarmData", 'String'>
+    readonly createdAt: FieldRef<"AlarmData", 'DateTime'>
+    readonly updatedAt: FieldRef<"AlarmData", 'DateTime'>
     readonly mainCommand: FieldRef<"AlarmData", 'String'>
     readonly packetLength: FieldRef<"AlarmData", 'Int'>
     readonly pseudoIP: FieldRef<"AlarmData", 'String'>
     readonly rawData: FieldRef<"AlarmData", 'String'>
-    readonly alarms: FieldRef<"AlarmData", 'String'>
-    readonly oilChange: FieldRef<"AlarmData", 'Boolean'>
+    readonly centerEnabledAlarm: FieldRef<"AlarmData", 'Boolean'>
     readonly crossBorder: FieldRef<"AlarmData", 'Boolean'>
-    readonly overVoltage: FieldRef<"AlarmData", 'Boolean'>
-    readonly underVoltage: FieldRef<"AlarmData", 'Boolean'>
-    readonly overload: FieldRef<"AlarmData", 'Boolean'>
-    readonly overtimeDriving: FieldRef<"AlarmData", 'Boolean'>
+    readonly emergency: FieldRef<"AlarmData", 'Boolean'>
     readonly enterBorder: FieldRef<"AlarmData", 'Boolean'>
     readonly illegalDoorOpen: FieldRef<"AlarmData", 'Boolean'>
     readonly illegalStart: FieldRef<"AlarmData", 'Boolean'>
-    readonly vibration: FieldRef<"AlarmData", 'Boolean'>
-    readonly centerEnabledAlarm: FieldRef<"AlarmData", 'Boolean'>
-    readonly powerFailure: FieldRef<"AlarmData", 'Boolean'>
-    readonly parking: FieldRef<"AlarmData", 'Boolean'>
+    readonly oilChange: FieldRef<"AlarmData", 'Boolean'>
     readonly overSpeed: FieldRef<"AlarmData", 'Boolean'>
-    readonly emergency: FieldRef<"AlarmData", 'Boolean'>
+    readonly overVoltage: FieldRef<"AlarmData", 'Boolean'>
+    readonly overload: FieldRef<"AlarmData", 'Boolean'>
+    readonly overtimeDriving: FieldRef<"AlarmData", 'Boolean'>
+    readonly parking: FieldRef<"AlarmData", 'Boolean'>
+    readonly powerFailure: FieldRef<"AlarmData", 'Boolean'>
+    readonly underVoltage: FieldRef<"AlarmData", 'Boolean'>
+    readonly vibration: FieldRef<"AlarmData", 'Boolean'>
     readonly timestamp: FieldRef<"AlarmData", 'DateTime'>
-    readonly createdAt: FieldRef<"AlarmData", 'DateTime'>
-    readonly updatedAt: FieldRef<"AlarmData", 'DateTime'>
   }
     
 
@@ -6105,120 +6131,126 @@ export namespace Prisma {
 
   export type HeartbeatDataAvgAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     calibrationValue: number | null
     mainOrderReply: number | null
     slaveOrderReply: number | null
+    packetLength: number | null
   }
 
   export type HeartbeatDataSumAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     calibrationValue: number | null
     mainOrderReply: number | null
     slaveOrderReply: number | null
+    packetLength: number | null
   }
 
   export type HeartbeatDataMinAggregateOutputType = {
     id: number | null
+    clientId: string | null
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
     rawData: string | null
-    calibrationValue: number | null
-    mainOrderReply: number | null
-    slaveOrderReply: number | null
     timestamp: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type HeartbeatDataMaxAggregateOutputType = {
     id: number | null
+    clientId: string | null
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
     rawData: string | null
-    calibrationValue: number | null
-    mainOrderReply: number | null
-    slaveOrderReply: number | null
     timestamp: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type HeartbeatDataCountAggregateOutputType = {
     id: number
+    clientId: number
+    calibrationValue: number
+    mainOrderReply: number
+    slaveOrderReply: number
+    createdAt: number
+    updatedAt: number
     mainCommand: number
     packetLength: number
     pseudoIP: number
     rawData: number
-    calibrationValue: number
-    mainOrderReply: number
-    slaveOrderReply: number
     timestamp: number
-    createdAt: number
-    updatedAt: number
     _all: number
   }
 
 
   export type HeartbeatDataAvgAggregateInputType = {
     id?: true
-    packetLength?: true
     calibrationValue?: true
     mainOrderReply?: true
     slaveOrderReply?: true
+    packetLength?: true
   }
 
   export type HeartbeatDataSumAggregateInputType = {
     id?: true
-    packetLength?: true
     calibrationValue?: true
     mainOrderReply?: true
     slaveOrderReply?: true
+    packetLength?: true
   }
 
   export type HeartbeatDataMinAggregateInputType = {
     id?: true
+    clientId?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+    createdAt?: true
+    updatedAt?: true
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
     rawData?: true
-    calibrationValue?: true
-    mainOrderReply?: true
-    slaveOrderReply?: true
     timestamp?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type HeartbeatDataMaxAggregateInputType = {
     id?: true
+    clientId?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+    createdAt?: true
+    updatedAt?: true
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
     rawData?: true
-    calibrationValue?: true
-    mainOrderReply?: true
-    slaveOrderReply?: true
     timestamp?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type HeartbeatDataCountAggregateInputType = {
     id?: true
+    clientId?: true
+    calibrationValue?: true
+    mainOrderReply?: true
+    slaveOrderReply?: true
+    createdAt?: true
+    updatedAt?: true
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
     rawData?: true
-    calibrationValue?: true
-    mainOrderReply?: true
-    slaveOrderReply?: true
     timestamp?: true
-    createdAt?: true
-    updatedAt?: true
     _all?: true
   }
 
@@ -6310,16 +6342,17 @@ export namespace Prisma {
 
   export type HeartbeatDataGroupByOutputType = {
     id: number
+    clientId: string
+    calibrationValue: number | null
+    mainOrderReply: number | null
+    slaveOrderReply: number | null
+    createdAt: Date
+    updatedAt: Date
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
     rawData: string | null
-    calibrationValue: number | null
-    mainOrderReply: number | null
-    slaveOrderReply: number | null
     timestamp: Date
-    createdAt: Date
-    updatedAt: Date
     _count: HeartbeatDataCountAggregateOutputType | null
     _avg: HeartbeatDataAvgAggregateOutputType | null
     _sum: HeartbeatDataSumAggregateOutputType | null
@@ -6343,77 +6376,82 @@ export namespace Prisma {
 
   export type HeartbeatDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    clientId?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    calibrationValue?: boolean
-    mainOrderReply?: boolean
-    slaveOrderReply?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["heartbeatData"]>
 
   export type HeartbeatDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    clientId?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    calibrationValue?: boolean
-    mainOrderReply?: boolean
-    slaveOrderReply?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["heartbeatData"]>
 
   export type HeartbeatDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    clientId?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    calibrationValue?: boolean
-    mainOrderReply?: boolean
-    slaveOrderReply?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["heartbeatData"]>
 
   export type HeartbeatDataSelectScalar = {
     id?: boolean
+    clientId?: boolean
+    calibrationValue?: boolean
+    mainOrderReply?: boolean
+    slaveOrderReply?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
     rawData?: boolean
-    calibrationValue?: boolean
-    mainOrderReply?: boolean
-    slaveOrderReply?: boolean
     timestamp?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }
 
-  export type HeartbeatDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "calibrationValue" | "mainOrderReply" | "slaveOrderReply" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["heartbeatData"]>
+  export type HeartbeatDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "calibrationValue" | "mainOrderReply" | "slaveOrderReply" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["heartbeatData"]>
 
   export type $HeartbeatDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "HeartbeatData"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      clientId: string
+      calibrationValue: number | null
+      mainOrderReply: number | null
+      slaveOrderReply: number | null
+      createdAt: Date
+      updatedAt: Date
       mainCommand: string | null
       packetLength: number | null
       pseudoIP: string | null
       rawData: string | null
-      calibrationValue: number | null
-      mainOrderReply: number | null
-      slaveOrderReply: number | null
       timestamp: Date
-      createdAt: Date
-      updatedAt: Date
     }, ExtArgs["result"]["heartbeatData"]>
     composites: {}
   }
@@ -6838,16 +6876,17 @@ export namespace Prisma {
    */
   interface HeartbeatDataFieldRefs {
     readonly id: FieldRef<"HeartbeatData", 'Int'>
+    readonly clientId: FieldRef<"HeartbeatData", 'String'>
+    readonly calibrationValue: FieldRef<"HeartbeatData", 'Int'>
+    readonly mainOrderReply: FieldRef<"HeartbeatData", 'Int'>
+    readonly slaveOrderReply: FieldRef<"HeartbeatData", 'Int'>
+    readonly createdAt: FieldRef<"HeartbeatData", 'DateTime'>
+    readonly updatedAt: FieldRef<"HeartbeatData", 'DateTime'>
     readonly mainCommand: FieldRef<"HeartbeatData", 'String'>
     readonly packetLength: FieldRef<"HeartbeatData", 'Int'>
     readonly pseudoIP: FieldRef<"HeartbeatData", 'String'>
     readonly rawData: FieldRef<"HeartbeatData", 'String'>
-    readonly calibrationValue: FieldRef<"HeartbeatData", 'Int'>
-    readonly mainOrderReply: FieldRef<"HeartbeatData", 'Int'>
-    readonly slaveOrderReply: FieldRef<"HeartbeatData", 'Int'>
     readonly timestamp: FieldRef<"HeartbeatData", 'DateTime'>
-    readonly createdAt: FieldRef<"HeartbeatData", 'DateTime'>
-    readonly updatedAt: FieldRef<"HeartbeatData", 'DateTime'>
   }
     
 
@@ -7228,7 +7267,6 @@ export namespace Prisma {
 
   export type TrackerStatusAvgAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     alarmStatus: number | null
     samplingValue: number | null
     carStopSetting: number | null
@@ -7237,11 +7275,11 @@ export namespace Prisma {
     longTimeDriving: number | null
     samplingValueAccOff: number | null
     photographRelated: number | null
+    packetLength: number | null
   }
 
   export type TrackerStatusSumAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     alarmStatus: number | null
     samplingValue: number | null
     carStopSetting: number | null
@@ -7250,14 +7288,12 @@ export namespace Prisma {
     longTimeDriving: number | null
     samplingValueAccOff: number | null
     photographRelated: number | null
+    packetLength: number | null
   }
 
   export type TrackerStatusMinAggregateOutputType = {
     id: number | null
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string | null
     samplingTime: string | null
     alarmStatus: number | null
     located: boolean | null
@@ -7273,17 +7309,18 @@ export namespace Prisma {
     samplingValueAccOff: number | null
     emergencyAlarmSwitch: boolean | null
     photographRelated: number | null
-    timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date | null
   }
 
   export type TrackerStatusMaxAggregateOutputType = {
     id: number | null
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string | null
     samplingTime: string | null
     alarmStatus: number | null
     located: boolean | null
@@ -7299,17 +7336,18 @@ export namespace Prisma {
     samplingValueAccOff: number | null
     emergencyAlarmSwitch: boolean | null
     photographRelated: number | null
-    timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date | null
   }
 
   export type TrackerStatusCountAggregateOutputType = {
     id: number
-    mainCommand: number
-    packetLength: number
-    pseudoIP: number
-    rawData: number
+    clientId: number
     samplingTime: number
     alarmStatus: number
     located: number
@@ -7325,16 +7363,19 @@ export namespace Prisma {
     samplingValueAccOff: number
     emergencyAlarmSwitch: number
     photographRelated: number
-    timestamp: number
     createdAt: number
     updatedAt: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    timestamp: number
     _all: number
   }
 
 
   export type TrackerStatusAvgAggregateInputType = {
     id?: true
-    packetLength?: true
     alarmStatus?: true
     samplingValue?: true
     carStopSetting?: true
@@ -7343,11 +7384,11 @@ export namespace Prisma {
     longTimeDriving?: true
     samplingValueAccOff?: true
     photographRelated?: true
+    packetLength?: true
   }
 
   export type TrackerStatusSumAggregateInputType = {
     id?: true
-    packetLength?: true
     alarmStatus?: true
     samplingValue?: true
     carStopSetting?: true
@@ -7356,14 +7397,12 @@ export namespace Prisma {
     longTimeDriving?: true
     samplingValueAccOff?: true
     photographRelated?: true
+    packetLength?: true
   }
 
   export type TrackerStatusMinAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     samplingTime?: true
     alarmStatus?: true
     located?: true
@@ -7379,17 +7418,18 @@ export namespace Prisma {
     samplingValueAccOff?: true
     emergencyAlarmSwitch?: true
     photographRelated?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
   }
 
   export type TrackerStatusMaxAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     samplingTime?: true
     alarmStatus?: true
     located?: true
@@ -7405,17 +7445,18 @@ export namespace Prisma {
     samplingValueAccOff?: true
     emergencyAlarmSwitch?: true
     photographRelated?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
   }
 
   export type TrackerStatusCountAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     samplingTime?: true
     alarmStatus?: true
     located?: true
@@ -7431,9 +7472,13 @@ export namespace Prisma {
     samplingValueAccOff?: true
     emergencyAlarmSwitch?: true
     photographRelated?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
     _all?: true
   }
 
@@ -7525,10 +7570,7 @@ export namespace Prisma {
 
   export type TrackerStatusGroupByOutputType = {
     id: number
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string
     samplingTime: string
     alarmStatus: number | null
     located: boolean | null
@@ -7544,9 +7586,13 @@ export namespace Prisma {
     samplingValueAccOff: number | null
     emergencyAlarmSwitch: boolean | null
     photographRelated: number | null
-    timestamp: Date
     createdAt: Date
     updatedAt: Date
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date
     _count: TrackerStatusCountAggregateOutputType | null
     _avg: TrackerStatusAvgAggregateOutputType | null
     _sum: TrackerStatusSumAggregateOutputType | null
@@ -7570,10 +7616,7 @@ export namespace Prisma {
 
   export type TrackerStatusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     samplingTime?: boolean
     alarmStatus?: boolean
     located?: boolean
@@ -7589,17 +7632,18 @@ export namespace Prisma {
     samplingValueAccOff?: boolean
     emergencyAlarmSwitch?: boolean
     photographRelated?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["trackerStatus"]>
 
   export type TrackerStatusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     samplingTime?: boolean
     alarmStatus?: boolean
     located?: boolean
@@ -7615,17 +7659,18 @@ export namespace Prisma {
     samplingValueAccOff?: boolean
     emergencyAlarmSwitch?: boolean
     photographRelated?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["trackerStatus"]>
 
   export type TrackerStatusSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     samplingTime?: boolean
     alarmStatus?: boolean
     located?: boolean
@@ -7641,17 +7686,18 @@ export namespace Prisma {
     samplingValueAccOff?: boolean
     emergencyAlarmSwitch?: boolean
     photographRelated?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["trackerStatus"]>
 
   export type TrackerStatusSelectScalar = {
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     samplingTime?: boolean
     alarmStatus?: boolean
     located?: boolean
@@ -7667,22 +7713,23 @@ export namespace Prisma {
     samplingValueAccOff?: boolean
     emergencyAlarmSwitch?: boolean
     photographRelated?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }
 
-  export type TrackerStatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "samplingTime" | "alarmStatus" | "located" | "samplingType" | "samplingValue" | "sendingType" | "carStopSetting" | "overspeedSetting" | "phoneLimit" | "areaNodeLimit" | "safeSetting" | "longTimeDriving" | "samplingValueAccOff" | "emergencyAlarmSwitch" | "photographRelated" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["trackerStatus"]>
+  export type TrackerStatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "samplingTime" | "alarmStatus" | "located" | "samplingType" | "samplingValue" | "sendingType" | "carStopSetting" | "overspeedSetting" | "phoneLimit" | "areaNodeLimit" | "safeSetting" | "longTimeDriving" | "samplingValueAccOff" | "emergencyAlarmSwitch" | "photographRelated" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["trackerStatus"]>
 
   export type $TrackerStatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "TrackerStatus"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      mainCommand: string | null
-      packetLength: number | null
-      pseudoIP: string | null
-      rawData: string | null
+      clientId: string
       samplingTime: string
       alarmStatus: number | null
       located: boolean | null
@@ -7698,9 +7745,13 @@ export namespace Prisma {
       samplingValueAccOff: number | null
       emergencyAlarmSwitch: boolean | null
       photographRelated: number | null
-      timestamp: Date
       createdAt: Date
       updatedAt: Date
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      timestamp: Date
     }, ExtArgs["result"]["trackerStatus"]>
     composites: {}
   }
@@ -8125,10 +8176,7 @@ export namespace Prisma {
    */
   interface TrackerStatusFieldRefs {
     readonly id: FieldRef<"TrackerStatus", 'Int'>
-    readonly mainCommand: FieldRef<"TrackerStatus", 'String'>
-    readonly packetLength: FieldRef<"TrackerStatus", 'Int'>
-    readonly pseudoIP: FieldRef<"TrackerStatus", 'String'>
-    readonly rawData: FieldRef<"TrackerStatus", 'String'>
+    readonly clientId: FieldRef<"TrackerStatus", 'String'>
     readonly samplingTime: FieldRef<"TrackerStatus", 'String'>
     readonly alarmStatus: FieldRef<"TrackerStatus", 'Int'>
     readonly located: FieldRef<"TrackerStatus", 'Boolean'>
@@ -8144,9 +8192,13 @@ export namespace Prisma {
     readonly samplingValueAccOff: FieldRef<"TrackerStatus", 'Int'>
     readonly emergencyAlarmSwitch: FieldRef<"TrackerStatus", 'Boolean'>
     readonly photographRelated: FieldRef<"TrackerStatus", 'Int'>
-    readonly timestamp: FieldRef<"TrackerStatus", 'DateTime'>
     readonly createdAt: FieldRef<"TrackerStatus", 'DateTime'>
     readonly updatedAt: FieldRef<"TrackerStatus", 'DateTime'>
+    readonly mainCommand: FieldRef<"TrackerStatus", 'String'>
+    readonly packetLength: FieldRef<"TrackerStatus", 'Int'>
+    readonly pseudoIP: FieldRef<"TrackerStatus", 'String'>
+    readonly rawData: FieldRef<"TrackerStatus", 'String'>
+    readonly timestamp: FieldRef<"TrackerStatus", 'DateTime'>
   }
     
 
@@ -8527,124 +8579,130 @@ export namespace Prisma {
 
   export type IButtonDataAvgAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     subCommand: number | null
+    packetLength: number | null
   }
 
   export type IButtonDataSumAggregateOutputType = {
     id: number | null
-    packetLength: number | null
     subCommand: number | null
+    packetLength: number | null
   }
 
   export type IButtonDataMinAggregateOutputType = {
     id: number | null
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string | null
     subCommand: number | null
     message: string | null
     driverName: string | null
     driverId: string | null
     swipeData: string | null
-    timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date | null
   }
 
   export type IButtonDataMaxAggregateOutputType = {
     id: number | null
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string | null
     subCommand: number | null
     message: string | null
     driverName: string | null
     driverId: string | null
     swipeData: string | null
-    timestamp: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date | null
   }
 
   export type IButtonDataCountAggregateOutputType = {
     id: number
-    mainCommand: number
-    packetLength: number
-    pseudoIP: number
-    rawData: number
+    clientId: number
     subCommand: number
     message: number
     driverName: number
     driverId: number
     swipeData: number
-    timestamp: number
     createdAt: number
     updatedAt: number
+    mainCommand: number
+    packetLength: number
+    pseudoIP: number
+    rawData: number
+    timestamp: number
     _all: number
   }
 
 
   export type IButtonDataAvgAggregateInputType = {
     id?: true
-    packetLength?: true
     subCommand?: true
+    packetLength?: true
   }
 
   export type IButtonDataSumAggregateInputType = {
     id?: true
-    packetLength?: true
     subCommand?: true
+    packetLength?: true
   }
 
   export type IButtonDataMinAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     subCommand?: true
     message?: true
     driverName?: true
     driverId?: true
     swipeData?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
   }
 
   export type IButtonDataMaxAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     subCommand?: true
     message?: true
     driverName?: true
     driverId?: true
     swipeData?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
   }
 
   export type IButtonDataCountAggregateInputType = {
     id?: true
-    mainCommand?: true
-    packetLength?: true
-    pseudoIP?: true
-    rawData?: true
+    clientId?: true
     subCommand?: true
     message?: true
     driverName?: true
     driverId?: true
     swipeData?: true
-    timestamp?: true
     createdAt?: true
     updatedAt?: true
+    mainCommand?: true
+    packetLength?: true
+    pseudoIP?: true
+    rawData?: true
+    timestamp?: true
     _all?: true
   }
 
@@ -8736,18 +8794,19 @@ export namespace Prisma {
 
   export type IButtonDataGroupByOutputType = {
     id: number
-    mainCommand: string | null
-    packetLength: number | null
-    pseudoIP: string | null
-    rawData: string | null
+    clientId: string
     subCommand: number | null
     message: string | null
     driverName: string | null
     driverId: string | null
     swipeData: string | null
-    timestamp: Date
     createdAt: Date
     updatedAt: Date
+    mainCommand: string | null
+    packetLength: number | null
+    pseudoIP: string | null
+    rawData: string | null
+    timestamp: Date
     _count: IButtonDataCountAggregateOutputType | null
     _avg: IButtonDataAvgAggregateOutputType | null
     _sum: IButtonDataSumAggregateOutputType | null
@@ -8771,87 +8830,92 @@ export namespace Prisma {
 
   export type IButtonDataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     subCommand?: boolean
     message?: boolean
     driverName?: boolean
     driverId?: boolean
     swipeData?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["iButtonData"]>
 
   export type IButtonDataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     subCommand?: boolean
     message?: boolean
     driverName?: boolean
     driverId?: boolean
     swipeData?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["iButtonData"]>
 
   export type IButtonDataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     subCommand?: boolean
     message?: boolean
     driverName?: boolean
     driverId?: boolean
     swipeData?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }, ExtArgs["result"]["iButtonData"]>
 
   export type IButtonDataSelectScalar = {
     id?: boolean
-    mainCommand?: boolean
-    packetLength?: boolean
-    pseudoIP?: boolean
-    rawData?: boolean
+    clientId?: boolean
     subCommand?: boolean
     message?: boolean
     driverName?: boolean
     driverId?: boolean
     swipeData?: boolean
-    timestamp?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mainCommand?: boolean
+    packetLength?: boolean
+    pseudoIP?: boolean
+    rawData?: boolean
+    timestamp?: boolean
   }
 
-  export type IButtonDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "subCommand" | "message" | "driverName" | "driverId" | "swipeData" | "timestamp" | "createdAt" | "updatedAt", ExtArgs["result"]["iButtonData"]>
+  export type IButtonDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "subCommand" | "message" | "driverName" | "driverId" | "swipeData" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["iButtonData"]>
 
   export type $IButtonDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "IButtonData"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      mainCommand: string | null
-      packetLength: number | null
-      pseudoIP: string | null
-      rawData: string | null
+      clientId: string
       subCommand: number | null
       message: string | null
       driverName: string | null
       driverId: string | null
       swipeData: string | null
-      timestamp: Date
       createdAt: Date
       updatedAt: Date
+      mainCommand: string | null
+      packetLength: number | null
+      pseudoIP: string | null
+      rawData: string | null
+      timestamp: Date
     }, ExtArgs["result"]["iButtonData"]>
     composites: {}
   }
@@ -9276,18 +9340,19 @@ export namespace Prisma {
    */
   interface IButtonDataFieldRefs {
     readonly id: FieldRef<"IButtonData", 'Int'>
-    readonly mainCommand: FieldRef<"IButtonData", 'String'>
-    readonly packetLength: FieldRef<"IButtonData", 'Int'>
-    readonly pseudoIP: FieldRef<"IButtonData", 'String'>
-    readonly rawData: FieldRef<"IButtonData", 'String'>
+    readonly clientId: FieldRef<"IButtonData", 'String'>
     readonly subCommand: FieldRef<"IButtonData", 'Int'>
     readonly message: FieldRef<"IButtonData", 'String'>
     readonly driverName: FieldRef<"IButtonData", 'String'>
     readonly driverId: FieldRef<"IButtonData", 'String'>
     readonly swipeData: FieldRef<"IButtonData", 'String'>
-    readonly timestamp: FieldRef<"IButtonData", 'DateTime'>
     readonly createdAt: FieldRef<"IButtonData", 'DateTime'>
     readonly updatedAt: FieldRef<"IButtonData", 'DateTime'>
+    readonly mainCommand: FieldRef<"IButtonData", 'String'>
+    readonly packetLength: FieldRef<"IButtonData", 'Int'>
+    readonly pseudoIP: FieldRef<"IButtonData", 'String'>
+    readonly rawData: FieldRef<"IButtonData", 'String'>
+    readonly timestamp: FieldRef<"IButtonData", 'DateTime'>
   }
     
 
@@ -9685,13 +9750,13 @@ export namespace Prisma {
   export const GpsDataScalarFieldEnum: {
     id: 'id',
     rawData: 'rawData',
-    parsedData: 'parsedData',
-    packetInfo: 'packetInfo',
-    mainCommand: 'mainCommand',
     timestamp: 'timestamp',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    from: 'from'
+    from: 'from',
+    mainCommand: 'mainCommand',
+    parsedData: 'parsedData',
+    packetInfo: 'packetInfo'
   };
 
   export type GpsDataScalarFieldEnum = (typeof GpsDataScalarFieldEnum)[keyof typeof GpsDataScalarFieldEnum]
@@ -9699,10 +9764,7 @@ export namespace Prisma {
 
   export const PositionDataScalarFieldEnum: {
     id: 'id',
-    mainCommand: 'mainCommand',
-    packetLength: 'packetLength',
-    pseudoIP: 'pseudoIP',
-    rawData: 'rawData',
+    clientId: 'clientId',
     latitude: 'latitude',
     longitude: 'longitude',
     speed: 'speed',
@@ -9714,9 +9776,13 @@ export namespace Prisma {
     voltage: 'voltage',
     mileage: 'mileage',
     temperature: 'temperature',
-    timestamp: 'timestamp',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    timestamp: 'timestamp'
   };
 
   export type PositionDataScalarFieldEnum = (typeof PositionDataScalarFieldEnum)[keyof typeof PositionDataScalarFieldEnum]
@@ -9724,29 +9790,30 @@ export namespace Prisma {
 
   export const AlarmDataScalarFieldEnum: {
     id: 'id',
+    clientId: 'clientId',
+    alarms: 'alarms',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
     mainCommand: 'mainCommand',
     packetLength: 'packetLength',
     pseudoIP: 'pseudoIP',
     rawData: 'rawData',
-    alarms: 'alarms',
-    oilChange: 'oilChange',
+    centerEnabledAlarm: 'centerEnabledAlarm',
     crossBorder: 'crossBorder',
-    overVoltage: 'overVoltage',
-    underVoltage: 'underVoltage',
-    overload: 'overload',
-    overtimeDriving: 'overtimeDriving',
+    emergency: 'emergency',
     enterBorder: 'enterBorder',
     illegalDoorOpen: 'illegalDoorOpen',
     illegalStart: 'illegalStart',
-    vibration: 'vibration',
-    centerEnabledAlarm: 'centerEnabledAlarm',
-    powerFailure: 'powerFailure',
-    parking: 'parking',
+    oilChange: 'oilChange',
     overSpeed: 'overSpeed',
-    emergency: 'emergency',
-    timestamp: 'timestamp',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    overVoltage: 'overVoltage',
+    overload: 'overload',
+    overtimeDriving: 'overtimeDriving',
+    parking: 'parking',
+    powerFailure: 'powerFailure',
+    underVoltage: 'underVoltage',
+    vibration: 'vibration',
+    timestamp: 'timestamp'
   };
 
   export type AlarmDataScalarFieldEnum = (typeof AlarmDataScalarFieldEnum)[keyof typeof AlarmDataScalarFieldEnum]
@@ -9754,16 +9821,17 @@ export namespace Prisma {
 
   export const HeartbeatDataScalarFieldEnum: {
     id: 'id',
+    clientId: 'clientId',
+    calibrationValue: 'calibrationValue',
+    mainOrderReply: 'mainOrderReply',
+    slaveOrderReply: 'slaveOrderReply',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
     mainCommand: 'mainCommand',
     packetLength: 'packetLength',
     pseudoIP: 'pseudoIP',
     rawData: 'rawData',
-    calibrationValue: 'calibrationValue',
-    mainOrderReply: 'mainOrderReply',
-    slaveOrderReply: 'slaveOrderReply',
-    timestamp: 'timestamp',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    timestamp: 'timestamp'
   };
 
   export type HeartbeatDataScalarFieldEnum = (typeof HeartbeatDataScalarFieldEnum)[keyof typeof HeartbeatDataScalarFieldEnum]
@@ -9771,10 +9839,7 @@ export namespace Prisma {
 
   export const TrackerStatusScalarFieldEnum: {
     id: 'id',
-    mainCommand: 'mainCommand',
-    packetLength: 'packetLength',
-    pseudoIP: 'pseudoIP',
-    rawData: 'rawData',
+    clientId: 'clientId',
     samplingTime: 'samplingTime',
     alarmStatus: 'alarmStatus',
     located: 'located',
@@ -9790,9 +9855,13 @@ export namespace Prisma {
     samplingValueAccOff: 'samplingValueAccOff',
     emergencyAlarmSwitch: 'emergencyAlarmSwitch',
     photographRelated: 'photographRelated',
-    timestamp: 'timestamp',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    timestamp: 'timestamp'
   };
 
   export type TrackerStatusScalarFieldEnum = (typeof TrackerStatusScalarFieldEnum)[keyof typeof TrackerStatusScalarFieldEnum]
@@ -9800,18 +9869,19 @@ export namespace Prisma {
 
   export const IButtonDataScalarFieldEnum: {
     id: 'id',
-    mainCommand: 'mainCommand',
-    packetLength: 'packetLength',
-    pseudoIP: 'pseudoIP',
-    rawData: 'rawData',
+    clientId: 'clientId',
     subCommand: 'subCommand',
     message: 'message',
     driverName: 'driverName',
     driverId: 'driverId',
     swipeData: 'swipeData',
-    timestamp: 'timestamp',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    mainCommand: 'mainCommand',
+    packetLength: 'packetLength',
+    pseudoIP: 'pseudoIP',
+    rawData: 'rawData',
+    timestamp: 'timestamp'
   };
 
   export type IButtonDataScalarFieldEnum = (typeof IButtonDataScalarFieldEnum)[keyof typeof IButtonDataScalarFieldEnum]
@@ -9987,25 +10057,25 @@ export namespace Prisma {
     NOT?: GpsDataWhereInput | GpsDataWhereInput[]
     id?: IntFilter<"GpsData"> | number
     rawData?: StringFilter<"GpsData"> | string
-    parsedData?: StringNullableFilter<"GpsData"> | string | null
-    packetInfo?: StringNullableFilter<"GpsData"> | string | null
-    mainCommand?: StringNullableFilter<"GpsData"> | string | null
     timestamp?: DateTimeFilter<"GpsData"> | Date | string
     createdAt?: DateTimeFilter<"GpsData"> | Date | string
     updatedAt?: DateTimeFilter<"GpsData"> | Date | string
     from?: StringFilter<"GpsData"> | string
+    mainCommand?: StringNullableFilter<"GpsData"> | string | null
+    parsedData?: StringNullableFilter<"GpsData"> | string | null
+    packetInfo?: StringNullableFilter<"GpsData"> | string | null
   }
 
   export type GpsDataOrderByWithRelationInput = {
     id?: SortOrder
     rawData?: SortOrder
-    parsedData?: SortOrderInput | SortOrder
-    packetInfo?: SortOrderInput | SortOrder
-    mainCommand?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     from?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    parsedData?: SortOrderInput | SortOrder
+    packetInfo?: SortOrderInput | SortOrder
   }
 
   export type GpsDataWhereUniqueInput = Prisma.AtLeast<{
@@ -10014,25 +10084,25 @@ export namespace Prisma {
     OR?: GpsDataWhereInput[]
     NOT?: GpsDataWhereInput | GpsDataWhereInput[]
     rawData?: StringFilter<"GpsData"> | string
-    parsedData?: StringNullableFilter<"GpsData"> | string | null
-    packetInfo?: StringNullableFilter<"GpsData"> | string | null
-    mainCommand?: StringNullableFilter<"GpsData"> | string | null
     timestamp?: DateTimeFilter<"GpsData"> | Date | string
     createdAt?: DateTimeFilter<"GpsData"> | Date | string
     updatedAt?: DateTimeFilter<"GpsData"> | Date | string
     from?: StringFilter<"GpsData"> | string
+    mainCommand?: StringNullableFilter<"GpsData"> | string | null
+    parsedData?: StringNullableFilter<"GpsData"> | string | null
+    packetInfo?: StringNullableFilter<"GpsData"> | string | null
   }, "id">
 
   export type GpsDataOrderByWithAggregationInput = {
     id?: SortOrder
     rawData?: SortOrder
-    parsedData?: SortOrderInput | SortOrder
-    packetInfo?: SortOrderInput | SortOrder
-    mainCommand?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     from?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    parsedData?: SortOrderInput | SortOrder
+    packetInfo?: SortOrderInput | SortOrder
     _count?: GpsDataCountOrderByAggregateInput
     _avg?: GpsDataAvgOrderByAggregateInput
     _max?: GpsDataMaxOrderByAggregateInput
@@ -10046,13 +10116,13 @@ export namespace Prisma {
     NOT?: GpsDataScalarWhereWithAggregatesInput | GpsDataScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"GpsData"> | number
     rawData?: StringWithAggregatesFilter<"GpsData"> | string
-    parsedData?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
-    packetInfo?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
-    mainCommand?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"GpsData"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"GpsData"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"GpsData"> | Date | string
     from?: StringWithAggregatesFilter<"GpsData"> | string
+    mainCommand?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
+    parsedData?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
+    packetInfo?: StringNullableWithAggregatesFilter<"GpsData"> | string | null
   }
 
   export type PositionDataWhereInput = {
@@ -10060,10 +10130,7 @@ export namespace Prisma {
     OR?: PositionDataWhereInput[]
     NOT?: PositionDataWhereInput | PositionDataWhereInput[]
     id?: IntFilter<"PositionData"> | number
-    mainCommand?: StringNullableFilter<"PositionData"> | string | null
-    packetLength?: IntNullableFilter<"PositionData"> | number | null
-    pseudoIP?: StringNullableFilter<"PositionData"> | string | null
-    rawData?: StringNullableFilter<"PositionData"> | string | null
+    clientId?: StringFilter<"PositionData"> | string
     latitude?: FloatFilter<"PositionData"> | number
     longitude?: FloatFilter<"PositionData"> | number
     speed?: FloatNullableFilter<"PositionData"> | number | null
@@ -10075,17 +10142,18 @@ export namespace Prisma {
     voltage?: FloatNullableFilter<"PositionData"> | number | null
     mileage?: IntNullableFilter<"PositionData"> | number | null
     temperature?: FloatNullableFilter<"PositionData"> | number | null
-    timestamp?: DateTimeFilter<"PositionData"> | Date | string
     createdAt?: DateTimeFilter<"PositionData"> | Date | string
     updatedAt?: DateTimeFilter<"PositionData"> | Date | string
+    mainCommand?: StringNullableFilter<"PositionData"> | string | null
+    packetLength?: IntNullableFilter<"PositionData"> | number | null
+    pseudoIP?: StringNullableFilter<"PositionData"> | string | null
+    rawData?: StringNullableFilter<"PositionData"> | string | null
+    timestamp?: DateTimeFilter<"PositionData"> | Date | string
   }
 
   export type PositionDataOrderByWithRelationInput = {
     id?: SortOrder
-    mainCommand?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    pseudoIP?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    clientId?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
     speed?: SortOrderInput | SortOrder
@@ -10097,9 +10165,13 @@ export namespace Prisma {
     voltage?: SortOrderInput | SortOrder
     mileage?: SortOrderInput | SortOrder
     temperature?: SortOrderInput | SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
   }
 
   export type PositionDataWhereUniqueInput = Prisma.AtLeast<{
@@ -10107,10 +10179,7 @@ export namespace Prisma {
     AND?: PositionDataWhereInput | PositionDataWhereInput[]
     OR?: PositionDataWhereInput[]
     NOT?: PositionDataWhereInput | PositionDataWhereInput[]
-    mainCommand?: StringNullableFilter<"PositionData"> | string | null
-    packetLength?: IntNullableFilter<"PositionData"> | number | null
-    pseudoIP?: StringNullableFilter<"PositionData"> | string | null
-    rawData?: StringNullableFilter<"PositionData"> | string | null
+    clientId?: StringFilter<"PositionData"> | string
     latitude?: FloatFilter<"PositionData"> | number
     longitude?: FloatFilter<"PositionData"> | number
     speed?: FloatNullableFilter<"PositionData"> | number | null
@@ -10122,17 +10191,18 @@ export namespace Prisma {
     voltage?: FloatNullableFilter<"PositionData"> | number | null
     mileage?: IntNullableFilter<"PositionData"> | number | null
     temperature?: FloatNullableFilter<"PositionData"> | number | null
-    timestamp?: DateTimeFilter<"PositionData"> | Date | string
     createdAt?: DateTimeFilter<"PositionData"> | Date | string
     updatedAt?: DateTimeFilter<"PositionData"> | Date | string
+    mainCommand?: StringNullableFilter<"PositionData"> | string | null
+    packetLength?: IntNullableFilter<"PositionData"> | number | null
+    pseudoIP?: StringNullableFilter<"PositionData"> | string | null
+    rawData?: StringNullableFilter<"PositionData"> | string | null
+    timestamp?: DateTimeFilter<"PositionData"> | Date | string
   }, "id">
 
   export type PositionDataOrderByWithAggregationInput = {
     id?: SortOrder
-    mainCommand?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    pseudoIP?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    clientId?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
     speed?: SortOrderInput | SortOrder
@@ -10144,9 +10214,13 @@ export namespace Prisma {
     voltage?: SortOrderInput | SortOrder
     mileage?: SortOrderInput | SortOrder
     temperature?: SortOrderInput | SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
     _count?: PositionDataCountOrderByAggregateInput
     _avg?: PositionDataAvgOrderByAggregateInput
     _max?: PositionDataMaxOrderByAggregateInput
@@ -10159,10 +10233,7 @@ export namespace Prisma {
     OR?: PositionDataScalarWhereWithAggregatesInput[]
     NOT?: PositionDataScalarWhereWithAggregatesInput | PositionDataScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"PositionData"> | number
-    mainCommand?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
-    packetLength?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
-    pseudoIP?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
-    rawData?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    clientId?: StringWithAggregatesFilter<"PositionData"> | string
     latitude?: FloatWithAggregatesFilter<"PositionData"> | number
     longitude?: FloatWithAggregatesFilter<"PositionData"> | number
     speed?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
@@ -10174,9 +10245,13 @@ export namespace Prisma {
     voltage?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
     mileage?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
     temperature?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
-    timestamp?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
+    mainCommand?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    timestamp?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
   }
 
   export type AlarmDataWhereInput = {
@@ -10184,56 +10259,58 @@ export namespace Prisma {
     OR?: AlarmDataWhereInput[]
     NOT?: AlarmDataWhereInput | AlarmDataWhereInput[]
     id?: IntFilter<"AlarmData"> | number
+    clientId?: StringFilter<"AlarmData"> | string
+    alarms?: StringFilter<"AlarmData"> | string
+    createdAt?: DateTimeFilter<"AlarmData"> | Date | string
+    updatedAt?: DateTimeFilter<"AlarmData"> | Date | string
     mainCommand?: StringNullableFilter<"AlarmData"> | string | null
     packetLength?: IntNullableFilter<"AlarmData"> | number | null
     pseudoIP?: StringNullableFilter<"AlarmData"> | string | null
     rawData?: StringNullableFilter<"AlarmData"> | string | null
-    alarms?: StringFilter<"AlarmData"> | string
-    oilChange?: BoolNullableFilter<"AlarmData"> | boolean | null
+    centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
     crossBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
-    overVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
-    underVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
-    overload?: BoolNullableFilter<"AlarmData"> | boolean | null
-    overtimeDriving?: BoolNullableFilter<"AlarmData"> | boolean | null
+    emergency?: BoolNullableFilter<"AlarmData"> | boolean | null
     enterBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
     illegalDoorOpen?: BoolNullableFilter<"AlarmData"> | boolean | null
     illegalStart?: BoolNullableFilter<"AlarmData"> | boolean | null
-    vibration?: BoolNullableFilter<"AlarmData"> | boolean | null
-    centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
-    powerFailure?: BoolNullableFilter<"AlarmData"> | boolean | null
-    parking?: BoolNullableFilter<"AlarmData"> | boolean | null
+    oilChange?: BoolNullableFilter<"AlarmData"> | boolean | null
     overSpeed?: BoolNullableFilter<"AlarmData"> | boolean | null
-    emergency?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overload?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overtimeDriving?: BoolNullableFilter<"AlarmData"> | boolean | null
+    parking?: BoolNullableFilter<"AlarmData"> | boolean | null
+    powerFailure?: BoolNullableFilter<"AlarmData"> | boolean | null
+    underVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    vibration?: BoolNullableFilter<"AlarmData"> | boolean | null
     timestamp?: DateTimeFilter<"AlarmData"> | Date | string
-    createdAt?: DateTimeFilter<"AlarmData"> | Date | string
-    updatedAt?: DateTimeFilter<"AlarmData"> | Date | string
   }
 
   export type AlarmDataOrderByWithRelationInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    alarms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
-    alarms?: SortOrder
-    oilChange?: SortOrderInput | SortOrder
+    centerEnabledAlarm?: SortOrderInput | SortOrder
     crossBorder?: SortOrderInput | SortOrder
-    overVoltage?: SortOrderInput | SortOrder
-    underVoltage?: SortOrderInput | SortOrder
-    overload?: SortOrderInput | SortOrder
-    overtimeDriving?: SortOrderInput | SortOrder
+    emergency?: SortOrderInput | SortOrder
     enterBorder?: SortOrderInput | SortOrder
     illegalDoorOpen?: SortOrderInput | SortOrder
     illegalStart?: SortOrderInput | SortOrder
-    vibration?: SortOrderInput | SortOrder
-    centerEnabledAlarm?: SortOrderInput | SortOrder
-    powerFailure?: SortOrderInput | SortOrder
-    parking?: SortOrderInput | SortOrder
+    oilChange?: SortOrderInput | SortOrder
     overSpeed?: SortOrderInput | SortOrder
-    emergency?: SortOrderInput | SortOrder
+    overVoltage?: SortOrderInput | SortOrder
+    overload?: SortOrderInput | SortOrder
+    overtimeDriving?: SortOrderInput | SortOrder
+    parking?: SortOrderInput | SortOrder
+    powerFailure?: SortOrderInput | SortOrder
+    underVoltage?: SortOrderInput | SortOrder
+    vibration?: SortOrderInput | SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type AlarmDataWhereUniqueInput = Prisma.AtLeast<{
@@ -10241,56 +10318,58 @@ export namespace Prisma {
     AND?: AlarmDataWhereInput | AlarmDataWhereInput[]
     OR?: AlarmDataWhereInput[]
     NOT?: AlarmDataWhereInput | AlarmDataWhereInput[]
+    clientId?: StringFilter<"AlarmData"> | string
+    alarms?: StringFilter<"AlarmData"> | string
+    createdAt?: DateTimeFilter<"AlarmData"> | Date | string
+    updatedAt?: DateTimeFilter<"AlarmData"> | Date | string
     mainCommand?: StringNullableFilter<"AlarmData"> | string | null
     packetLength?: IntNullableFilter<"AlarmData"> | number | null
     pseudoIP?: StringNullableFilter<"AlarmData"> | string | null
     rawData?: StringNullableFilter<"AlarmData"> | string | null
-    alarms?: StringFilter<"AlarmData"> | string
-    oilChange?: BoolNullableFilter<"AlarmData"> | boolean | null
+    centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
     crossBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
-    overVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
-    underVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
-    overload?: BoolNullableFilter<"AlarmData"> | boolean | null
-    overtimeDriving?: BoolNullableFilter<"AlarmData"> | boolean | null
+    emergency?: BoolNullableFilter<"AlarmData"> | boolean | null
     enterBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
     illegalDoorOpen?: BoolNullableFilter<"AlarmData"> | boolean | null
     illegalStart?: BoolNullableFilter<"AlarmData"> | boolean | null
-    vibration?: BoolNullableFilter<"AlarmData"> | boolean | null
-    centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
-    powerFailure?: BoolNullableFilter<"AlarmData"> | boolean | null
-    parking?: BoolNullableFilter<"AlarmData"> | boolean | null
+    oilChange?: BoolNullableFilter<"AlarmData"> | boolean | null
     overSpeed?: BoolNullableFilter<"AlarmData"> | boolean | null
-    emergency?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overload?: BoolNullableFilter<"AlarmData"> | boolean | null
+    overtimeDriving?: BoolNullableFilter<"AlarmData"> | boolean | null
+    parking?: BoolNullableFilter<"AlarmData"> | boolean | null
+    powerFailure?: BoolNullableFilter<"AlarmData"> | boolean | null
+    underVoltage?: BoolNullableFilter<"AlarmData"> | boolean | null
+    vibration?: BoolNullableFilter<"AlarmData"> | boolean | null
     timestamp?: DateTimeFilter<"AlarmData"> | Date | string
-    createdAt?: DateTimeFilter<"AlarmData"> | Date | string
-    updatedAt?: DateTimeFilter<"AlarmData"> | Date | string
   }, "id">
 
   export type AlarmDataOrderByWithAggregationInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    alarms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
-    alarms?: SortOrder
-    oilChange?: SortOrderInput | SortOrder
+    centerEnabledAlarm?: SortOrderInput | SortOrder
     crossBorder?: SortOrderInput | SortOrder
-    overVoltage?: SortOrderInput | SortOrder
-    underVoltage?: SortOrderInput | SortOrder
-    overload?: SortOrderInput | SortOrder
-    overtimeDriving?: SortOrderInput | SortOrder
+    emergency?: SortOrderInput | SortOrder
     enterBorder?: SortOrderInput | SortOrder
     illegalDoorOpen?: SortOrderInput | SortOrder
     illegalStart?: SortOrderInput | SortOrder
-    vibration?: SortOrderInput | SortOrder
-    centerEnabledAlarm?: SortOrderInput | SortOrder
-    powerFailure?: SortOrderInput | SortOrder
-    parking?: SortOrderInput | SortOrder
+    oilChange?: SortOrderInput | SortOrder
     overSpeed?: SortOrderInput | SortOrder
-    emergency?: SortOrderInput | SortOrder
+    overVoltage?: SortOrderInput | SortOrder
+    overload?: SortOrderInput | SortOrder
+    overtimeDriving?: SortOrderInput | SortOrder
+    parking?: SortOrderInput | SortOrder
+    powerFailure?: SortOrderInput | SortOrder
+    underVoltage?: SortOrderInput | SortOrder
+    vibration?: SortOrderInput | SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     _count?: AlarmDataCountOrderByAggregateInput
     _avg?: AlarmDataAvgOrderByAggregateInput
     _max?: AlarmDataMaxOrderByAggregateInput
@@ -10303,29 +10382,30 @@ export namespace Prisma {
     OR?: AlarmDataScalarWhereWithAggregatesInput[]
     NOT?: AlarmDataScalarWhereWithAggregatesInput | AlarmDataScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"AlarmData"> | number
+    clientId?: StringWithAggregatesFilter<"AlarmData"> | string
+    alarms?: StringWithAggregatesFilter<"AlarmData"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
     mainCommand?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
     packetLength?: IntNullableWithAggregatesFilter<"AlarmData"> | number | null
     pseudoIP?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
-    alarms?: StringWithAggregatesFilter<"AlarmData"> | string
-    oilChange?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    centerEnabledAlarm?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
     crossBorder?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    overVoltage?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    underVoltage?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    overload?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    overtimeDriving?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    emergency?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
     enterBorder?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
     illegalDoorOpen?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
     illegalStart?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    vibration?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    centerEnabledAlarm?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    powerFailure?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    parking?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    oilChange?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
     overSpeed?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
-    emergency?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    overVoltage?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    overload?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    overtimeDriving?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    parking?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    powerFailure?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    underVoltage?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
+    vibration?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
     timestamp?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
-    createdAt?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"AlarmData"> | Date | string
   }
 
   export type HeartbeatDataWhereInput = {
@@ -10333,30 +10413,32 @@ export namespace Prisma {
     OR?: HeartbeatDataWhereInput[]
     NOT?: HeartbeatDataWhereInput | HeartbeatDataWhereInput[]
     id?: IntFilter<"HeartbeatData"> | number
+    clientId?: StringFilter<"HeartbeatData"> | string
+    calibrationValue?: IntNullableFilter<"HeartbeatData"> | number | null
+    mainOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    slaveOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    createdAt?: DateTimeFilter<"HeartbeatData"> | Date | string
+    updatedAt?: DateTimeFilter<"HeartbeatData"> | Date | string
     mainCommand?: StringNullableFilter<"HeartbeatData"> | string | null
     packetLength?: IntNullableFilter<"HeartbeatData"> | number | null
     pseudoIP?: StringNullableFilter<"HeartbeatData"> | string | null
     rawData?: StringNullableFilter<"HeartbeatData"> | string | null
-    calibrationValue?: IntNullableFilter<"HeartbeatData"> | number | null
-    mainOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
-    slaveOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
     timestamp?: DateTimeFilter<"HeartbeatData"> | Date | string
-    createdAt?: DateTimeFilter<"HeartbeatData"> | Date | string
-    updatedAt?: DateTimeFilter<"HeartbeatData"> | Date | string
   }
 
   export type HeartbeatDataOrderByWithRelationInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    calibrationValue?: SortOrderInput | SortOrder
+    mainOrderReply?: SortOrderInput | SortOrder
+    slaveOrderReply?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
-    calibrationValue?: SortOrderInput | SortOrder
-    mainOrderReply?: SortOrderInput | SortOrder
-    slaveOrderReply?: SortOrderInput | SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type HeartbeatDataWhereUniqueInput = Prisma.AtLeast<{
@@ -10364,30 +10446,32 @@ export namespace Prisma {
     AND?: HeartbeatDataWhereInput | HeartbeatDataWhereInput[]
     OR?: HeartbeatDataWhereInput[]
     NOT?: HeartbeatDataWhereInput | HeartbeatDataWhereInput[]
+    clientId?: StringFilter<"HeartbeatData"> | string
+    calibrationValue?: IntNullableFilter<"HeartbeatData"> | number | null
+    mainOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    slaveOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
+    createdAt?: DateTimeFilter<"HeartbeatData"> | Date | string
+    updatedAt?: DateTimeFilter<"HeartbeatData"> | Date | string
     mainCommand?: StringNullableFilter<"HeartbeatData"> | string | null
     packetLength?: IntNullableFilter<"HeartbeatData"> | number | null
     pseudoIP?: StringNullableFilter<"HeartbeatData"> | string | null
     rawData?: StringNullableFilter<"HeartbeatData"> | string | null
-    calibrationValue?: IntNullableFilter<"HeartbeatData"> | number | null
-    mainOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
-    slaveOrderReply?: IntNullableFilter<"HeartbeatData"> | number | null
     timestamp?: DateTimeFilter<"HeartbeatData"> | Date | string
-    createdAt?: DateTimeFilter<"HeartbeatData"> | Date | string
-    updatedAt?: DateTimeFilter<"HeartbeatData"> | Date | string
   }, "id">
 
   export type HeartbeatDataOrderByWithAggregationInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    calibrationValue?: SortOrderInput | SortOrder
+    mainOrderReply?: SortOrderInput | SortOrder
+    slaveOrderReply?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
-    calibrationValue?: SortOrderInput | SortOrder
-    mainOrderReply?: SortOrderInput | SortOrder
-    slaveOrderReply?: SortOrderInput | SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     _count?: HeartbeatDataCountOrderByAggregateInput
     _avg?: HeartbeatDataAvgOrderByAggregateInput
     _max?: HeartbeatDataMaxOrderByAggregateInput
@@ -10400,16 +10484,17 @@ export namespace Prisma {
     OR?: HeartbeatDataScalarWhereWithAggregatesInput[]
     NOT?: HeartbeatDataScalarWhereWithAggregatesInput | HeartbeatDataScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"HeartbeatData"> | number
+    clientId?: StringWithAggregatesFilter<"HeartbeatData"> | string
+    calibrationValue?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
+    mainOrderReply?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
+    slaveOrderReply?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
     mainCommand?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
     packetLength?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
     pseudoIP?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
-    calibrationValue?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
-    mainOrderReply?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
-    slaveOrderReply?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
     timestamp?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
-    createdAt?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
   }
 
   export type TrackerStatusWhereInput = {
@@ -10417,10 +10502,7 @@ export namespace Prisma {
     OR?: TrackerStatusWhereInput[]
     NOT?: TrackerStatusWhereInput | TrackerStatusWhereInput[]
     id?: IntFilter<"TrackerStatus"> | number
-    mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
-    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
-    pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
-    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    clientId?: StringFilter<"TrackerStatus"> | string
     samplingTime?: StringFilter<"TrackerStatus"> | string
     alarmStatus?: IntNullableFilter<"TrackerStatus"> | number | null
     located?: BoolNullableFilter<"TrackerStatus"> | boolean | null
@@ -10436,17 +10518,18 @@ export namespace Prisma {
     samplingValueAccOff?: IntNullableFilter<"TrackerStatus"> | number | null
     emergencyAlarmSwitch?: BoolNullableFilter<"TrackerStatus"> | boolean | null
     photographRelated?: IntNullableFilter<"TrackerStatus"> | number | null
-    timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
     createdAt?: DateTimeFilter<"TrackerStatus"> | Date | string
     updatedAt?: DateTimeFilter<"TrackerStatus"> | Date | string
+    mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
+    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
+    pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
+    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
   }
 
   export type TrackerStatusOrderByWithRelationInput = {
     id?: SortOrder
-    mainCommand?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    pseudoIP?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    clientId?: SortOrder
     samplingTime?: SortOrder
     alarmStatus?: SortOrderInput | SortOrder
     located?: SortOrderInput | SortOrder
@@ -10462,9 +10545,13 @@ export namespace Prisma {
     samplingValueAccOff?: SortOrderInput | SortOrder
     emergencyAlarmSwitch?: SortOrderInput | SortOrder
     photographRelated?: SortOrderInput | SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
   }
 
   export type TrackerStatusWhereUniqueInput = Prisma.AtLeast<{
@@ -10472,10 +10559,7 @@ export namespace Prisma {
     AND?: TrackerStatusWhereInput | TrackerStatusWhereInput[]
     OR?: TrackerStatusWhereInput[]
     NOT?: TrackerStatusWhereInput | TrackerStatusWhereInput[]
-    mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
-    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
-    pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
-    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    clientId?: StringFilter<"TrackerStatus"> | string
     samplingTime?: StringFilter<"TrackerStatus"> | string
     alarmStatus?: IntNullableFilter<"TrackerStatus"> | number | null
     located?: BoolNullableFilter<"TrackerStatus"> | boolean | null
@@ -10491,17 +10575,18 @@ export namespace Prisma {
     samplingValueAccOff?: IntNullableFilter<"TrackerStatus"> | number | null
     emergencyAlarmSwitch?: BoolNullableFilter<"TrackerStatus"> | boolean | null
     photographRelated?: IntNullableFilter<"TrackerStatus"> | number | null
-    timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
     createdAt?: DateTimeFilter<"TrackerStatus"> | Date | string
     updatedAt?: DateTimeFilter<"TrackerStatus"> | Date | string
+    mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
+    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
+    pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
+    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
   }, "id">
 
   export type TrackerStatusOrderByWithAggregationInput = {
     id?: SortOrder
-    mainCommand?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    pseudoIP?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    clientId?: SortOrder
     samplingTime?: SortOrder
     alarmStatus?: SortOrderInput | SortOrder
     located?: SortOrderInput | SortOrder
@@ -10517,9 +10602,13 @@ export namespace Prisma {
     samplingValueAccOff?: SortOrderInput | SortOrder
     emergencyAlarmSwitch?: SortOrderInput | SortOrder
     photographRelated?: SortOrderInput | SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
     _count?: TrackerStatusCountOrderByAggregateInput
     _avg?: TrackerStatusAvgOrderByAggregateInput
     _max?: TrackerStatusMaxOrderByAggregateInput
@@ -10532,10 +10621,7 @@ export namespace Prisma {
     OR?: TrackerStatusScalarWhereWithAggregatesInput[]
     NOT?: TrackerStatusScalarWhereWithAggregatesInput | TrackerStatusScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"TrackerStatus"> | number
-    mainCommand?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
-    packetLength?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
-    pseudoIP?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
-    rawData?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    clientId?: StringWithAggregatesFilter<"TrackerStatus"> | string
     samplingTime?: StringWithAggregatesFilter<"TrackerStatus"> | string
     alarmStatus?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
     located?: BoolNullableWithAggregatesFilter<"TrackerStatus"> | boolean | null
@@ -10551,9 +10637,13 @@ export namespace Prisma {
     samplingValueAccOff?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
     emergencyAlarmSwitch?: BoolNullableWithAggregatesFilter<"TrackerStatus"> | boolean | null
     photographRelated?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
-    timestamp?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
+    mainCommand?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    timestamp?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
   }
 
   export type IButtonDataWhereInput = {
@@ -10561,34 +10651,36 @@ export namespace Prisma {
     OR?: IButtonDataWhereInput[]
     NOT?: IButtonDataWhereInput | IButtonDataWhereInput[]
     id?: IntFilter<"IButtonData"> | number
-    mainCommand?: StringNullableFilter<"IButtonData"> | string | null
-    packetLength?: IntNullableFilter<"IButtonData"> | number | null
-    pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
-    rawData?: StringNullableFilter<"IButtonData"> | string | null
+    clientId?: StringFilter<"IButtonData"> | string
     subCommand?: IntNullableFilter<"IButtonData"> | number | null
     message?: StringNullableFilter<"IButtonData"> | string | null
     driverName?: StringNullableFilter<"IButtonData"> | string | null
     driverId?: StringNullableFilter<"IButtonData"> | string | null
     swipeData?: StringNullableFilter<"IButtonData"> | string | null
-    timestamp?: DateTimeFilter<"IButtonData"> | Date | string
     createdAt?: DateTimeFilter<"IButtonData"> | Date | string
     updatedAt?: DateTimeFilter<"IButtonData"> | Date | string
+    mainCommand?: StringNullableFilter<"IButtonData"> | string | null
+    packetLength?: IntNullableFilter<"IButtonData"> | number | null
+    pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
+    rawData?: StringNullableFilter<"IButtonData"> | string | null
+    timestamp?: DateTimeFilter<"IButtonData"> | Date | string
   }
 
   export type IButtonDataOrderByWithRelationInput = {
     id?: SortOrder
-    mainCommand?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    pseudoIP?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    clientId?: SortOrder
     subCommand?: SortOrderInput | SortOrder
     message?: SortOrderInput | SortOrder
     driverName?: SortOrderInput | SortOrder
     driverId?: SortOrderInput | SortOrder
     swipeData?: SortOrderInput | SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
   }
 
   export type IButtonDataWhereUniqueInput = Prisma.AtLeast<{
@@ -10596,34 +10688,36 @@ export namespace Prisma {
     AND?: IButtonDataWhereInput | IButtonDataWhereInput[]
     OR?: IButtonDataWhereInput[]
     NOT?: IButtonDataWhereInput | IButtonDataWhereInput[]
-    mainCommand?: StringNullableFilter<"IButtonData"> | string | null
-    packetLength?: IntNullableFilter<"IButtonData"> | number | null
-    pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
-    rawData?: StringNullableFilter<"IButtonData"> | string | null
+    clientId?: StringFilter<"IButtonData"> | string
     subCommand?: IntNullableFilter<"IButtonData"> | number | null
     message?: StringNullableFilter<"IButtonData"> | string | null
     driverName?: StringNullableFilter<"IButtonData"> | string | null
     driverId?: StringNullableFilter<"IButtonData"> | string | null
     swipeData?: StringNullableFilter<"IButtonData"> | string | null
-    timestamp?: DateTimeFilter<"IButtonData"> | Date | string
     createdAt?: DateTimeFilter<"IButtonData"> | Date | string
     updatedAt?: DateTimeFilter<"IButtonData"> | Date | string
+    mainCommand?: StringNullableFilter<"IButtonData"> | string | null
+    packetLength?: IntNullableFilter<"IButtonData"> | number | null
+    pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
+    rawData?: StringNullableFilter<"IButtonData"> | string | null
+    timestamp?: DateTimeFilter<"IButtonData"> | Date | string
   }, "id">
 
   export type IButtonDataOrderByWithAggregationInput = {
     id?: SortOrder
-    mainCommand?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    pseudoIP?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    clientId?: SortOrder
     subCommand?: SortOrderInput | SortOrder
     message?: SortOrderInput | SortOrder
     driverName?: SortOrderInput | SortOrder
     driverId?: SortOrderInput | SortOrder
     swipeData?: SortOrderInput | SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrderInput | SortOrder
+    packetLength?: SortOrderInput | SortOrder
+    pseudoIP?: SortOrderInput | SortOrder
+    rawData?: SortOrderInput | SortOrder
+    timestamp?: SortOrder
     _count?: IButtonDataCountOrderByAggregateInput
     _avg?: IButtonDataAvgOrderByAggregateInput
     _max?: IButtonDataMaxOrderByAggregateInput
@@ -10636,18 +10730,19 @@ export namespace Prisma {
     OR?: IButtonDataScalarWhereWithAggregatesInput[]
     NOT?: IButtonDataScalarWhereWithAggregatesInput | IButtonDataScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"IButtonData"> | number
-    mainCommand?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
-    packetLength?: IntNullableWithAggregatesFilter<"IButtonData"> | number | null
-    pseudoIP?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
-    rawData?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    clientId?: StringWithAggregatesFilter<"IButtonData"> | string
     subCommand?: IntNullableWithAggregatesFilter<"IButtonData"> | number | null
     message?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     driverName?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     driverId?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     swipeData?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
-    timestamp?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
+    mainCommand?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    packetLength?: IntNullableWithAggregatesFilter<"IButtonData"> | number | null
+    pseudoIP?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    rawData?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    timestamp?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
   }
 
   export type StatusCreateInput = {
@@ -10726,90 +10821,87 @@ export namespace Prisma {
 
   export type GpsDataCreateInput = {
     rawData: string
-    parsedData?: string | null
-    packetInfo?: string | null
-    mainCommand?: string | null
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     from: string
+    mainCommand?: string | null
+    parsedData?: string | null
+    packetInfo?: string | null
   }
 
   export type GpsDataUncheckedCreateInput = {
     id?: number
     rawData: string
-    parsedData?: string | null
-    packetInfo?: string | null
-    mainCommand?: string | null
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     from: string
+    mainCommand?: string | null
+    parsedData?: string | null
+    packetInfo?: string | null
   }
 
   export type GpsDataUpdateInput = {
     rawData?: StringFieldUpdateOperationsInput | string
-    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
-    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     from?: StringFieldUpdateOperationsInput | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GpsDataUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     rawData?: StringFieldUpdateOperationsInput | string
-    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
-    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     from?: StringFieldUpdateOperationsInput | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GpsDataCreateManyInput = {
     id?: number
     rawData: string
-    parsedData?: string | null
-    packetInfo?: string | null
-    mainCommand?: string | null
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
     from: string
+    mainCommand?: string | null
+    parsedData?: string | null
+    packetInfo?: string | null
   }
 
   export type GpsDataUpdateManyMutationInput = {
     rawData?: StringFieldUpdateOperationsInput | string
-    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
-    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     from?: StringFieldUpdateOperationsInput | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GpsDataUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     rawData?: StringFieldUpdateOperationsInput | string
-    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
-    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     from?: StringFieldUpdateOperationsInput | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    parsedData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetInfo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PositionDataCreateInput = {
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     latitude: number
     longitude: number
     speed?: number | null
@@ -10821,17 +10913,18 @@ export namespace Prisma {
     voltage?: number | null
     mileage?: number | null
     temperature?: number | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type PositionDataUncheckedCreateInput = {
     id?: number
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     latitude: number
     longitude: number
     speed?: number | null
@@ -10843,16 +10936,17 @@ export namespace Prisma {
     voltage?: number | null
     mileage?: number | null
     temperature?: number | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type PositionDataUpdateInput = {
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
     speed?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -10864,17 +10958,18 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PositionDataUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
     speed?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -10886,17 +10981,18 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PositionDataCreateManyInput = {
     id?: number
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     latitude: number
     longitude: number
     speed?: number | null
@@ -10908,16 +11004,17 @@ export namespace Prisma {
     voltage?: number | null
     mileage?: number | null
     temperature?: number | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type PositionDataUpdateManyMutationInput = {
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
     speed?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -10929,17 +11026,18 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PositionDataUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
     speed?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -10951,297 +11049,312 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AlarmDataCreateInput = {
+    clientId: string
+    alarms: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
     rawData?: string | null
-    alarms: string
-    oilChange?: boolean | null
+    centerEnabledAlarm?: boolean | null
     crossBorder?: boolean | null
-    overVoltage?: boolean | null
-    underVoltage?: boolean | null
-    overload?: boolean | null
-    overtimeDriving?: boolean | null
+    emergency?: boolean | null
     enterBorder?: boolean | null
     illegalDoorOpen?: boolean | null
     illegalStart?: boolean | null
-    vibration?: boolean | null
-    centerEnabledAlarm?: boolean | null
-    powerFailure?: boolean | null
-    parking?: boolean | null
+    oilChange?: boolean | null
     overSpeed?: boolean | null
-    emergency?: boolean | null
+    overVoltage?: boolean | null
+    overload?: boolean | null
+    overtimeDriving?: boolean | null
+    parking?: boolean | null
+    powerFailure?: boolean | null
+    underVoltage?: boolean | null
+    vibration?: boolean | null
     timestamp?: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type AlarmDataUncheckedCreateInput = {
     id?: number
+    clientId: string
+    alarms: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
     rawData?: string | null
-    alarms: string
-    oilChange?: boolean | null
+    centerEnabledAlarm?: boolean | null
     crossBorder?: boolean | null
-    overVoltage?: boolean | null
-    underVoltage?: boolean | null
-    overload?: boolean | null
-    overtimeDriving?: boolean | null
+    emergency?: boolean | null
     enterBorder?: boolean | null
     illegalDoorOpen?: boolean | null
     illegalStart?: boolean | null
-    vibration?: boolean | null
-    centerEnabledAlarm?: boolean | null
-    powerFailure?: boolean | null
-    parking?: boolean | null
+    oilChange?: boolean | null
     overSpeed?: boolean | null
-    emergency?: boolean | null
+    overVoltage?: boolean | null
+    overload?: boolean | null
+    overtimeDriving?: boolean | null
+    parking?: boolean | null
+    powerFailure?: boolean | null
+    underVoltage?: boolean | null
+    vibration?: boolean | null
     timestamp?: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type AlarmDataUpdateInput = {
+    clientId?: StringFieldUpdateOperationsInput | string
+    alarms?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    alarms?: StringFieldUpdateOperationsInput | string
-    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
     enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
     overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AlarmDataUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    alarms?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    alarms?: StringFieldUpdateOperationsInput | string
-    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
     enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
     overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AlarmDataCreateManyInput = {
     id?: number
+    clientId: string
+    alarms: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
     rawData?: string | null
-    alarms: string
-    oilChange?: boolean | null
+    centerEnabledAlarm?: boolean | null
     crossBorder?: boolean | null
-    overVoltage?: boolean | null
-    underVoltage?: boolean | null
-    overload?: boolean | null
-    overtimeDriving?: boolean | null
+    emergency?: boolean | null
     enterBorder?: boolean | null
     illegalDoorOpen?: boolean | null
     illegalStart?: boolean | null
-    vibration?: boolean | null
-    centerEnabledAlarm?: boolean | null
-    powerFailure?: boolean | null
-    parking?: boolean | null
+    oilChange?: boolean | null
     overSpeed?: boolean | null
-    emergency?: boolean | null
+    overVoltage?: boolean | null
+    overload?: boolean | null
+    overtimeDriving?: boolean | null
+    parking?: boolean | null
+    powerFailure?: boolean | null
+    underVoltage?: boolean | null
+    vibration?: boolean | null
     timestamp?: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type AlarmDataUpdateManyMutationInput = {
+    clientId?: StringFieldUpdateOperationsInput | string
+    alarms?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    alarms?: StringFieldUpdateOperationsInput | string
-    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
     enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
     overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AlarmDataUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    alarms?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    alarms?: StringFieldUpdateOperationsInput | string
-    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
     enterBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalDoorOpen?: NullableBoolFieldUpdateOperationsInput | boolean | null
     illegalStart?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    oilChange?: NullableBoolFieldUpdateOperationsInput | boolean | null
     overSpeed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    emergency?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overload?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    overtimeDriving?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    parking?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    powerFailure?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    underVoltage?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    vibration?: NullableBoolFieldUpdateOperationsInput | boolean | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type HeartbeatDataCreateInput = {
+    clientId: string
+    calibrationValue?: number | null
+    mainOrderReply?: number | null
+    slaveOrderReply?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
     rawData?: string | null
-    calibrationValue?: number | null
-    mainOrderReply?: number | null
-    slaveOrderReply?: number | null
     timestamp?: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type HeartbeatDataUncheckedCreateInput = {
     id?: number
+    clientId: string
+    calibrationValue?: number | null
+    mainOrderReply?: number | null
+    slaveOrderReply?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
     rawData?: string | null
-    calibrationValue?: number | null
-    mainOrderReply?: number | null
-    slaveOrderReply?: number | null
     timestamp?: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type HeartbeatDataUpdateInput = {
+    clientId?: StringFieldUpdateOperationsInput | string
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
-    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
-    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type HeartbeatDataUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
-    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
-    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type HeartbeatDataCreateManyInput = {
     id?: number
+    clientId: string
+    calibrationValue?: number | null
+    mainOrderReply?: number | null
+    slaveOrderReply?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
     rawData?: string | null
-    calibrationValue?: number | null
-    mainOrderReply?: number | null
-    slaveOrderReply?: number | null
     timestamp?: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type HeartbeatDataUpdateManyMutationInput = {
+    clientId?: StringFieldUpdateOperationsInput | string
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
-    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
-    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type HeartbeatDataUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    clientId?: StringFieldUpdateOperationsInput | string
+    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
+    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
-    calibrationValue?: NullableIntFieldUpdateOperationsInput | number | null
-    mainOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
-    slaveOrderReply?: NullableIntFieldUpdateOperationsInput | number | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TrackerStatusCreateInput = {
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     samplingTime: string
     alarmStatus?: number | null
     located?: boolean | null
@@ -11257,17 +11370,18 @@ export namespace Prisma {
     samplingValueAccOff?: number | null
     emergencyAlarmSwitch?: boolean | null
     photographRelated?: number | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type TrackerStatusUncheckedCreateInput = {
     id?: number
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     samplingTime: string
     alarmStatus?: number | null
     located?: boolean | null
@@ -11283,16 +11397,17 @@ export namespace Prisma {
     samplingValueAccOff?: number | null
     emergencyAlarmSwitch?: boolean | null
     photographRelated?: number | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type TrackerStatusUpdateInput = {
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     samplingTime?: StringFieldUpdateOperationsInput | string
     alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
     located?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -11308,17 +11423,18 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TrackerStatusUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     samplingTime?: StringFieldUpdateOperationsInput | string
     alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
     located?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -11334,17 +11450,18 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TrackerStatusCreateManyInput = {
     id?: number
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     samplingTime: string
     alarmStatus?: number | null
     located?: boolean | null
@@ -11360,16 +11477,17 @@ export namespace Prisma {
     samplingValueAccOff?: number | null
     emergencyAlarmSwitch?: boolean | null
     photographRelated?: number | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type TrackerStatusUpdateManyMutationInput = {
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     samplingTime?: StringFieldUpdateOperationsInput | string
     alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
     located?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -11385,17 +11503,18 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TrackerStatusUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     samplingTime?: StringFieldUpdateOperationsInput | string
     alarmStatus?: NullableIntFieldUpdateOperationsInput | number | null
     located?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -11411,118 +11530,129 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IButtonDataCreateInput = {
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     subCommand?: number | null
     message?: string | null
     driverName?: string | null
     driverId?: string | null
     swipeData?: string | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type IButtonDataUncheckedCreateInput = {
     id?: number
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     subCommand?: number | null
     message?: string | null
     driverName?: string | null
     driverId?: string | null
     swipeData?: string | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type IButtonDataUpdateInput = {
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     subCommand?: NullableIntFieldUpdateOperationsInput | number | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
     driverName?: NullableStringFieldUpdateOperationsInput | string | null
     driverId?: NullableStringFieldUpdateOperationsInput | string | null
     swipeData?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IButtonDataUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     subCommand?: NullableIntFieldUpdateOperationsInput | number | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
     driverName?: NullableStringFieldUpdateOperationsInput | string | null
     driverId?: NullableStringFieldUpdateOperationsInput | string | null
     swipeData?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IButtonDataCreateManyInput = {
     id?: number
-    mainCommand?: string | null
-    packetLength?: number | null
-    pseudoIP?: string | null
-    rawData?: string | null
+    clientId: string
     subCommand?: number | null
     message?: string | null
     driverName?: string | null
     driverId?: string | null
     swipeData?: string | null
-    timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    mainCommand?: string | null
+    packetLength?: number | null
+    pseudoIP?: string | null
+    rawData?: string | null
+    timestamp?: Date | string
   }
 
   export type IButtonDataUpdateManyMutationInput = {
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     subCommand?: NullableIntFieldUpdateOperationsInput | number | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
     driverName?: NullableStringFieldUpdateOperationsInput | string | null
     driverId?: NullableStringFieldUpdateOperationsInput | string | null
     swipeData?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IButtonDataUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    clientId?: StringFieldUpdateOperationsInput | string
     subCommand?: NullableIntFieldUpdateOperationsInput | number | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
     driverName?: NullableStringFieldUpdateOperationsInput | string | null
     driverId?: NullableStringFieldUpdateOperationsInput | string | null
     swipeData?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
+    pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -11692,13 +11822,13 @@ export namespace Prisma {
   export type GpsDataCountOrderByAggregateInput = {
     id?: SortOrder
     rawData?: SortOrder
-    parsedData?: SortOrder
-    packetInfo?: SortOrder
-    mainCommand?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     from?: SortOrder
+    mainCommand?: SortOrder
+    parsedData?: SortOrder
+    packetInfo?: SortOrder
   }
 
   export type GpsDataAvgOrderByAggregateInput = {
@@ -11708,40 +11838,29 @@ export namespace Prisma {
   export type GpsDataMaxOrderByAggregateInput = {
     id?: SortOrder
     rawData?: SortOrder
-    parsedData?: SortOrder
-    packetInfo?: SortOrder
-    mainCommand?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     from?: SortOrder
+    mainCommand?: SortOrder
+    parsedData?: SortOrder
+    packetInfo?: SortOrder
   }
 
   export type GpsDataMinOrderByAggregateInput = {
     id?: SortOrder
     rawData?: SortOrder
-    parsedData?: SortOrder
-    packetInfo?: SortOrder
-    mainCommand?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     from?: SortOrder
+    mainCommand?: SortOrder
+    parsedData?: SortOrder
+    packetInfo?: SortOrder
   }
 
   export type GpsDataSumOrderByAggregateInput = {
     id?: SortOrder
-  }
-
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -11771,99 +11890,7 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type PositionDataCountOrderByAggregateInput = {
-    id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    speed?: SortOrder
-    angle?: SortOrder
-    gpsStatus?: SortOrder
-    digitalInputs?: SortOrder
-    ignition?: SortOrder
-    oilResistance?: SortOrder
-    voltage?: SortOrder
-    mileage?: SortOrder
-    temperature?: SortOrder
-    timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PositionDataAvgOrderByAggregateInput = {
-    id?: SortOrder
-    packetLength?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    speed?: SortOrder
-    angle?: SortOrder
-    oilResistance?: SortOrder
-    voltage?: SortOrder
-    mileage?: SortOrder
-    temperature?: SortOrder
-  }
-
-  export type PositionDataMaxOrderByAggregateInput = {
-    id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    speed?: SortOrder
-    angle?: SortOrder
-    gpsStatus?: SortOrder
-    digitalInputs?: SortOrder
-    ignition?: SortOrder
-    oilResistance?: SortOrder
-    voltage?: SortOrder
-    mileage?: SortOrder
-    temperature?: SortOrder
-    timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PositionDataMinOrderByAggregateInput = {
-    id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    speed?: SortOrder
-    angle?: SortOrder
-    gpsStatus?: SortOrder
-    digitalInputs?: SortOrder
-    ignition?: SortOrder
-    oilResistance?: SortOrder
-    voltage?: SortOrder
-    mileage?: SortOrder
-    temperature?: SortOrder
-    timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PositionDataSumOrderByAggregateInput = {
-    id?: SortOrder
-    packetLength?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    speed?: SortOrder
-    angle?: SortOrder
-    oilResistance?: SortOrder
-    voltage?: SortOrder
-    mileage?: SortOrder
-    temperature?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -11871,12 +11898,102 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type PositionDataCountOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    gpsStatus?: SortOrder
+    digitalInputs?: SortOrder
+    ignition?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
+  }
+
+  export type PositionDataAvgOrderByAggregateInput = {
+    id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+    packetLength?: SortOrder
+  }
+
+  export type PositionDataMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    gpsStatus?: SortOrder
+    digitalInputs?: SortOrder
+    ignition?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
+  }
+
+  export type PositionDataMinOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    gpsStatus?: SortOrder
+    digitalInputs?: SortOrder
+    ignition?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
+  }
+
+  export type PositionDataSumOrderByAggregateInput = {
+    id?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    speed?: SortOrder
+    angle?: SortOrder
+    oilResistance?: SortOrder
+    voltage?: SortOrder
+    mileage?: SortOrder
+    temperature?: SortOrder
+    packetLength?: SortOrder
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -11919,31 +12036,48 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type AlarmDataCountOrderByAggregateInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    alarms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
     rawData?: SortOrder
-    alarms?: SortOrder
-    oilChange?: SortOrder
+    centerEnabledAlarm?: SortOrder
     crossBorder?: SortOrder
-    overVoltage?: SortOrder
-    underVoltage?: SortOrder
-    overload?: SortOrder
-    overtimeDriving?: SortOrder
+    emergency?: SortOrder
     enterBorder?: SortOrder
     illegalDoorOpen?: SortOrder
     illegalStart?: SortOrder
-    vibration?: SortOrder
-    centerEnabledAlarm?: SortOrder
-    powerFailure?: SortOrder
-    parking?: SortOrder
+    oilChange?: SortOrder
     overSpeed?: SortOrder
-    emergency?: SortOrder
+    overVoltage?: SortOrder
+    overload?: SortOrder
+    overtimeDriving?: SortOrder
+    parking?: SortOrder
+    powerFailure?: SortOrder
+    underVoltage?: SortOrder
+    vibration?: SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type AlarmDataAvgOrderByAggregateInput = {
@@ -11953,56 +12087,58 @@ export namespace Prisma {
 
   export type AlarmDataMaxOrderByAggregateInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    alarms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
     rawData?: SortOrder
-    alarms?: SortOrder
-    oilChange?: SortOrder
+    centerEnabledAlarm?: SortOrder
     crossBorder?: SortOrder
-    overVoltage?: SortOrder
-    underVoltage?: SortOrder
-    overload?: SortOrder
-    overtimeDriving?: SortOrder
+    emergency?: SortOrder
     enterBorder?: SortOrder
     illegalDoorOpen?: SortOrder
     illegalStart?: SortOrder
-    vibration?: SortOrder
-    centerEnabledAlarm?: SortOrder
-    powerFailure?: SortOrder
-    parking?: SortOrder
+    oilChange?: SortOrder
     overSpeed?: SortOrder
-    emergency?: SortOrder
+    overVoltage?: SortOrder
+    overload?: SortOrder
+    overtimeDriving?: SortOrder
+    parking?: SortOrder
+    powerFailure?: SortOrder
+    underVoltage?: SortOrder
+    vibration?: SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type AlarmDataMinOrderByAggregateInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    alarms?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
     rawData?: SortOrder
-    alarms?: SortOrder
-    oilChange?: SortOrder
+    centerEnabledAlarm?: SortOrder
     crossBorder?: SortOrder
-    overVoltage?: SortOrder
-    underVoltage?: SortOrder
-    overload?: SortOrder
-    overtimeDriving?: SortOrder
+    emergency?: SortOrder
     enterBorder?: SortOrder
     illegalDoorOpen?: SortOrder
     illegalStart?: SortOrder
-    vibration?: SortOrder
-    centerEnabledAlarm?: SortOrder
-    powerFailure?: SortOrder
-    parking?: SortOrder
+    oilChange?: SortOrder
     overSpeed?: SortOrder
-    emergency?: SortOrder
+    overVoltage?: SortOrder
+    overload?: SortOrder
+    overtimeDriving?: SortOrder
+    parking?: SortOrder
+    powerFailure?: SortOrder
+    underVoltage?: SortOrder
+    vibration?: SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type AlarmDataSumOrderByAggregateInput = {
@@ -12012,68 +12148,68 @@ export namespace Prisma {
 
   export type HeartbeatDataCountOrderByAggregateInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
     rawData?: SortOrder
-    calibrationValue?: SortOrder
-    mainOrderReply?: SortOrder
-    slaveOrderReply?: SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type HeartbeatDataAvgOrderByAggregateInput = {
     id?: SortOrder
-    packetLength?: SortOrder
     calibrationValue?: SortOrder
     mainOrderReply?: SortOrder
     slaveOrderReply?: SortOrder
+    packetLength?: SortOrder
   }
 
   export type HeartbeatDataMaxOrderByAggregateInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
     rawData?: SortOrder
-    calibrationValue?: SortOrder
-    mainOrderReply?: SortOrder
-    slaveOrderReply?: SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type HeartbeatDataMinOrderByAggregateInput = {
     id?: SortOrder
+    clientId?: SortOrder
+    calibrationValue?: SortOrder
+    mainOrderReply?: SortOrder
+    slaveOrderReply?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
     rawData?: SortOrder
-    calibrationValue?: SortOrder
-    mainOrderReply?: SortOrder
-    slaveOrderReply?: SortOrder
     timestamp?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type HeartbeatDataSumOrderByAggregateInput = {
     id?: SortOrder
-    packetLength?: SortOrder
     calibrationValue?: SortOrder
     mainOrderReply?: SortOrder
     slaveOrderReply?: SortOrder
+    packetLength?: SortOrder
   }
 
   export type TrackerStatusCountOrderByAggregateInput = {
     id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
+    clientId?: SortOrder
     samplingTime?: SortOrder
     alarmStatus?: SortOrder
     located?: SortOrder
@@ -12089,14 +12225,17 @@ export namespace Prisma {
     samplingValueAccOff?: SortOrder
     emergencyAlarmSwitch?: SortOrder
     photographRelated?: SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
   }
 
   export type TrackerStatusAvgOrderByAggregateInput = {
     id?: SortOrder
-    packetLength?: SortOrder
     alarmStatus?: SortOrder
     samplingValue?: SortOrder
     carStopSetting?: SortOrder
@@ -12105,14 +12244,12 @@ export namespace Prisma {
     longTimeDriving?: SortOrder
     samplingValueAccOff?: SortOrder
     photographRelated?: SortOrder
+    packetLength?: SortOrder
   }
 
   export type TrackerStatusMaxOrderByAggregateInput = {
     id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
+    clientId?: SortOrder
     samplingTime?: SortOrder
     alarmStatus?: SortOrder
     located?: SortOrder
@@ -12128,17 +12265,18 @@ export namespace Prisma {
     samplingValueAccOff?: SortOrder
     emergencyAlarmSwitch?: SortOrder
     photographRelated?: SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
   }
 
   export type TrackerStatusMinOrderByAggregateInput = {
     id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
+    clientId?: SortOrder
     samplingTime?: SortOrder
     alarmStatus?: SortOrder
     located?: SortOrder
@@ -12154,14 +12292,17 @@ export namespace Prisma {
     samplingValueAccOff?: SortOrder
     emergencyAlarmSwitch?: SortOrder
     photographRelated?: SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
   }
 
   export type TrackerStatusSumOrderByAggregateInput = {
     id?: SortOrder
-    packetLength?: SortOrder
     alarmStatus?: SortOrder
     samplingValue?: SortOrder
     carStopSetting?: SortOrder
@@ -12170,66 +12311,70 @@ export namespace Prisma {
     longTimeDriving?: SortOrder
     samplingValueAccOff?: SortOrder
     photographRelated?: SortOrder
+    packetLength?: SortOrder
   }
 
   export type IButtonDataCountOrderByAggregateInput = {
     id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
+    clientId?: SortOrder
     subCommand?: SortOrder
     message?: SortOrder
     driverName?: SortOrder
     driverId?: SortOrder
     swipeData?: SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
   }
 
   export type IButtonDataAvgOrderByAggregateInput = {
     id?: SortOrder
-    packetLength?: SortOrder
     subCommand?: SortOrder
+    packetLength?: SortOrder
   }
 
   export type IButtonDataMaxOrderByAggregateInput = {
     id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
+    clientId?: SortOrder
     subCommand?: SortOrder
     message?: SortOrder
     driverName?: SortOrder
     driverId?: SortOrder
     swipeData?: SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
   }
 
   export type IButtonDataMinOrderByAggregateInput = {
     id?: SortOrder
-    mainCommand?: SortOrder
-    packetLength?: SortOrder
-    pseudoIP?: SortOrder
-    rawData?: SortOrder
+    clientId?: SortOrder
     subCommand?: SortOrder
     message?: SortOrder
     driverName?: SortOrder
     driverId?: SortOrder
     swipeData?: SortOrder
-    timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mainCommand?: SortOrder
+    packetLength?: SortOrder
+    pseudoIP?: SortOrder
+    rawData?: SortOrder
+    timestamp?: SortOrder
   }
 
   export type IButtonDataSumOrderByAggregateInput = {
     id?: SortOrder
-    packetLength?: SortOrder
     subCommand?: SortOrder
+    packetLength?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -12246,14 +12391,6 @@ export namespace Prisma {
 
   export type IntFieldUpdateOperationsInput = {
     set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -12278,6 +12415,14 @@ export namespace Prisma {
 
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -12432,22 +12577,6 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -12486,6 +12615,22 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
 

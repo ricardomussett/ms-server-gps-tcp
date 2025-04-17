@@ -131,21 +131,18 @@ exports.Prisma.StatusScalarFieldEnum = {
 exports.Prisma.GpsDataScalarFieldEnum = {
   id: 'id',
   rawData: 'rawData',
-  parsedData: 'parsedData',
-  packetInfo: 'packetInfo',
-  mainCommand: 'mainCommand',
   timestamp: 'timestamp',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  from: 'from'
+  from: 'from',
+  mainCommand: 'mainCommand',
+  parsedData: 'parsedData',
+  packetInfo: 'packetInfo'
 };
 
 exports.Prisma.PositionDataScalarFieldEnum = {
   id: 'id',
-  mainCommand: 'mainCommand',
-  packetLength: 'packetLength',
-  pseudoIP: 'pseudoIP',
-  rawData: 'rawData',
+  clientId: 'clientId',
   latitude: 'latitude',
   longitude: 'longitude',
   speed: 'speed',
@@ -157,58 +154,61 @@ exports.Prisma.PositionDataScalarFieldEnum = {
   voltage: 'voltage',
   mileage: 'mileage',
   temperature: 'temperature',
-  timestamp: 'timestamp',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  mainCommand: 'mainCommand',
+  packetLength: 'packetLength',
+  pseudoIP: 'pseudoIP',
+  rawData: 'rawData',
+  timestamp: 'timestamp'
 };
 
 exports.Prisma.AlarmDataScalarFieldEnum = {
   id: 'id',
+  clientId: 'clientId',
+  alarms: 'alarms',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
   rawData: 'rawData',
-  alarms: 'alarms',
-  oilChange: 'oilChange',
+  centerEnabledAlarm: 'centerEnabledAlarm',
   crossBorder: 'crossBorder',
-  overVoltage: 'overVoltage',
-  underVoltage: 'underVoltage',
-  overload: 'overload',
-  overtimeDriving: 'overtimeDriving',
+  emergency: 'emergency',
   enterBorder: 'enterBorder',
   illegalDoorOpen: 'illegalDoorOpen',
   illegalStart: 'illegalStart',
-  vibration: 'vibration',
-  centerEnabledAlarm: 'centerEnabledAlarm',
-  powerFailure: 'powerFailure',
-  parking: 'parking',
+  oilChange: 'oilChange',
   overSpeed: 'overSpeed',
-  emergency: 'emergency',
-  timestamp: 'timestamp',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  overVoltage: 'overVoltage',
+  overload: 'overload',
+  overtimeDriving: 'overtimeDriving',
+  parking: 'parking',
+  powerFailure: 'powerFailure',
+  underVoltage: 'underVoltage',
+  vibration: 'vibration',
+  timestamp: 'timestamp'
 };
 
 exports.Prisma.HeartbeatDataScalarFieldEnum = {
   id: 'id',
+  clientId: 'clientId',
+  calibrationValue: 'calibrationValue',
+  mainOrderReply: 'mainOrderReply',
+  slaveOrderReply: 'slaveOrderReply',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
   rawData: 'rawData',
-  calibrationValue: 'calibrationValue',
-  mainOrderReply: 'mainOrderReply',
-  slaveOrderReply: 'slaveOrderReply',
-  timestamp: 'timestamp',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  timestamp: 'timestamp'
 };
 
 exports.Prisma.TrackerStatusScalarFieldEnum = {
   id: 'id',
-  mainCommand: 'mainCommand',
-  packetLength: 'packetLength',
-  pseudoIP: 'pseudoIP',
-  rawData: 'rawData',
+  clientId: 'clientId',
   samplingTime: 'samplingTime',
   alarmStatus: 'alarmStatus',
   located: 'located',
@@ -224,25 +224,30 @@ exports.Prisma.TrackerStatusScalarFieldEnum = {
   samplingValueAccOff: 'samplingValueAccOff',
   emergencyAlarmSwitch: 'emergencyAlarmSwitch',
   photographRelated: 'photographRelated',
-  timestamp: 'timestamp',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.IButtonDataScalarFieldEnum = {
-  id: 'id',
+  updatedAt: 'updatedAt',
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
   rawData: 'rawData',
+  timestamp: 'timestamp'
+};
+
+exports.Prisma.IButtonDataScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
   subCommand: 'subCommand',
   message: 'message',
   driverName: 'driverName',
   driverId: 'driverId',
   swipeData: 'swipeData',
-  timestamp: 'timestamp',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  mainCommand: 'mainCommand',
+  packetLength: 'packetLength',
+  pseudoIP: 'pseudoIP',
+  rawData: 'rawData',
+  timestamp: 'timestamp'
 };
 
 exports.Prisma.SortOrder = {

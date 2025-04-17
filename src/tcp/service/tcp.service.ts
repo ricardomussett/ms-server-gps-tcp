@@ -100,6 +100,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           // Decodificar la pseudoIP
           const pseudoIp = data.subarray(5, 9);
           const decodedPseudoIp = this.decodePseudoIp(pseudoIp);
+          this.logger.log(`PseudoIP decodificada: ${decodedPseudoIp}`);
           // aca va la validacion de la pseudoIP por whitelist
 
           // Decodificar la informacion del paquete
@@ -110,8 +111,8 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           this.logger.log(`Paquete recibido de ${clientId}: ${JSON.stringify(packetInfo)}`);
 
           // Procesar los datos GPS
-          const parsedData = this.parseService.parseGpsData(data, packetInfo, clientId);
-          
+          const parsedData = this.parseService.parseGpsData(data, packetInfo, clientId, decodedPseudoIp);
+         
           // Agrega los datos a la cola
           const job = await this.queueService.addGpsData({
             parsedData

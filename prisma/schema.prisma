@@ -22,116 +22,121 @@ model Status {
 model GpsData {
   id          Int      @id @default(autoincrement())
   rawData     String
-  parsedData  String?
-  packetInfo  String?
-  mainCommand String?
   timestamp   DateTime @default(now())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   from        String
+  mainCommand String?
+  parsedData  String?
+  packetInfo  String?
 }
 
 model PositionData {
-  id          Int      @id @default(autoincrement())
-  mainCommand String?
-  packetLength Int?
-  pseudoIP    String?
-  rawData     String?
-  latitude    Float
-  longitude   Float
-  speed       Float?
-  angle       Float?
-  gpsStatus   String?
+  id            Int      @id @default(autoincrement())
+  clientId      String
+  latitude      Float
+  longitude     Float
+  speed         Float?
+  angle         Float?
+  gpsStatus     String?
   digitalInputs String?
-  ignition    Boolean?
+  ignition      Boolean?
   oilResistance Int?
-  voltage     Float?
-  mileage     Int?
-  temperature Float?
-  timestamp   DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  voltage       Float?
+  mileage       Int?
+  temperature   Float?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  mainCommand   String?
+  packetLength  Int?
+  pseudoIP      String?
+  rawData       String?
+  timestamp     DateTime @default(now())
 }
 
 model AlarmData {
-  id          Int      @id @default(autoincrement())
-  mainCommand String?
-  packetLength Int?
-  pseudoIP    String?
-  rawData     String?
-  alarms      String
-  oilChange   Boolean?
-  crossBorder Boolean?
-  overVoltage Boolean?
-  underVoltage Boolean?
-  overload    Boolean?
-  overtimeDriving Boolean?
-  enterBorder Boolean?
-  illegalDoorOpen Boolean?
-  illegalStart Boolean?
-  vibration   Boolean?
+  id                 Int      @id @default(autoincrement())
+  clientId           String
+  alarms             String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  mainCommand        String?
+  packetLength       Int?
+  pseudoIP           String?
+  rawData            String?
   centerEnabledAlarm Boolean?
-  powerFailure Boolean?
-  parking     Boolean?
-  overSpeed   Boolean?
-  emergency   Boolean?
-  timestamp   DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  crossBorder        Boolean?
+  emergency          Boolean?
+  enterBorder        Boolean?
+  illegalDoorOpen    Boolean?
+  illegalStart       Boolean?
+  oilChange          Boolean?
+  overSpeed          Boolean?
+  overVoltage        Boolean?
+  overload           Boolean?
+  overtimeDriving    Boolean?
+  parking            Boolean?
+  powerFailure       Boolean?
+  underVoltage       Boolean?
+  vibration          Boolean?
+  timestamp          DateTime @default(now())
 }
 
 model HeartbeatData {
-  id              Int      @id @default(autoincrement())
-  mainCommand     String?
-  packetLength    Int?
-  pseudoIP        String?
-  rawData         String?
+  id               Int      @id @default(autoincrement())
+  clientId         String
   calibrationValue Int?
-  mainOrderReply  Int?
-  slaveOrderReply Int?
-  timestamp   DateTime @default(now())
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  mainOrderReply   Int?
+  slaveOrderReply  Int?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  mainCommand      String?
+  packetLength     Int?
+  pseudoIP         String?
+  rawData          String?
+  timestamp        DateTime @default(now())
 }
 
 model TrackerStatus {
-  id                Int      @id @default(autoincrement())
-  mainCommand       String?
-  packetLength      Int?
-  pseudoIP          String?
-  rawData           String?
-  samplingTime      String
-  alarmStatus       Int?
-  located           Boolean?
-  samplingType      String?
-  samplingValue     Int?
-  sendingType       String?
-  carStopSetting    Int?
-  overspeedSetting  Int?
-  phoneLimit        Boolean?
-  areaNodeLimit     Boolean?
-  safeSetting       Int?
-  longTimeDriving   Int?
-  samplingValueAccOff Int?
+  id                   Int      @id @default(autoincrement())
+  clientId             String
+  samplingTime         String
+  alarmStatus          Int?
+  located              Boolean?
+  samplingType         String?
+  samplingValue        Int?
+  sendingType          String?
+  carStopSetting       Int?
+  overspeedSetting     Int?
+  phoneLimit           Boolean?
+  areaNodeLimit        Boolean?
+  safeSetting          Int?
+  longTimeDriving      Int?
+  samplingValueAccOff  Int?
   emergencyAlarmSwitch Boolean?
-  photographRelated Int?
-  timestamp   DateTime @default(now())
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  photographRelated    Int?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  mainCommand          String?
+  packetLength         Int?
+  pseudoIP             String?
+  rawData              String?
+  timestamp            DateTime @default(now())
 }
 
 model IButtonData {
-  id          Int      @id @default(autoincrement())
-  mainCommand String?
+  id           Int      @id @default(autoincrement())
+  clientId     String
+  subCommand   Int?
+  message      String?
+  driverName   String?
+  driverId     String?
+  swipeData    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  mainCommand  String?
   packetLength Int?
-  pseudoIP    String?
-  rawData     String?
-  subCommand  Int?
-  message     String?
-  driverName  String?
-  driverId    String?
-  swipeData   String?
-  timestamp   DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  pseudoIP     String?
+  rawData      String?
+  timestamp    DateTime @default(now())
 }
