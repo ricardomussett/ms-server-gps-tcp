@@ -140,3 +140,12 @@ model IButtonData {
   rawData      String?
   timestamp    DateTime @default(now())
 }
+
+
+model WhiteListPseudoIP {
+  id           Int      @id @default(autoincrement())
+  PseudoIP     String
+  isActive     Boolean @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

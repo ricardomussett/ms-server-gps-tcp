@@ -3,7 +3,7 @@ import { Server, Socket } from 'net';
 import { QueueService } from '../../queue/service/queue.service';
 import { ParseService } from './parse.service';
 import { PacketInfo } from '../interface/tcp.interface';
-
+import { WhitelistService } from './whiteList.service';
 
 @Injectable()
 export class TcpService implements OnModuleInit, OnModuleDestroy {
@@ -20,7 +20,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
    * @param queueService Servicio para manejar colas de mensajes
    * @param parseService Servicio para parsear datos GPS
    */
-  constructor(private readonly queueService: QueueService, private readonly parseService: ParseService) {
+  constructor(private readonly queueService: QueueService, private readonly parseService: ParseService, private readonly whitelistService: WhitelistService) {
     this.server = new Server();
     this.parseService = new ParseService();
   }
@@ -102,6 +102,10 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           const decodedPseudoIp = this.decodePseudoIp(pseudoIp);
           this.logger.log(`PseudoIP decodificada: ${decodedPseudoIp}`);
           // aca va la validacion de la pseudoIP por whitelist
+          if (!this.whitelistService.isClientAllowed(decodedPseudoIp)) {
+            this.logger.warn(`Cliente ${clientId} no permitido. PseudoIP: ${decodedPseudoIp}`);
+            return;
+          }
 
           // Decodificar la informacion del paquete
           const packetInfo = this.decodePacketInfo(data, clientId);

@@ -48,6 +48,11 @@ export type TrackerStatus = $Result.DefaultSelection<Prisma.$TrackerStatusPayloa
  * 
  */
 export type IButtonData = $Result.DefaultSelection<Prisma.$IButtonDataPayload>
+/**
+ * Model WhiteListPseudoIP
+ * 
+ */
+export type WhiteListPseudoIP = $Result.DefaultSelection<Prisma.$WhiteListPseudoIPPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -243,6 +248,16 @@ export class PrismaClient<
     * ```
     */
   get iButtonData(): Prisma.IButtonDataDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.whiteListPseudoIP`: Exposes CRUD operations for the **WhiteListPseudoIP** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WhiteListPseudoIPS
+    * const whiteListPseudoIPS = await prisma.whiteListPseudoIP.findMany()
+    * ```
+    */
+  get whiteListPseudoIP(): Prisma.WhiteListPseudoIPDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -689,7 +704,8 @@ export namespace Prisma {
     AlarmData: 'AlarmData',
     HeartbeatData: 'HeartbeatData',
     TrackerStatus: 'TrackerStatus',
-    IButtonData: 'IButtonData'
+    IButtonData: 'IButtonData',
+    WhiteListPseudoIP: 'WhiteListPseudoIP'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -708,7 +724,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "status" | "gpsData" | "positionData" | "alarmData" | "heartbeatData" | "trackerStatus" | "iButtonData"
+      modelProps: "status" | "gpsData" | "positionData" | "alarmData" | "heartbeatData" | "trackerStatus" | "iButtonData" | "whiteListPseudoIP"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1230,6 +1246,80 @@ export namespace Prisma {
           }
         }
       }
+      WhiteListPseudoIP: {
+        payload: Prisma.$WhiteListPseudoIPPayload<ExtArgs>
+        fields: Prisma.WhiteListPseudoIPFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WhiteListPseudoIPFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WhiteListPseudoIPFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>
+          }
+          findFirst: {
+            args: Prisma.WhiteListPseudoIPFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WhiteListPseudoIPFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>
+          }
+          findMany: {
+            args: Prisma.WhiteListPseudoIPFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>[]
+          }
+          create: {
+            args: Prisma.WhiteListPseudoIPCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>
+          }
+          createMany: {
+            args: Prisma.WhiteListPseudoIPCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WhiteListPseudoIPCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>[]
+          }
+          delete: {
+            args: Prisma.WhiteListPseudoIPDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>
+          }
+          update: {
+            args: Prisma.WhiteListPseudoIPUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>
+          }
+          deleteMany: {
+            args: Prisma.WhiteListPseudoIPDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WhiteListPseudoIPUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WhiteListPseudoIPUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>[]
+          }
+          upsert: {
+            args: Prisma.WhiteListPseudoIPUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WhiteListPseudoIPPayload>
+          }
+          aggregate: {
+            args: Prisma.WhiteListPseudoIPAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWhiteListPseudoIP>
+          }
+          groupBy: {
+            args: Prisma.WhiteListPseudoIPGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WhiteListPseudoIPGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WhiteListPseudoIPCountArgs<ExtArgs>
+            result: $Utils.Optional<WhiteListPseudoIPCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1321,6 +1411,7 @@ export namespace Prisma {
     heartbeatData?: HeartbeatDataOmit
     trackerStatus?: TrackerStatusOmit
     iButtonData?: IButtonDataOmit
+    whiteListPseudoIP?: WhiteListPseudoIPOmit
   }
 
   /* Types for Logging */
@@ -9720,6 +9811,1035 @@ export namespace Prisma {
 
 
   /**
+   * Model WhiteListPseudoIP
+   */
+
+  export type AggregateWhiteListPseudoIP = {
+    _count: WhiteListPseudoIPCountAggregateOutputType | null
+    _avg: WhiteListPseudoIPAvgAggregateOutputType | null
+    _sum: WhiteListPseudoIPSumAggregateOutputType | null
+    _min: WhiteListPseudoIPMinAggregateOutputType | null
+    _max: WhiteListPseudoIPMaxAggregateOutputType | null
+  }
+
+  export type WhiteListPseudoIPAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type WhiteListPseudoIPSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type WhiteListPseudoIPMinAggregateOutputType = {
+    id: number | null
+    PseudoIP: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WhiteListPseudoIPMaxAggregateOutputType = {
+    id: number | null
+    PseudoIP: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type WhiteListPseudoIPCountAggregateOutputType = {
+    id: number
+    PseudoIP: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type WhiteListPseudoIPAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type WhiteListPseudoIPSumAggregateInputType = {
+    id?: true
+  }
+
+  export type WhiteListPseudoIPMinAggregateInputType = {
+    id?: true
+    PseudoIP?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WhiteListPseudoIPMaxAggregateInputType = {
+    id?: true
+    PseudoIP?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type WhiteListPseudoIPCountAggregateInputType = {
+    id?: true
+    PseudoIP?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type WhiteListPseudoIPAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WhiteListPseudoIP to aggregate.
+     */
+    where?: WhiteListPseudoIPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WhiteListPseudoIPS to fetch.
+     */
+    orderBy?: WhiteListPseudoIPOrderByWithRelationInput | WhiteListPseudoIPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WhiteListPseudoIPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WhiteListPseudoIPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WhiteListPseudoIPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WhiteListPseudoIPS
+    **/
+    _count?: true | WhiteListPseudoIPCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WhiteListPseudoIPAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WhiteListPseudoIPSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WhiteListPseudoIPMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WhiteListPseudoIPMaxAggregateInputType
+  }
+
+  export type GetWhiteListPseudoIPAggregateType<T extends WhiteListPseudoIPAggregateArgs> = {
+        [P in keyof T & keyof AggregateWhiteListPseudoIP]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWhiteListPseudoIP[P]>
+      : GetScalarType<T[P], AggregateWhiteListPseudoIP[P]>
+  }
+
+
+
+
+  export type WhiteListPseudoIPGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WhiteListPseudoIPWhereInput
+    orderBy?: WhiteListPseudoIPOrderByWithAggregationInput | WhiteListPseudoIPOrderByWithAggregationInput[]
+    by: WhiteListPseudoIPScalarFieldEnum[] | WhiteListPseudoIPScalarFieldEnum
+    having?: WhiteListPseudoIPScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WhiteListPseudoIPCountAggregateInputType | true
+    _avg?: WhiteListPseudoIPAvgAggregateInputType
+    _sum?: WhiteListPseudoIPSumAggregateInputType
+    _min?: WhiteListPseudoIPMinAggregateInputType
+    _max?: WhiteListPseudoIPMaxAggregateInputType
+  }
+
+  export type WhiteListPseudoIPGroupByOutputType = {
+    id: number
+    PseudoIP: string
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: WhiteListPseudoIPCountAggregateOutputType | null
+    _avg: WhiteListPseudoIPAvgAggregateOutputType | null
+    _sum: WhiteListPseudoIPSumAggregateOutputType | null
+    _min: WhiteListPseudoIPMinAggregateOutputType | null
+    _max: WhiteListPseudoIPMaxAggregateOutputType | null
+  }
+
+  type GetWhiteListPseudoIPGroupByPayload<T extends WhiteListPseudoIPGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WhiteListPseudoIPGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WhiteListPseudoIPGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WhiteListPseudoIPGroupByOutputType[P]>
+            : GetScalarType<T[P], WhiteListPseudoIPGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WhiteListPseudoIPSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    PseudoIP?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["whiteListPseudoIP"]>
+
+  export type WhiteListPseudoIPSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    PseudoIP?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["whiteListPseudoIP"]>
+
+  export type WhiteListPseudoIPSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    PseudoIP?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["whiteListPseudoIP"]>
+
+  export type WhiteListPseudoIPSelectScalar = {
+    id?: boolean
+    PseudoIP?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type WhiteListPseudoIPOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "PseudoIP" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["whiteListPseudoIP"]>
+
+  export type $WhiteListPseudoIPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WhiteListPseudoIP"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      PseudoIP: string
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["whiteListPseudoIP"]>
+    composites: {}
+  }
+
+  type WhiteListPseudoIPGetPayload<S extends boolean | null | undefined | WhiteListPseudoIPDefaultArgs> = $Result.GetResult<Prisma.$WhiteListPseudoIPPayload, S>
+
+  type WhiteListPseudoIPCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WhiteListPseudoIPFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WhiteListPseudoIPCountAggregateInputType | true
+    }
+
+  export interface WhiteListPseudoIPDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WhiteListPseudoIP'], meta: { name: 'WhiteListPseudoIP' } }
+    /**
+     * Find zero or one WhiteListPseudoIP that matches the filter.
+     * @param {WhiteListPseudoIPFindUniqueArgs} args - Arguments to find a WhiteListPseudoIP
+     * @example
+     * // Get one WhiteListPseudoIP
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WhiteListPseudoIPFindUniqueArgs>(args: SelectSubset<T, WhiteListPseudoIPFindUniqueArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WhiteListPseudoIP that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WhiteListPseudoIPFindUniqueOrThrowArgs} args - Arguments to find a WhiteListPseudoIP
+     * @example
+     * // Get one WhiteListPseudoIP
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WhiteListPseudoIPFindUniqueOrThrowArgs>(args: SelectSubset<T, WhiteListPseudoIPFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WhiteListPseudoIP that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WhiteListPseudoIPFindFirstArgs} args - Arguments to find a WhiteListPseudoIP
+     * @example
+     * // Get one WhiteListPseudoIP
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WhiteListPseudoIPFindFirstArgs>(args?: SelectSubset<T, WhiteListPseudoIPFindFirstArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WhiteListPseudoIP that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WhiteListPseudoIPFindFirstOrThrowArgs} args - Arguments to find a WhiteListPseudoIP
+     * @example
+     * // Get one WhiteListPseudoIP
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WhiteListPseudoIPFindFirstOrThrowArgs>(args?: SelectSubset<T, WhiteListPseudoIPFindFirstOrThrowArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WhiteListPseudoIPS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WhiteListPseudoIPFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WhiteListPseudoIPS
+     * const whiteListPseudoIPS = await prisma.whiteListPseudoIP.findMany()
+     * 
+     * // Get first 10 WhiteListPseudoIPS
+     * const whiteListPseudoIPS = await prisma.whiteListPseudoIP.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const whiteListPseudoIPWithIdOnly = await prisma.whiteListPseudoIP.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WhiteListPseudoIPFindManyArgs>(args?: SelectSubset<T, WhiteListPseudoIPFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WhiteListPseudoIP.
+     * @param {WhiteListPseudoIPCreateArgs} args - Arguments to create a WhiteListPseudoIP.
+     * @example
+     * // Create one WhiteListPseudoIP
+     * const WhiteListPseudoIP = await prisma.whiteListPseudoIP.create({
+     *   data: {
+     *     // ... data to create a WhiteListPseudoIP
+     *   }
+     * })
+     * 
+     */
+    create<T extends WhiteListPseudoIPCreateArgs>(args: SelectSubset<T, WhiteListPseudoIPCreateArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WhiteListPseudoIPS.
+     * @param {WhiteListPseudoIPCreateManyArgs} args - Arguments to create many WhiteListPseudoIPS.
+     * @example
+     * // Create many WhiteListPseudoIPS
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WhiteListPseudoIPCreateManyArgs>(args?: SelectSubset<T, WhiteListPseudoIPCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WhiteListPseudoIPS and returns the data saved in the database.
+     * @param {WhiteListPseudoIPCreateManyAndReturnArgs} args - Arguments to create many WhiteListPseudoIPS.
+     * @example
+     * // Create many WhiteListPseudoIPS
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WhiteListPseudoIPS and only return the `id`
+     * const whiteListPseudoIPWithIdOnly = await prisma.whiteListPseudoIP.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WhiteListPseudoIPCreateManyAndReturnArgs>(args?: SelectSubset<T, WhiteListPseudoIPCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WhiteListPseudoIP.
+     * @param {WhiteListPseudoIPDeleteArgs} args - Arguments to delete one WhiteListPseudoIP.
+     * @example
+     * // Delete one WhiteListPseudoIP
+     * const WhiteListPseudoIP = await prisma.whiteListPseudoIP.delete({
+     *   where: {
+     *     // ... filter to delete one WhiteListPseudoIP
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WhiteListPseudoIPDeleteArgs>(args: SelectSubset<T, WhiteListPseudoIPDeleteArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WhiteListPseudoIP.
+     * @param {WhiteListPseudoIPUpdateArgs} args - Arguments to update one WhiteListPseudoIP.
+     * @example
+     * // Update one WhiteListPseudoIP
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WhiteListPseudoIPUpdateArgs>(args: SelectSubset<T, WhiteListPseudoIPUpdateArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WhiteListPseudoIPS.
+     * @param {WhiteListPseudoIPDeleteManyArgs} args - Arguments to filter WhiteListPseudoIPS to delete.
+     * @example
+     * // Delete a few WhiteListPseudoIPS
+     * const { count } = await prisma.whiteListPseudoIP.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WhiteListPseudoIPDeleteManyArgs>(args?: SelectSubset<T, WhiteListPseudoIPDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WhiteListPseudoIPS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WhiteListPseudoIPUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WhiteListPseudoIPS
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WhiteListPseudoIPUpdateManyArgs>(args: SelectSubset<T, WhiteListPseudoIPUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WhiteListPseudoIPS and returns the data updated in the database.
+     * @param {WhiteListPseudoIPUpdateManyAndReturnArgs} args - Arguments to update many WhiteListPseudoIPS.
+     * @example
+     * // Update many WhiteListPseudoIPS
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WhiteListPseudoIPS and only return the `id`
+     * const whiteListPseudoIPWithIdOnly = await prisma.whiteListPseudoIP.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WhiteListPseudoIPUpdateManyAndReturnArgs>(args: SelectSubset<T, WhiteListPseudoIPUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WhiteListPseudoIP.
+     * @param {WhiteListPseudoIPUpsertArgs} args - Arguments to update or create a WhiteListPseudoIP.
+     * @example
+     * // Update or create a WhiteListPseudoIP
+     * const whiteListPseudoIP = await prisma.whiteListPseudoIP.upsert({
+     *   create: {
+     *     // ... data to create a WhiteListPseudoIP
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WhiteListPseudoIP we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WhiteListPseudoIPUpsertArgs>(args: SelectSubset<T, WhiteListPseudoIPUpsertArgs<ExtArgs>>): Prisma__WhiteListPseudoIPClient<$Result.GetResult<Prisma.$WhiteListPseudoIPPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WhiteListPseudoIPS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WhiteListPseudoIPCountArgs} args - Arguments to filter WhiteListPseudoIPS to count.
+     * @example
+     * // Count the number of WhiteListPseudoIPS
+     * const count = await prisma.whiteListPseudoIP.count({
+     *   where: {
+     *     // ... the filter for the WhiteListPseudoIPS we want to count
+     *   }
+     * })
+    **/
+    count<T extends WhiteListPseudoIPCountArgs>(
+      args?: Subset<T, WhiteListPseudoIPCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WhiteListPseudoIPCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WhiteListPseudoIP.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WhiteListPseudoIPAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WhiteListPseudoIPAggregateArgs>(args: Subset<T, WhiteListPseudoIPAggregateArgs>): Prisma.PrismaPromise<GetWhiteListPseudoIPAggregateType<T>>
+
+    /**
+     * Group by WhiteListPseudoIP.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WhiteListPseudoIPGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WhiteListPseudoIPGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WhiteListPseudoIPGroupByArgs['orderBy'] }
+        : { orderBy?: WhiteListPseudoIPGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WhiteListPseudoIPGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWhiteListPseudoIPGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WhiteListPseudoIP model
+   */
+  readonly fields: WhiteListPseudoIPFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WhiteListPseudoIP.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WhiteListPseudoIPClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WhiteListPseudoIP model
+   */
+  interface WhiteListPseudoIPFieldRefs {
+    readonly id: FieldRef<"WhiteListPseudoIP", 'Int'>
+    readonly PseudoIP: FieldRef<"WhiteListPseudoIP", 'String'>
+    readonly isActive: FieldRef<"WhiteListPseudoIP", 'Boolean'>
+    readonly createdAt: FieldRef<"WhiteListPseudoIP", 'DateTime'>
+    readonly updatedAt: FieldRef<"WhiteListPseudoIP", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WhiteListPseudoIP findUnique
+   */
+  export type WhiteListPseudoIPFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * Filter, which WhiteListPseudoIP to fetch.
+     */
+    where: WhiteListPseudoIPWhereUniqueInput
+  }
+
+  /**
+   * WhiteListPseudoIP findUniqueOrThrow
+   */
+  export type WhiteListPseudoIPFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * Filter, which WhiteListPseudoIP to fetch.
+     */
+    where: WhiteListPseudoIPWhereUniqueInput
+  }
+
+  /**
+   * WhiteListPseudoIP findFirst
+   */
+  export type WhiteListPseudoIPFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * Filter, which WhiteListPseudoIP to fetch.
+     */
+    where?: WhiteListPseudoIPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WhiteListPseudoIPS to fetch.
+     */
+    orderBy?: WhiteListPseudoIPOrderByWithRelationInput | WhiteListPseudoIPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WhiteListPseudoIPS.
+     */
+    cursor?: WhiteListPseudoIPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WhiteListPseudoIPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WhiteListPseudoIPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WhiteListPseudoIPS.
+     */
+    distinct?: WhiteListPseudoIPScalarFieldEnum | WhiteListPseudoIPScalarFieldEnum[]
+  }
+
+  /**
+   * WhiteListPseudoIP findFirstOrThrow
+   */
+  export type WhiteListPseudoIPFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * Filter, which WhiteListPseudoIP to fetch.
+     */
+    where?: WhiteListPseudoIPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WhiteListPseudoIPS to fetch.
+     */
+    orderBy?: WhiteListPseudoIPOrderByWithRelationInput | WhiteListPseudoIPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WhiteListPseudoIPS.
+     */
+    cursor?: WhiteListPseudoIPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WhiteListPseudoIPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WhiteListPseudoIPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WhiteListPseudoIPS.
+     */
+    distinct?: WhiteListPseudoIPScalarFieldEnum | WhiteListPseudoIPScalarFieldEnum[]
+  }
+
+  /**
+   * WhiteListPseudoIP findMany
+   */
+  export type WhiteListPseudoIPFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * Filter, which WhiteListPseudoIPS to fetch.
+     */
+    where?: WhiteListPseudoIPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WhiteListPseudoIPS to fetch.
+     */
+    orderBy?: WhiteListPseudoIPOrderByWithRelationInput | WhiteListPseudoIPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WhiteListPseudoIPS.
+     */
+    cursor?: WhiteListPseudoIPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WhiteListPseudoIPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WhiteListPseudoIPS.
+     */
+    skip?: number
+    distinct?: WhiteListPseudoIPScalarFieldEnum | WhiteListPseudoIPScalarFieldEnum[]
+  }
+
+  /**
+   * WhiteListPseudoIP create
+   */
+  export type WhiteListPseudoIPCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * The data needed to create a WhiteListPseudoIP.
+     */
+    data: XOR<WhiteListPseudoIPCreateInput, WhiteListPseudoIPUncheckedCreateInput>
+  }
+
+  /**
+   * WhiteListPseudoIP createMany
+   */
+  export type WhiteListPseudoIPCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WhiteListPseudoIPS.
+     */
+    data: WhiteListPseudoIPCreateManyInput | WhiteListPseudoIPCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WhiteListPseudoIP createManyAndReturn
+   */
+  export type WhiteListPseudoIPCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * The data used to create many WhiteListPseudoIPS.
+     */
+    data: WhiteListPseudoIPCreateManyInput | WhiteListPseudoIPCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WhiteListPseudoIP update
+   */
+  export type WhiteListPseudoIPUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * The data needed to update a WhiteListPseudoIP.
+     */
+    data: XOR<WhiteListPseudoIPUpdateInput, WhiteListPseudoIPUncheckedUpdateInput>
+    /**
+     * Choose, which WhiteListPseudoIP to update.
+     */
+    where: WhiteListPseudoIPWhereUniqueInput
+  }
+
+  /**
+   * WhiteListPseudoIP updateMany
+   */
+  export type WhiteListPseudoIPUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WhiteListPseudoIPS.
+     */
+    data: XOR<WhiteListPseudoIPUpdateManyMutationInput, WhiteListPseudoIPUncheckedUpdateManyInput>
+    /**
+     * Filter which WhiteListPseudoIPS to update
+     */
+    where?: WhiteListPseudoIPWhereInput
+    /**
+     * Limit how many WhiteListPseudoIPS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WhiteListPseudoIP updateManyAndReturn
+   */
+  export type WhiteListPseudoIPUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * The data used to update WhiteListPseudoIPS.
+     */
+    data: XOR<WhiteListPseudoIPUpdateManyMutationInput, WhiteListPseudoIPUncheckedUpdateManyInput>
+    /**
+     * Filter which WhiteListPseudoIPS to update
+     */
+    where?: WhiteListPseudoIPWhereInput
+    /**
+     * Limit how many WhiteListPseudoIPS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WhiteListPseudoIP upsert
+   */
+  export type WhiteListPseudoIPUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * The filter to search for the WhiteListPseudoIP to update in case it exists.
+     */
+    where: WhiteListPseudoIPWhereUniqueInput
+    /**
+     * In case the WhiteListPseudoIP found by the `where` argument doesn't exist, create a new WhiteListPseudoIP with this data.
+     */
+    create: XOR<WhiteListPseudoIPCreateInput, WhiteListPseudoIPUncheckedCreateInput>
+    /**
+     * In case the WhiteListPseudoIP was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WhiteListPseudoIPUpdateInput, WhiteListPseudoIPUncheckedUpdateInput>
+  }
+
+  /**
+   * WhiteListPseudoIP delete
+   */
+  export type WhiteListPseudoIPDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+    /**
+     * Filter which WhiteListPseudoIP to delete.
+     */
+    where: WhiteListPseudoIPWhereUniqueInput
+  }
+
+  /**
+   * WhiteListPseudoIP deleteMany
+   */
+  export type WhiteListPseudoIPDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WhiteListPseudoIPS to delete
+     */
+    where?: WhiteListPseudoIPWhereInput
+    /**
+     * Limit how many WhiteListPseudoIPS to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WhiteListPseudoIP without action
+   */
+  export type WhiteListPseudoIPDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WhiteListPseudoIP
+     */
+    select?: WhiteListPseudoIPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WhiteListPseudoIP
+     */
+    omit?: WhiteListPseudoIPOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9885,6 +11005,17 @@ export namespace Prisma {
   };
 
   export type IButtonDataScalarFieldEnum = (typeof IButtonDataScalarFieldEnum)[keyof typeof IButtonDataScalarFieldEnum]
+
+
+  export const WhiteListPseudoIPScalarFieldEnum: {
+    id: 'id',
+    PseudoIP: 'PseudoIP',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type WhiteListPseudoIPScalarFieldEnum = (typeof WhiteListPseudoIPScalarFieldEnum)[keyof typeof WhiteListPseudoIPScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -10743,6 +11874,60 @@ export namespace Prisma {
     pseudoIP?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
+  }
+
+  export type WhiteListPseudoIPWhereInput = {
+    AND?: WhiteListPseudoIPWhereInput | WhiteListPseudoIPWhereInput[]
+    OR?: WhiteListPseudoIPWhereInput[]
+    NOT?: WhiteListPseudoIPWhereInput | WhiteListPseudoIPWhereInput[]
+    id?: IntFilter<"WhiteListPseudoIP"> | number
+    PseudoIP?: StringFilter<"WhiteListPseudoIP"> | string
+    isActive?: BoolFilter<"WhiteListPseudoIP"> | boolean
+    createdAt?: DateTimeFilter<"WhiteListPseudoIP"> | Date | string
+    updatedAt?: DateTimeFilter<"WhiteListPseudoIP"> | Date | string
+  }
+
+  export type WhiteListPseudoIPOrderByWithRelationInput = {
+    id?: SortOrder
+    PseudoIP?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WhiteListPseudoIPWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: WhiteListPseudoIPWhereInput | WhiteListPseudoIPWhereInput[]
+    OR?: WhiteListPseudoIPWhereInput[]
+    NOT?: WhiteListPseudoIPWhereInput | WhiteListPseudoIPWhereInput[]
+    PseudoIP?: StringFilter<"WhiteListPseudoIP"> | string
+    isActive?: BoolFilter<"WhiteListPseudoIP"> | boolean
+    createdAt?: DateTimeFilter<"WhiteListPseudoIP"> | Date | string
+    updatedAt?: DateTimeFilter<"WhiteListPseudoIP"> | Date | string
+  }, "id">
+
+  export type WhiteListPseudoIPOrderByWithAggregationInput = {
+    id?: SortOrder
+    PseudoIP?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: WhiteListPseudoIPCountOrderByAggregateInput
+    _avg?: WhiteListPseudoIPAvgOrderByAggregateInput
+    _max?: WhiteListPseudoIPMaxOrderByAggregateInput
+    _min?: WhiteListPseudoIPMinOrderByAggregateInput
+    _sum?: WhiteListPseudoIPSumOrderByAggregateInput
+  }
+
+  export type WhiteListPseudoIPScalarWhereWithAggregatesInput = {
+    AND?: WhiteListPseudoIPScalarWhereWithAggregatesInput | WhiteListPseudoIPScalarWhereWithAggregatesInput[]
+    OR?: WhiteListPseudoIPScalarWhereWithAggregatesInput[]
+    NOT?: WhiteListPseudoIPScalarWhereWithAggregatesInput | WhiteListPseudoIPScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"WhiteListPseudoIP"> | number
+    PseudoIP?: StringWithAggregatesFilter<"WhiteListPseudoIP"> | string
+    isActive?: BoolWithAggregatesFilter<"WhiteListPseudoIP"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"WhiteListPseudoIP"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"WhiteListPseudoIP"> | Date | string
   }
 
   export type StatusCreateInput = {
@@ -11655,6 +12840,59 @@ export namespace Prisma {
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type WhiteListPseudoIPCreateInput = {
+    PseudoIP: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WhiteListPseudoIPUncheckedCreateInput = {
+    id?: number
+    PseudoIP: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WhiteListPseudoIPUpdateInput = {
+    PseudoIP?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WhiteListPseudoIPUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    PseudoIP?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WhiteListPseudoIPCreateManyInput = {
+    id?: number
+    PseudoIP: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WhiteListPseudoIPUpdateManyMutationInput = {
+    PseudoIP?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WhiteListPseudoIPUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    PseudoIP?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -12377,6 +13615,51 @@ export namespace Prisma {
     packetLength?: SortOrder
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type WhiteListPseudoIPCountOrderByAggregateInput = {
+    id?: SortOrder
+    PseudoIP?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WhiteListPseudoIPAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type WhiteListPseudoIPMaxOrderByAggregateInput = {
+    id?: SortOrder
+    PseudoIP?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WhiteListPseudoIPMinOrderByAggregateInput = {
+    id?: SortOrder
+    PseudoIP?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type WhiteListPseudoIPSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -12423,6 +13706,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -12631,6 +13918,19 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
 

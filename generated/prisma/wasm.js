@@ -250,6 +250,14 @@ exports.Prisma.IButtonDataScalarFieldEnum = {
   timestamp: 'timestamp'
 };
 
+exports.Prisma.WhiteListPseudoIPScalarFieldEnum = {
+  id: 'id',
+  PseudoIP: 'PseudoIP',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -273,7 +281,8 @@ exports.Prisma.ModelName = {
   AlarmData: 'AlarmData',
   HeartbeatData: 'HeartbeatData',
   TrackerStatus: 'TrackerStatus',
-  IButtonData: 'IButtonData'
+  IButtonData: 'IButtonData',
+  WhiteListPseudoIP: 'WhiteListPseudoIP'
 };
 
 /**

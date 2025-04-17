@@ -3,10 +3,11 @@ import { TcpService } from './service/tcp.service';
 import { ParseService } from './service/parse.service';
 import { TcpController } from './tcp.controller';
 import { QueueModule } from '../queue/queue.module';
+import { WhitelistService } from './service/whiteList.service';
 
 @Module({
   controllers: [TcpController],
-  providers: [TcpService, ParseService],
+  providers: [TcpService, ParseService, WhitelistService],
   imports: [QueueModule],
   exports: [TcpService],
 })
