@@ -124,14 +124,137 @@ exports.Prisma.StatusScalarFieldEnum = {
   timestamp: 'timestamp',
   error: 'error',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  redis: 'redis',
+  tcpClients: 'tcpClients'
 };
 
 exports.Prisma.GpsDataScalarFieldEnum = {
   id: 'id',
-  deviceId: 'deviceId',
   rawData: 'rawData',
   timestamp: 'timestamp',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  from: 'from',
+  mainCommand: 'mainCommand',
+  parsedData: 'parsedData',
+  packetInfo: 'packetInfo'
+};
+
+exports.Prisma.PositionDataScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  speed: 'speed',
+  angle: 'angle',
+  gpsStatus: 'gpsStatus',
+  digitalInputs: 'digitalInputs',
+  ignition: 'ignition',
+  oilResistance: 'oilResistance',
+  voltage: 'voltage',
+  mileage: 'mileage',
+  temperature: 'temperature',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  mainCommand: 'mainCommand',
+  packetLength: 'packetLength',
+  pseudoIP: 'pseudoIP',
+  rawData: 'rawData',
+  timestamp: 'timestamp'
+};
+
+exports.Prisma.AlarmDataScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  alarms: 'alarms',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  mainCommand: 'mainCommand',
+  packetLength: 'packetLength',
+  pseudoIP: 'pseudoIP',
+  rawData: 'rawData',
+  centerEnabledAlarm: 'centerEnabledAlarm',
+  crossBorder: 'crossBorder',
+  emergency: 'emergency',
+  enterBorder: 'enterBorder',
+  illegalDoorOpen: 'illegalDoorOpen',
+  illegalStart: 'illegalStart',
+  oilChange: 'oilChange',
+  overSpeed: 'overSpeed',
+  overVoltage: 'overVoltage',
+  overload: 'overload',
+  overtimeDriving: 'overtimeDriving',
+  parking: 'parking',
+  powerFailure: 'powerFailure',
+  underVoltage: 'underVoltage',
+  vibration: 'vibration',
+  timestamp: 'timestamp'
+};
+
+exports.Prisma.HeartbeatDataScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  calibrationValue: 'calibrationValue',
+  mainOrderReply: 'mainOrderReply',
+  slaveOrderReply: 'slaveOrderReply',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  mainCommand: 'mainCommand',
+  packetLength: 'packetLength',
+  pseudoIP: 'pseudoIP',
+  rawData: 'rawData',
+  timestamp: 'timestamp'
+};
+
+exports.Prisma.TrackerStatusScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  samplingTime: 'samplingTime',
+  alarmStatus: 'alarmStatus',
+  located: 'located',
+  samplingType: 'samplingType',
+  samplingValue: 'samplingValue',
+  sendingType: 'sendingType',
+  carStopSetting: 'carStopSetting',
+  overspeedSetting: 'overspeedSetting',
+  phoneLimit: 'phoneLimit',
+  areaNodeLimit: 'areaNodeLimit',
+  safeSetting: 'safeSetting',
+  longTimeDriving: 'longTimeDriving',
+  samplingValueAccOff: 'samplingValueAccOff',
+  emergencyAlarmSwitch: 'emergencyAlarmSwitch',
+  photographRelated: 'photographRelated',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  mainCommand: 'mainCommand',
+  packetLength: 'packetLength',
+  pseudoIP: 'pseudoIP',
+  rawData: 'rawData',
+  timestamp: 'timestamp'
+};
+
+exports.Prisma.IButtonDataScalarFieldEnum = {
+  id: 'id',
+  clientId: 'clientId',
+  subCommand: 'subCommand',
+  message: 'message',
+  driverName: 'driverName',
+  driverId: 'driverId',
+  swipeData: 'swipeData',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  mainCommand: 'mainCommand',
+  packetLength: 'packetLength',
+  pseudoIP: 'pseudoIP',
+  rawData: 'rawData',
+  timestamp: 'timestamp'
+};
+
+exports.Prisma.WhiteListPseudoIPScalarFieldEnum = {
+  id: 'id',
+  PseudoIP: 'PseudoIP',
+  isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -154,7 +277,13 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   Status: 'Status',
-  GpsData: 'GpsData'
+  GpsData: 'GpsData',
+  PositionData: 'PositionData',
+  AlarmData: 'AlarmData',
+  HeartbeatData: 'HeartbeatData',
+  TrackerStatus: 'TrackerStatus',
+  IButtonData: 'IButtonData',
+  WhiteListPseudoIP: 'WhiteListPseudoIP'
 };
 
 /**

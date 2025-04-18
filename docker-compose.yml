@@ -1,0 +1,32 @@
+services:
+  app:
+    image: msservergpstcp:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+      - "${TCP_PORT}:${TCP_PORT}"
+    environment:
+      - PORT=${PORT}
+      - TCP_PORT=${TCP_PORT}
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_DB=${REDIS_DB}
+      - REDIS_KEY_PREFIX=${REDIS_KEY_PREFIX}
+    networks:
+      - tcp_network
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+networks:
+  tcp_network:
+    driver: bridge 

@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+  <p align="center">Un framework progresivo de <a href="http://nodejs.org" target="_blank">Node.js</a> para construir aplicaciones del lado del servidor eficientes y escalables.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -22,78 +22,128 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Repositorio inicial del framework [Nest](https://github.com/nestjs/nest) con TypeScript.
 
-## Project setup
+### Acerca del Microservicio
+
+Este microservicio está diseñado para manejar comunicaciones TCP con dispositivos GPS, proporcionando las siguientes funcionalidades:
+
+- Servidor TCP para recibir datos de dispositivos GPS en tiempo real
+- API REST para consultar y gestionar la información de los dispositivos
+- Almacenamiento de datos en PostgreSQL
+- Caché y manejo de sesiones con Redis
+- Procesamiento y validación de datos GPS
+- Sistema de monitoreo en tiempo real
+
+La arquitectura del servicio está compuesta por:
+- Servidor TCP para comunicación directa con dispositivos
+- API REST para integración con otros servicios
+- Base de datos PostgreSQL para almacenamiento persistente
+- Redis para caché y manejo de sesiones
+- Sistema de logs para monitoreo
+
+## Configuración del Proyecto
 
 ```bash
 $ pnpm install
 ```
 
-## Compile and run the project
+## Compilación y Ejecución del Proyecto
 
 ```bash
-# development
+# desarrollo
 $ pnpm run start
 
-# watch mode
+# modo observador
 $ pnpm run start:dev
 
-# production mode
+# modo producción
 $ pnpm run start:prod
 ```
 
-## Run tests
+## Ejecución de Pruebas
 
 ```bash
-# unit tests
+# pruebas unitarias
 $ pnpm run test
 
-# e2e tests
+# pruebas e2e
 $ pnpm run test:e2e
 
-# test coverage
+# cobertura de pruebas
 $ pnpm run test:cov
 ```
 
-## Deployment
+## Despliegue
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+### Despliegue con Docker
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Para desplegar la aplicación usando Docker, sigue estos pasos:
 
+1. Clonar el repositorio:
 ```bash
-$ pnpm install -g mau
-$ mau deploy
+git clone <url-del-repositorio>
+cd ms-server-gps-tcp
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+2. Crear el archivo `.env` con las siguientes variables (ver ejemplo más abajo)
 
-## Resources
+3. Construir las imágenes:
+```bash
+docker compose build
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+4. Iniciar los servicios:
+```bash
+docker compose up -d
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+5. Para detener los servicios:
+```bash
+docker compose down
+```
 
-## Support
+### Variables de Entorno (.env)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
 
-## Stay in touch
+```env
+# Configuración del Servidor
+PORT=3000
+TCP_PORT=3001
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# Base de datos PostgreSQL
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/msservergpstcp"
 
-## License
+# Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_DB=1
+REDIS_KEY_PREFIX=truck
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+# Configuración de Whitelist
+WHITELIST_REFRESH_INTERVAL=180000
+
+# Configuración de Colas
+QUEUE_RETRY_ATTEMPTS=3
+QUEUE_RETRY_DELAY=1000
+```
+
+### Verificar el estado de los servicios
+
+Para verificar que todos los servicios están funcionando correctamente:
+
+```bash
+# Ver logs de la aplicación
+docker compose logs -f app
+
+# Ver logs de la base de datos
+docker compose logs -f postgres
+
+# Ver logs de Redis
+docker compose logs -f redis
+```
+
+
