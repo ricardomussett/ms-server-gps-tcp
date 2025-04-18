@@ -110,18 +110,25 @@ docker compose down
 Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
 
 ```env
-# Puerto HTTP
+# Configuración del Servidor
 PORT=3000
-
-# Puerto TCP
 TCP_PORT=3001
 
-# Base de datos
+# Base de datos PostgreSQL
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/msservergpstcp"
 
 # Redis
 REDIS_HOST=localhost
 REDIS_PORT=6379
+REDIS_DB=1
+REDIS_KEY_PREFIX=truck
+
+# Configuración de Whitelist
+WHITELIST_REFRESH_INTERVAL=180000
+
+# Configuración de Colas
+QUEUE_RETRY_ATTEMPTS=3
+QUEUE_RETRY_DELAY=1000
 ```
 
 ### Verificar el estado de los servicios
