@@ -1,15 +1,18 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class WhitelistService {
   private whitelist: string[] = [];
   private readonly logger = new Logger(WhitelistService.name);
-  private readonly REFRESH_INTERVAL = 180000; // 3 minutos en ms
+  private readonly REFRESH_INTERVAL: number;
 
   constructor(
-    private readonly prisma: PrismaService
+    private readonly prisma: PrismaService,
+    private readonly configService: ConfigService
   ) {
+    this.REFRESH_INTERVAL = this.configService.get<number>('WHITELIST_REFRESH_INTERVAL') || 180000;
     this.refreshWhitelist();
     this.setupRefreshInterval();
   }

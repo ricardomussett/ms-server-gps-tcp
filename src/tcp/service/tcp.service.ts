@@ -70,7 +70,6 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           
           // Imprimir datos de entrada en formato hexadecimal
           this.logger.log(`Datos recibidos (hex): ${data.toString('hex')}`);
-          this.logger.log(`Datos recibidos (raw): ${data.toString()}`);
 
           // validar longitud del paquete
           if (data.length < 6) {
@@ -109,8 +108,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
 
           // Decodificar la informacion del paquete
           const packetInfo = this.decodePacketInfo(data, clientId);
-          this.logger.log(`Packet info - Type: ${packetInfo.packetType}, Length: ${packetInfo.length}, Footer position: ${data.length - 1}, Footer value: ${packetInfo.footer.toString(16)}`);
-          
+
           // Log de depuración
           this.logger.log(`Paquete recibido de ${clientId}: ${JSON.stringify(packetInfo)}`);
 
@@ -122,8 +120,6 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
             parsedData
           }, 'gps');
 
-          this.logger.log(`Datos enviados a la cola con jobId: ${job.id}`);
-
           // Crear y enviar respuesta al dispositivo
           const response = this.createResponse(data);
           socket.write(response);
@@ -131,7 +127,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           
           // Cerrar la conexión después de enviar la respuesta
           // socket.end();
-          this.logger.log(`Conexión cerrada con el cliente ${clientId}`);
+          // this.logger.log(`Conexión cerrada con el cliente ${clientId}`);
 
         } catch (error) {
           this.logger.error(`Error procesando datos de ${clientId}: ${error.message}`, error.stack);

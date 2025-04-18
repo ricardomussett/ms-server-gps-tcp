@@ -15,7 +15,7 @@ export class ProccessorService {
   private heartbeatDataBuffer: HeartbeatData[] = [];
   private trackerStatusBuffer: TrackerStatusData[] = [];
   private iButtonDataBuffer: IButtonData[] = [];
-  private readonly BUFFER_SIZE = 100; // Tamaño del buffer para procesamiento por lotes
+  private readonly BUFFER_SIZE = 50; // Tamaño del buffer para procesamiento por lotes
 
   constructor(
     private prisma: PrismaService,
@@ -328,8 +328,6 @@ export class ProccessorService {
   async processGpsDataFromQueue(job: Job): Promise<void> {
     try {
       const { parsedData } = job.data;
-
-      this.logger.log(`Datos procesados: ${JSON.stringify(parsedData)}`);
       
       const commandProcessors = {
         [COMMAND_CODES.POSITION_DATA]: this.processPositionData.bind(this),

@@ -12,10 +12,9 @@ export class GpsDataProcessor {
   @Process('gps')
   async handleGpsData(job: Job) {
     try {
-      this.logger.log(`----------------------------------Procesando datos GPS desde la cola. ID: ${job.id}`);
       await this.processorService.processGpsDataFromQueue(job);
     } catch (error) {
-      this.logger.error(`----------------------------------Error al procesar datos GPS desde la cola: ${error.message}`);
+      this.logger.error(`Error al procesar datos GPS desde la cola: ${error.message}`);
       throw error;
     }
   }
