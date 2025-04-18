@@ -125,7 +125,8 @@ exports.Prisma.StatusScalarFieldEnum = {
   error: 'error',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  redis: 'redis'
+  redis: 'redis',
+  tcpClients: 'tcpClients'
 };
 
 exports.Prisma.GpsDataScalarFieldEnum = {

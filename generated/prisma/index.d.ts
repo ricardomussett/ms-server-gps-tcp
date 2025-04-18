@@ -1520,10 +1520,12 @@ export namespace Prisma {
 
   export type StatusAvgAggregateOutputType = {
     id: number | null
+    tcpClients: number | null
   }
 
   export type StatusSumAggregateOutputType = {
     id: number | null
+    tcpClients: number | null
   }
 
   export type StatusMinAggregateOutputType = {
@@ -1535,6 +1537,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     redis: string | null
+    tcpClients: number | null
   }
 
   export type StatusMaxAggregateOutputType = {
@@ -1546,6 +1549,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     redis: string | null
+    tcpClients: number | null
   }
 
   export type StatusCountAggregateOutputType = {
@@ -1557,16 +1561,19 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     redis: number
+    tcpClients: number
     _all: number
   }
 
 
   export type StatusAvgAggregateInputType = {
     id?: true
+    tcpClients?: true
   }
 
   export type StatusSumAggregateInputType = {
     id?: true
+    tcpClients?: true
   }
 
   export type StatusMinAggregateInputType = {
@@ -1578,6 +1585,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     redis?: true
+    tcpClients?: true
   }
 
   export type StatusMaxAggregateInputType = {
@@ -1589,6 +1597,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     redis?: true
+    tcpClients?: true
   }
 
   export type StatusCountAggregateInputType = {
@@ -1600,6 +1609,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     redis?: true
+    tcpClients?: true
     _all?: true
   }
 
@@ -1698,6 +1708,7 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     redis: string
+    tcpClients: number
     _count: StatusCountAggregateOutputType | null
     _avg: StatusAvgAggregateOutputType | null
     _sum: StatusSumAggregateOutputType | null
@@ -1728,6 +1739,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     redis?: boolean
+    tcpClients?: boolean
   }, ExtArgs["result"]["status"]>
 
   export type StatusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1739,6 +1751,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     redis?: boolean
+    tcpClients?: boolean
   }, ExtArgs["result"]["status"]>
 
   export type StatusSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1750,6 +1763,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     redis?: boolean
+    tcpClients?: boolean
   }, ExtArgs["result"]["status"]>
 
   export type StatusSelectScalar = {
@@ -1761,9 +1775,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     redis?: boolean
+    tcpClients?: boolean
   }
 
-  export type StatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "database" | "timestamp" | "error" | "createdAt" | "updatedAt" | "redis", ExtArgs["result"]["status"]>
+  export type StatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "database" | "timestamp" | "error" | "createdAt" | "updatedAt" | "redis" | "tcpClients", ExtArgs["result"]["status"]>
 
   export type $StatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Status"
@@ -1777,6 +1792,7 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       redis: string
+      tcpClients: number
     }, ExtArgs["result"]["status"]>
     composites: {}
   }
@@ -2208,6 +2224,7 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Status", 'DateTime'>
     readonly updatedAt: FieldRef<"Status", 'DateTime'>
     readonly redis: FieldRef<"Status", 'String'>
+    readonly tcpClients: FieldRef<"Status", 'Int'>
   }
     
 
@@ -10861,7 +10878,8 @@ export namespace Prisma {
     error: 'error',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    redis: 'redis'
+    redis: 'redis',
+    tcpClients: 'tcpClients'
   };
 
   export type StatusScalarFieldEnum = (typeof StatusScalarFieldEnum)[keyof typeof StatusScalarFieldEnum]
@@ -11125,6 +11143,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Status"> | Date | string
     updatedAt?: DateTimeFilter<"Status"> | Date | string
     redis?: StringFilter<"Status"> | string
+    tcpClients?: IntFilter<"Status"> | number
   }
 
   export type StatusOrderByWithRelationInput = {
@@ -11136,6 +11155,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     redis?: SortOrder
+    tcpClients?: SortOrder
   }
 
   export type StatusWhereUniqueInput = Prisma.AtLeast<{
@@ -11150,6 +11170,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Status"> | Date | string
     updatedAt?: DateTimeFilter<"Status"> | Date | string
     redis?: StringFilter<"Status"> | string
+    tcpClients?: IntFilter<"Status"> | number
   }, "id">
 
   export type StatusOrderByWithAggregationInput = {
@@ -11161,6 +11182,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     redis?: SortOrder
+    tcpClients?: SortOrder
     _count?: StatusCountOrderByAggregateInput
     _avg?: StatusAvgOrderByAggregateInput
     _max?: StatusMaxOrderByAggregateInput
@@ -11180,6 +11202,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Status"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Status"> | Date | string
     redis?: StringWithAggregatesFilter<"Status"> | string
+    tcpClients?: IntWithAggregatesFilter<"Status"> | number
   }
 
   export type GpsDataWhereInput = {
@@ -11938,6 +11961,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     redis?: string
+    tcpClients?: number
   }
 
   export type StatusUncheckedCreateInput = {
@@ -11949,6 +11973,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     redis?: string
+    tcpClients?: number
   }
 
   export type StatusUpdateInput = {
@@ -11959,6 +11984,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     redis?: StringFieldUpdateOperationsInput | string
+    tcpClients?: IntFieldUpdateOperationsInput | number
   }
 
   export type StatusUncheckedUpdateInput = {
@@ -11970,6 +11996,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     redis?: StringFieldUpdateOperationsInput | string
+    tcpClients?: IntFieldUpdateOperationsInput | number
   }
 
   export type StatusCreateManyInput = {
@@ -11981,6 +12008,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     redis?: string
+    tcpClients?: number
   }
 
   export type StatusUpdateManyMutationInput = {
@@ -11991,6 +12019,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     redis?: StringFieldUpdateOperationsInput | string
+    tcpClients?: IntFieldUpdateOperationsInput | number
   }
 
   export type StatusUncheckedUpdateManyInput = {
@@ -12002,6 +12031,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     redis?: StringFieldUpdateOperationsInput | string
+    tcpClients?: IntFieldUpdateOperationsInput | number
   }
 
   export type GpsDataCreateInput = {
@@ -12959,10 +12989,12 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     redis?: SortOrder
+    tcpClients?: SortOrder
   }
 
   export type StatusAvgOrderByAggregateInput = {
     id?: SortOrder
+    tcpClients?: SortOrder
   }
 
   export type StatusMaxOrderByAggregateInput = {
@@ -12974,6 +13006,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     redis?: SortOrder
+    tcpClients?: SortOrder
   }
 
   export type StatusMinOrderByAggregateInput = {
@@ -12985,10 +13018,12 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     redis?: SortOrder
+    tcpClients?: SortOrder
   }
 
   export type StatusSumOrderByAggregateInput = {
     id?: SortOrder
+    tcpClients?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {

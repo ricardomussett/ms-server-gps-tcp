@@ -124,6 +124,15 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
 
           this.logger.log(`Datos enviados a la cola con jobId: ${job.id}`);
 
+          // Crear y enviar respuesta al dispositivo
+          const response = this.createResponse(data);
+          socket.write(response);
+          this.logger.log(`Respuesta enviada al cliente ${clientId}: ${response.toString('hex')}`);
+          
+          // Cerrar la conexión después de enviar la respuesta
+          // socket.end();
+          this.logger.log(`Conexión cerrada con el cliente ${clientId}`);
+
         } catch (error) {
           this.logger.error(`Error procesando datos de ${clientId}: ${error.message}`, error.stack);
         }
@@ -143,6 +152,49 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
     this.server.listen(process.env.TCP_PORT ?? 81, () => {
       this.logger.log(`Servidor TCP escuchando en puerto ${process.env.TCP_PORT ?? 81}`);
     });
+  }
+
+  /**
+   * Crea una respuesta para el dispositivo GPS
+   * @param receivedData Buffer con los datos recibidos del dispositivo
+   * @returns Buffer con la respuesta formateada
+   */
+  private createResponse(receivedData: Buffer): Buffer {
+    // Header (2 bytes)
+    const header = Buffer.from([0x24, 0x24]);
+    
+    // Packet Type (mismo que el recibido)
+    const packetType = receivedData[2];
+    
+    // Length (2 bytes) - longitud 0 para respuesta simple
+    const length = Buffer.from([0x00, 0x00]);
+    
+    // PseudoIP (copiada del paquete recibido)
+    const pseudoIp = receivedData.subarray(5, 9);
+    
+    // Payload vacío ya que es una confirmación
+    const payload = Buffer.from([]);
+    
+    // Crear el paquete sin checksum
+    const packetWithoutChecksum = Buffer.concat([
+      header,
+      Buffer.from([packetType]),
+      length,
+      pseudoIp,
+      payload
+    ]); 
+    // Calcular checksum
+    const checksum = this.calculateXor(packetWithoutChecksum.subarray(2));
+    
+    // Footer
+    const footer = Buffer.from([0x0D]);
+    
+    // Retornar el paquete completo
+    return Buffer.concat([
+      packetWithoutChecksum,
+      Buffer.from([checksum]),
+      footer
+    ]);
   }
 
   /**

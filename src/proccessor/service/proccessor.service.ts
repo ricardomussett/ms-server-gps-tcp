@@ -10,6 +10,12 @@ import { Redis } from 'ioredis';
 export class ProccessorService {
   private readonly logger = new Logger(ProccessorService.name);
   private readonly redis: Redis;
+  private positionDataBuffer: PositionData[] = [];
+  private alarmDataBuffer: AlarmData[] = [];
+  private heartbeatDataBuffer: HeartbeatData[] = [];
+  private trackerStatusBuffer: TrackerStatusData[] = [];
+  private iButtonDataBuffer: IButtonData[] = [];
+  private readonly BUFFER_SIZE = 100; // Tamaño del buffer para procesamiento por lotes
 
   constructor(
     private prisma: PrismaService,
@@ -18,7 +24,7 @@ export class ProccessorService {
     this.redis = new Redis({
       host: process.env.REDIS_HOST || 'localhost',
       port: parseInt(process.env.REDIS_PORT || '6379'),
-      db: 1
+      db: parseInt(process.env.REDIS_DB || '1')
     });
   }
 
@@ -27,31 +33,16 @@ export class ProccessorService {
    */
   private async processPositionData(parsedData: PositionData): Promise<void> {
     try {
-      // Guardar en PostgreSQL
-      const positionData = await this.prisma.positionData.create({
-        data: {
-          clientId: parsedData.clientId,
-          mainCommand: parsedData.mainCommand,
-          packetLength: parsedData.packetLength,
-          pseudoIP: parsedData.pseudoIP,
-          rawData: parsedData.rawData,
-          latitude: parsedData.latitude ?? 0,
-          longitude: parsedData.longitude ?? 0,
-          speed: parsedData.speed ?? 0,
-          angle: parsedData.angle ?? 0,
-          gpsStatus: JSON.stringify(parsedData.gpsStatus),
-          digitalInputs: JSON.stringify(parsedData.digitalInputs),
-          ignition: parsedData.ignition,
-          oilResistance: parsedData.oilResistance,
-          voltage: parsedData.voltage,
-          mileage: parsedData.mileage,
-          temperature: parsedData.temperature,
-          timestamp: parsedData.timestamp
-        }
-      });
+      // Agregar al buffer
+      this.positionDataBuffer.push(parsedData);
+
+      // Si el buffer alcanza el tamaño máximo, procesar el lote
+      if (this.positionDataBuffer.length >= this.BUFFER_SIZE) {
+        await this.flushPositionDataBuffer();
+      }
 
       // Guardar en Redis
-      const truckKey = `truck:${parsedData.pseudoIP}`;
+      const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`;
       await this.redis.hset(truckKey, {
         latitude: parsedData.latitude?.toString() || '0',
         longitude: parsedData.longitude?.toString() || '0',
@@ -72,39 +63,100 @@ export class ProccessorService {
   }
 
   /**
+   * Procesa el buffer de datos de posición
+   */
+  private async flushPositionDataBuffer(): Promise<void> {
+    if (this.positionDataBuffer.length === 0) return;
+
+    try {
+      await this.prisma.positionData.createMany({
+        data: this.positionDataBuffer.map(data => ({
+          clientId: data.clientId,
+          mainCommand: data.mainCommand,
+          packetLength: data.packetLength,
+          pseudoIP: data.pseudoIP,
+          rawData: data.rawData,
+          latitude: data.latitude ?? 0,
+          longitude: data.longitude ?? 0,
+          speed: data.speed ?? 0,
+          angle: data.angle ?? 0,
+          gpsStatus: JSON.stringify(data.gpsStatus),
+          digitalInputs: JSON.stringify(data.digitalInputs),
+          ignition: data.ignition,
+          oilResistance: data.oilResistance,
+          voltage: data.voltage,
+          mileage: data.mileage,
+          temperature: data.temperature,
+          timestamp: data.timestamp
+        }))
+      });
+
+      this.logger.log(`Procesado lote de ${this.positionDataBuffer.length} registros de posición`);
+      this.positionDataBuffer = [];
+    } catch (error) {
+      this.logger.error(`Error al procesar buffer de posición: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
    * Procesa y almacena los datos de alarmas
    */
   private async processAlarmData(parsedData: AlarmData): Promise<void> {
     try {
-      await this.prisma.alarmData.create({
-        data: {
-          clientId: parsedData.clientId,
-          mainCommand: parsedData.mainCommand,
-          packetLength: parsedData.packetLength,
-          pseudoIP: parsedData.pseudoIP,
-          rawData: parsedData.rawData,
-          alarms: JSON.stringify(parsedData.alarms),
-          oilChange: parsedData.alarms?.oilChange,
-          crossBorder: parsedData.alarms?.crossBorder,
-          overVoltage: parsedData.alarms?.overVoltage,
-          underVoltage: parsedData.alarms?.underVoltage,
-          overload: parsedData.alarms?.overload,
-          overtimeDriving: parsedData.alarms?.overtimeDriving,
-          enterBorder: parsedData.alarms?.enterBorder,
-          illegalDoorOpen: parsedData.alarms?.illegalDoorOpen,
-          illegalStart: parsedData.alarms?.illegalStart,
-          vibration: parsedData.alarms?.vibration,
-          centerEnabledAlarm: parsedData.alarms?.centerEnabledAlarm,
-          powerFailure: parsedData.alarms?.powerFailure,
-          parking: parsedData.alarms?.parking,
-          overSpeed: parsedData.alarms?.overSpeed,
-          emergency: parsedData.alarms?.emergency,
-          timestamp: parsedData.timestamp
-        }
-      });
+      // Agregar al buffer
+      this.alarmDataBuffer.push(parsedData);
+
+      // Si el buffer alcanza el tamaño máximo, procesar el lote
+      if (this.alarmDataBuffer.length >= this.BUFFER_SIZE) {
+        await this.flushAlarmDataBuffer();
+      }
+
       this.logger.log(`Datos de alarma procesados correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
       this.logger.error(`Error al procesar datos de alarma: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
+   * Procesa el buffer de datos de alarma
+   */
+  private async flushAlarmDataBuffer(): Promise<void> {
+    if (this.alarmDataBuffer.length === 0) return;
+
+    try {
+      await this.prisma.alarmData.createMany({
+        data: this.alarmDataBuffer.map(data => ({
+          clientId: data.clientId,
+          mainCommand: data.mainCommand,
+          packetLength: data.packetLength,
+          pseudoIP: data.pseudoIP,
+          rawData: data.rawData,
+          alarms: JSON.stringify(data.alarms),
+          oilChange: data.alarms?.oilChange,
+          crossBorder: data.alarms?.crossBorder,
+          overVoltage: data.alarms?.overVoltage,
+          underVoltage: data.alarms?.underVoltage,
+          overload: data.alarms?.overload,
+          overtimeDriving: data.alarms?.overtimeDriving,
+          enterBorder: data.alarms?.enterBorder,
+          illegalDoorOpen: data.alarms?.illegalDoorOpen,
+          illegalStart: data.alarms?.illegalStart,
+          vibration: data.alarms?.vibration,
+          centerEnabledAlarm: data.alarms?.centerEnabledAlarm,
+          powerFailure: data.alarms?.powerFailure,
+          parking: data.alarms?.parking,
+          overSpeed: data.alarms?.overSpeed,
+          emergency: data.alarms?.emergency,
+          timestamp: data.timestamp
+        }))
+      });
+
+      this.logger.log(`Procesado lote de ${this.alarmDataBuffer.length} registros de alarma`);
+      this.alarmDataBuffer = [];
+    } catch (error) {
+      this.logger.error(`Error al procesar buffer de alarma: ${error.message}`);
       throw error;
     }
   }
@@ -114,22 +166,46 @@ export class ProccessorService {
    */
   private async processHeartbeatData(parsedData: HeartbeatData): Promise<void> {
     try {
-      await this.prisma.heartbeatData.create({
-        data: {
-          clientId: parsedData.clientId,
-          mainCommand: parsedData.mainCommand,
-          packetLength: parsedData.packetLength,
-          pseudoIP: parsedData.pseudoIP,
-          rawData: parsedData.rawData,
-          calibrationValue: parsedData.calibrationValue,
-          mainOrderReply: parsedData.mainOrderReply,
-          slaveOrderReply: parsedData.slaveOrderReply,
-          timestamp: parsedData.timestamp,
-        }
-      });
+      // Agregar al buffer
+      this.heartbeatDataBuffer.push(parsedData);
+
+      // Si el buffer alcanza el tamaño máximo, procesar el lote
+      if (this.heartbeatDataBuffer.length >= this.BUFFER_SIZE) {
+        await this.flushHeartbeatDataBuffer();
+      }
+
       this.logger.log(`Datos de heartbeat procesados correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
       this.logger.error(`Error al procesar datos de heartbeat: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
+   * Procesa el buffer de datos de heartbeat
+   */
+  private async flushHeartbeatDataBuffer(): Promise<void> {
+    if (this.heartbeatDataBuffer.length === 0) return;
+
+    try {
+      await this.prisma.heartbeatData.createMany({
+        data: this.heartbeatDataBuffer.map(data => ({
+          clientId: data.clientId,
+          mainCommand: data.mainCommand,
+          packetLength: data.packetLength,
+          pseudoIP: data.pseudoIP,
+          rawData: data.rawData,
+          calibrationValue: data.calibrationValue,
+          mainOrderReply: data.mainOrderReply,
+          slaveOrderReply: data.slaveOrderReply,
+          timestamp: data.timestamp
+        }))
+      });
+
+      this.logger.log(`Procesado lote de ${this.heartbeatDataBuffer.length} registros de heartbeat`);
+      this.heartbeatDataBuffer = [];
+    } catch (error) {
+      this.logger.error(`Error al procesar buffer de heartbeat: ${error.message}`);
       throw error;
     }
   }
@@ -139,34 +215,58 @@ export class ProccessorService {
    */
   private async processTrackerStatus(parsedData: TrackerStatusData): Promise<void> {
     try {
-      await this.prisma.trackerStatus.create({
-        data: {
-          clientId: parsedData.clientId,
-          mainCommand: parsedData.mainCommand,
-          packetLength: parsedData.packetLength,
-          pseudoIP: parsedData.pseudoIP,
-          rawData: parsedData.rawData,
-          samplingTime: parsedData.samplingTime,
-          alarmStatus: parsedData.alarmStatus,
-          located: parsedData.located,
-          samplingType: parsedData.samplingType,
-          samplingValue: parsedData.samplingValue,
-          sendingType: parsedData.sendingType,
-          carStopSetting: parsedData.carStopSetting,
-          overspeedSetting: parsedData.overspeedSetting,
-          phoneLimit: parsedData.phoneLimit,
-          areaNodeLimit: parsedData.areaNodeLimit,
-          safeSetting: parsedData.safeSetting,
-          longTimeDriving: parsedData.longTimeDriving,
-          samplingValueAccOff: parsedData.samplingValueAccOff,
-          emergencyAlarmSwitch: parsedData.emergencyAlarmSwitch,
-          photographRelated: parsedData.photographRelated,
-          timestamp: parsedData.timestamp,
-        }
-      });
+      // Agregar al buffer
+      this.trackerStatusBuffer.push(parsedData);
+
+      // Si el buffer alcanza el tamaño máximo, procesar el lote
+      if (this.trackerStatusBuffer.length >= this.BUFFER_SIZE) {
+        await this.flushTrackerStatusBuffer();
+      }
+
       this.logger.log(`Estado del rastreador procesado correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
       this.logger.error(`Error al procesar estado del rastreador: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
+   * Procesa el buffer de datos de estado del rastreador
+   */
+  private async flushTrackerStatusBuffer(): Promise<void> {
+    if (this.trackerStatusBuffer.length === 0) return;
+
+    try {
+      await this.prisma.trackerStatus.createMany({
+        data: this.trackerStatusBuffer.map(data => ({
+          clientId: data.clientId,
+          mainCommand: data.mainCommand,
+          packetLength: data.packetLength,
+          pseudoIP: data.pseudoIP,
+          rawData: data.rawData,
+          samplingTime: data.samplingTime,
+          alarmStatus: data.alarmStatus,
+          located: data.located,
+          samplingType: data.samplingType,
+          samplingValue: data.samplingValue,
+          sendingType: data.sendingType,
+          carStopSetting: data.carStopSetting,
+          overspeedSetting: data.overspeedSetting,
+          phoneLimit: data.phoneLimit,
+          areaNodeLimit: data.areaNodeLimit,
+          safeSetting: data.safeSetting,
+          longTimeDriving: data.longTimeDriving,
+          samplingValueAccOff: data.samplingValueAccOff,
+          emergencyAlarmSwitch: data.emergencyAlarmSwitch,
+          photographRelated: data.photographRelated,
+          timestamp: data.timestamp
+        }))
+      });
+
+      this.logger.log(`Procesado lote de ${this.trackerStatusBuffer.length} registros de estado del rastreador`);
+      this.trackerStatusBuffer = [];
+    } catch (error) {
+      this.logger.error(`Error al procesar buffer de estado del rastreador: ${error.message}`);
       throw error;
     }
   }
@@ -176,24 +276,48 @@ export class ProccessorService {
    */
   private async processIButtonData(parsedData: IButtonData): Promise<void> {
     try {
-      await this.prisma.iButtonData.create({
-        data: {
-          clientId: parsedData.clientId,
-          mainCommand: parsedData.mainCommand,
-          packetLength: parsedData.packetLength,
-          pseudoIP: parsedData.pseudoIP,
-          rawData: parsedData.rawData,
-          subCommand: parsedData.subCommand,
-          message: parsedData.message,
-          driverName: parsedData.driverName,
-          driverId: parsedData.driverId,
-          swipeData: JSON.stringify(parsedData.swipeData),
-          timestamp: parsedData.timestamp,
-        }
-      });
+      // Agregar al buffer
+      this.iButtonDataBuffer.push(parsedData);
+
+      // Si el buffer alcanza el tamaño máximo, procesar el lote
+      if (this.iButtonDataBuffer.length >= this.BUFFER_SIZE) {
+        await this.flushIButtonDataBuffer();
+      }
+
       this.logger.log(`Datos de iButton procesados correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
       this.logger.error(`Error al procesar datos de iButton: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
+   * Procesa el buffer de datos del iButton
+   */
+  private async flushIButtonDataBuffer(): Promise<void> {
+    if (this.iButtonDataBuffer.length === 0) return;
+
+    try {
+      await this.prisma.iButtonData.createMany({
+        data: this.iButtonDataBuffer.map(data => ({
+          clientId: data.clientId,
+          mainCommand: data.mainCommand,
+          packetLength: data.packetLength,
+          pseudoIP: data.pseudoIP,
+          rawData: data.rawData,
+          subCommand: data.subCommand,
+          message: data.message,
+          driverName: data.driverName,
+          driverId: data.driverId,
+          swipeData: JSON.stringify(data.swipeData),
+          timestamp: data.timestamp
+        }))
+      });
+
+      this.logger.log(`Procesado lote de ${this.iButtonDataBuffer.length} registros de iButton`);
+      this.iButtonDataBuffer = [];
+    } catch (error) {
+      this.logger.error(`Error al procesar buffer de iButton: ${error.message}`);
       throw error;
     }
   }

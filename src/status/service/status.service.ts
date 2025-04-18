@@ -2,13 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { createClient } from 'redis';
 import { redisConfig } from '../../config/redis.config';
+import { TcpService } from '../../tcp/service/tcp.service';
 
 @Injectable()
 export class StatusService {
   private redisClient;
   private redisConnected = false;
 
-  constructor(private readonly prisma: PrismaService) {
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly tcpService: TcpService
+  ) {
     // Inicializar el cliente Redis
     this.redisClient = createClient({
       url: `redis://${redisConfig.host}:${redisConfig.port}`,
@@ -99,12 +103,16 @@ export class StatusService {
       // Verificamos la conexión a Redis
       const redisStatus = await this.checkRedisConnection();
       
+      // Obtenemos el número de clientes TCP conectados
+      const tcpClients = this.tcpService.getConnectedClients();
+      
       // Creamos un nuevo registro de status
       const statusRecord = await this.prisma.status.create({
         data: {
           status: 'active',
           database: 'connected',
           redis: redisStatus,
+          tcpClients: tcpClients,
         }
       });
 
@@ -112,6 +120,7 @@ export class StatusService {
         status: statusRecord.status,
         database: statusRecord.database,
         redis: statusRecord.redis,
+        tcpClients: statusRecord.tcpClients,
         timestamp: statusRecord.timestamp,
       };
     } catch (error) {
@@ -123,6 +132,7 @@ export class StatusService {
           status: 'error',
           database: 'disconnected',
           redis: 'disconnected',
+          tcpClients: 0,
           error: error.message,
         }
       });
@@ -131,6 +141,7 @@ export class StatusService {
         status: statusRecord.status,
         database: statusRecord.database,
         redis: statusRecord.redis,
+        tcpClients: statusRecord.tcpClients,
         error: statusRecord.error,
         timestamp: statusRecord.timestamp,
       };
