@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { ProccessorService } from './service/proccessor.service';
+import { ProccessorService } from '../service/proccessor.service';
 
 @Controller()
 export class ProccessorController {

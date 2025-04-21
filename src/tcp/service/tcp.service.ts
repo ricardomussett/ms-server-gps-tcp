@@ -271,5 +271,36 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
   public getConnectedClients(): number {
     return this.clients.size;
   }
+
+  /**
+   * Detiene el servidor TCP y cierra todas las conexiones activas
+   * @returns Promise que se resuelve cuando el servidor ha sido detenido
+   */
+  public async stopServer(): Promise<void> {
+    this.logger.log('Deteniendo servidor TCP...');
+    await this.closeServer();
+  }
+
+  /**
+   * Reinicia el servidor TCP
+   * @returns Promise que se resuelve cuando el servidor ha sido reiniciado
+   */
+  public async restartServer(): Promise<void> {
+    this.logger.log('Reiniciando servidor TCP...');
+    await this.closeServer();
+    this.setupServer();
+  }
+
+    /**
+   * Verifica si el servidor TCP está en ejecución
+   * @returns Objeto con el estado del servidor
+   */
+    public getServerStatus() {
+      return {
+        isRunning: this.server.listening,
+        port: this.server.listening ? process.env.TCP_PORT ?? 81 : null,
+        connectedClients: this.clients.size
+      };
+    }
 }
 

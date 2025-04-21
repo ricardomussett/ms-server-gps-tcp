@@ -96,56 +96,48 @@ export class StatusService {
    *  - timestamp: Fecha y hora del registro
    */
   async status() {
+    let databaseStatus = 'disconnected';
+    let redisStatus = 'disconnected';
+    let systemStatus = 'active';
+    let error = null;
+    let tcpStatus = {};
+
     try {
       // Verificamos la conexión a la base de datos
       await this.prisma.$queryRaw`SELECT 1`;
-      
-      // Verificamos la conexión a Redis
-      const redisStatus = await this.checkRedisConnection();
-      
-      // Obtenemos el número de clientes TCP conectados
-      const tcpClients = this.tcpService.getConnectedClients();
-      
-      // Creamos un nuevo registro de status
-      const statusRecord = await this.prisma.status.create({
-        data: {
-          status: 'active',
-          database: 'connected',
-          redis: redisStatus,
-          tcpClients: tcpClients,
-        }
-      });
-
-      return {
-        status: statusRecord.status,
-        database: statusRecord.database,
-        redis: statusRecord.redis,
-        tcpClients: statusRecord.tcpClients,
-        timestamp: statusRecord.timestamp,
-      };
+      databaseStatus = 'connected';
     } catch (error) {
-      console.error('Error de conexión:', error);
-      
-      // Creamos un registro de error
-      const statusRecord = await this.prisma.status.create({
-        data: {
-          status: 'error',
-          database: 'disconnected',
-          redis: 'disconnected',
-          tcpClients: 0,
-          error: error.message,
-        }
-      });
-
-      return {
-        status: statusRecord.status,
-        database: statusRecord.database,
-        redis: statusRecord.redis,
-        tcpClients: statusRecord.tcpClients,
-        error: statusRecord.error,
-        timestamp: statusRecord.timestamp,
-      };
+      console.error('Error de conexión a la base de datos:', error);
+      systemStatus = 'error';
+      error = error.message;
     }
+
+    try {
+      // Verificamos la conexión a Redis
+      redisStatus = await this.checkRedisConnection();
+    } catch (error) {
+      console.error('Error de conexión a Redis:', error);
+      redisStatus = 'disconnected';
+    }
+
+    try {
+      // Verificamos si el servidor TCP está en ejecución
+      tcpStatus = this.tcpService.getServerStatus();
+    } catch (error) {
+      console.error('Error al obtener clientes TCP:', error);
+      tcpStatus = {};
+    }
+
+
+    const statusRecord = {
+      status: systemStatus,
+      database: databaseStatus,
+      redis: redisStatus,
+      tcpStatus: tcpStatus,
+      error: error,
+    };
+
+    return statusRecord;
   }
 
   /**
