@@ -160,6 +160,7 @@ exports.Prisma.PositionDataScalarFieldEnum = {
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
+  sim: 'sim',
   rawData: 'rawData',
   timestamp: 'timestamp'
 };
@@ -173,6 +174,7 @@ exports.Prisma.AlarmDataScalarFieldEnum = {
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
+  sim: 'sim',
   rawData: 'rawData',
   centerEnabledAlarm: 'centerEnabledAlarm',
   crossBorder: 'crossBorder',
@@ -203,6 +205,7 @@ exports.Prisma.HeartbeatDataScalarFieldEnum = {
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
+  sim: 'sim',
   rawData: 'rawData',
   timestamp: 'timestamp'
 };
@@ -230,6 +233,7 @@ exports.Prisma.TrackerStatusScalarFieldEnum = {
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
+  sim: 'sim',
   rawData: 'rawData',
   timestamp: 'timestamp'
 };
@@ -247,6 +251,7 @@ exports.Prisma.IButtonDataScalarFieldEnum = {
   mainCommand: 'mainCommand',
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
+  sim: 'sim',
   rawData: 'rawData',
   timestamp: 'timestamp'
 };

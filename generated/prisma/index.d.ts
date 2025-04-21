@@ -3729,6 +3729,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -3752,6 +3753,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -3775,6 +3777,7 @@ export namespace Prisma {
     mainCommand: number
     packetLength: number
     pseudoIP: number
+    sim: number
     rawData: number
     timestamp: number
     _all: number
@@ -3826,6 +3829,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -3849,6 +3853,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -3872,6 +3877,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
     _all?: true
@@ -3982,6 +3988,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date
     _count: PositionDataCountAggregateOutputType | null
@@ -4024,6 +4031,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["positionData"]>
@@ -4047,6 +4055,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["positionData"]>
@@ -4070,6 +4079,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["positionData"]>
@@ -4093,11 +4103,12 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }
 
-  export type PositionDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "latitude" | "longitude" | "speed" | "angle" | "gpsStatus" | "digitalInputs" | "ignition" | "oilResistance" | "voltage" | "mileage" | "temperature" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["positionData"]>
+  export type PositionDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "latitude" | "longitude" | "speed" | "angle" | "gpsStatus" | "digitalInputs" | "ignition" | "oilResistance" | "voltage" | "mileage" | "temperature" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "sim" | "rawData" | "timestamp", ExtArgs["result"]["positionData"]>
 
   export type $PositionDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PositionData"
@@ -4121,6 +4132,7 @@ export namespace Prisma {
       mainCommand: string | null
       packetLength: number | null
       pseudoIP: string | null
+      sim: string | null
       rawData: string | null
       timestamp: Date
     }, ExtArgs["result"]["positionData"]>
@@ -4564,6 +4576,7 @@ export namespace Prisma {
     readonly mainCommand: FieldRef<"PositionData", 'String'>
     readonly packetLength: FieldRef<"PositionData", 'Int'>
     readonly pseudoIP: FieldRef<"PositionData", 'String'>
+    readonly sim: FieldRef<"PositionData", 'String'>
     readonly rawData: FieldRef<"PositionData", 'String'>
     readonly timestamp: FieldRef<"PositionData", 'DateTime'>
   }
@@ -4963,6 +4976,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     centerEnabledAlarm: boolean | null
     crossBorder: boolean | null
@@ -4991,6 +5005,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     centerEnabledAlarm: boolean | null
     crossBorder: boolean | null
@@ -5019,6 +5034,7 @@ export namespace Prisma {
     mainCommand: number
     packetLength: number
     pseudoIP: number
+    sim: number
     rawData: number
     centerEnabledAlarm: number
     crossBorder: number
@@ -5059,6 +5075,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     centerEnabledAlarm?: true
     crossBorder?: true
@@ -5087,6 +5104,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     centerEnabledAlarm?: true
     crossBorder?: true
@@ -5115,6 +5133,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     centerEnabledAlarm?: true
     crossBorder?: true
@@ -5230,6 +5249,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     centerEnabledAlarm: boolean | null
     crossBorder: boolean | null
@@ -5277,6 +5297,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     centerEnabledAlarm?: boolean
     crossBorder?: boolean
@@ -5305,6 +5326,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     centerEnabledAlarm?: boolean
     crossBorder?: boolean
@@ -5333,6 +5355,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     centerEnabledAlarm?: boolean
     crossBorder?: boolean
@@ -5361,6 +5384,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     centerEnabledAlarm?: boolean
     crossBorder?: boolean
@@ -5380,7 +5404,7 @@ export namespace Prisma {
     timestamp?: boolean
   }
 
-  export type AlarmDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "alarms" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "centerEnabledAlarm" | "crossBorder" | "emergency" | "enterBorder" | "illegalDoorOpen" | "illegalStart" | "oilChange" | "overSpeed" | "overVoltage" | "overload" | "overtimeDriving" | "parking" | "powerFailure" | "underVoltage" | "vibration" | "timestamp", ExtArgs["result"]["alarmData"]>
+  export type AlarmDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "alarms" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "sim" | "rawData" | "centerEnabledAlarm" | "crossBorder" | "emergency" | "enterBorder" | "illegalDoorOpen" | "illegalStart" | "oilChange" | "overSpeed" | "overVoltage" | "overload" | "overtimeDriving" | "parking" | "powerFailure" | "underVoltage" | "vibration" | "timestamp", ExtArgs["result"]["alarmData"]>
 
   export type $AlarmDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AlarmData"
@@ -5394,6 +5418,7 @@ export namespace Prisma {
       mainCommand: string | null
       packetLength: number | null
       pseudoIP: string | null
+      sim: string | null
       rawData: string | null
       centerEnabledAlarm: boolean | null
       crossBorder: boolean | null
@@ -5842,6 +5867,7 @@ export namespace Prisma {
     readonly mainCommand: FieldRef<"AlarmData", 'String'>
     readonly packetLength: FieldRef<"AlarmData", 'Int'>
     readonly pseudoIP: FieldRef<"AlarmData", 'String'>
+    readonly sim: FieldRef<"AlarmData", 'String'>
     readonly rawData: FieldRef<"AlarmData", 'String'>
     readonly centerEnabledAlarm: FieldRef<"AlarmData", 'Boolean'>
     readonly crossBorder: FieldRef<"AlarmData", 'Boolean'>
@@ -6264,6 +6290,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -6279,6 +6306,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -6294,6 +6322,7 @@ export namespace Prisma {
     mainCommand: number
     packetLength: number
     pseudoIP: number
+    sim: number
     rawData: number
     timestamp: number
     _all: number
@@ -6327,6 +6356,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -6342,6 +6372,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -6357,6 +6388,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
     _all?: true
@@ -6459,6 +6491,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date
     _count: HeartbeatDataCountAggregateOutputType | null
@@ -6493,6 +6526,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["heartbeatData"]>
@@ -6508,6 +6542,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["heartbeatData"]>
@@ -6523,6 +6558,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["heartbeatData"]>
@@ -6538,11 +6574,12 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }
 
-  export type HeartbeatDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "calibrationValue" | "mainOrderReply" | "slaveOrderReply" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["heartbeatData"]>
+  export type HeartbeatDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "calibrationValue" | "mainOrderReply" | "slaveOrderReply" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "sim" | "rawData" | "timestamp", ExtArgs["result"]["heartbeatData"]>
 
   export type $HeartbeatDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "HeartbeatData"
@@ -6558,6 +6595,7 @@ export namespace Prisma {
       mainCommand: string | null
       packetLength: number | null
       pseudoIP: string | null
+      sim: string | null
       rawData: string | null
       timestamp: Date
     }, ExtArgs["result"]["heartbeatData"]>
@@ -6993,6 +7031,7 @@ export namespace Prisma {
     readonly mainCommand: FieldRef<"HeartbeatData", 'String'>
     readonly packetLength: FieldRef<"HeartbeatData", 'Int'>
     readonly pseudoIP: FieldRef<"HeartbeatData", 'String'>
+    readonly sim: FieldRef<"HeartbeatData", 'String'>
     readonly rawData: FieldRef<"HeartbeatData", 'String'>
     readonly timestamp: FieldRef<"HeartbeatData", 'DateTime'>
   }
@@ -7422,6 +7461,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -7449,6 +7489,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -7476,6 +7517,7 @@ export namespace Prisma {
     mainCommand: number
     packetLength: number
     pseudoIP: number
+    sim: number
     rawData: number
     timestamp: number
     _all: number
@@ -7531,6 +7573,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -7558,6 +7601,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -7585,6 +7629,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
     _all?: true
@@ -7699,6 +7744,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date
     _count: TrackerStatusCountAggregateOutputType | null
@@ -7745,6 +7791,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["trackerStatus"]>
@@ -7772,6 +7819,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["trackerStatus"]>
@@ -7799,6 +7847,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["trackerStatus"]>
@@ -7826,11 +7875,12 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }
 
-  export type TrackerStatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "samplingTime" | "alarmStatus" | "located" | "samplingType" | "samplingValue" | "sendingType" | "carStopSetting" | "overspeedSetting" | "phoneLimit" | "areaNodeLimit" | "safeSetting" | "longTimeDriving" | "samplingValueAccOff" | "emergencyAlarmSwitch" | "photographRelated" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["trackerStatus"]>
+  export type TrackerStatusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "samplingTime" | "alarmStatus" | "located" | "samplingType" | "samplingValue" | "sendingType" | "carStopSetting" | "overspeedSetting" | "phoneLimit" | "areaNodeLimit" | "safeSetting" | "longTimeDriving" | "samplingValueAccOff" | "emergencyAlarmSwitch" | "photographRelated" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "sim" | "rawData" | "timestamp", ExtArgs["result"]["trackerStatus"]>
 
   export type $TrackerStatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "TrackerStatus"
@@ -7858,6 +7908,7 @@ export namespace Prisma {
       mainCommand: string | null
       packetLength: number | null
       pseudoIP: string | null
+      sim: string | null
       rawData: string | null
       timestamp: Date
     }, ExtArgs["result"]["trackerStatus"]>
@@ -8305,6 +8356,7 @@ export namespace Prisma {
     readonly mainCommand: FieldRef<"TrackerStatus", 'String'>
     readonly packetLength: FieldRef<"TrackerStatus", 'Int'>
     readonly pseudoIP: FieldRef<"TrackerStatus", 'String'>
+    readonly sim: FieldRef<"TrackerStatus", 'String'>
     readonly rawData: FieldRef<"TrackerStatus", 'String'>
     readonly timestamp: FieldRef<"TrackerStatus", 'DateTime'>
   }
@@ -8710,6 +8762,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -8727,6 +8780,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date | null
   }
@@ -8744,6 +8798,7 @@ export namespace Prisma {
     mainCommand: number
     packetLength: number
     pseudoIP: number
+    sim: number
     rawData: number
     timestamp: number
     _all: number
@@ -8775,6 +8830,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -8792,6 +8848,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
   }
@@ -8809,6 +8866,7 @@ export namespace Prisma {
     mainCommand?: true
     packetLength?: true
     pseudoIP?: true
+    sim?: true
     rawData?: true
     timestamp?: true
     _all?: true
@@ -8913,6 +8971,7 @@ export namespace Prisma {
     mainCommand: string | null
     packetLength: number | null
     pseudoIP: string | null
+    sim: string | null
     rawData: string | null
     timestamp: Date
     _count: IButtonDataCountAggregateOutputType | null
@@ -8949,6 +9008,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["iButtonData"]>
@@ -8966,6 +9026,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["iButtonData"]>
@@ -8983,6 +9044,7 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }, ExtArgs["result"]["iButtonData"]>
@@ -9000,11 +9062,12 @@ export namespace Prisma {
     mainCommand?: boolean
     packetLength?: boolean
     pseudoIP?: boolean
+    sim?: boolean
     rawData?: boolean
     timestamp?: boolean
   }
 
-  export type IButtonDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "subCommand" | "message" | "driverName" | "driverId" | "swipeData" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "rawData" | "timestamp", ExtArgs["result"]["iButtonData"]>
+  export type IButtonDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "subCommand" | "message" | "driverName" | "driverId" | "swipeData" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "sim" | "rawData" | "timestamp", ExtArgs["result"]["iButtonData"]>
 
   export type $IButtonDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "IButtonData"
@@ -9022,6 +9085,7 @@ export namespace Prisma {
       mainCommand: string | null
       packetLength: number | null
       pseudoIP: string | null
+      sim: string | null
       rawData: string | null
       timestamp: Date
     }, ExtArgs["result"]["iButtonData"]>
@@ -9459,6 +9523,7 @@ export namespace Prisma {
     readonly mainCommand: FieldRef<"IButtonData", 'String'>
     readonly packetLength: FieldRef<"IButtonData", 'Int'>
     readonly pseudoIP: FieldRef<"IButtonData", 'String'>
+    readonly sim: FieldRef<"IButtonData", 'String'>
     readonly rawData: FieldRef<"IButtonData", 'String'>
     readonly timestamp: FieldRef<"IButtonData", 'DateTime'>
   }
@@ -10919,6 +10984,7 @@ export namespace Prisma {
     mainCommand: 'mainCommand',
     packetLength: 'packetLength',
     pseudoIP: 'pseudoIP',
+    sim: 'sim',
     rawData: 'rawData',
     timestamp: 'timestamp'
   };
@@ -10935,6 +11001,7 @@ export namespace Prisma {
     mainCommand: 'mainCommand',
     packetLength: 'packetLength',
     pseudoIP: 'pseudoIP',
+    sim: 'sim',
     rawData: 'rawData',
     centerEnabledAlarm: 'centerEnabledAlarm',
     crossBorder: 'crossBorder',
@@ -10968,6 +11035,7 @@ export namespace Prisma {
     mainCommand: 'mainCommand',
     packetLength: 'packetLength',
     pseudoIP: 'pseudoIP',
+    sim: 'sim',
     rawData: 'rawData',
     timestamp: 'timestamp'
   };
@@ -10998,6 +11066,7 @@ export namespace Prisma {
     mainCommand: 'mainCommand',
     packetLength: 'packetLength',
     pseudoIP: 'pseudoIP',
+    sim: 'sim',
     rawData: 'rawData',
     timestamp: 'timestamp'
   };
@@ -11018,6 +11087,7 @@ export namespace Prisma {
     mainCommand: 'mainCommand',
     packetLength: 'packetLength',
     pseudoIP: 'pseudoIP',
+    sim: 'sim',
     rawData: 'rawData',
     timestamp: 'timestamp'
   };
@@ -11301,6 +11371,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"PositionData"> | string | null
     packetLength?: IntNullableFilter<"PositionData"> | number | null
     pseudoIP?: StringNullableFilter<"PositionData"> | string | null
+    sim?: StringNullableFilter<"PositionData"> | string | null
     rawData?: StringNullableFilter<"PositionData"> | string | null
     timestamp?: DateTimeFilter<"PositionData"> | Date | string
   }
@@ -11324,6 +11395,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
   }
@@ -11350,6 +11422,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"PositionData"> | string | null
     packetLength?: IntNullableFilter<"PositionData"> | number | null
     pseudoIP?: StringNullableFilter<"PositionData"> | string | null
+    sim?: StringNullableFilter<"PositionData"> | string | null
     rawData?: StringNullableFilter<"PositionData"> | string | null
     timestamp?: DateTimeFilter<"PositionData"> | Date | string
   }, "id">
@@ -11373,6 +11446,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     _count?: PositionDataCountOrderByAggregateInput
@@ -11404,6 +11478,7 @@ export namespace Prisma {
     mainCommand?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
     packetLength?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
     pseudoIP?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
+    sim?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
   }
@@ -11420,6 +11495,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"AlarmData"> | string | null
     packetLength?: IntNullableFilter<"AlarmData"> | number | null
     pseudoIP?: StringNullableFilter<"AlarmData"> | string | null
+    sim?: StringNullableFilter<"AlarmData"> | string | null
     rawData?: StringNullableFilter<"AlarmData"> | string | null
     centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
     crossBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
@@ -11448,6 +11524,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     centerEnabledAlarm?: SortOrderInput | SortOrder
     crossBorder?: SortOrderInput | SortOrder
@@ -11479,6 +11556,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"AlarmData"> | string | null
     packetLength?: IntNullableFilter<"AlarmData"> | number | null
     pseudoIP?: StringNullableFilter<"AlarmData"> | string | null
+    sim?: StringNullableFilter<"AlarmData"> | string | null
     rawData?: StringNullableFilter<"AlarmData"> | string | null
     centerEnabledAlarm?: BoolNullableFilter<"AlarmData"> | boolean | null
     crossBorder?: BoolNullableFilter<"AlarmData"> | boolean | null
@@ -11507,6 +11585,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     centerEnabledAlarm?: SortOrderInput | SortOrder
     crossBorder?: SortOrderInput | SortOrder
@@ -11543,6 +11622,7 @@ export namespace Prisma {
     mainCommand?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
     packetLength?: IntNullableWithAggregatesFilter<"AlarmData"> | number | null
     pseudoIP?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
+    sim?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"AlarmData"> | string | null
     centerEnabledAlarm?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
     crossBorder?: BoolNullableWithAggregatesFilter<"AlarmData"> | boolean | null
@@ -11576,6 +11656,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"HeartbeatData"> | string | null
     packetLength?: IntNullableFilter<"HeartbeatData"> | number | null
     pseudoIP?: StringNullableFilter<"HeartbeatData"> | string | null
+    sim?: StringNullableFilter<"HeartbeatData"> | string | null
     rawData?: StringNullableFilter<"HeartbeatData"> | string | null
     timestamp?: DateTimeFilter<"HeartbeatData"> | Date | string
   }
@@ -11591,6 +11672,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
   }
@@ -11609,6 +11691,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"HeartbeatData"> | string | null
     packetLength?: IntNullableFilter<"HeartbeatData"> | number | null
     pseudoIP?: StringNullableFilter<"HeartbeatData"> | string | null
+    sim?: StringNullableFilter<"HeartbeatData"> | string | null
     rawData?: StringNullableFilter<"HeartbeatData"> | string | null
     timestamp?: DateTimeFilter<"HeartbeatData"> | Date | string
   }, "id">
@@ -11624,6 +11707,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     _count?: HeartbeatDataCountOrderByAggregateInput
@@ -11647,6 +11731,7 @@ export namespace Prisma {
     mainCommand?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
     packetLength?: IntNullableWithAggregatesFilter<"HeartbeatData"> | number | null
     pseudoIP?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
+    sim?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"HeartbeatData"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"HeartbeatData"> | Date | string
   }
@@ -11677,6 +11762,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
     packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
     pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
+    sim?: StringNullableFilter<"TrackerStatus"> | string | null
     rawData?: StringNullableFilter<"TrackerStatus"> | string | null
     timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
   }
@@ -11704,6 +11790,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
   }
@@ -11734,6 +11821,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"TrackerStatus"> | string | null
     packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
     pseudoIP?: StringNullableFilter<"TrackerStatus"> | string | null
+    sim?: StringNullableFilter<"TrackerStatus"> | string | null
     rawData?: StringNullableFilter<"TrackerStatus"> | string | null
     timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
   }, "id">
@@ -11761,6 +11849,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     _count?: TrackerStatusCountOrderByAggregateInput
@@ -11796,6 +11885,7 @@ export namespace Prisma {
     mainCommand?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
     packetLength?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
     pseudoIP?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    sim?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
   }
@@ -11816,6 +11906,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"IButtonData"> | string | null
     packetLength?: IntNullableFilter<"IButtonData"> | number | null
     pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
+    sim?: StringNullableFilter<"IButtonData"> | string | null
     rawData?: StringNullableFilter<"IButtonData"> | string | null
     timestamp?: DateTimeFilter<"IButtonData"> | Date | string
   }
@@ -11833,6 +11924,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
   }
@@ -11853,6 +11945,7 @@ export namespace Prisma {
     mainCommand?: StringNullableFilter<"IButtonData"> | string | null
     packetLength?: IntNullableFilter<"IButtonData"> | number | null
     pseudoIP?: StringNullableFilter<"IButtonData"> | string | null
+    sim?: StringNullableFilter<"IButtonData"> | string | null
     rawData?: StringNullableFilter<"IButtonData"> | string | null
     timestamp?: DateTimeFilter<"IButtonData"> | Date | string
   }, "id">
@@ -11870,6 +11963,7 @@ export namespace Prisma {
     mainCommand?: SortOrderInput | SortOrder
     packetLength?: SortOrderInput | SortOrder
     pseudoIP?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
     rawData?: SortOrderInput | SortOrder
     timestamp?: SortOrder
     _count?: IButtonDataCountOrderByAggregateInput
@@ -11895,6 +11989,7 @@ export namespace Prisma {
     mainCommand?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     packetLength?: IntNullableWithAggregatesFilter<"IButtonData"> | number | null
     pseudoIP?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
+    sim?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     rawData?: StringNullableWithAggregatesFilter<"IButtonData"> | string | null
     timestamp?: DateTimeWithAggregatesFilter<"IButtonData"> | Date | string
   }
@@ -12133,6 +12228,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12156,6 +12252,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12178,6 +12275,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12201,6 +12299,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12224,6 +12323,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12246,6 +12346,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12269,6 +12370,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12281,6 +12383,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     centerEnabledAlarm?: boolean | null
     crossBorder?: boolean | null
@@ -12309,6 +12412,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     centerEnabledAlarm?: boolean | null
     crossBorder?: boolean | null
@@ -12336,6 +12440,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -12364,6 +12469,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -12392,6 +12498,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     centerEnabledAlarm?: boolean | null
     crossBorder?: boolean | null
@@ -12419,6 +12526,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -12447,6 +12555,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     centerEnabledAlarm?: NullableBoolFieldUpdateOperationsInput | boolean | null
     crossBorder?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -12476,6 +12585,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12491,6 +12601,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12505,6 +12616,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12520,6 +12632,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12535,6 +12648,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12549,6 +12663,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12564,6 +12679,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12590,6 +12706,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12617,6 +12734,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12643,6 +12761,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12670,6 +12789,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12697,6 +12817,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12723,6 +12844,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12750,6 +12872,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12766,6 +12889,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12783,6 +12907,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12799,6 +12924,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12816,6 +12942,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12833,6 +12960,7 @@ export namespace Prisma {
     mainCommand?: string | null
     packetLength?: number | null
     pseudoIP?: string | null
+    sim?: string | null
     rawData?: string | null
     timestamp?: Date | string
   }
@@ -12849,6 +12977,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12866,6 +12995,7 @@ export namespace Prisma {
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
     packetLength?: NullableIntFieldUpdateOperationsInput | number | null
     pseudoIP?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
     rawData?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -13193,6 +13323,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13229,6 +13360,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13252,6 +13384,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13334,6 +13467,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     centerEnabledAlarm?: SortOrder
     crossBorder?: SortOrder
@@ -13367,6 +13501,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     centerEnabledAlarm?: SortOrder
     crossBorder?: SortOrder
@@ -13395,6 +13530,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     centerEnabledAlarm?: SortOrder
     crossBorder?: SortOrder
@@ -13430,6 +13566,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13453,6 +13590,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13468,6 +13606,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13503,6 +13642,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13543,6 +13683,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13570,6 +13711,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13600,6 +13742,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13623,6 +13766,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
@@ -13640,6 +13784,7 @@ export namespace Prisma {
     mainCommand?: SortOrder
     packetLength?: SortOrder
     pseudoIP?: SortOrder
+    sim?: SortOrder
     rawData?: SortOrder
     timestamp?: SortOrder
   }
