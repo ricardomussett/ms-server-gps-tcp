@@ -17,6 +17,7 @@ export class QueueService {
       mainCommand: string;
       packetLength: number;
       pseudoIP: string;
+      sim: string;
       payload: string;
       rawData: string;
       timestamp?: Date;

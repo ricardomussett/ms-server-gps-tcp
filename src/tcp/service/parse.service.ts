@@ -25,7 +25,7 @@ export class ParseService {
      *    - Estado del tracker
      *    - Datos de iButton
      */
-    public parseGpsData(buffer: Buffer, packetInfo: any, clientId: string, decodedPseudoIp: string): any {
+    public parseGpsData(buffer: Buffer, packetInfo: any, clientId: string, decodedPseudoIp: string, decodeSim: string): any {
         // Convierte datos crudos a Buffer si es string
         const data = buffer;
     
@@ -36,6 +36,7 @@ export class ParseService {
         const packetType = packetInfo.packetType;
         const packetLength = packetInfo.length;
         const pseudoIP = decodedPseudoIp;
+        const sim = decodeSim;
         const payload = packetInfo.payload;
         const checksum = packetInfo.checksum;
     
@@ -45,7 +46,8 @@ export class ParseService {
           mainCommand,
           packetType,
           packetLength,
-          pseudoIP,
+          pseudoIP, 
+          sim,
           payload,
           rawData: data.toString('hex'),
           checksum,
