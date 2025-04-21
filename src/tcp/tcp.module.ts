@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TcpService } from './service/tcp.service';
 import { ParseService } from './service/parse.service';
-import { TcpController } from './tcp.controller';
+import { TcpController } from './controller/tcp.controller';
 import { QueueModule } from '../queue/queue.module';
 import { WhitelistService } from './service/whiteList.service';
 

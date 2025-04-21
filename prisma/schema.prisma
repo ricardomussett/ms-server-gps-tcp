@@ -67,7 +67,7 @@ model AlarmData {
   mainCommand        String?
   packetLength       Int?
   pseudoIP           String?
-  sim                String?
+  sim                String?  
   rawData            String?
   centerEnabledAlarm Boolean?
   crossBorder        Boolean?

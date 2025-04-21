@@ -15,7 +15,8 @@ export class ProccessorService {
   private heartbeatDataBuffer: HeartbeatData[] = [];
   private trackerStatusBuffer: TrackerStatusData[] = [];
   private iButtonDataBuffer: IButtonData[] = [];
-  private readonly BUFFER_SIZE = 2; // Tamaño del buffer para procesamiento por lotes
+  private readonly BUFFER_SIZE = 1; // Tamaño del buffer para procesamiento por lotes
+
 
   constructor(
     private prisma: PrismaService,
@@ -34,7 +35,6 @@ export class ProccessorService {
   private async processPositionData(parsedData: PositionData): Promise<void> {
     try {
 
-      // console.log('+++++++> parsedData',parsedData);
 
       // Agregar al buffer
       this.positionDataBuffer.push(parsedData);
@@ -47,6 +47,12 @@ export class ProccessorService {
       // Guardar en Redis
       const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`;
       await this.redis.hset(truckKey, {
+        clientId: parsedData.clientId,
+        mainCommand: parsedData.mainCommand,
+        packetLength: parsedData.packetLength,
+        pseudoIP: parsedData.pseudoIP,
+        rawData: parsedData.rawData,
+        sim: parsedData.sim,
         latitude: parsedData.latitude?.toString() || '0',
         longitude: parsedData.longitude?.toString() || '0',
         speed: parsedData.speed?.toString() || '0',

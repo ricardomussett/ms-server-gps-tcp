@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { TcpService } from './service/tcp.service';
+import { TcpService } from '../service/tcp.service';
 
 @Controller('tcp')
 export class TcpController {

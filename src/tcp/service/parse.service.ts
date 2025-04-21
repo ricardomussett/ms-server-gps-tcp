@@ -39,6 +39,7 @@ export class ParseService {
         const sim = decodeSim;
         const payload = packetInfo.payload;
         const checksum = packetInfo.checksum;
+        const sim = this.pseudoIpToSim(pseudoIP);
     
         // Inicializa objeto resultado
         const result: any = {
@@ -46,7 +47,7 @@ export class ParseService {
           mainCommand,
           packetType,
           packetLength,
-          pseudoIP, 
+          pseudoIP,
           sim,
           payload,
           rawData: data.toString('hex'),
@@ -83,70 +84,118 @@ export class ParseService {
             result.message = 'Tipo de comando desconocido';
             break;
         }
-    
+        
         return result;
       }
     
+      /**
+       * Parsea los datos de posición del paquete GPS
+       * @param buffer Buffer que contiene los datos crudos del paquete
+       * @param result Objeto donde se almacenarán los datos parseados
+       * 
+       * El método procesa:
+       * 1. Timestamp (6 bytes): Fecha y hora del registro
+       * 2. Latitud (4 bytes): Posición en grados decimales
+       * 3. Longitud (4 bytes): Posición en grados decimales
+       * 4. Velocidad (2 bytes): En km/h
+       * 5. Ángulo (2 bytes): Dirección en grados
+       * 6. Estado GPS (1 byte): Ubicación, diferencial y satélites
+       * 7. Entradas digitales (1 byte): Estado de entradas
+       * 8. Estado de ignición (1 byte)
+       * 9. Resistencia de aceite (2 bytes): En ohmios
+       * 10. Voltaje (2 bytes): En voltios
+       * 11. Kilometraje (4 bytes): En metros
+       * 12. Temperatura (2 bytes)
+       * 13. Datos extendidos (opcional): Si hay bytes adicionales
+       */
       private parsePositionData(buffer: Buffer, result: any) {
-        // Position data starts at byte 9 (after 24 24 cmd 00 len pseudoIP)
-        const posData = buffer.subarray(9, 9 + 35); // 35 bytes position data
+        // Los datos de posición comienzan en el byte 9 (después de 24 24 cmd 00 len pseudoIP)
+        const posData = buffer.subarray(9, 9 + 35); // 35 bytes de datos de posición
         
-        // Parse date and time (6 bytes)
+        // Parsea fecha y hora (6 bytes)
         result.timestamp = this.decodeTimestamp(posData.subarray(0, 6));
         
-        // Parse latitude (4 bytes)
+        // Parsea latitud (4 bytes)
         result.latitude = this.decodeLatitude(posData.subarray(6, 10));
         
-        // Parse longitude (4 bytes)
+        // Parsea longitud (4 bytes)
         result.longitude = this.decodeLongitude(posData.subarray(10, 14));
     
-        // Parse speed (2 bytes) in km/h
+        // Parsea velocidad (2 bytes) en km/h
         result.speed = this.decodeSpeed(posData.subarray(14, 16));
      
-        // Parse angle (2 bytes) in degrees
+        // Parsea ángulo (2 bytes) en grados
         result.angle = this.decodeAngle(posData.subarray(16, 18));
         
-        // GPS status (1 byte)
+        // Estado GPS (1 byte)
         const gpsStatus = posData[18];
         result.gpsStatus = {
-          located: !!(gpsStatus & GPS_STATUS.LOCATED),
-          differential: !!(gpsStatus & GPS_STATUS.DIFFERENTIAL),
-          satellites: gpsStatus & GPS_STATUS.SATELLITES,
+          located: !!(gpsStatus & GPS_STATUS.LOCATED), // Ubicación fija
+          differential: !!(gpsStatus & GPS_STATUS.DIFFERENTIAL), // GPS diferencial
+          satellites: gpsStatus & GPS_STATUS.SATELLITES, // Número de satélites
         };
         
-        // Digital inputs (1 byte)
+        // Entradas digitales (1 byte)
         result.digitalInputs = this.decodeDigitalInputs(posData[19])
         
-        // Ignition status (1 byte)
+        // Estado de ignición (1 byte)
         result.ignition = this.decodeIgnition(posData[20])
         
-        // Analog inputs (4 bytes - 2 for oil, 2 for voltage)
+        // Entradas analógicas (4 bytes - 2 para aceite, 2 para voltaje)
         result.oilResistance = this.decodeOilResistance(posData.subarray(21, 23));
         result.voltage = this.decodeVoltage(posData.subarray(23, 25));
         
-        // Mileage (4 bytes) in meters
+        // Kilometraje (4 bytes) en metros
         result.mileage = this.decodeMileage(posData.subarray(25, 29));
         
-        // Temperature (2 bytes)
+        // Temperatura (2 bytes)
         result.temperature = this.decodeTemperature(posData[29]);
         
-        // Extended data if available
+        // Datos extendidos si están disponibles
         if (buffer.length > 36) {
           this.parseExtendedData(buffer.subarray(36), result);
         }
       }
     
+      /**
+       * Parsea los datos de alarma del paquete GPS
+       * @param buffer Buffer que contiene los datos crudos del paquete
+       * @param result Objeto donde se almacenarán los datos parseados
+       * 
+       * El método procesa:
+       * 1. Los datos de posición usando parsePositionData()
+       * 2. Los bytes de alarma que contienen diferentes estados:
+       * 
+       * Primer byte de alarma (byte 36):
+       * - oilChange: Alarma de cambio de aceite
+       * - crossBorder: Cruce de frontera
+       * - overVoltage: Sobrevoltaje
+       * - underVoltage: Bajo voltaje
+       * - overload: Sobrecarga
+       * - overtimeDriving: Exceso de tiempo de conducción
+       * - enterBorder: Entrada en frontera
+       * 
+       * Segundo byte de alarma (byte 37):
+       * - illegalDoorOpen: Apertura ilegal de puerta
+       * - illegalStart: Arranque ilegal
+       * - vibration: Vibración detectada
+       * - centerEnabledAlarm: Alarma habilitada desde central
+       * - powerFailure: Fallo de energía
+       * - parking: Estacionamiento
+       * - overSpeed: Exceso de velocidad
+       * - emergency: Emergencia
+       */
       private parseAlarmData(buffer: Buffer, result: any) {
-        // First parse position data (same as command 80)
+        // Primero parsear datos de posición (igual que comando 80)
         this.parsePositionData(buffer, result);
         
-        // Then parse alarm data (2 bytes after position data)
+        // Luego parsear datos de alarma (2 bytes después de datos de posición)
         const alarmByte1 = buffer[36];
         const alarmByte2 = buffer[37];
         
         result.alarms = {
           oilChange: !!(alarmByte1 & ALARM_STATUS.OIL_CHANGE),
-          crossBorder: !!(alarmByte1 & ALARM_STATUS.CROSS_BORDER),
+          crossBorder: !!(alarmByte1 & ALARM_STATUS.CROSS_BORDER), 
           overVoltage: !!(alarmByte1 & ALARM_STATUS.OVER_VOLTAGE),
           underVoltage: !!(alarmByte1 & ALARM_STATUS.UNDER_VOLTAGE),
           overload: !!(alarmByte1 & ALARM_STATUS.OVERLOAD),
@@ -155,7 +204,7 @@ export class ParseService {
           
           illegalDoorOpen: !!(alarmByte2 & ALARM_STATUS.ILLEGAL_DOOR_OPEN),
           illegalStart: !!(alarmByte2 & ALARM_STATUS.ILLEGAL_START),
-          vibration: !!(alarmByte2 & ALARM_STATUS.VIBRATION),
+          vibration: !!(alarmByte2 & ALARM_STATUS.VIBRATION), 
           centerEnabledAlarm: !!(alarmByte2 & ALARM_STATUS.CENTER_ENABLED_ALARM),
           powerFailure: !!(alarmByte2 & ALARM_STATUS.POWER_FAILURE),
           parking: !!(alarmByte2 & ALARM_STATUS.PARKING),
@@ -164,6 +213,17 @@ export class ParseService {
         };
       }
     
+      /**
+       * Parsea los datos del paquete de heartbeat (latido) del dispositivo GPS
+       * @param buffer Buffer que contiene los datos crudos del paquete
+       * @param result Objeto donde se almacenarán los datos parseados
+       * 
+       * El método extrae:
+       * - message: Mensaje de confirmación de recepción del heartbeat
+       * - calibrationValue: Valor de calibración del dispositivo (byte 5)
+       * - mainOrderReply: Respuesta de la orden principal (byte 6)
+       * - slaveOrderReply: Respuesta de la orden secundaria (byte 7)
+       */
       private parseHeartbeatData(buffer: Buffer, result: any) {
         // Simple heartbeat - just acknowledge
         result.message = 'Heartbeat received';
@@ -172,35 +232,51 @@ export class ParseService {
         result.slaveOrderReply = buffer[7];
       }
     
-      private parseExtendedData(buffer: Buffer, result: any) {
-        // Parse extended data based on sub signal
-        const subSignal = buffer[4];
+      /**
+       * Parsea los datos extendidos del paquete GPS basado en la señal secundaria
+       * @param buffer Buffer que contiene los datos extendidos
+       * @param result Objeto donde se almacenarán los datos parseados
+       * 
+       * El método procesa diferentes tipos de datos extendidos según el subSignal:
+       * - 0x03: Sensores de temperatura 2,3,4 y peso
+       *   - temperature2,3,4: Temperaturas de sensores adicionales
+       *   - weight: Peso en unidades del dispositivo
+       * 
+       * - 0x06: Temperatura y humedad
+       *   - temperature: Objeto con signo, parte entera y decimal
+       *   - humidity: Objeto con parte entera y decimal
+       * 
+       * - default: Datos desconocidos, guarda señal y datos crudos
+       */
+      private parseExtendedData(buffer: Buffer, result: Record<string, any>): void {
+        // Obtener señal secundaria del byte 4
+        const subSignal: number = buffer[4];
         
         switch (subSignal) {
-          case 0x03: // Temperature sensors 2,3,4 and weight
+          case 0x03: // Sensores de temperatura 2,3,4 y peso
             result.extended = {
               temperature2: this.parseTemperature(buffer.subarray(5, 7)),
-              temperature3: this.parseTemperature(buffer.subarray(7, 9)),
+              temperature3: this.parseTemperature(buffer.subarray(7, 9)), 
               temperature4: this.parseTemperature(buffer.subarray(9, 11)),
-              weight: (buffer[11] << 8) | buffer[12],
+              weight: (buffer[11] << 8) | buffer[12], // Combina 2 bytes para el peso
             };
             break;
             
-          case 0x06: // Temperature and humidity
+          case 0x06: // Temperatura y humedad
             result.extended = {
               temperature: {
-                sign: buffer[6] === 1 ? -1 : 1,
-                integer: buffer[7],
-                decimal: buffer[8],
+                sign: buffer[6] === 1 ? -1 : 1, // 1 = negativo, otro = positivo
+                integer: buffer[7], // Parte entera
+                decimal: buffer[8], // Parte decimal
               },
               humidity: {
-                integer: buffer[9],
-                decimal: buffer[10],
+                integer: buffer[9], // Parte entera
+                decimal: buffer[10], // Parte decimal
               },
             };
             break;
             
-          default:
+          default: // Señal desconocida
             result.extended = {
               unknownSignal: subSignal,
               rawData: buffer.toString('hex'),
@@ -209,61 +285,135 @@ export class ParseService {
         }
       }
     
+      /**
+       * Parsea la temperatura desde un buffer de 2 bytes
+       * @param buffer Buffer de 2 bytes que contiene la temperatura codificada
+       * - byte 0: signo de la temperatura (0x01 = negativo, otro = positivo)
+       * - byte 1: valor absoluto de la temperatura
+       * @returns Número que representa la temperatura en grados Celsius
+       * @example
+       * Input: [0x01, 0x14]
+       * Output: -20 (grados Celsius)
+       * 
+       * Input: [0x00, 0x14] 
+       * Output: 20 (grados Celsius)
+       */
       private parseTemperature(buffer: Buffer): number {
         const sign = buffer[0] === 0x01 ? -1 : 1;
         return sign * buffer[1];
       }
     
-      private parseReplyToLocate(buffer: Buffer, result: any) {
-        // Same format as position data (command 80)
+      /**
+       * Parsea la respuesta a un comando de localización inmediata
+       * @param buffer Buffer con los datos crudos recibidos del dispositivo
+       * @param result Objeto donde se almacenarán los resultados parseados
+       * 
+       * El método realiza las siguientes operaciones:
+       * 1. Procesa los datos de posición usando el mismo formato que el comando 0x80
+       * 2. Agrega un mensaje indicando que es una respuesta a localización inmediata
+       * 
+       * La estructura del paquete es idéntica a la de datos de posición regular,
+       * por lo que se reutiliza el método parsePositionData()
+       */
+      private parseReplyToLocate(buffer: Buffer, result: Record<string, any>): void {
+        // Mismo formato que datos de posición (comando 0x80)
         this.parsePositionData(buffer, result);
         result.message = 'Reply to locate immediately command';
       }
     
-      private parseTrackerStatus(buffer: Buffer, result: any) {
-        // Status data is 36 bytes after headers
-        const statusData = buffer.slice(9, 9 + 36);
+      /**
+       * Parsea los datos de estado del tracker
+       * @param buffer Buffer con los datos crudos recibidos
+       * @param result Objeto donde se almacenarán los resultados parseados
+       * 
+       * El método procesa los siguientes datos:
+       * - Tiempo de muestreo (samplingTime): año, mes, día, hora, minuto, segundo
+       * - Estado de alarma (alarmStatus): valor de 16 bits
+       * - Estado de localización (located): true/false
+       * - Tipo de muestreo (samplingType): tiempo fijo o distancia fija
+       * - Valor de muestreo (samplingValue): intervalo configurado
+       * - Tipo de envío (sendingType): envío por punto o silencioso
+       * - Configuración de parada (carStopSetting): valor de parada
+       * - Configuración de exceso de velocidad (overspeedSetting): límite
+       * - Límite de teléfono (phoneLimit): true/false
+       * - Límite de nodo de área (areaNodeLimit): true/false
+       * - Configuración de seguridad (safeSetting): valor de seguridad
+       * - Tiempo de conducción prolongado (longTimeDriving): duración
+       * - Valor de muestreo con ACC apagado (samplingValueAccOff): intervalo
+       * - Interruptor de alarma de emergencia (emergencyAlarmSwitch): true/false
+       * - Relacionado con fotografía (photographRelated): valor de configuración
+       */
+      private parseTrackerStatus(buffer: Buffer, result: Record<string, any>): void {
+        // Extrae los 36 bytes de datos de estado después de los headers
+        const statusData: Buffer = buffer.slice(9, 9 + 36);
         
         result.status = {
           samplingTime: {
-            year: 2000 + (statusData[0] >> 4) * 10 + (statusData[0] & 0x0F),
-            month: (statusData[1] >> 4) * 10 + (statusData[1] & 0x0F),
-            day: (statusData[2] >> 4) * 10 + (statusData[2] & 0x0F),
-            hour: (statusData[3] >> 4) * 10 + (statusData[3] & 0x0F),
-            minute: (statusData[4] >> 4) * 10 + (statusData[4] & 0x0F),
-            second: (statusData[5] >> 4) * 10 + (statusData[5] & 0x0F),
+            year: 2000 + (statusData[0] >> 4) * 10 + (statusData[0] & 0x0F), // Año base 2000 + valor BCD
+            month: (statusData[1] >> 4) * 10 + (statusData[1] & 0x0F), // Mes en formato BCD
+            day: (statusData[2] >> 4) * 10 + (statusData[2] & 0x0F), // Día en formato BCD
+            hour: (statusData[3] >> 4) * 10 + (statusData[3] & 0x0F), // Hora en formato BCD
+            minute: (statusData[4] >> 4) * 10 + (statusData[4] & 0x0F), // Minuto en formato BCD
+            second: (statusData[5] >> 4) * 10 + (statusData[5] & 0x0F), // Segundo en formato BCD
           },
-          alarmStatus: (statusData[6] << 8) | statusData[7],
-          located: statusData[8] === 1,
-          samplingType: statusData[9] === 1 ? 'fixed time' : 'fixed distance',
-          samplingValue: (statusData[10] << 8) | statusData[11],
-          sendingType: statusData[12] === 1 ? 'point send' : 'silence',
-          carStopSetting: statusData[13],
-          overspeedSetting: statusData[14],
-          phoneLimit: statusData[15] === 1,
-          areaNodeLimit: statusData[16] === 1,
-          safeSetting: statusData[17],
-          longTimeDriving: (statusData[18] << 8) | statusData[19],
-          samplingValueAccOff: (statusData[20] << 8) | statusData[21],
-          emergencyAlarmSwitch: statusData[22] === 1,
-          photographRelated: statusData[23],
+          alarmStatus: (statusData[6] << 8) | statusData[7], // Estado de alarma (16 bits)
+          located: statusData[8] === 1, // Estado de localización
+          samplingType: statusData[9] === 1 ? 'fixed time' : 'fixed distance', // Tipo de muestreo
+          samplingValue: (statusData[10] << 8) | statusData[11], // Valor de muestreo (16 bits)
+          sendingType: statusData[12] === 1 ? 'point send' : 'silence', // Tipo de envío
+          carStopSetting: statusData[13], // Configuración de parada
+          overspeedSetting: statusData[14], // Límite de velocidad
+          phoneLimit: statusData[15] === 1, // Límite de teléfono
+          areaNodeLimit: statusData[16] === 1, // Límite de nodo de área
+          safeSetting: statusData[17], // Configuración de seguridad
+          longTimeDriving: (statusData[18] << 8) | statusData[19], // Tiempo de conducción (16 bits)
+          samplingValueAccOff: (statusData[20] << 8) | statusData[21], // Valor de muestreo ACC off (16 bits)
+          emergencyAlarmSwitch: statusData[22] === 1, // Interruptor de alarma
+          photographRelated: statusData[23], // Configuración de fotografía
         };
       }
     
-      private parseIButtonData(buffer: Buffer, result: any) {
-        const subCommand = buffer[9];
+      /**
+       * Parsea los datos recibidos del iButton
+       * @param buffer Buffer con los datos crudos recibidos
+       * @param result Objeto donde se almacenarán los resultados parseados
+       * 
+       * El método procesa diferentes tipos de datos según el subcomando:
+       * - 0x06: Modo anti-robo configurado exitosamente
+       * - 0x07: Error al configurar modo anti-robo
+       * - 0x08: Modo anti-robo cancelado
+       * - 0x0A: Configuración de ID de iButton (nombre y código)
+       * - 0x0B: Datos de lectura de iButton (estado, fecha/hora, ubicación, conductor)
+       * 
+       * @example
+       * Para subcomando 0x0A (configuración):
+       * buffer = [..., 0x0A, <nombre,id>, checksum, 0x0D]
+       * result = {
+       *   driver: {
+       *     name: "Juan",
+       *     iButtonId: "123456"
+       *   }
+       * }
+       */
+      private parseIButtonData(buffer: Buffer, result: Record<string, any>): void {
+        // Obtiene el subcomando del primer byte después del header
+        const subCommand: number = buffer[9];
         result.subCommand = subCommand;
         
         switch (subCommand) {
           case 0x06: // Anti-theft mode set successfully
           case 0x07: // Anti-theft mode set failed
           case 0x08: // Anti-theft mode cancelled
-            result.message = `Anti-theft mode ${subCommand === 0x06 ? 'set' : subCommand === 0x07 ? 'set failed' : 'cancelled'}`;
+            result.message = `Anti-theft mode ${
+              subCommand === 0x06 ? 'set' : 
+              subCommand === 0x07 ? 'set failed' : 
+              'cancelled'
+            }`;
             break;
             
           case 0x0A: // iButton ID setting
-            const content = buffer.slice(10, buffer.length - 2).toString('ascii');
-            const matches = content.match(/<([^,]+),([^>]+)>/);
+            const content: string = buffer.slice(10, buffer.length - 2).toString('ascii');
+            const matches: RegExpMatchArray | null = content.match(/<([^,]+),([^>]+)>/);
             if (matches) {
               result.driver = {
                 name: matches[1],
@@ -273,8 +423,15 @@ export class ParseService {
             break;
             
           case 0x0B: // iButton swiping data
-            const status = buffer[10];
-            const dateTime = {
+            const status: number = buffer[10];
+            const dateTime: {
+              year: number;
+              month: number;
+              day: number;
+              hour: number;
+              minute: number;
+              second: number;
+            } = {
               year: 2000 + buffer[11],
               month: buffer[12],
               day: buffer[13],
@@ -284,17 +441,17 @@ export class ParseService {
             };
             
             // Parse coordinates (same as position data)
-            const latSign = (buffer[17] & 0x80) ? -1 : 1;
-            const latDegrees = (buffer[17] & 0x7F);
-            const latMinutes = buffer[18] + (buffer[19] / 1000);
+            const latSign: number = (buffer[17] & 0x80) ? -1 : 1;
+            const latDegrees: number = (buffer[17] & 0x7F);
+            const latMinutes: number = buffer[18] + (buffer[19] / 1000);
             
-            const lonSign = (buffer[20] & 0x80) ? -1 : 1;
-            const lonDegrees = (buffer[20] & 0x7F);
-            const lonMinutes = buffer[21] + (buffer[22] / 1000);
+            const lonSign: number = (buffer[20] & 0x80) ? -1 : 1;
+            const lonDegrees: number = (buffer[20] & 0x7F);
+            const lonMinutes: number = buffer[21] + (buffer[22] / 1000);
             
             // Parse driver info
-            const driverInfo = buffer.slice(23, buffer.length - 2).toString('ascii');
-            const driverMatch = driverInfo.match(/<([^,]+),([^>]+)>/);
+            const driverInfo: string = buffer.slice(23, buffer.length - 2).toString('ascii');
+            const driverMatch: RegExpMatchArray | null = driverInfo.match(/<([^,]+),([^>]+)>/);
             
             result.swipeData = {
               status,
@@ -321,7 +478,25 @@ export class ParseService {
         }
       }
     
-      private decodeLatitude(bytes) {
+      /**
+       * Decodifica la latitud desde un buffer de 4 bytes en formato BCD
+       * @param bytes Buffer de 4 bytes que contiene la latitud codificada
+       * - byte 0: bit 7 indica Norte(0)/Sur(1), bits 6-4 decenas, bits 3-0 unidades de grados
+       * - byte 1: bits 7-4 decenas minutos, bits 3-0 unidades minutos
+       * - byte 2: bits 7-4 primer decimal minutos, bits 3-0 segundo decimal minutos
+       * - byte 3: bits 7-4 tercer decimal minutos, bits 3-0 no usado
+       * @example
+       * Input: [0x23, 0x45, 0x67, 0x80] (23H，45H，67H，80H)
+       * Cálculo:
+       * - Signo: 0x23 & 0x80 = 0 -> Norte
+       * - Grados: ((0x23 & 0x70) >> 4) + (0x23 & 0x0F)*10 = 23°
+       * - Minutos enteros: ((0x45 & 0xF0) >> 4) * 10 + (0x45 & 0x0F) = 45'
+       * - Decimales: ((0x67 & 0xF0) >> 4) * 100 + (0x67 & 0x0F) * 10 + ((0x80 & 0xF0) >> 4) = 0.678'
+       * Output: 23°45.678'N -> 23.76130
+       * @returns {number} Latitud en grados decimales
+       * @throws {Error} Si el buffer no tiene 4 bytes
+       */
+      private decodeLatitude(bytes: Buffer): number {
         if (bytes.length !== 4) {
             throw new Error('Se esperaban 4 bytes para latitud');
         }
@@ -332,24 +507,24 @@ export class ParseService {
         // Decodificar grados (BCD) - primer byte sin el bit de signo
         const degrees = ((bytes[0] & 0x70) >> 4) + (bytes[0] & 0x0F)*10;
       
-        // Decodificar minutos - interpretación alternativa
-        // Asumiendo que bytes[1] contiene ya los minutos enteros en BCD
+        // Decodificar minutos enteros en formato BCD
         const minutesInt = ((bytes[1] & 0xF0) >> 4) * 10 + (bytes[1] & 0x0F);
         
-        // Parte decimal: bytes[2] y bytes[3] contienen los 3 dígitos decimales
+        // Decodificar parte decimal de los minutos (3 dígitos)
         const minutesDecimal = (
             ((bytes[2] & 0xF0) >> 4) * 100 +  // primer dígito decimal
             (bytes[2] & 0x0F) * 10 +          // segundo dígito decimal
             ((bytes[3] & 0xF0) >> 4)          // tercer dígito decimal
         ) / 1000;
       
-        const minutes = 10*(minutesInt + minutesDecimal); //trampa para que sea grados decimales
+        // Multiplicar por 10 para convertir a grados decimales
+        const minutes = 10*(minutesInt + minutesDecimal);
       
-        // Convertir a grados decimales
+        // Convertir a formato DMS y luego a grados decimales
         const dmsString = `${degrees}°${minutes.toFixed(3)}'${isNorth ? 'N' : 'S'}`;
         const decimalDegrees = parseDms(dmsString);
       
-        return decimalDegrees
+        return decimalDegrees;
       }
       
       /**
@@ -556,5 +731,57 @@ export class ParseService {
     
         return timestamp;
       }
+
+
+      /**
+       * Convierte una dirección IP pseudo-aleatoria en un número de SIM
+       * @param ip String con formato de dirección IP (ej: "192.168.1.1")
+       * @returns String con el número de SIM decodificado (11 dígitos)
+       * 
+       * El proceso de decodificación es el siguiente:
+       * 1. La IP se divide en 4 bytes
+       * 2. De cada byte se extrae el bit más significativo (D7)
+       * 3. Los 4 bits D7 forman un valor base (iHigt) que se suma a 30
+       * 4. Se eliminan los bits D7 de cada byte
+       * 5. Se forma el número concatenando:
+       *    - "1" (primer dígito fijo)
+       *    - Valor base + 30 (2 dígitos)
+       *    - Los 4 bytes sin D7 (2 dígitos cada uno)
+       */
+      private pseudoIpToSim(ip: string): string {
+        // Dividir la IP en sus 4 componentes
+        const ipParts = ip.split('.').map(part => parseInt(part, 10));
+        
+        // Verificar formato válido
+        if (ipParts.length !== 4 || ipParts.some(isNaN)) {
+            throw new Error("Formato de IP pseudo inválido");
+        }
+    
+        // Extraer bits superiores (D7) de cada byte
+        const bits = ipParts.map(part => (part & 0x80) !== 0 ? 1 : 0);
+        
+        // Calcular iHigt (valor base)
+        const iHigt = 
+            (bits[0] << 3) | 
+            (bits[1] << 2) | 
+            (bits[2] << 1) | 
+            bits[3];
+    
+        // Eliminar bit D7 de cada byte
+        const cleanParts = ipParts.map(part => part & 0x7F);
+        
+        // Reconstruir grupos del SIM
+        const grupoBase = 30 + iHigt;
+        const grupos = [
+            grupoBase.toString().padStart(2, '0'),
+            cleanParts[0].toString().padStart(2, '0'),
+            cleanParts[1].toString().padStart(2, '0'),
+            cleanParts[2].toString().padStart(2, '0'),
+            cleanParts[3].toString().padStart(2, '0')
+        ];
+    
+        // Formar número de SIM
+        return `1${grupos.join('')}`;
+    }
 
 }
