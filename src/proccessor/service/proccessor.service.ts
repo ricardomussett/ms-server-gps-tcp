@@ -15,7 +15,7 @@ export class ProccessorService {
   private heartbeatDataBuffer: HeartbeatData[] = [];
   private trackerStatusBuffer: TrackerStatusData[] = [];
   private iButtonDataBuffer: IButtonData[] = [];
-  private readonly BUFFER_SIZE = 50; // Tamaño del buffer para procesamiento por lotes
+  private readonly BUFFER_SIZE = 2; // Tamaño del buffer para procesamiento por lotes
 
   constructor(
     private prisma: PrismaService,
@@ -33,6 +33,9 @@ export class ProccessorService {
    */
   private async processPositionData(parsedData: PositionData): Promise<void> {
     try {
+
+      // console.log('+++++++> parsedData',parsedData);
+
       // Agregar al buffer
       this.positionDataBuffer.push(parsedData);
 
@@ -75,6 +78,7 @@ export class ProccessorService {
           mainCommand: data.mainCommand,
           packetLength: data.packetLength,
           pseudoIP: data.pseudoIP,
+          sim: data.sim,
           rawData: data.rawData,
           latitude: data.latitude ?? 0,
           longitude: data.longitude ?? 0,
@@ -132,6 +136,7 @@ export class ProccessorService {
           mainCommand: data.mainCommand,
           packetLength: data.packetLength,
           pseudoIP: data.pseudoIP,
+          sim: data.sim,
           rawData: data.rawData,
           alarms: JSON.stringify(data.alarms),
           oilChange: data.alarms?.oilChange,
@@ -194,6 +199,7 @@ export class ProccessorService {
           mainCommand: data.mainCommand,
           packetLength: data.packetLength,
           pseudoIP: data.pseudoIP,
+          sim: data.sim,
           rawData: data.rawData,
           calibrationValue: data.calibrationValue,
           mainOrderReply: data.mainOrderReply,
@@ -243,6 +249,7 @@ export class ProccessorService {
           mainCommand: data.mainCommand,
           packetLength: data.packetLength,
           pseudoIP: data.pseudoIP,
+          sim: data.sim,
           rawData: data.rawData,
           samplingTime: data.samplingTime,
           alarmStatus: data.alarmStatus,
@@ -304,6 +311,7 @@ export class ProccessorService {
           mainCommand: data.mainCommand,
           packetLength: data.packetLength,
           pseudoIP: data.pseudoIP,
+          sim: data.sim,
           rawData: data.rawData,
           subCommand: data.subCommand,
           message: data.message,

@@ -28,6 +28,7 @@ export interface PositionData {
     mainCommand: string;
     packetLength: number;
     pseudoIP: string;
+    sim: string;
     rawData: string;
     latitude?: number;
     longitude?: number;
@@ -72,6 +73,7 @@ export interface AlarmData {
     mainCommand: string;
     packetLength: number;
     pseudoIP: string;
+    sim: string;
     rawData: string;
     alarms?: AlarmFlags;
     timestamp?: Date;
@@ -85,6 +87,7 @@ export interface HeartbeatData {
     mainCommand: string;
     packetLength: number;
     pseudoIP: string;
+    sim: string;
     rawData: string;
     calibrationValue: number;
     mainOrderReply: number;
@@ -100,6 +103,7 @@ export interface TrackerStatusData {
     mainCommand: string;
     packetLength: number;
     pseudoIP: string;
+    sim: string;
     rawData: string;
     samplingTime: string;
     alarmStatus: number;
@@ -136,6 +140,7 @@ export interface IButtonData {
     mainCommand: string;
     packetLength: number;
     pseudoIP: string;
+    sim: string;
     rawData: string;
     subCommand: number;
     message: string;

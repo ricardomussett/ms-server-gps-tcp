@@ -53,6 +53,7 @@ model PositionData {
   mainCommand   String?
   packetLength  Int?
   pseudoIP      String?
+  sim           String?
   rawData       String?
   timestamp     DateTime @default(now())
 }
@@ -66,6 +67,7 @@ model AlarmData {
   mainCommand        String?
   packetLength       Int?
   pseudoIP           String?
+  sim                String?
   rawData            String?
   centerEnabledAlarm Boolean?
   crossBorder        Boolean?
@@ -96,6 +98,7 @@ model HeartbeatData {
   mainCommand      String?
   packetLength     Int?
   pseudoIP         String?
+  sim              String?
   rawData          String?
   timestamp        DateTime @default(now())
 }
@@ -123,6 +126,7 @@ model TrackerStatus {
   mainCommand          String?
   packetLength         Int?
   pseudoIP             String?
+  sim                  String?
   rawData              String?
   timestamp            DateTime @default(now())
 }
@@ -140,6 +144,7 @@ model IButtonData {
   mainCommand  String?
   packetLength Int?
   pseudoIP     String?
+  sim          String?
   rawData      String?
   timestamp    DateTime @default(now())
 }
