@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bull';
 import { ProccessorService } from './service/proccessor.service';
-import { ProccessorController } from './proccessor.controller';
+import { ProccessorController } from './controller/proccessor.controller';
 import { PrismaModule } from '../prisma/prisma.module';
 import { QueueModule } from '../queue/queue.module';
 import { redisConfig } from '../config/redis.config';

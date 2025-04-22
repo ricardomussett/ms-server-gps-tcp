@@ -106,6 +106,10 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
             return;
           }
 
+          // Decodificar el numero de SIM
+          const sim = this.pseudoIpToSim(decodedPseudoIp);
+          this.logger.log(`Sim decodificada: ${sim}`);
+
           // Decodificar la informacion del paquete
           const packetInfo = this.decodePacketInfo(data, clientId);
 
@@ -113,7 +117,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           this.logger.log(`Paquete recibido de ${clientId}: ${JSON.stringify(packetInfo)}`);
 
           // Procesar los datos GPS
-          const parsedData = this.parseService.parseGpsData(data, packetInfo, clientId, decodedPseudoIp);
+          const parsedData = this.parseService.parseGpsData(data, packetInfo, clientId, decodedPseudoIp, sim);
          
           // Agrega los datos a la cola
           const job = await this.queueService.addGpsData({
@@ -124,6 +128,8 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           const response = this.createResponse(data);
           socket.write(response);
           this.logger.log(`Respuesta enviada al cliente ${clientId}: ${response.toString('hex')}`);
+
+          this.logger.log(`Sim: ${this.pseudoIpToSim(decodedPseudoIp)}`);
           
           // Cerrar la conexión después de enviar la respuesta
           // socket.end();
@@ -203,6 +209,57 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
   }
 
   /**
+   * Convierte una dirección IP pseudo-aleatoria a un número de SIM
+   * @param pseudoIp String con formato de dirección IP (ej: "98.4.199.36")
+   * @returns String con el número de SIM calculado
+   * 
+   * @example
+   * Input: "98.4.199.36"
+   * Output: "13298047136"
+   */
+  private pseudoIpToSim(pseudoIp: string) {
+
+        // Dividir la pseudoIp en sus 4 componentes
+        const ipParts = pseudoIp.split('.').map(part => parseInt(part, 10));
+    
+        // Verificar formato válido
+        if (ipParts.length !== 4 || ipParts.some(isNaN)) {
+            throw new Error("Formato de IP pseudo inválido");
+        }
+    
+        // Extraer bits superiores (D7) de cada byte
+        // Ejemplo: 98 -> 1, 4 -> 0, 201 -> 1, 36 -> 0
+        const bits = ipParts.map(part => (part & 0x80) !== 0 ? 1 : 0);
+        
+        // Calcular iHigt (valor base) combinando los bits
+        // Ejemplo: [1,0,1,0] -> 1010 binario -> 10 decimal
+        const iHigt = 
+            (bits[0] << 3) | 
+            (bits[1] << 2) | 
+            (bits[2] << 1) | 
+            bits[3];
+    
+        // Eliminar bit D7 de cada byte
+        // Ejemplo: [98,4,201,36] -> [34,4,73,36]
+        const cleanParts = ipParts.map(part => part & 0x7F);
+        
+        // Reconstruir grupos del SIM
+        // Base: 30 + 10 = 40
+        const grupoBase = 30 + iHigt;
+        const grupos = [
+            grupoBase.toString().padStart(2, '0'),
+            cleanParts[0].toString().padStart(2, '0'),
+            cleanParts[1].toString().padStart(2, '0'),
+            cleanParts[2].toString().padStart(2, '0'),
+            cleanParts[3].toString().padStart(2, '0')
+        ];
+    
+        // Formar número de SIM
+        // Ejemplo: 1 + "40043673036" = "140043673036"
+        return `1${grupos.join('')}`;
+  }
+
+  /**
    * Decodifica la información del paquete recibido del dispositivo GPS
    * @param data Buffer que contiene los datos crudos del paquete
    * @param clientId Identificador único del cliente conectado
@@ -271,5 +328,36 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
   public getConnectedClients(): number {
     return this.clients.size;
   }
+
+  /**
+   * Detiene el servidor TCP y cierra todas las conexiones activas
+   * @returns Promise que se resuelve cuando el servidor ha sido detenido
+   */
+  public async stopServer(): Promise<void> {
+    this.logger.log('Deteniendo servidor TCP...');
+    await this.closeServer();
+  }
+
+  /**
+   * Reinicia el servidor TCP
+   * @returns Promise que se resuelve cuando el servidor ha sido reiniciado
+   */
+  public async restartServer(): Promise<void> {
+    this.logger.log('Reiniciando servidor TCP...');
+    await this.closeServer();
+    this.setupServer();
+  }
+
+    /**
+   * Verifica si el servidor TCP está en ejecución
+   * @returns Objeto con el estado del servidor
+   */
+    public getServerStatus() {
+      return {
+        isRunning: this.server.listening,
+        port: this.server.listening ? process.env.TCP_PORT ?? 81 : null,
+        connectedClients: this.clients.size
+      };
+    }
 }
 
