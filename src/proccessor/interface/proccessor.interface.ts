@@ -28,6 +28,7 @@ export interface PositionData {
     mainCommand: string;
     packetLength: number;
     pseudoIP: string;
+    sim: string;
     rawData: string;
     sim: string;
     latitude?: number;
