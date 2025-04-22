@@ -35,7 +35,6 @@ export class ProccessorService {
   private async processPositionData(parsedData: PositionData): Promise<void> {
     try {
 
-
       // Agregar al buffer
       this.positionDataBuffer.push(parsedData);
 
@@ -46,7 +45,7 @@ export class ProccessorService {
 
       // Guardar en Redis
       const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`;
-      await this.redis.hset(truckKey, {
+      const positionData = {
         clientId: parsedData.clientId,
         mainCommand: parsedData.mainCommand,
         packetLength: parsedData.packetLength,
@@ -62,7 +61,17 @@ export class ProccessorService {
         mileage: parsedData.mileage?.toString() || '0',
         temperature: parsedData.temperature?.toString() || '0',
         lastUpdate: new Date().toISOString()
-      });
+      };
+
+      // Guardar datos en Redis
+      await this.redis.hset(truckKey, positionData);
+      
+      // Publicar actualización en el canal de posición
+      await this.redis.publish('position-updates', JSON.stringify({
+        type: 'position',
+        data: positionData,
+        timestamp: new Date().toISOString()
+      }));
 
       this.logger.log(`Datos de posición procesados correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
@@ -121,6 +130,13 @@ export class ProccessorService {
       if (this.alarmDataBuffer.length >= this.BUFFER_SIZE) {
         await this.flushAlarmDataBuffer();
       }
+
+      // Publicar actualización en el canal de alarmas
+      await this.redis.publish('alarm-updates', JSON.stringify({
+        type: 'alarm',
+        data: parsedData,
+        timestamp: new Date().toISOString()
+      }));
 
       this.logger.log(`Datos de alarma procesados correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
@@ -185,6 +201,13 @@ export class ProccessorService {
         await this.flushHeartbeatDataBuffer();
       }
 
+      // Publicar actualización en el canal de heartbeat
+      await this.redis.publish('heartbeat-updates', JSON.stringify({
+        type: 'heartbeat',
+        data: parsedData,
+        timestamp: new Date().toISOString()
+      }));
+
       this.logger.log(`Datos de heartbeat procesados correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
       this.logger.error(`Error al procesar datos de heartbeat: ${error.message}`);
@@ -234,6 +257,13 @@ export class ProccessorService {
       if (this.trackerStatusBuffer.length >= this.BUFFER_SIZE) {
         await this.flushTrackerStatusBuffer();
       }
+
+      // Publicar actualización en el canal de estado del rastreador
+      await this.redis.publish('tracker-status-updates', JSON.stringify({
+        type: 'tracker-status',
+        data: parsedData,
+        timestamp: new Date().toISOString()
+      }));
 
       this.logger.log(`Estado del rastreador procesado correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
@@ -296,6 +326,13 @@ export class ProccessorService {
       if (this.iButtonDataBuffer.length >= this.BUFFER_SIZE) {
         await this.flushIButtonDataBuffer();
       }
+
+      // Publicar actualización en el canal de iButton
+      await this.redis.publish('ibutton-updates', JSON.stringify({
+        type: 'ibutton',
+        data: parsedData,
+        timestamp: new Date().toISOString()
+      }));
 
       this.logger.log(`Datos de iButton procesados correctamente para IP: ${parsedData.pseudoIP}`);
     } catch (error) {
