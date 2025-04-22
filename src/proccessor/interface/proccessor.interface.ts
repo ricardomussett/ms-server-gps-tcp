@@ -30,7 +30,6 @@ export interface PositionData {
     pseudoIP: string;
     sim: string;
     rawData: string;
-    sim: string;
     latitude?: number;
     longitude?: number;
     speed?: number;
