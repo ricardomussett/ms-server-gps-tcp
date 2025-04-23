@@ -11,6 +11,7 @@ services:
       - PORT=${PORT}
       - TCP_PORT=${TCP_PORT}
       - DATABASE_URL=${DATABASE_URL}
+      - DIRECT_URL=${DIRECT_URL}
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
       - REDIS_DB=${REDIS_DB}

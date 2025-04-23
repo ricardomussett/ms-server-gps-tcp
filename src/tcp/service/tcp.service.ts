@@ -145,8 +145,12 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
       });
     });
 
-    this.server.listen(process.env.TCP_PORT ?? 81, () => {
-      this.logger.log(`Servidor TCP escuchando en puerto ${process.env.TCP_PORT ?? 81}`);
+    const tcpPort = process.env.TCP_PORT ? parseInt(process.env.TCP_PORT, 10) : 81;
+    this.server.listen({
+      port: tcpPort,
+      host: '0.0.0.0'
+    }, () => {
+      this.logger.log(`Servidor TCP escuchando en puerto ${tcpPort}`);
     });
   }
 
