@@ -63,6 +63,8 @@ export class ProccessorService {
         lastUpdate: new Date().toISOString()
       };
 
+      this.logger.log(`--->: ${positionData}`);
+
       // Guardar datos en Redis
       await this.redis.hset(truckKey, positionData);
       
