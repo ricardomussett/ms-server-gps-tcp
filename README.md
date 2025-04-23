@@ -107,7 +107,7 @@ docker compose down
 
 ### Variables de Entorno (.env)
 
-Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
+Crea un archivo `.env` en la raíz del proyecto con las siguientes variables: 
 
 ```env
 # Configuración del Servidor
@@ -130,6 +130,44 @@ WHITELIST_REFRESH_INTERVAL=180000
 QUEUE_RETRY_ATTEMPTS=3
 QUEUE_RETRY_DELAY=1000
 ```
+
+### Gestión de Base de Datos con Prisma
+
+Para gestionar los modelos de datos y migraciones con Prisma, sigue estos pasos:
+
+1. **Instalar dependencias** (si no están ya instaladas):
+```bash
+pnpm add prisma @prisma/client
+```
+
+2. **Generar el cliente de Prisma**:
+```bash
+pnpm prisma generate
+```
+
+3. **Crear una nueva migración** (cuando se modifique el schema):
+```bash
+pnpm prisma migrate dev --name init
+```
+
+4. **Aplicar migraciones existentes**:
+```bash
+pnpm prisma migrate deploy
+```
+
+5. **Verificar el estado de la base de datos**:
+```bash
+pnpm prisma db push
+```
+
+
+Notas importantes:
+- Las migraciones se almacenan en el directorio `prisma/migrations/`
+- Después de cada modificación en `schema.prisma`:
+  1. Crear nueva migración
+  2. Aplicar la migración
+  3. Regenerar el cliente Prisma
+- Asegúrate de que la variable `DATABASE_URL` en `.env` esté correctamente configurada
 
 ### Verificar el estado de los servicios
 
