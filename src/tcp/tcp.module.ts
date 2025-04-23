@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { TcpService } from './service/tcp.service';
-import { ParseService } from './service/parse.service';
-import { TcpController } from './controller/tcp.controller';
-import { QueueModule } from '../queue/queue.module';
-import { WhitelistService } from './service/whiteList.service';
+import { Module } from '@nestjs/common'
+import { TcpService } from './service/tcp.service'
+import { ParseService } from './service/parse.service'
+import { TcpController } from './controller/tcp.controller'
+import { QueueModule } from '../queue/queue.module'
+import { WhitelistService } from './service/whiteList.service'
 
 @Module({
   controllers: [TcpController],
@@ -11,4 +11,4 @@ import { WhitelistService } from './service/whiteList.service';
   imports: [QueueModule],
   exports: [TcpService],
 })
-export class TcpModule {} 
+export class TcpModule {}

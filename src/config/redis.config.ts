@@ -3,6 +3,6 @@ export const redisConfig = {
   port: parseInt(process.env.REDIS_PORT || '6379'),
   maxRetriesPerRequest: 3,
   retryStrategy: (times: number) => {
-    return Math.min(times * 50, 2000);
+    return Math.min(times * 50, 2000)
   },
-}; 
+}

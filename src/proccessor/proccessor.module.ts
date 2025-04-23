@@ -1,11 +1,11 @@
-import { Module } from '@nestjs/common';
-import { BullModule } from '@nestjs/bull';
-import { ProccessorService } from './service/proccessor.service';
-import { ProccessorController } from './controller/proccessor.controller';
-import { PrismaModule } from '../prisma/prisma.module';
-import { QueueModule } from '../queue/queue.module';
-import { redisConfig } from '../config/redis.config';
-import { GpsDataProcessor } from './proccessor/gps-data.processor';
+import { Module } from '@nestjs/common'
+import { BullModule } from '@nestjs/bull'
+import { ProccessorService } from './service/proccessor.service'
+import { ProccessorController } from './controller/proccessor.controller'
+import { PrismaModule } from '../prisma/prisma.module'
+import { QueueModule } from '../queue/queue.module'
+import { redisConfig } from '../config/redis.config'
+import { GpsDataProcessor } from './proccessor/gps-data.processor'
 
 @Module({
   imports: [
@@ -26,6 +26,6 @@ import { GpsDataProcessor } from './proccessor/gps-data.processor';
   ],
   controllers: [ProccessorController],
   providers: [ProccessorService, GpsDataProcessor],
-  exports: [ProccessorService]
+  exports: [ProccessorService],
 })
 export class ProccessorModule {}
