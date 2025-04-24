@@ -16,7 +16,7 @@ export class ProccessorService {
   private heartbeatDataBuffer: HeartbeatData[] = [];
   private trackerStatusBuffer: TrackerStatusData[] = [];
   private iButtonDataBuffer: IButtonData[] = [];
-  private readonly BUFFER_SIZE = Number(process.env.BUFFER_SIZE || 100) ; // Tamaño del buffer para procesamiento por lotes
+  private readonly BUFFER_SIZE = Number(process.env.BUFFER_SIZE || 1); // Tamaño del buffer para procesamiento por lotes
 
 
   constructor(
@@ -29,6 +29,10 @@ export class ProccessorService {
       port: parseInt(process.env.REDIS_PORT || '6379'),
       db: parseInt(process.env.REDIS_DB || '1')
     });
+    
+    // Agregar log para verificar el valor de BUFFER_SIZE
+    this.logger.log(`BUFFER_SIZE configurado: ${this.BUFFER_SIZE}`);
+    this.logger.log(`BUFFER_SIZE desde env: ${process.env.BUFFER_SIZE}`);
   }
 
   /**
