@@ -157,3 +157,15 @@ model WhiteListPseudoIP {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
+
+
+model Vehicle {
+  id           Int      @id @default(autoincrement())
+  plate        String
+  model        String
+  pseudoIP     String
+  driverName   String
+  isActive     Boolean
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

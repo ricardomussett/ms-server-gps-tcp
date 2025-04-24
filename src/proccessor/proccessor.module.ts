@@ -6,6 +6,7 @@ import { PrismaModule } from '../prisma/prisma.module';
 import { QueueModule } from '../queue/queue.module';
 import { redisConfig } from '../config/redis.config';
 import { GpsDataProcessor } from './proccessor/gps-data.processor';
+import { VehiclelistService } from './service/vehicle.service';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { GpsDataProcessor } from './proccessor/gps-data.processor';
     }),
   ],
   controllers: [ProccessorController],
-  providers: [ProccessorService, GpsDataProcessor],
+  providers: [ProccessorService, GpsDataProcessor, VehiclelistService],
   exports: [ProccessorService]
 })
 export class ProccessorModule {}

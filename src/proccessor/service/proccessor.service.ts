@@ -5,6 +5,7 @@ import { PositionData, AlarmData, HeartbeatData, TrackerStatusData, IButtonData 
 import { COMMAND_CODES } from '../enums/code.enums';
 import { Job } from 'bull';
 import { Redis } from 'ioredis';
+import { VehiclelistService } from './vehicle.service';
 
 @Injectable()
 export class ProccessorService {
@@ -20,7 +21,8 @@ export class ProccessorService {
 
   constructor(
     private prisma: PrismaService,
-    private queueService: QueueService
+    private queueService: QueueService,
+    private readonly vehiclelistService:VehiclelistService,
   ) {
     this.redis = new Redis({
       host: process.env.REDIS_HOST || 'localhost',
@@ -43,27 +45,31 @@ export class ProccessorService {
         await this.flushPositionDataBuffer();
       }
 
+      const vehicle = this.vehiclelistService.findVehicle(parsedData.pseudoIP)
+
       // Guardar en Redis
       const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`;
       const positionData = {
-        clientId: parsedData.clientId,
-        mainCommand: parsedData.mainCommand,
-        packetLength: parsedData.packetLength,
-        pseudoIP: parsedData.pseudoIP,
-        rawData: parsedData.rawData,
-        sim: parsedData.sim,
-        latitude: parsedData.latitude?.toString() || '0',
-        longitude: parsedData.longitude?.toString() || '0',
-        speed: parsedData.speed?.toString() || '0',
-        angle: parsedData.angle?.toString() || '0',
-        ignition: parsedData.ignition ? '1' : '0',
-        voltage: parsedData.voltage?.toString() || '0',
-        mileage: parsedData.mileage?.toString() || '0',
-        temperature: parsedData.temperature?.toString() || '0',
+        // clientId: parsedData.clientId,
+        gpsMainCommand: parsedData.mainCommand,
+        // packetLength: parsedData.packetLength,
+        gpsPseudoIP: parsedData.pseudoIP,
+        // rawData: parsedData.rawData,
+        gpsSim: parsedData.sim,
+        positionLatitude: parsedData.latitude?.toString() || '0',
+        positionLongitude: parsedData.longitude?.toString() || '0',
+        positionSpeed: parsedData.speed?.toString() || '0',
+        positionAngle: parsedData.angle?.toString() || '0',
+        positionIgnition: parsedData.ignition ? '1' : '0',
+        positionVoltage: parsedData.voltage?.toString() || '0',
+        positionMileage: parsedData.mileage?.toString() || '0',
+        positionTemperature: parsedData.temperature?.toString() || '0',
+        vehicleId:vehicle?.id,
+        vehiclePlate: vehicle?.plate,
+        vehicleModel: vehicle?.model,
+        vehicleDriver: vehicle?.driverName,
         lastUpdate: new Date().toISOString()
       };
-
-      this.logger.log(`--->: ${positionData}`);
 
       // Guardar datos en Redis
       await this.redis.hset(truckKey, positionData);

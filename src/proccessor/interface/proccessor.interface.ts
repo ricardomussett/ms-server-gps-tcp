@@ -149,3 +149,11 @@ export interface IButtonData {
     swipeData: IButtonSwipeData;
     timestamp: Date;
 }
+
+export interface Vehicle {
+    id: number;
+    plate: string;
+    model: string;
+    pseudoIP: string;
+    driverName: string;
+  }

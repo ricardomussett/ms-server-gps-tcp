@@ -264,6 +264,17 @@ exports.Prisma.WhiteListPseudoIPScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.VehicleScalarFieldEnum = {
+  id: 'id',
+  plate: 'plate',
+  model: 'model',
+  pseudoIP: 'pseudoIP',
+  driverName: 'driverName',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -288,7 +299,8 @@ exports.Prisma.ModelName = {
   HeartbeatData: 'HeartbeatData',
   TrackerStatus: 'TrackerStatus',
   IButtonData: 'IButtonData',
-  WhiteListPseudoIP: 'WhiteListPseudoIP'
+  WhiteListPseudoIP: 'WhiteListPseudoIP',
+  Vehicle: 'Vehicle'
 };
 
 /**

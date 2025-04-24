@@ -46,4 +46,4 @@ RUN pnpm prisma generate
 # Variables de entorno
 ENV NODE_ENV=production
 
-CMD ["sh", "-c", "pnpm prisma migrate dev && pnpm run start:prod"] 
+CMD ["sh", "-c", "pnpm run start:prod"] 
