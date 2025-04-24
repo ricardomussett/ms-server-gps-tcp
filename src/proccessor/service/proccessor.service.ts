@@ -16,7 +16,7 @@ export class ProccessorService {
   private heartbeatDataBuffer: HeartbeatData[] = [];
   private trackerStatusBuffer: TrackerStatusData[] = [];
   private iButtonDataBuffer: IButtonData[] = [];
-  private readonly BUFFER_SIZE = Number(process.env.BUFFER_SIZE) || 100; // Tamaño del buffer para procesamiento por lotes
+  private readonly BUFFER_SIZE = Number(process.env.BUFFER_SIZE || 100) ; // Tamaño del buffer para procesamiento por lotes
 
 
   constructor(
