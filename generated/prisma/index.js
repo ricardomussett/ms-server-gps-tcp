@@ -318,7 +318,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:postgres@localhost:5432/msservergpstcp?schema=public&connection_limit=30&pool_timeout=30"
+        "value": "postgresql://postgres:postgres@47.243.17.75:4434/msservergpstcp?schema=public&connection_limit=30&pool_timeout=30"
       }
     }
   },
