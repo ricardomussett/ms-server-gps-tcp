@@ -285,7 +285,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Big Data\\Desktop\\msn\\ms-server-gps-tcp\\generated\\prisma",
+      "value": "C:\\Users\\resco\\OneDrive\\Documents\\work\\pdvsa-surtidores-integracion\\ms-server-gps-tcp\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -299,11 +299,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Big Data\\Desktop\\msn\\ms-server-gps-tcp\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\resco\\OneDrive\\Documents\\work\\pdvsa-surtidores-integracion\\ms-server-gps-tcp\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../.env",
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",

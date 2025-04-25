@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { BullModule } from '@nestjs/bull';
-import { redisConfig } from '../config/redis.config';
-import { QueueService } from './service/queue.service';
-import { PrismaModule } from '../prisma/prisma.module';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { Module } from '@nestjs/common'
+import { BullModule } from '@nestjs/bull'
+import { redisConfig } from '../config/redis.config'
+import { QueueService } from './service/queue.service'
+import { PrismaModule } from '../prisma/prisma.module'
+import { ConfigModule, ConfigService } from '@nestjs/config'
 
 @Module({
   imports: [
@@ -29,9 +29,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     }),
     PrismaModule,
   ],
-  providers: [
-    QueueService,
-  ],
+  providers: [QueueService],
   exports: [QueueService],
 })
-export class QueueModule {} 
+export class QueueModule {}
