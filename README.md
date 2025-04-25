@@ -82,6 +82,12 @@ $ pnpm run test:cov
 
 Para desplegar la aplicación usando Docker, sigue estos pasos:
 
+0. Habilitar en el servidor
+
+```bash
+sudo sysctl vm.overcommit_memory=1
+```
+
 1. Clonar el repositorio:
 ```bash
 git clone <url-del-repositorio>
@@ -95,12 +101,17 @@ cd ms-server-gps-tcp
 docker compose build
 ```
 
-4. Iniciar los servicios:
+4. Realizar las migraciones
+```bash
+docker compose run --rm app npx prisma migrate deploy
+```
+
+5. Iniciar los servicios:
 ```bash
 docker compose up -d
 ```
 
-5. Para detener los servicios:
+6. Para detener los servicios:
 ```bash
 docker compose down
 ```
@@ -185,3 +196,14 @@ docker compose logs -f redis
 ```
 
 
+```SQL
+INSERT INTO public."WhiteListPseudoIP"(
+	"PseudoIP", "isActive", "createdAt", "updatedAt")
+	VALUES ('98.4.199.36', TRUE, CURRENT_DATE, CURRENT_DATE);
+```
+
+```SQL
+INSERT INTO public."Vehicle"(
+	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive")
+	VALUES ('ASD123456', 'JACK-8000', '98.4.199.36', 'Jose Perez', CURRENT_DATE, CURRENT_DATE, TRUE);
+```
