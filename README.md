@@ -123,7 +123,7 @@ Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
 ```env
 # Configuración del Servidor
 PORT=3000
-TCP_PORT=3001
+TCP_PORT=81
 
 # Base de datos PostgreSQL
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/msservergpstcp"
