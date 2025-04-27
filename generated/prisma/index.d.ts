@@ -11051,6 +11051,8 @@ export namespace Prisma {
     model: string | null
     pseudoIP: string | null
     driverName: string | null
+    district: string | null
+    color: string | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -11062,6 +11064,8 @@ export namespace Prisma {
     model: string | null
     pseudoIP: string | null
     driverName: string | null
+    district: string | null
+    color: string | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -11073,6 +11077,8 @@ export namespace Prisma {
     model: number
     pseudoIP: number
     driverName: number
+    district: number
+    color: number
     isActive: number
     createdAt: number
     updatedAt: number
@@ -11094,6 +11100,8 @@ export namespace Prisma {
     model?: true
     pseudoIP?: true
     driverName?: true
+    district?: true
+    color?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -11105,6 +11113,8 @@ export namespace Prisma {
     model?: true
     pseudoIP?: true
     driverName?: true
+    district?: true
+    color?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -11116,6 +11126,8 @@ export namespace Prisma {
     model?: true
     pseudoIP?: true
     driverName?: true
+    district?: true
+    color?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -11214,6 +11226,8 @@ export namespace Prisma {
     model: string
     pseudoIP: string
     driverName: string
+    district: string
+    color: string
     isActive: boolean
     createdAt: Date
     updatedAt: Date
@@ -11244,6 +11258,8 @@ export namespace Prisma {
     model?: boolean
     pseudoIP?: boolean
     driverName?: boolean
+    district?: boolean
+    color?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11255,6 +11271,8 @@ export namespace Prisma {
     model?: boolean
     pseudoIP?: boolean
     driverName?: boolean
+    district?: boolean
+    color?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11266,6 +11284,8 @@ export namespace Prisma {
     model?: boolean
     pseudoIP?: boolean
     driverName?: boolean
+    district?: boolean
+    color?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11277,12 +11297,14 @@ export namespace Prisma {
     model?: boolean
     pseudoIP?: boolean
     driverName?: boolean
+    district?: boolean
+    color?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "plate" | "model" | "pseudoIP" | "driverName" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["vehicle"]>
+  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "plate" | "model" | "pseudoIP" | "driverName" | "district" | "color" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["vehicle"]>
 
   export type $VehiclePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Vehicle"
@@ -11293,6 +11315,8 @@ export namespace Prisma {
       model: string
       pseudoIP: string
       driverName: string
+      district: string
+      color: string
       isActive: boolean
       createdAt: Date
       updatedAt: Date
@@ -11724,6 +11748,8 @@ export namespace Prisma {
     readonly model: FieldRef<"Vehicle", 'String'>
     readonly pseudoIP: FieldRef<"Vehicle", 'String'>
     readonly driverName: FieldRef<"Vehicle", 'String'>
+    readonly district: FieldRef<"Vehicle", 'String'>
+    readonly color: FieldRef<"Vehicle", 'String'>
     readonly isActive: FieldRef<"Vehicle", 'Boolean'>
     readonly createdAt: FieldRef<"Vehicle", 'DateTime'>
     readonly updatedAt: FieldRef<"Vehicle", 'DateTime'>
@@ -12285,6 +12311,8 @@ export namespace Prisma {
     model: 'model',
     pseudoIP: 'pseudoIP',
     driverName: 'driverName',
+    district: 'district',
+    color: 'color',
     isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -13249,6 +13277,8 @@ export namespace Prisma {
     model?: StringFilter<"Vehicle"> | string
     pseudoIP?: StringFilter<"Vehicle"> | string
     driverName?: StringFilter<"Vehicle"> | string
+    district?: StringFilter<"Vehicle"> | string
+    color?: StringFilter<"Vehicle"> | string
     isActive?: BoolFilter<"Vehicle"> | boolean
     createdAt?: DateTimeFilter<"Vehicle"> | Date | string
     updatedAt?: DateTimeFilter<"Vehicle"> | Date | string
@@ -13260,6 +13290,8 @@ export namespace Prisma {
     model?: SortOrder
     pseudoIP?: SortOrder
     driverName?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13274,6 +13306,8 @@ export namespace Prisma {
     model?: StringFilter<"Vehicle"> | string
     pseudoIP?: StringFilter<"Vehicle"> | string
     driverName?: StringFilter<"Vehicle"> | string
+    district?: StringFilter<"Vehicle"> | string
+    color?: StringFilter<"Vehicle"> | string
     isActive?: BoolFilter<"Vehicle"> | boolean
     createdAt?: DateTimeFilter<"Vehicle"> | Date | string
     updatedAt?: DateTimeFilter<"Vehicle"> | Date | string
@@ -13285,6 +13319,8 @@ export namespace Prisma {
     model?: SortOrder
     pseudoIP?: SortOrder
     driverName?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13304,6 +13340,8 @@ export namespace Prisma {
     model?: StringWithAggregatesFilter<"Vehicle"> | string
     pseudoIP?: StringWithAggregatesFilter<"Vehicle"> | string
     driverName?: StringWithAggregatesFilter<"Vehicle"> | string
+    district?: StringWithAggregatesFilter<"Vehicle"> | string
+    color?: StringWithAggregatesFilter<"Vehicle"> | string
     isActive?: BoolWithAggregatesFilter<"Vehicle"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Vehicle"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Vehicle"> | Date | string
@@ -14326,6 +14364,8 @@ export namespace Prisma {
     model: string
     pseudoIP: string
     driverName: string
+    district: string
+    color?: string
     isActive: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14337,6 +14377,8 @@ export namespace Prisma {
     model: string
     pseudoIP: string
     driverName: string
+    district: string
+    color?: string
     isActive: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14347,6 +14389,8 @@ export namespace Prisma {
     model?: StringFieldUpdateOperationsInput | string
     pseudoIP?: StringFieldUpdateOperationsInput | string
     driverName?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14358,6 +14402,8 @@ export namespace Prisma {
     model?: StringFieldUpdateOperationsInput | string
     pseudoIP?: StringFieldUpdateOperationsInput | string
     driverName?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14369,6 +14415,8 @@ export namespace Prisma {
     model: string
     pseudoIP: string
     driverName: string
+    district: string
+    color?: string
     isActive: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14379,6 +14427,8 @@ export namespace Prisma {
     model?: StringFieldUpdateOperationsInput | string
     pseudoIP?: StringFieldUpdateOperationsInput | string
     driverName?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14390,6 +14440,8 @@ export namespace Prisma {
     model?: StringFieldUpdateOperationsInput | string
     pseudoIP?: StringFieldUpdateOperationsInput | string
     driverName?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15191,6 +15243,8 @@ export namespace Prisma {
     model?: SortOrder
     pseudoIP?: SortOrder
     driverName?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -15206,6 +15260,8 @@ export namespace Prisma {
     model?: SortOrder
     pseudoIP?: SortOrder
     driverName?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -15217,6 +15273,8 @@ export namespace Prisma {
     model?: SortOrder
     pseudoIP?: SortOrder
     driverName?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder

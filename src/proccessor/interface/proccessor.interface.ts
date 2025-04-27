@@ -164,4 +164,6 @@ export interface Vehicle {
     model: string;
     pseudoIP: string;
     driverName: string;
+    color: string;
+    district: string;
   }

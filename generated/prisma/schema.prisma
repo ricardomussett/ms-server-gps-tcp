@@ -164,6 +164,8 @@ model Vehicle {
   model      String
   pseudoIP   String
   driverName String
+  district   String
+  color      String   @default("#0000ff")
   isActive   Boolean
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt

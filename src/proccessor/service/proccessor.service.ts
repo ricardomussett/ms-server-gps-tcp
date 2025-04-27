@@ -73,6 +73,8 @@ export class ProccessorService {
         vehiclePlate: vehicle?.plate,
         vehicleModel: vehicle?.model,
         vehicleDriver: vehicle?.driverName,
+        vehicleColor: vehicle?.color,
+        vehicleDistrict: vehicle?.district,
         lastUpdate: new Date().toISOString()
       };
 
@@ -93,20 +95,11 @@ export class ProccessorService {
     }
   }
 
-
-//----------------------------------------------------------------
-
   /**
    * Procesa y almacena los datos de posición que fueron almacenados en el buffer GPS por estar en una area ciega 
    */
   private async processBlindData(parsedData: PositionData): Promise<void> {
     try {
-
-      console.log('--------------------------------');
-      console.log('--------------------------------');
-      console.log(parsedData);
-      console.log('--------------------------------');
-      console.log('--------------------------------');
 
       // Agregar al buffer
       this.positionDataBuffer.push(parsedData);
@@ -122,9 +115,6 @@ export class ProccessorService {
       throw error;
     }
   }
-//----------------------------------------------------------------
-
-
 
   /**
    * Procesa el buffer de datos de posición

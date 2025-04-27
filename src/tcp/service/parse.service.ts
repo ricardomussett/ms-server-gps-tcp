@@ -159,7 +159,7 @@ export class ParseService {
           this.parseExtendedData(buffer.subarray(36), result);
         }
       }
-//-------------------------------------------------------------------------------
+
       private parseBlindData(buffer: Buffer, result: any) {
         // Parsear datos de posición (similar al comando 0x80)
         this.parsePositionData(buffer, result);
@@ -183,7 +183,7 @@ export class ParseService {
           this.parseExtendedData(buffer.subarray(42), result);
         }
       }
-//-------------------------------------------------------------------------------   
+  
       /**
        * Parsea los datos de alarma del paquete GPS
        * @param buffer Buffer que contiene los datos crudos del paquete

@@ -271,6 +271,8 @@ exports.Prisma.VehicleScalarFieldEnum = {
   model: 'model',
   pseudoIP: 'pseudoIP',
   driverName: 'driverName',
+  district: 'district',
+  color: 'color',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
