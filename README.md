@@ -206,6 +206,6 @@ INSERT INTO public."WhiteListPseudoIP"(
 
 ```SQL
 INSERT INTO public."Vehicle"(
-	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive")
-	VALUES ('ASD123456', 'JACK-8000', '98.4.199.36', 'Jose Perez', CURRENT_DATE, CURRENT_DATE, TRUE);
+	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive", "district", "color")
+	VALUES ('ASD123456', 'JACK-8000', '98.4.199.36', 'Jose Perez', CURRENT_DATE, CURRENT_DATE, TRUE, 'Central','#0000ff');
 ```
