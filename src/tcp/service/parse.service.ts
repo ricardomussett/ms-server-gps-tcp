@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { parseDms, Dms } from 'dms-conversion';
-import { COMMAND_CODES, GPS_STATUS, ALARM_STATUS, DIGITAL_INPUTS, IGNITION_STATUS } from '../enums/code.enum';
+import { COMMAND_CODES, GPS_STATUS, ALARM_STATUS, DIGITAL_INPUTS, IGNITION_STATUS, BLIND_ALARM_STATUS } from '../enums/code.enum';
 
 @Injectable()
 export class ParseService {
@@ -75,9 +75,13 @@ export class ParseService {
             this.parseTrackerStatus(data, result);
             break;
             
-          case COMMAND_CODES.IBUTTON_DATA: // Datos de iButton
-            this.parseIButtonData(data, result);
-            break;
+            case COMMAND_CODES.IBUTTON_DATA: // Datos de iButton
+              this.parseIButtonData(data, result);
+              break;
+            
+            case COMMAND_CODES.BLIND_DATA: // Datos de iButton
+              this.parseBlindData(data, result);
+              break;
             
           default:
             result.message = 'Tipo de comando desconocido';
@@ -155,7 +159,31 @@ export class ParseService {
           this.parseExtendedData(buffer.subarray(36), result);
         }
       }
-    
+//-------------------------------------------------------------------------------
+      private parseBlindData(buffer: Buffer, result: any) {
+        // Parsear datos de posición (similar al comando 0x80)
+        this.parsePositionData(buffer, result);
+      
+        // Obtener el byte de alarma (posición 42 del paquete completo)
+        const alarmByte = buffer[41]; // Índice 41 (0-based) = byte 42 del protocolo
+      
+        // Decodificar las alarmas
+        result.blindAlarms = {
+          harshAcceleration: !!(alarmByte & BLIND_ALARM_STATUS.HARSH_ACCELERATION),
+          harshBraking: !!(alarmByte & BLIND_ALARM_STATUS.HARSH_BRAKING),
+          harshCornering: !!(alarmByte & BLIND_ALARM_STATUS.HARSH_CORNERING),
+          crashing: !!(alarmByte & BLIND_ALARM_STATUS.CRASHING),
+          rollover: !!(alarmByte & BLIND_ALARM_STATUS.ROLLOVER),
+          towedAway: !!(alarmByte & BLIND_ALARM_STATUS.TOWED_AWAY),
+          sos: !!(alarmByte & BLIND_ALARM_STATUS.SOS),
+        };
+      
+        // Si hay datos extendidos (opcional)
+        if (buffer.length > 42) {
+          this.parseExtendedData(buffer.subarray(42), result);
+        }
+      }
+//-------------------------------------------------------------------------------   
       /**
        * Parsea los datos de alarma del paquete GPS
        * @param buffer Buffer que contiene los datos crudos del paquete

@@ -136,10 +136,11 @@ REDIS_KEY_PREFIX=truck
 
 # Configuración de Whitelist
 WHITELIST_REFRESH_INTERVAL=180000
+VEHICLE_REFRESH_INTERVAL = 120000
 
-# Configuración de Colas
-QUEUE_RETRY_ATTEMPTS=3
-QUEUE_RETRY_DELAY=1000
+# Cantidad items a esperar para guardar en postgres
+BUFFER_SIZE=1
+
 ```
 
 ### Gestión de Base de Datos con Prisma
@@ -195,6 +196,7 @@ docker compose logs -f postgres
 docker compose logs -f redis
 ```
 
+### Registro de ser vehiculos y pseudo ip para pruebas
 
 ```SQL
 INSERT INTO public."WhiteListPseudoIP"(

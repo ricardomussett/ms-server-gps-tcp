@@ -5,6 +5,7 @@ export enum COMMAND_CODES  {
     REPLY_TO_LOCATE= '81',
     TRACKER_STATUS= '83',
     IBUTTON_DATA= '94',
+    BLIND_DATA= '8E',
   };
   
 export  enum GPS_STATUS {
@@ -44,5 +45,15 @@ export enum DIGITAL_INPUTS  {
 export enum IGNITION_STATUS {
     ON = 0x01,
     OFF = 0x00,
+  }
+
+  export enum BLIND_ALARM_STATUS {
+    HARSH_ACCELERATION = 0x01,
+    HARSH_BRAKING = 0x02,
+    HARSH_CORNERING = 0x04,
+    CRASHING = 0x10,
+    ROLLOVER = 0x20,
+    TOWED_AWAY = 0x40,
+    SOS = 0x80,
   }
   

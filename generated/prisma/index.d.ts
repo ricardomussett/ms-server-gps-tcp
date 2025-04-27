@@ -3815,6 +3815,7 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
+    blindAlarms: string | null
     createdAt: Date | null
     updatedAt: Date | null
     mainCommand: string | null
@@ -3839,6 +3840,7 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
+    blindAlarms: string | null
     createdAt: Date | null
     updatedAt: Date | null
     mainCommand: string | null
@@ -3863,6 +3865,7 @@ export namespace Prisma {
     voltage: number
     mileage: number
     temperature: number
+    blindAlarms: number
     createdAt: number
     updatedAt: number
     mainCommand: number
@@ -3915,6 +3918,7 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
+    blindAlarms?: true
     createdAt?: true
     updatedAt?: true
     mainCommand?: true
@@ -3939,6 +3943,7 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
+    blindAlarms?: true
     createdAt?: true
     updatedAt?: true
     mainCommand?: true
@@ -3963,6 +3968,7 @@ export namespace Prisma {
     voltage?: true
     mileage?: true
     temperature?: true
+    blindAlarms?: true
     createdAt?: true
     updatedAt?: true
     mainCommand?: true
@@ -4074,6 +4080,7 @@ export namespace Prisma {
     voltage: number | null
     mileage: number | null
     temperature: number | null
+    blindAlarms: string | null
     createdAt: Date
     updatedAt: Date
     mainCommand: string | null
@@ -4117,6 +4124,7 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
+    blindAlarms?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     mainCommand?: boolean
@@ -4141,6 +4149,7 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
+    blindAlarms?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     mainCommand?: boolean
@@ -4165,6 +4174,7 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
+    blindAlarms?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     mainCommand?: boolean
@@ -4189,6 +4199,7 @@ export namespace Prisma {
     voltage?: boolean
     mileage?: boolean
     temperature?: boolean
+    blindAlarms?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     mainCommand?: boolean
@@ -4199,7 +4210,7 @@ export namespace Prisma {
     timestamp?: boolean
   }
 
-  export type PositionDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "latitude" | "longitude" | "speed" | "angle" | "gpsStatus" | "digitalInputs" | "ignition" | "oilResistance" | "voltage" | "mileage" | "temperature" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "sim" | "rawData" | "timestamp", ExtArgs["result"]["positionData"]>
+  export type PositionDataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "latitude" | "longitude" | "speed" | "angle" | "gpsStatus" | "digitalInputs" | "ignition" | "oilResistance" | "voltage" | "mileage" | "temperature" | "blindAlarms" | "createdAt" | "updatedAt" | "mainCommand" | "packetLength" | "pseudoIP" | "sim" | "rawData" | "timestamp", ExtArgs["result"]["positionData"]>
 
   export type $PositionDataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PositionData"
@@ -4218,6 +4229,7 @@ export namespace Prisma {
       voltage: number | null
       mileage: number | null
       temperature: number | null
+      blindAlarms: string | null
       createdAt: Date
       updatedAt: Date
       mainCommand: string | null
@@ -4662,6 +4674,7 @@ export namespace Prisma {
     readonly voltage: FieldRef<"PositionData", 'Float'>
     readonly mileage: FieldRef<"PositionData", 'Int'>
     readonly temperature: FieldRef<"PositionData", 'Float'>
+    readonly blindAlarms: FieldRef<"PositionData", 'String'>
     readonly createdAt: FieldRef<"PositionData", 'DateTime'>
     readonly updatedAt: FieldRef<"PositionData", 'DateTime'>
     readonly mainCommand: FieldRef<"PositionData", 'String'>
@@ -12138,6 +12151,7 @@ export namespace Prisma {
     voltage: 'voltage',
     mileage: 'mileage',
     temperature: 'temperature',
+    blindAlarms: 'blindAlarms',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     mainCommand: 'mainCommand',
@@ -12539,6 +12553,7 @@ export namespace Prisma {
     voltage?: FloatNullableFilter<"PositionData"> | number | null
     mileage?: IntNullableFilter<"PositionData"> | number | null
     temperature?: FloatNullableFilter<"PositionData"> | number | null
+    blindAlarms?: StringNullableFilter<"PositionData"> | string | null
     createdAt?: DateTimeFilter<"PositionData"> | Date | string
     updatedAt?: DateTimeFilter<"PositionData"> | Date | string
     mainCommand?: StringNullableFilter<"PositionData"> | string | null
@@ -12563,6 +12578,7 @@ export namespace Prisma {
     voltage?: SortOrderInput | SortOrder
     mileage?: SortOrderInput | SortOrder
     temperature?: SortOrderInput | SortOrder
+    blindAlarms?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     mainCommand?: SortOrderInput | SortOrder
@@ -12590,6 +12606,7 @@ export namespace Prisma {
     voltage?: FloatNullableFilter<"PositionData"> | number | null
     mileage?: IntNullableFilter<"PositionData"> | number | null
     temperature?: FloatNullableFilter<"PositionData"> | number | null
+    blindAlarms?: StringNullableFilter<"PositionData"> | string | null
     createdAt?: DateTimeFilter<"PositionData"> | Date | string
     updatedAt?: DateTimeFilter<"PositionData"> | Date | string
     mainCommand?: StringNullableFilter<"PositionData"> | string | null
@@ -12614,6 +12631,7 @@ export namespace Prisma {
     voltage?: SortOrderInput | SortOrder
     mileage?: SortOrderInput | SortOrder
     temperature?: SortOrderInput | SortOrder
+    blindAlarms?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     mainCommand?: SortOrderInput | SortOrder
@@ -12646,6 +12664,7 @@ export namespace Prisma {
     voltage?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
     mileage?: IntNullableWithAggregatesFilter<"PositionData"> | number | null
     temperature?: FloatNullableWithAggregatesFilter<"PositionData"> | number | null
+    blindAlarms?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PositionData"> | Date | string
     mainCommand?: StringNullableWithAggregatesFilter<"PositionData"> | string | null
@@ -13465,6 +13484,7 @@ export namespace Prisma {
     voltage?: number | null
     mileage?: number | null
     temperature?: number | null
+    blindAlarms?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     mainCommand?: string | null
@@ -13489,6 +13509,7 @@ export namespace Prisma {
     voltage?: number | null
     mileage?: number | null
     temperature?: number | null
+    blindAlarms?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     mainCommand?: string | null
@@ -13512,6 +13533,7 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
+    blindAlarms?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13536,6 +13558,7 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
+    blindAlarms?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13560,6 +13583,7 @@ export namespace Prisma {
     voltage?: number | null
     mileage?: number | null
     temperature?: number | null
+    blindAlarms?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     mainCommand?: string | null
@@ -13583,6 +13607,7 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
+    blindAlarms?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13607,6 +13632,7 @@ export namespace Prisma {
     voltage?: NullableFloatFieldUpdateOperationsInput | number | null
     mileage?: NullableIntFieldUpdateOperationsInput | number | null
     temperature?: NullableFloatFieldUpdateOperationsInput | number | null
+    blindAlarms?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mainCommand?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14634,6 +14660,7 @@ export namespace Prisma {
     voltage?: SortOrder
     mileage?: SortOrder
     temperature?: SortOrder
+    blindAlarms?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     mainCommand?: SortOrder
@@ -14671,6 +14698,7 @@ export namespace Prisma {
     voltage?: SortOrder
     mileage?: SortOrder
     temperature?: SortOrder
+    blindAlarms?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     mainCommand?: SortOrder
@@ -14695,6 +14723,7 @@ export namespace Prisma {
     voltage?: SortOrder
     mileage?: SortOrder
     temperature?: SortOrder
+    blindAlarms?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     mainCommand?: SortOrder

@@ -20,6 +20,13 @@ export interface DigitalInputs {
     input4: boolean;
 }
 
+export interface BlindAlarms {
+    harshAcceleration: boolean;
+    harshBraking: boolean;
+    harshCornering: boolean;
+    crashing: boolean;
+}
+
 /**
  * Interface para los datos de posición del GPS
  */
@@ -41,7 +48,8 @@ export interface PositionData {
     voltage?: number;
     mileage?: number;
     temperature?: number;
-    timestamp?: Date;
+    timestamp?: Date;   
+    blindAlarms?: BlindAlarms;
 }
 
 /**

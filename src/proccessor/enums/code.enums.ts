@@ -1,5 +1,6 @@
 export enum COMMAND_CODES  {
     POSITION_DATA= '80',
+    BLIND_DATA= '8E',
     ALARM_DATA= '82',
     HEARTBEAT= '21',
     REPLY_TO_LOCATE= '81',

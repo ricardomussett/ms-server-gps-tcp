@@ -48,6 +48,7 @@ model PositionData {
   voltage       Float?
   mileage       Int?
   temperature   Float?
+  blindAlarms   String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   mainCommand   String?

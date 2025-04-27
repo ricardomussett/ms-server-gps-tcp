@@ -155,6 +155,7 @@ exports.Prisma.PositionDataScalarFieldEnum = {
   voltage: 'voltage',
   mileage: 'mileage',
   temperature: 'temperature',
+  blindAlarms: 'blindAlarms',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   mainCommand: 'mainCommand',

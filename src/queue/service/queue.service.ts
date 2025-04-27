@@ -83,6 +83,12 @@ export class QueueService {
           iButtonId: string;
         };
       };
+      blindAlarms?: {
+        harshAcceleration: boolean;
+        harshBraking: boolean;
+        harshCornering: boolean;
+        crashing: boolean;
+      };
     };
   }, jobName: string = 'gps') {
     try {
