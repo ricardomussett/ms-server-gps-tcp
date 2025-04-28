@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { Vehicle } from '../../domain/interface/proccessor.interface'
-import { PrismaService } from 'src/core/prisma/service/prisma.service'
+import { VehicleRepository } from '../../domain/repository/vehicle.repository'
 
 @Injectable()
 export class VehiclelistService {
@@ -10,7 +10,7 @@ export class VehiclelistService {
   private readonly REFRESH_INTERVAL: number
 
   constructor(
-    private readonly prisma: PrismaService,
+    private readonly vehicleRepository: VehicleRepository,
     private readonly configService: ConfigService,
   ) {
     this.REFRESH_INTERVAL = this.configService.get<number>('VEHICLE_REFRESH_INTERVAL') || 180000
@@ -26,7 +26,7 @@ export class VehiclelistService {
 
   private async refreshVehiclelist() {
     try {
-      const activeVehicle = await this.prisma.vehicle.findMany({
+      const activeVehicle = await this.vehicleRepository.findVehicle({
         where: {
           isActive: true,
         },

@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common'
-import { StatusService } from './application/service/status.service'
 import { StatusController } from './presentation/controller/status.controller'
-import { TcpModule } from '../tcp/tcp.module'
-import { PrismaModule } from 'src/core/prisma/prisma.module'
+import { CommonService } from 'src/core/common/service/common.service'
+import { CommonModule } from 'src/core/common/common.module'
 
 @Module({
-  imports: [PrismaModule, TcpModule],
+  imports: [CommonModule],
   controllers: [StatusController],
-  providers: [StatusService],
+  providers: [CommonService],
 })
 export class StatusModule {}

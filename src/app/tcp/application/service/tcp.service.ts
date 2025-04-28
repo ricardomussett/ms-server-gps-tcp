@@ -5,6 +5,7 @@ import { QueueService } from 'src/app/queue/service/queue.service'
 import { PacketInfo } from '../../domain/interface/packet-info.interface'
 import { parseGpsData } from 'src/core/util/parse-gps.util'
 import { TcpSocket } from '../../domain/socket/tcp.socket'
+import { ITcpStatus } from 'src/core/interface/tcp-status.interface'
 
 @Injectable()
 export class TcpService implements OnModuleInit, OnModuleDestroy {
@@ -39,7 +40,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
     await this.tcpSocket.closeServer()
   }
 
-  public getStatus() {
+  public getStatus(): ITcpStatus {
     return this.tcpSocket.getServerStatus()
   }
 

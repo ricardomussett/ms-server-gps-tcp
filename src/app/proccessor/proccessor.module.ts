@@ -5,6 +5,8 @@ import { QueueModule } from '../queue/queue.module'
 import { GpsDataProcessor } from './presentation/proccessor/gps.processor'
 import { PrismaModule } from 'src/core/prisma/prisma.module'
 import { VehiclelistService } from './application/service/vehicle.service'
+import { ProccessorRepository } from './domain/repository/proccessor.repository'
+import { VehicleRepository } from './domain/repository/vehicle.repository'
 
 @Module({
   imports: [
@@ -23,7 +25,7 @@ import { VehiclelistService } from './application/service/vehicle.service'
       },
     }),
   ],
-  providers: [ProccessorService, VehiclelistService, GpsDataProcessor],
+  providers: [ProccessorService, VehiclelistService, GpsDataProcessor, ProccessorRepository, VehicleRepository],
   exports: [ProccessorService],
 })
 export class ProccessorModule {}

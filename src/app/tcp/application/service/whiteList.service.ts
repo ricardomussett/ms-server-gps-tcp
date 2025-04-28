@@ -1,18 +1,16 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { PrismaService } from 'src/core/prisma/service/prisma.service'
+import { WhitelistRepository } from '../../domain/repository/whitelist.repository'
 
 @Injectable()
 export class WhitelistService {
   private whitelist: string[] = []
   private readonly logger = new Logger(WhitelistService.name)
-  private readonly REFRESH_INTERVAL: number
 
   constructor(
-    private readonly prisma: PrismaService,
+    private readonly whitelistRepository: WhitelistRepository,
     private readonly configService: ConfigService,
   ) {
-    this.REFRESH_INTERVAL = this.configService.get<number>('WHITELIST_REFRESH_INTERVAL') || 180000
     this.refreshWhitelist().catch((error) => {
       this.logger.error(`Error refrescando la whitelist: ${error.message}`)
     })
@@ -20,16 +18,19 @@ export class WhitelistService {
   }
 
   private setupRefreshInterval() {
-    setInterval(() => {
-      this.refreshWhitelist().catch((error) => {
-        this.logger.error(`Error refrescando la whitelist: ${error.message}`)
-      })
-    }, this.REFRESH_INTERVAL)
+    setInterval(
+      () => {
+        this.refreshWhitelist().catch((error) => {
+          this.logger.error(`Error refrescando la whitelist: ${error.message}`)
+        })
+      },
+      this.configService.get<number>('WHITELIST_REFRESH_INTERVAL') || 180000,
+    )
   }
 
   private async refreshWhitelist() {
     try {
-      const activeIPs = await this.prisma.whiteListPseudoIP.findMany({
+      const activeIPs = await this.whitelistRepository.listWhiteListPseudoIP({
         where: {
           isActive: true,
         },

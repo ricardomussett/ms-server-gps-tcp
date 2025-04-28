@@ -1,19 +1,19 @@
 import { Injectable } from '@nestjs/common'
 import { createClient } from 'redis'
-import { TcpService } from 'src/app/tcp/application/service/tcp.service'
 import { redisConfig } from 'src/core/constant/redis-config'
-import { PrismaService } from 'src/core/prisma/service/prisma.service'
 
 @Injectable()
-export class StatusService {
+export class RedisService {
   private redisClient: ReturnType<typeof createClient>
   private redisConnected = false
 
-  constructor(
-    private readonly prisma: PrismaService,
-    private readonly tcpService: TcpService,
-  ) {
+  constructor() {
     // Inicializar el cliente Redis
+    this.createClient()
+    this.manageClient()
+  }
+
+  private createClient() {
     this.redisClient = createClient({
       url: `redis://${redisConfig.host}:${redisConfig.port}`,
       socket: {
@@ -27,7 +27,9 @@ export class StatusService {
         },
       },
     })
+  }
 
+  private manageClient() {
     // Manejar eventos de error y reconexión
     this.redisClient.on('error', (err) => {
       console.error('Error de Redis:', err)
@@ -55,7 +57,6 @@ export class StatusService {
    * Intenta establecer una conexión con el servidor Redis
    * Solo intenta conectar si el cliente no está ya conectado
    *
-   * @private
    * @async
    * @returns {Promise<void>}
    *
@@ -65,7 +66,7 @@ export class StatusService {
    * - Actualiza el estado de la conexión (redisConnected)
    * - En caso de error, registra el error y marca la conexión como fallida
    */
-  private async connectRedis() {
+  public async connectRedis() {
     try {
       // Verificar si el cliente ya está conectado
       if (!this.redisClient.isOpen) {
@@ -78,67 +79,6 @@ export class StatusService {
       console.error('Error al conectar a Redis:', error)
       this.redisConnected = false
     }
-  }
-
-  /**
-   * Verifica y registra el estado de las conexiones del sistema
-   *
-   * Este método realiza las siguientes acciones:
-   * 1. Verifica la conexión a la base de datos mediante una consulta simple
-   * 2. Verifica la conexión a Redis usando checkRedisConnection()
-   * 3. Crea un registro en la base de datos con el estado de las conexiones
-   * 4. En caso de error:
-   *    - Registra el error en consola
-   *    - Crea un registro de error en la base de datos
-   *
-   * @returns {Promise<Object>} Objeto con el estado del sistema que incluye:
-   *  - status: Estado general del sistema ('active' o 'error')
-   *  - database: Estado de la conexión a la base de datos ('connected' o 'disconnected')
-   *  - redis: Estado de la conexión a Redis ('connected' o 'disconnected')
-   *  - error?: Mensaje de error si ocurrió alguno
-   *  - timestamp: Fecha y hora del registro
-   */
-  async status() {
-    let databaseStatus = 'disconnected'
-    let redisStatus = 'disconnected'
-    let systemStatus = 'active'
-    const error = null
-    let tcpStatus = {}
-
-    try {
-      // Verificamos la conexión a la base de datos
-      await this.prisma.$queryRaw`SELECT 1`
-      databaseStatus = 'connected'
-    } catch (error) {
-      console.error('Error de conexión a la base de datos:', error)
-      systemStatus = 'error'
-    }
-
-    try {
-      // Verificamos la conexión a Redis
-      redisStatus = await this.checkRedisConnection()
-    } catch (error) {
-      console.error('Error de conexión a Redis:', error)
-      redisStatus = 'disconnected'
-    }
-
-    try {
-      // Verificamos si el servidor TCP está en ejecución
-      tcpStatus = this.tcpService.getStatus()
-    } catch (error) {
-      console.error('Error al obtener clientes TCP:', error)
-      tcpStatus = {}
-    }
-
-    const statusRecord = {
-      status: systemStatus,
-      database: databaseStatus,
-      redis: redisStatus,
-      tcpStatus: tcpStatus,
-      error: error,
-    }
-
-    return statusRecord
   }
 
   /**
@@ -155,7 +95,7 @@ export class StatusService {
    *
    * @returns {Promise<string>} Estado de la conexión ('connected' o 'disconnected')
    */
-  private async checkRedisConnection(): Promise<string> {
+  public async checkRedisConnection(): Promise<string> {
     try {
       // Verificamos si el cliente Redis está abierto
       if (this.redisClient.isOpen) {

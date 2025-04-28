@@ -5,12 +5,16 @@ import {
   HeartbeatData,
   TrackerStatusData,
   IButtonData,
+  GpsStatus,
+  DigitalInputs,
+  AlarmFlags,
+  IButtonSwipeData,
 } from '../../domain/interface/proccessor.interface'
 import { Job } from 'bull'
 import { Redis } from 'ioredis'
 import { VehiclelistService } from './vehicle.service'
-import { PrismaService } from 'src/core/prisma/service/prisma.service'
 import { COMMAND_CODES } from 'src/core/enums/code.enums'
+import { ProccessorRepository } from '../../domain/repository/proccessor.repository'
 
 @Injectable()
 export class ProccessorService {
@@ -24,7 +28,7 @@ export class ProccessorService {
   private readonly BUFFER_SIZE = Number(process.env.BUFFER_SIZE || 1) // Tamaño del buffer para procesamiento por lotes
 
   constructor(
-    private prisma: PrismaService,
+    private readonly proccessorRepository: ProccessorRepository,
     private readonly vehiclelistService: VehiclelistService,
   ) {
     this.redis = new Redis({
@@ -104,7 +108,7 @@ export class ProccessorService {
     if (this.positionDataBuffer.length === 0) return
 
     try {
-      await this.prisma.positionData.createMany({
+      await this.proccessorRepository.createPositionData({
         data: this.positionDataBuffer.map((data) => ({
           clientId: data.clientId,
           mainCommand: data.mainCommand,
@@ -116,8 +120,8 @@ export class ProccessorService {
           longitude: data.longitude ?? 0,
           speed: data.speed ?? 0,
           angle: data.angle ?? 0,
-          gpsStatus: JSON.stringify(data.gpsStatus),
-          digitalInputs: JSON.stringify(data.digitalInputs),
+          gpsStatus: JSON.stringify(data.gpsStatus) as unknown as GpsStatus,
+          digitalInputs: JSON.stringify(data.digitalInputs) as unknown as DigitalInputs,
           ignition: data.ignition,
           oilResistance: data.oilResistance,
           voltage: data.voltage,
@@ -172,7 +176,7 @@ export class ProccessorService {
     if (this.alarmDataBuffer.length === 0) return
 
     try {
-      await this.prisma.alarmData.createMany({
+      await this.proccessorRepository.createAlarmData({
         data: this.alarmDataBuffer.map((data) => ({
           clientId: data.clientId,
           mainCommand: data.mainCommand,
@@ -180,7 +184,7 @@ export class ProccessorService {
           pseudoIP: data.pseudoIP,
           sim: data.sim,
           rawData: data.rawData,
-          alarms: JSON.stringify(data.alarms),
+          alarms: JSON.stringify(data.alarms) as unknown as AlarmFlags,
           oilChange: data.alarms?.oilChange,
           crossBorder: data.alarms?.crossBorder,
           overVoltage: data.alarms?.overVoltage,
@@ -245,7 +249,7 @@ export class ProccessorService {
     if (this.heartbeatDataBuffer.length === 0) return
 
     try {
-      await this.prisma.heartbeatData.createMany({
+      await this.proccessorRepository.createHeartbeatData({
         data: this.heartbeatDataBuffer.map((data) => ({
           clientId: data.clientId,
           mainCommand: data.mainCommand,
@@ -305,7 +309,7 @@ export class ProccessorService {
     if (this.trackerStatusBuffer.length === 0) return
 
     try {
-      await this.prisma.trackerStatus.createMany({
+      await this.proccessorRepository.createTrackerStatusData({
         data: this.trackerStatusBuffer.map((data) => ({
           clientId: data.clientId,
           mainCommand: data.mainCommand,
@@ -377,7 +381,7 @@ export class ProccessorService {
     if (this.iButtonDataBuffer.length === 0) return
 
     try {
-      await this.prisma.iButtonData.createMany({
+      await this.proccessorRepository.createIButtonData({
         data: this.iButtonDataBuffer.map((data) => ({
           clientId: data.clientId,
           mainCommand: data.mainCommand,
@@ -389,7 +393,7 @@ export class ProccessorService {
           message: data.message,
           driverName: data.driverName,
           driverId: data.driverId,
-          swipeData: JSON.stringify(data.swipeData),
+          swipeData: JSON.stringify(data.swipeData) as unknown as IButtonSwipeData,
           timestamp: data.timestamp,
         })),
       })

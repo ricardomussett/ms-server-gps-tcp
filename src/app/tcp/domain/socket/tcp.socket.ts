@@ -1,5 +1,6 @@
 import { Injectable, Logger, OnModuleDestroy } from '@nestjs/common'
 import { Server, Socket } from 'net'
+import { ITcpStatus } from 'src/core/interface/tcp-status.interface'
 
 @Injectable()
 export class TcpSocket implements OnModuleDestroy {
@@ -73,7 +74,7 @@ export class TcpSocket implements OnModuleDestroy {
    * Verifica si el servidor TCP está en ejecución
    * @returns Objeto con el estado del servidor
    */
-  public getServerStatus() {
+  public getServerStatus(): ITcpStatus {
     return {
       isRunning: this.server.listening,
       port: this.server.listening ? (process.env.TCP_PORT ?? 81) : null,
