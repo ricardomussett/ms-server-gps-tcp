@@ -21,6 +21,7 @@ export class ProccessorRepository {
         packetLength: data.packetLength,
         pseudoIP: data.pseudoIP,
         sim: data.sim,
+        blindAlarms: JSON.stringify(data.blindAlarms),
         rawData: data.rawData,
         latitude: data.latitude ?? 0,
         longitude: data.longitude ?? 0,

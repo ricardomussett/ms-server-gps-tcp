@@ -82,6 +82,12 @@ $ pnpm run test:cov
 
 Para desplegar la aplicación usando Docker, sigue estos pasos:
 
+0. Habilitar en el servidor
+
+```bash
+sudo sysctl vm.overcommit_memory=1
+```
+
 1. Clonar el repositorio:
 ```bash
 git clone <url-del-repositorio>
@@ -95,12 +101,17 @@ cd ms-server-gps-tcp
 docker compose build
 ```
 
-4. Iniciar los servicios:
+4. Realizar las migraciones
+```bash
+docker compose run --rm app npx prisma migrate deploy
+```
+
+5. Iniciar los servicios:
 ```bash
 docker compose up -d
 ```
 
-5. Para detener los servicios:
+6. Para detener los servicios:
 ```bash
 docker compose down
 ```
@@ -124,7 +135,13 @@ REDIS_DB=1
 REDIS_KEY_PREFIX=truck
 
 # Configuración de Whitelist
-WHITELIST_REFRESH_INTERVAL=180000
+WHITELIST_REFRESH_INTERVAL=120000
+VEHICLE_REFRESH_INTERVAL = 120000
+
+
+# Cantidad items a esperar para guardar en postgres
+BUFFER_SIZE=1
+
 
 # Configuración de Colas
 QUEUE_RETRY_ATTEMPTS=3
@@ -184,4 +201,16 @@ docker compose logs -f postgres
 docker compose logs -f redis
 ```
 
+### Registro de ser vehiculos y pseudo ip para pruebas
 
+```SQL
+INSERT INTO public."WhiteListPseudoIP"(
+	"PseudoIP", "isActive", "createdAt", "updatedAt")
+	VALUES ('98.4.199.36', TRUE, CURRENT_DATE, CURRENT_DATE);
+```
+
+```SQL
+INSERT INTO public."Vehicle"(
+	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive", "district", "color")
+	VALUES ('ASD123456', 'JACK-8000', '98.4.199.36', 'Jose Perez', CURRENT_DATE, CURRENT_DATE, TRUE, 'Central','#0000ff');
+```

@@ -36,6 +36,7 @@ export interface PositionData {
   angle?: number
   gpsStatus?: GpsStatus
   digitalInputs?: DigitalInputs
+  blindAlarms?: BlindAlarms
   ignition?: boolean
   oilResistance?: number
   voltage?: number
@@ -150,6 +151,13 @@ export interface IButtonData {
   timestamp: Date
 }
 
+export interface BlindAlarms {
+  harshAcceleration: boolean;
+  harshBraking: boolean;
+  harshCornering: boolean;
+  crashing: boolean;
+}
+
 export interface Vehicle {
   id: number
   plate: string
@@ -157,3 +165,4 @@ export interface Vehicle {
   pseudoIP: string
   driverName: string
 }
+

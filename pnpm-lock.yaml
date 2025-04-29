@@ -12,19 +12,19 @@ importers:
         specifier: ^11.0.2
         version: 11.0.2(@nestjs/common@11.0.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.13)(bull@4.16.5)
       '@nestjs/common':
-        specifier: ^11.0.1
+        specifier: ^11.0.13
         version: 11.0.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/config':
         specifier: ^4.0.2
         version: 4.0.2(@nestjs/common@11.0.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
       '@nestjs/core':
-        specifier: ^11.0.1
+        specifier: ^11.0.13
         version: 11.0.13(@nestjs/common@11.0.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.0.13)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/mapped-types':
         specifier: '*'
         version: 2.1.0(@nestjs/common@11.0.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@nestjs/platform-express':
-        specifier: ^11.0.1
+        specifier: ^11.0.13
         version: 11.0.13(@nestjs/common@11.0.13(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.13)
       '@nestjs/swagger':
         specifier: ^11.1.5
@@ -84,6 +84,9 @@ importers:
       '@swc/core':
         specifier: ^1.10.7
         version: 1.11.18
+      '@types/bull':
+        specifier: ^4.10.4
+        version: 4.10.4
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.1
@@ -1254,6 +1257,10 @@ packages:
 
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
+
+  '@types/bull@4.10.4':
+    resolution: {integrity: sha512-A+8uxa5GbzKcS7kZ9Z1OcOeSyrvVmfHtZi3VIrH1Gws0G0sTknB2SRllxTaAYhycGn7+nC0Pb8VjxIyZiTM81A==}
+    deprecated: This is a stub types definition. bull provides its own type definitions, so you do not need this installed.
 
   '@types/connect@3.4.38':
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
@@ -4922,6 +4929,12 @@ snapshots:
     dependencies:
       '@types/connect': 3.4.38
       '@types/node': 22.14.0
+
+  '@types/bull@4.10.4':
+    dependencies:
+      bull: 4.16.5
+    transitivePeerDependencies:
+      - supports-color
 
   '@types/connect@3.4.38':
     dependencies:
