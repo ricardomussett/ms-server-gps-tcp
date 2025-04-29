@@ -127,6 +127,7 @@ TCP_PORT=81
 
 # Base de datos PostgreSQL
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/msservergpstcp"
+DIRECT_URL = "postgresql://postgres:postgres@localhost:5432/msservergpstcp"
 
 # Redis
 REDIS_HOST=localhost
