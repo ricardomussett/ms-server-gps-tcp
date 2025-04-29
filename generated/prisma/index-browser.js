@@ -273,7 +273,9 @@ exports.Prisma.VehicleScalarFieldEnum = {
   driverName: 'driverName',
   isActive: 'isActive',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  district: 'district',
+  color: 'color'
 };
 
 exports.Prisma.SortOrder = {

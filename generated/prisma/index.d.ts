@@ -11054,6 +11054,8 @@ export namespace Prisma {
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    district: string | null
+    color: string | null
   }
 
   export type VehicleMaxAggregateOutputType = {
@@ -11065,6 +11067,8 @@ export namespace Prisma {
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    district: string | null
+    color: string | null
   }
 
   export type VehicleCountAggregateOutputType = {
@@ -11076,6 +11080,8 @@ export namespace Prisma {
     isActive: number
     createdAt: number
     updatedAt: number
+    district: number
+    color: number
     _all: number
   }
 
@@ -11097,6 +11103,8 @@ export namespace Prisma {
     isActive?: true
     createdAt?: true
     updatedAt?: true
+    district?: true
+    color?: true
   }
 
   export type VehicleMaxAggregateInputType = {
@@ -11108,6 +11116,8 @@ export namespace Prisma {
     isActive?: true
     createdAt?: true
     updatedAt?: true
+    district?: true
+    color?: true
   }
 
   export type VehicleCountAggregateInputType = {
@@ -11119,6 +11129,8 @@ export namespace Prisma {
     isActive?: true
     createdAt?: true
     updatedAt?: true
+    district?: true
+    color?: true
     _all?: true
   }
 
@@ -11217,6 +11229,8 @@ export namespace Prisma {
     isActive: boolean
     createdAt: Date
     updatedAt: Date
+    district: string
+    color: string
     _count: VehicleCountAggregateOutputType | null
     _avg: VehicleAvgAggregateOutputType | null
     _sum: VehicleSumAggregateOutputType | null
@@ -11247,6 +11261,8 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    district?: boolean
+    color?: boolean
   }, ExtArgs["result"]["vehicle"]>
 
   export type VehicleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11258,6 +11274,8 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    district?: boolean
+    color?: boolean
   }, ExtArgs["result"]["vehicle"]>
 
   export type VehicleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11269,6 +11287,8 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    district?: boolean
+    color?: boolean
   }, ExtArgs["result"]["vehicle"]>
 
   export type VehicleSelectScalar = {
@@ -11280,9 +11300,11 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    district?: boolean
+    color?: boolean
   }
 
-  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "plate" | "model" | "pseudoIP" | "driverName" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["vehicle"]>
+  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "plate" | "model" | "pseudoIP" | "driverName" | "isActive" | "createdAt" | "updatedAt" | "district" | "color", ExtArgs["result"]["vehicle"]>
 
   export type $VehiclePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Vehicle"
@@ -11296,6 +11318,8 @@ export namespace Prisma {
       isActive: boolean
       createdAt: Date
       updatedAt: Date
+      district: string
+      color: string
     }, ExtArgs["result"]["vehicle"]>
     composites: {}
   }
@@ -11727,6 +11751,8 @@ export namespace Prisma {
     readonly isActive: FieldRef<"Vehicle", 'Boolean'>
     readonly createdAt: FieldRef<"Vehicle", 'DateTime'>
     readonly updatedAt: FieldRef<"Vehicle", 'DateTime'>
+    readonly district: FieldRef<"Vehicle", 'String'>
+    readonly color: FieldRef<"Vehicle", 'String'>
   }
     
 
@@ -12287,7 +12313,9 @@ export namespace Prisma {
     driverName: 'driverName',
     isActive: 'isActive',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    district: 'district',
+    color: 'color'
   };
 
   export type VehicleScalarFieldEnum = (typeof VehicleScalarFieldEnum)[keyof typeof VehicleScalarFieldEnum]
@@ -13252,6 +13280,8 @@ export namespace Prisma {
     isActive?: BoolFilter<"Vehicle"> | boolean
     createdAt?: DateTimeFilter<"Vehicle"> | Date | string
     updatedAt?: DateTimeFilter<"Vehicle"> | Date | string
+    district?: StringFilter<"Vehicle"> | string
+    color?: StringFilter<"Vehicle"> | string
   }
 
   export type VehicleOrderByWithRelationInput = {
@@ -13263,6 +13293,8 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
   }
 
   export type VehicleWhereUniqueInput = Prisma.AtLeast<{
@@ -13277,6 +13309,8 @@ export namespace Prisma {
     isActive?: BoolFilter<"Vehicle"> | boolean
     createdAt?: DateTimeFilter<"Vehicle"> | Date | string
     updatedAt?: DateTimeFilter<"Vehicle"> | Date | string
+    district?: StringFilter<"Vehicle"> | string
+    color?: StringFilter<"Vehicle"> | string
   }, "id">
 
   export type VehicleOrderByWithAggregationInput = {
@@ -13288,6 +13322,8 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
     _count?: VehicleCountOrderByAggregateInput
     _avg?: VehicleAvgOrderByAggregateInput
     _max?: VehicleMaxOrderByAggregateInput
@@ -13307,6 +13343,8 @@ export namespace Prisma {
     isActive?: BoolWithAggregatesFilter<"Vehicle"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Vehicle"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Vehicle"> | Date | string
+    district?: StringWithAggregatesFilter<"Vehicle"> | string
+    color?: StringWithAggregatesFilter<"Vehicle"> | string
   }
 
   export type StatusCreateInput = {
@@ -14329,6 +14367,8 @@ export namespace Prisma {
     isActive: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    district: string
+    color: string
   }
 
   export type VehicleUncheckedCreateInput = {
@@ -14340,6 +14380,8 @@ export namespace Prisma {
     isActive: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    district: string
+    color: string
   }
 
   export type VehicleUpdateInput = {
@@ -14350,6 +14392,8 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
   }
 
   export type VehicleUncheckedUpdateInput = {
@@ -14361,6 +14405,8 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
   }
 
   export type VehicleCreateManyInput = {
@@ -14372,6 +14418,8 @@ export namespace Prisma {
     isActive: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    district: string
+    color: string
   }
 
   export type VehicleUpdateManyMutationInput = {
@@ -14382,6 +14430,8 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
   }
 
   export type VehicleUncheckedUpdateManyInput = {
@@ -14393,6 +14443,8 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    district?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -15194,6 +15246,8 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
   }
 
   export type VehicleAvgOrderByAggregateInput = {
@@ -15209,6 +15263,8 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
   }
 
   export type VehicleMinOrderByAggregateInput = {
@@ -15220,6 +15276,8 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    district?: SortOrder
+    color?: SortOrder
   }
 
   export type VehicleSumOrderByAggregateInput = {

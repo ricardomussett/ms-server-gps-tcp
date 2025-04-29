@@ -36,6 +36,8 @@ export class VehiclelistService {
           model: true,
           pseudoIP: true,
           driverName: true,
+          color: true,
+          district: true,
         },
       })
 

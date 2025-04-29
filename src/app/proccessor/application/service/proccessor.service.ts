@@ -58,6 +58,8 @@ export class ProccessorService {
 
       const vehicle = this.vehiclelistService.findVehicle(parsedData.pseudoIP)
 
+      console.log('-----vehicle', vehicle)
+
       // Guardar en Redis
       const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`
       const positionData = {
@@ -78,6 +80,8 @@ export class ProccessorService {
         vehicleId: vehicle?.id,
         vehiclePlate: vehicle?.plate,
         vehicleModel: vehicle?.model,
+        vehicleColor: vehicle?.color,
+        vehicleDistrict: vehicle?.district,
         vehicleDriver: vehicle?.driverName,
         lastUpdate: new Date().toISOString(),
       }

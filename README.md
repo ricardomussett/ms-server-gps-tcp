@@ -207,10 +207,18 @@ docker compose logs -f redis
 INSERT INTO public."WhiteListPseudoIP"(
 	"PseudoIP", "isActive", "createdAt", "updatedAt")
 	VALUES ('98.4.199.36', TRUE, CURRENT_DATE, CURRENT_DATE);
+
+  INSERT INTO public."WhiteListPseudoIP"(
+	"PseudoIP", "isActive", "createdAt", "updatedAt")
+	VALUES ('98.4.201.36', TRUE, CURRENT_DATE, CURRENT_DATE);
 ```
 
 ```SQL
 INSERT INTO public."Vehicle"(
 	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive", "district", "color")
 	VALUES ('ASD123456', 'JACK-8000', '98.4.199.36', 'Jose Perez', CURRENT_DATE, CURRENT_DATE, TRUE, 'Central','#0000ff');
+
+  INSERT INTO public."Vehicle"(
+	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive", "district", "color")
+	VALUES ('ZXC98765', 'MACK', '98.4.201.36', 'Antonio Banderas', CURRENT_DATE, CURRENT_DATE, TRUE, 'Central','#0000ff');
 ```
