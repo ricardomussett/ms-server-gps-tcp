@@ -36,7 +36,6 @@ model GpsData {
 
 model PositionData {
   id            Int      @id @default(autoincrement())
-  clientId      String
   latitude      Float
   longitude     Float
   speed         Float?
@@ -54,22 +53,20 @@ model PositionData {
   mainCommand   String?
   packetLength  Int?
   pseudoIP      String?
-  sim           String?
-  blindAlarms   String?
   rawData       String?
   timestamp     DateTime @default(now())
+  clientId      String
+  sim           String?
 }
 
 model AlarmData {
   id                 Int      @id @default(autoincrement())
-  clientId           String
   alarms             String
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
   mainCommand        String?
   packetLength       Int?
   pseudoIP           String?
-  sim                String?
   rawData            String?
   centerEnabledAlarm Boolean?
   crossBorder        Boolean?
@@ -87,11 +84,12 @@ model AlarmData {
   underVoltage       Boolean?
   vibration          Boolean?
   timestamp          DateTime @default(now())
+  clientId           String
+  sim                String?
 }
 
 model HeartbeatData {
   id               Int      @id @default(autoincrement())
-  clientId         String
   calibrationValue Int?
   mainOrderReply   Int?
   slaveOrderReply  Int?
@@ -100,14 +98,14 @@ model HeartbeatData {
   mainCommand      String?
   packetLength     Int?
   pseudoIP         String?
-  sim              String?
   rawData          String?
   timestamp        DateTime @default(now())
+  clientId         String
+  sim              String?
 }
 
 model TrackerStatus {
   id                   Int      @id @default(autoincrement())
-  clientId             String
   samplingTime         String
   alarmStatus          Int?
   located              Boolean?
@@ -128,14 +126,14 @@ model TrackerStatus {
   mainCommand          String?
   packetLength         Int?
   pseudoIP             String?
-  sim                  String?
   rawData              String?
   timestamp            DateTime @default(now())
+  clientId             String
+  sim                  String?
 }
 
 model IButtonData {
   id           Int      @id @default(autoincrement())
-  clientId     String
   subCommand   Int?
   message      String?
   driverName   String?
@@ -146,9 +144,10 @@ model IButtonData {
   mainCommand  String?
   packetLength Int?
   pseudoIP     String?
-  sim          String?
   rawData      String?
   timestamp    DateTime @default(now())
+  clientId     String
+  sim          String?
 }
 
 model WhiteListPseudoIP {
@@ -165,11 +164,9 @@ model Vehicle {
   model      String
   pseudoIP   String
   driverName String
+  color      String
   district   String
-  color      String   @default("#0000ff")
-  isActive   Boolean
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  district   String
-  color      String
+  isActive   Boolean
 }

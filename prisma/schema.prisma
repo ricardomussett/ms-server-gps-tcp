@@ -4,22 +4,22 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  directUrl    = env("DIRECT_URL")
   relationMode = "prisma"
 }
 
 model Status {
-  id        Int      @id @default(autoincrement())
-  status    String   @default("active")
-  database  String   @default("connected")
-  timestamp DateTime @default(now())
-  error     String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  redis     String   @default("connected")
-  tcpClients Int     @default(0)
+  id         Int      @id @default(autoincrement())
+  status     String   @default("active")
+  database   String   @default("connected")
+  timestamp  DateTime @default(now())
+  error      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  redis      String   @default("connected")
+  tcpClients Int      @default(0)
 }
 
 model GpsData {
@@ -36,7 +36,6 @@ model GpsData {
 
 model PositionData {
   id            Int      @id @default(autoincrement())
-  clientId      String
   latitude      Float
   longitude     Float
   speed         Float?
@@ -54,22 +53,20 @@ model PositionData {
   mainCommand   String?
   packetLength  Int?
   pseudoIP      String?
-  sim           String?
-  blindAlarms   String? 
   rawData       String?
   timestamp     DateTime @default(now())
+  clientId      String
+  sim           String?
 }
 
 model AlarmData {
   id                 Int      @id @default(autoincrement())
-  clientId           String
   alarms             String
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
   mainCommand        String?
   packetLength       Int?
   pseudoIP           String?
-  sim                String?  
   rawData            String?
   centerEnabledAlarm Boolean?
   crossBorder        Boolean?
@@ -87,11 +84,12 @@ model AlarmData {
   underVoltage       Boolean?
   vibration          Boolean?
   timestamp          DateTime @default(now())
+  clientId           String
+  sim                String?
 }
 
 model HeartbeatData {
   id               Int      @id @default(autoincrement())
-  clientId         String
   calibrationValue Int?
   mainOrderReply   Int?
   slaveOrderReply  Int?
@@ -100,14 +98,14 @@ model HeartbeatData {
   mainCommand      String?
   packetLength     Int?
   pseudoIP         String?
-  sim              String?
   rawData          String?
   timestamp        DateTime @default(now())
+  clientId         String
+  sim              String?
 }
 
 model TrackerStatus {
   id                   Int      @id @default(autoincrement())
-  clientId             String
   samplingTime         String
   alarmStatus          Int?
   located              Boolean?
@@ -128,14 +126,14 @@ model TrackerStatus {
   mainCommand          String?
   packetLength         Int?
   pseudoIP             String?
-  sim                  String?
   rawData              String?
   timestamp            DateTime @default(now())
+  clientId             String
+  sim                  String?
 }
 
 model IButtonData {
   id           Int      @id @default(autoincrement())
-  clientId     String
   subCommand   Int?
   message      String?
   driverName   String?
@@ -146,32 +144,29 @@ model IButtonData {
   mainCommand  String?
   packetLength Int?
   pseudoIP     String?
-  sim          String?
   rawData      String?
   timestamp    DateTime @default(now())
+  clientId     String
+  sim          String?
 }
-
 
 model WhiteListPseudoIP {
-  id           Int      @id @default(autoincrement())
-  PseudoIP     String
-  isActive     Boolean @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id        Int      @id @default(autoincrement())
+  PseudoIP  String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-
 model Vehicle {
-  id           Int      @id @default(autoincrement())
-  plate        String
-  model        String
-  pseudoIP     String
-  driverName   String
-  district     String   
-  color        String   @default("#0000ff")
-  isActive     Boolean
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  district     String
-  color        String
+  id         Int      @id @default(autoincrement())
+  plate      String
+  model      String
+  pseudoIP   String
+  driverName String
+  color      String
+  district   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  isActive   Boolean
 }

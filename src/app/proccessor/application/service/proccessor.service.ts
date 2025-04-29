@@ -84,15 +84,8 @@ export class ProccessorService {
         vehicleColor: vehicle?.color,
         vehicleDistrict: vehicle?.district,
         vehicleDriver: vehicle?.driverName,
-<<<<<<< HEAD:src/proccessor/service/proccessor.service.ts
-        vehicleColor: vehicle?.color,
-        vehicleDistrict: vehicle?.district,
-        lastUpdate: new Date().toISOString()
-      };
-=======
         lastUpdate: new Date().toISOString(),
       }
->>>>>>> refactorization:src/app/proccessor/application/service/proccessor.service.ts
 
       // Guardar datos en Redis
       await this.redis.hset(truckKey, positionData)
@@ -136,26 +129,6 @@ export class ProccessorService {
       }
     }
 
-  /**
-   * Procesa y almacena los datos de posición que fueron almacenados en el buffer GPS por estar en una area ciega 
-   */
-  private async processBlindData(parsedData: PositionData): Promise<void> {
-    try {
-
-      // Agregar al buffer
-      this.positionDataBuffer.push(parsedData);
-
-      // Si el buffer alcanza el tamaño máximo, procesar el lote
-      if (this.positionDataBuffer.length >= this.BUFFER_SIZE) {
-        await this.flushPositionDataBuffer();
-      }
-
-      this.logger.log(`Datos de posición procesados correctamente para IP: ${parsedData.pseudoIP}`);
-    } catch (error) {
-      this.logger.error(`Error al procesar datos de posición: ${error.message}`);
-      throw error;
-    }
-  }
 
   /**
    * Procesa el buffer de datos de posición
