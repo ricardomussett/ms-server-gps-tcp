@@ -162,6 +162,7 @@ exports.Prisma.PositionDataScalarFieldEnum = {
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
   sim: 'sim',
+  blindAlarms: 'blindAlarms',
   rawData: 'rawData',
   timestamp: 'timestamp'
 };
@@ -275,7 +276,9 @@ exports.Prisma.VehicleScalarFieldEnum = {
   color: 'color',
   isActive: 'isActive',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  district: 'district',
+  color: 'color'
 };
 
 exports.Prisma.SortOrder = {

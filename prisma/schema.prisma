@@ -55,6 +55,7 @@ model PositionData {
   packetLength  Int?
   pseudoIP      String?
   sim           String?
+  blindAlarms   String? 
   rawData       String?
   timestamp     DateTime @default(now())
 }
@@ -171,4 +172,6 @@ model Vehicle {
   isActive     Boolean
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+  district     String
+  color        String
 }

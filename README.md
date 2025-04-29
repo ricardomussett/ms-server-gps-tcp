@@ -135,11 +135,13 @@ REDIS_DB=1
 REDIS_KEY_PREFIX=truck
 
 # Configuración de Whitelist
-WHITELIST_REFRESH_INTERVAL=180000
+WHITELIST_REFRESH_INTERVAL=120000
 VEHICLE_REFRESH_INTERVAL = 120000
+
 
 # Cantidad items a esperar para guardar en postgres
 BUFFER_SIZE=1
+
 
 ```
 
@@ -202,10 +204,18 @@ docker compose logs -f redis
 INSERT INTO public."WhiteListPseudoIP"(
 	"PseudoIP", "isActive", "createdAt", "updatedAt")
 	VALUES ('98.4.199.36', TRUE, CURRENT_DATE, CURRENT_DATE);
+
+  INSERT INTO public."WhiteListPseudoIP"(
+	"PseudoIP", "isActive", "createdAt", "updatedAt")
+	VALUES ('98.4.201.36', TRUE, CURRENT_DATE, CURRENT_DATE);
 ```
 
 ```SQL
 INSERT INTO public."Vehicle"(
 	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive", "district", "color")
 	VALUES ('ASD123456', 'JACK-8000', '98.4.199.36', 'Jose Perez', CURRENT_DATE, CURRENT_DATE, TRUE, 'Central','#0000ff');
+
+  INSERT INTO public."Vehicle"(
+	plate, model, "pseudoIP", "driverName", "createdAt", "updatedAt", "isActive", "district", "color")
+	VALUES ('ZXC98765', 'MACK', '98.4.201.36', 'Antonio Banderas', CURRENT_DATE, CURRENT_DATE, TRUE, 'Central','#0000ff');
 ```

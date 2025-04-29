@@ -1,0 +1,9 @@
+export enum COMMAND_CODES {
+  POSITION_DATA = '80',
+  ALARM_DATA = '82',
+  HEARTBEAT = '21',
+  REPLY_TO_LOCATE = '81',
+  TRACKER_STATUS = '83',
+  IBUTTON_DATA = '94',
+  BLIND_DATA= '8E',
+}
