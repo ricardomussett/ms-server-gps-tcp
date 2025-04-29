@@ -54,6 +54,7 @@ model PositionData {
   packetLength  Int?
   pseudoIP      String?
   sim           String?
+  blindAlarms   String?
   rawData       String?
   timestamp     DateTime @default(now())
 }

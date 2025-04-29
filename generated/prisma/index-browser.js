@@ -161,6 +161,7 @@ exports.Prisma.PositionDataScalarFieldEnum = {
   packetLength: 'packetLength',
   pseudoIP: 'pseudoIP',
   sim: 'sim',
+  blindAlarms: 'blindAlarms',
   rawData: 'rawData',
   timestamp: 'timestamp'
 };

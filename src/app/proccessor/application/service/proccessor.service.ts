@@ -9,6 +9,7 @@ import {
   DigitalInputs,
   AlarmFlags,
   IButtonSwipeData,
+  BlindAlarms,
 } from '../../domain/interface/proccessor.interface'
 import { Job } from 'bull'
 import { Redis } from 'ioredis'
@@ -101,6 +102,28 @@ export class ProccessorService {
     }
   }
 
+
+    /**
+   * Procesa y almacena los datos de posición que fueron almacenados en el buffer GPS por estar en una area ciega 
+   */
+    private async processBlindData(parsedData: PositionData): Promise<void> {
+      try {
+        
+       // Agregar al buffer
+        this.positionDataBuffer.push(parsedData);
+  
+        // Si el buffer alcanza el tamaño máximo, procesar el lote
+        if (this.positionDataBuffer.length >= this.BUFFER_SIZE) {
+          await this.flushPositionDataBuffer();
+        }
+  
+        this.logger.log(`Datos de posición procesados correctamente para IP: ${parsedData.pseudoIP}`);
+      } catch (error) {
+        this.logger.error(`Error al procesar datos de posición: ${error.message}`);
+        throw error;
+      }
+    }
+
   /**
    * Procesa el buffer de datos de posición
    */
@@ -122,6 +145,7 @@ export class ProccessorService {
           angle: data.angle ?? 0,
           gpsStatus: JSON.stringify(data.gpsStatus) as unknown as GpsStatus,
           digitalInputs: JSON.stringify(data.digitalInputs) as unknown as DigitalInputs,
+          blindAlarms: JSON.stringify(data.blindAlarms) as unknown as BlindAlarms,
           ignition: data.ignition,
           oilResistance: data.oilResistance,
           voltage: data.voltage,
@@ -415,6 +439,7 @@ export class ProccessorService {
 
       const commandProcessors = {
         [COMMAND_CODES.POSITION_DATA]: this.processPositionData.bind(this),
+        [COMMAND_CODES.BLIND_DATA]: this.processBlindData.bind(this),
         [COMMAND_CODES.ALARM_DATA]: this.processAlarmData.bind(this),
         [COMMAND_CODES.HEARTBEAT]: this.processHeartbeatData.bind(this),
         [COMMAND_CODES.TRACKER_STATUS]: this.processTrackerStatus.bind(this),

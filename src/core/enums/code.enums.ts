@@ -5,4 +5,5 @@ export enum COMMAND_CODES {
   REPLY_TO_LOCATE = '81',
   TRACKER_STATUS = '83',
   IBUTTON_DATA = '94',
+  BLIND_DATA= '8E',
 }

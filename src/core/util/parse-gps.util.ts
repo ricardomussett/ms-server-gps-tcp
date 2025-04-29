@@ -7,6 +7,7 @@ import { parseIButtonData } from './parse-ibutton.util'
 import { parsePositionData } from './parse-position.util'
 import { parseReplyToLocate } from './parse-reply-to-locate.util'
 import { parseTrackerStatus } from './parse-tracker-status.util'
+import { parseBlindData } from './parse-blind-dara.util'
 
 /**
  * Parsea los datos GPS recibidos del dispositivo
@@ -80,6 +81,10 @@ export function parseGpsData(buffer: Buffer, packetInfo: PacketInfo, clientId: s
 
     case COMMAND_CODES.IBUTTON_DATA: // Datos de iButton
       parseIButtonData(data, result)
+      break
+
+    case COMMAND_CODES.BLIND_DATA: // Datos de alarma ciega
+      parseBlindData(data, result)
       break
 
     default:
