@@ -120,8 +120,8 @@ CREATE TABLE "TrackerStatus" (
     "samplingValueAccOff" INTEGER,
     "emergencyAlarmSwitch" BOOLEAN,
     "photographRelated" INTEGER,
-    "packetLength" INTEGER,
-    "rawData" TEXT,
+    "packetLength" INTEGER NOT NULL,
+    "rawData" TEXT NOT NULL,
     "timestamp" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -175,4 +175,30 @@ CREATE TABLE "Vehicle" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Vehicle_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "shiftRoute" (
+    "id" SERIAL NOT NULL,
+    "hour_start" TEXT NOT NULL,
+    "hour_end" TEXT NOT NULL,
+    "type" INTEGER NOT NULL,
+    "isActive" BOOLEAN NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "shiftRoute_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "limitSpeed" (
+    "id" SERIAL NOT NULL,
+    "speed_start" INTEGER NOT NULL,
+    "speed_end" INTEGER NOT NULL,
+    "type" INTEGER NOT NULL,
+    "isActive" BOOLEAN NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "limitSpeed_pkey" PRIMARY KEY ("id")
 );

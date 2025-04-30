@@ -104,6 +104,15 @@ export class TcpSocket implements OnModuleDestroy {
     this.clients.delete(clientId)
   }
 
+  /**
+   * Verifica si un cliente ya está conectado al servidor
+   * @param clientId Identificador único del cliente
+   * @returns Booleano que indica si el cliente está conectado
+   */
+  public isClientConnected(clientId: string): boolean {
+    return this.clients.has(clientId)
+  }
+
   public listenToConnection() {
     return this.server.on('connection', (socket: Socket) => {
       this.socket = socket

@@ -201,3 +201,20 @@ export interface Vehicle {
   district: string
 }
 
+export interface LimitSpeed {
+  id: number
+  speed_start: number
+  speed_end: number
+  type: number
+  isActive: boolean
+}
+
+export interface ShiftRoute {
+  id: number;
+  hour_start: string;
+  hour_end: string;
+  type: number;
+  isActive: boolean;
+}
+
+

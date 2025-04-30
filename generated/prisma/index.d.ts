@@ -53,6 +53,16 @@ export type WhiteListPseudoIP = $Result.DefaultSelection<Prisma.$WhiteListPseudo
  * 
  */
 export type Vehicle = $Result.DefaultSelection<Prisma.$VehiclePayload>
+/**
+ * Model shiftRoute
+ * 
+ */
+export type shiftRoute = $Result.DefaultSelection<Prisma.$shiftRoutePayload>
+/**
+ * Model limitSpeed
+ * 
+ */
+export type limitSpeed = $Result.DefaultSelection<Prisma.$limitSpeedPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -258,6 +268,26 @@ export class PrismaClient<
     * ```
     */
   get vehicle(): Prisma.VehicleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.shiftRoute`: Exposes CRUD operations for the **shiftRoute** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ShiftRoutes
+    * const shiftRoutes = await prisma.shiftRoute.findMany()
+    * ```
+    */
+  get shiftRoute(): Prisma.shiftRouteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.limitSpeed`: Exposes CRUD operations for the **limitSpeed** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LimitSpeeds
+    * const limitSpeeds = await prisma.limitSpeed.findMany()
+    * ```
+    */
+  get limitSpeed(): Prisma.limitSpeedDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -705,7 +735,9 @@ export namespace Prisma {
     TrackerStatus: 'TrackerStatus',
     IButtonData: 'IButtonData',
     WhiteListPseudoIP: 'WhiteListPseudoIP',
-    Vehicle: 'Vehicle'
+    Vehicle: 'Vehicle',
+    shiftRoute: 'shiftRoute',
+    limitSpeed: 'limitSpeed'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -724,7 +756,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "status" | "positionData" | "alarmData" | "heartbeatData" | "trackerStatus" | "iButtonData" | "whiteListPseudoIP" | "vehicle"
+      modelProps: "status" | "positionData" | "alarmData" | "heartbeatData" | "trackerStatus" | "iButtonData" | "whiteListPseudoIP" | "vehicle" | "shiftRoute" | "limitSpeed"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1320,6 +1352,154 @@ export namespace Prisma {
           }
         }
       }
+      shiftRoute: {
+        payload: Prisma.$shiftRoutePayload<ExtArgs>
+        fields: Prisma.shiftRouteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.shiftRouteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.shiftRouteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>
+          }
+          findFirst: {
+            args: Prisma.shiftRouteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.shiftRouteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>
+          }
+          findMany: {
+            args: Prisma.shiftRouteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>[]
+          }
+          create: {
+            args: Prisma.shiftRouteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>
+          }
+          createMany: {
+            args: Prisma.shiftRouteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.shiftRouteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>[]
+          }
+          delete: {
+            args: Prisma.shiftRouteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>
+          }
+          update: {
+            args: Prisma.shiftRouteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>
+          }
+          deleteMany: {
+            args: Prisma.shiftRouteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.shiftRouteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.shiftRouteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>[]
+          }
+          upsert: {
+            args: Prisma.shiftRouteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$shiftRoutePayload>
+          }
+          aggregate: {
+            args: Prisma.ShiftRouteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateShiftRoute>
+          }
+          groupBy: {
+            args: Prisma.shiftRouteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ShiftRouteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.shiftRouteCountArgs<ExtArgs>
+            result: $Utils.Optional<ShiftRouteCountAggregateOutputType> | number
+          }
+        }
+      }
+      limitSpeed: {
+        payload: Prisma.$limitSpeedPayload<ExtArgs>
+        fields: Prisma.limitSpeedFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.limitSpeedFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.limitSpeedFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>
+          }
+          findFirst: {
+            args: Prisma.limitSpeedFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.limitSpeedFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>
+          }
+          findMany: {
+            args: Prisma.limitSpeedFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>[]
+          }
+          create: {
+            args: Prisma.limitSpeedCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>
+          }
+          createMany: {
+            args: Prisma.limitSpeedCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.limitSpeedCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>[]
+          }
+          delete: {
+            args: Prisma.limitSpeedDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>
+          }
+          update: {
+            args: Prisma.limitSpeedUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>
+          }
+          deleteMany: {
+            args: Prisma.limitSpeedDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.limitSpeedUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.limitSpeedUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>[]
+          }
+          upsert: {
+            args: Prisma.limitSpeedUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$limitSpeedPayload>
+          }
+          aggregate: {
+            args: Prisma.LimitSpeedAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLimitSpeed>
+          }
+          groupBy: {
+            args: Prisma.limitSpeedGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LimitSpeedGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.limitSpeedCountArgs<ExtArgs>
+            result: $Utils.Optional<LimitSpeedCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1412,6 +1592,8 @@ export namespace Prisma {
     iButtonData?: IButtonDataOmit
     whiteListPseudoIP?: WhiteListPseudoIPOmit
     vehicle?: VehicleOmit
+    shiftRoute?: shiftRouteOmit
+    limitSpeed?: limitSpeedOmit
   }
 
   /* Types for Logging */
@@ -6756,8 +6938,8 @@ export namespace Prisma {
     samplingValueAccOff: number | null
     emergencyAlarmSwitch: boolean | null
     photographRelated: number | null
-    packetLength: number | null
-    rawData: string | null
+    packetLength: number
+    rawData: string
     timestamp: Date
     createdAt: Date
     updatedAt: Date
@@ -6920,8 +7102,8 @@ export namespace Prisma {
       samplingValueAccOff: number | null
       emergencyAlarmSwitch: boolean | null
       photographRelated: number | null
-      packetLength: number | null
-      rawData: string | null
+      packetLength: number
+      rawData: string
       timestamp: Date
       createdAt: Date
       updatedAt: Date
@@ -11030,6 +11212,2132 @@ export namespace Prisma {
 
 
   /**
+   * Model shiftRoute
+   */
+
+  export type AggregateShiftRoute = {
+    _count: ShiftRouteCountAggregateOutputType | null
+    _avg: ShiftRouteAvgAggregateOutputType | null
+    _sum: ShiftRouteSumAggregateOutputType | null
+    _min: ShiftRouteMinAggregateOutputType | null
+    _max: ShiftRouteMaxAggregateOutputType | null
+  }
+
+  export type ShiftRouteAvgAggregateOutputType = {
+    id: number | null
+    type: number | null
+  }
+
+  export type ShiftRouteSumAggregateOutputType = {
+    id: number | null
+    type: number | null
+  }
+
+  export type ShiftRouteMinAggregateOutputType = {
+    id: number | null
+    hour_start: string | null
+    hour_end: string | null
+    type: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ShiftRouteMaxAggregateOutputType = {
+    id: number | null
+    hour_start: string | null
+    hour_end: string | null
+    type: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ShiftRouteCountAggregateOutputType = {
+    id: number
+    hour_start: number
+    hour_end: number
+    type: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ShiftRouteAvgAggregateInputType = {
+    id?: true
+    type?: true
+  }
+
+  export type ShiftRouteSumAggregateInputType = {
+    id?: true
+    type?: true
+  }
+
+  export type ShiftRouteMinAggregateInputType = {
+    id?: true
+    hour_start?: true
+    hour_end?: true
+    type?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ShiftRouteMaxAggregateInputType = {
+    id?: true
+    hour_start?: true
+    hour_end?: true
+    type?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ShiftRouteCountAggregateInputType = {
+    id?: true
+    hour_start?: true
+    hour_end?: true
+    type?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ShiftRouteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which shiftRoute to aggregate.
+     */
+    where?: shiftRouteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of shiftRoutes to fetch.
+     */
+    orderBy?: shiftRouteOrderByWithRelationInput | shiftRouteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: shiftRouteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` shiftRoutes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` shiftRoutes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned shiftRoutes
+    **/
+    _count?: true | ShiftRouteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ShiftRouteAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ShiftRouteSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ShiftRouteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ShiftRouteMaxAggregateInputType
+  }
+
+  export type GetShiftRouteAggregateType<T extends ShiftRouteAggregateArgs> = {
+        [P in keyof T & keyof AggregateShiftRoute]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateShiftRoute[P]>
+      : GetScalarType<T[P], AggregateShiftRoute[P]>
+  }
+
+
+
+
+  export type shiftRouteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: shiftRouteWhereInput
+    orderBy?: shiftRouteOrderByWithAggregationInput | shiftRouteOrderByWithAggregationInput[]
+    by: ShiftRouteScalarFieldEnum[] | ShiftRouteScalarFieldEnum
+    having?: shiftRouteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ShiftRouteCountAggregateInputType | true
+    _avg?: ShiftRouteAvgAggregateInputType
+    _sum?: ShiftRouteSumAggregateInputType
+    _min?: ShiftRouteMinAggregateInputType
+    _max?: ShiftRouteMaxAggregateInputType
+  }
+
+  export type ShiftRouteGroupByOutputType = {
+    id: number
+    hour_start: string
+    hour_end: string
+    type: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: ShiftRouteCountAggregateOutputType | null
+    _avg: ShiftRouteAvgAggregateOutputType | null
+    _sum: ShiftRouteSumAggregateOutputType | null
+    _min: ShiftRouteMinAggregateOutputType | null
+    _max: ShiftRouteMaxAggregateOutputType | null
+  }
+
+  type GetShiftRouteGroupByPayload<T extends shiftRouteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ShiftRouteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ShiftRouteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ShiftRouteGroupByOutputType[P]>
+            : GetScalarType<T[P], ShiftRouteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type shiftRouteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hour_start?: boolean
+    hour_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["shiftRoute"]>
+
+  export type shiftRouteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hour_start?: boolean
+    hour_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["shiftRoute"]>
+
+  export type shiftRouteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hour_start?: boolean
+    hour_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["shiftRoute"]>
+
+  export type shiftRouteSelectScalar = {
+    id?: boolean
+    hour_start?: boolean
+    hour_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type shiftRouteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "hour_start" | "hour_end" | "type" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["shiftRoute"]>
+
+  export type $shiftRoutePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "shiftRoute"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      hour_start: string
+      hour_end: string
+      type: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["shiftRoute"]>
+    composites: {}
+  }
+
+  type shiftRouteGetPayload<S extends boolean | null | undefined | shiftRouteDefaultArgs> = $Result.GetResult<Prisma.$shiftRoutePayload, S>
+
+  type shiftRouteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<shiftRouteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ShiftRouteCountAggregateInputType | true
+    }
+
+  export interface shiftRouteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['shiftRoute'], meta: { name: 'shiftRoute' } }
+    /**
+     * Find zero or one ShiftRoute that matches the filter.
+     * @param {shiftRouteFindUniqueArgs} args - Arguments to find a ShiftRoute
+     * @example
+     * // Get one ShiftRoute
+     * const shiftRoute = await prisma.shiftRoute.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends shiftRouteFindUniqueArgs>(args: SelectSubset<T, shiftRouteFindUniqueArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ShiftRoute that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {shiftRouteFindUniqueOrThrowArgs} args - Arguments to find a ShiftRoute
+     * @example
+     * // Get one ShiftRoute
+     * const shiftRoute = await prisma.shiftRoute.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends shiftRouteFindUniqueOrThrowArgs>(args: SelectSubset<T, shiftRouteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ShiftRoute that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {shiftRouteFindFirstArgs} args - Arguments to find a ShiftRoute
+     * @example
+     * // Get one ShiftRoute
+     * const shiftRoute = await prisma.shiftRoute.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends shiftRouteFindFirstArgs>(args?: SelectSubset<T, shiftRouteFindFirstArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ShiftRoute that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {shiftRouteFindFirstOrThrowArgs} args - Arguments to find a ShiftRoute
+     * @example
+     * // Get one ShiftRoute
+     * const shiftRoute = await prisma.shiftRoute.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends shiftRouteFindFirstOrThrowArgs>(args?: SelectSubset<T, shiftRouteFindFirstOrThrowArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ShiftRoutes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {shiftRouteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ShiftRoutes
+     * const shiftRoutes = await prisma.shiftRoute.findMany()
+     * 
+     * // Get first 10 ShiftRoutes
+     * const shiftRoutes = await prisma.shiftRoute.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const shiftRouteWithIdOnly = await prisma.shiftRoute.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends shiftRouteFindManyArgs>(args?: SelectSubset<T, shiftRouteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ShiftRoute.
+     * @param {shiftRouteCreateArgs} args - Arguments to create a ShiftRoute.
+     * @example
+     * // Create one ShiftRoute
+     * const ShiftRoute = await prisma.shiftRoute.create({
+     *   data: {
+     *     // ... data to create a ShiftRoute
+     *   }
+     * })
+     * 
+     */
+    create<T extends shiftRouteCreateArgs>(args: SelectSubset<T, shiftRouteCreateArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ShiftRoutes.
+     * @param {shiftRouteCreateManyArgs} args - Arguments to create many ShiftRoutes.
+     * @example
+     * // Create many ShiftRoutes
+     * const shiftRoute = await prisma.shiftRoute.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends shiftRouteCreateManyArgs>(args?: SelectSubset<T, shiftRouteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ShiftRoutes and returns the data saved in the database.
+     * @param {shiftRouteCreateManyAndReturnArgs} args - Arguments to create many ShiftRoutes.
+     * @example
+     * // Create many ShiftRoutes
+     * const shiftRoute = await prisma.shiftRoute.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ShiftRoutes and only return the `id`
+     * const shiftRouteWithIdOnly = await prisma.shiftRoute.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends shiftRouteCreateManyAndReturnArgs>(args?: SelectSubset<T, shiftRouteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ShiftRoute.
+     * @param {shiftRouteDeleteArgs} args - Arguments to delete one ShiftRoute.
+     * @example
+     * // Delete one ShiftRoute
+     * const ShiftRoute = await prisma.shiftRoute.delete({
+     *   where: {
+     *     // ... filter to delete one ShiftRoute
+     *   }
+     * })
+     * 
+     */
+    delete<T extends shiftRouteDeleteArgs>(args: SelectSubset<T, shiftRouteDeleteArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ShiftRoute.
+     * @param {shiftRouteUpdateArgs} args - Arguments to update one ShiftRoute.
+     * @example
+     * // Update one ShiftRoute
+     * const shiftRoute = await prisma.shiftRoute.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends shiftRouteUpdateArgs>(args: SelectSubset<T, shiftRouteUpdateArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ShiftRoutes.
+     * @param {shiftRouteDeleteManyArgs} args - Arguments to filter ShiftRoutes to delete.
+     * @example
+     * // Delete a few ShiftRoutes
+     * const { count } = await prisma.shiftRoute.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends shiftRouteDeleteManyArgs>(args?: SelectSubset<T, shiftRouteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ShiftRoutes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {shiftRouteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ShiftRoutes
+     * const shiftRoute = await prisma.shiftRoute.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends shiftRouteUpdateManyArgs>(args: SelectSubset<T, shiftRouteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ShiftRoutes and returns the data updated in the database.
+     * @param {shiftRouteUpdateManyAndReturnArgs} args - Arguments to update many ShiftRoutes.
+     * @example
+     * // Update many ShiftRoutes
+     * const shiftRoute = await prisma.shiftRoute.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ShiftRoutes and only return the `id`
+     * const shiftRouteWithIdOnly = await prisma.shiftRoute.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends shiftRouteUpdateManyAndReturnArgs>(args: SelectSubset<T, shiftRouteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ShiftRoute.
+     * @param {shiftRouteUpsertArgs} args - Arguments to update or create a ShiftRoute.
+     * @example
+     * // Update or create a ShiftRoute
+     * const shiftRoute = await prisma.shiftRoute.upsert({
+     *   create: {
+     *     // ... data to create a ShiftRoute
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ShiftRoute we want to update
+     *   }
+     * })
+     */
+    upsert<T extends shiftRouteUpsertArgs>(args: SelectSubset<T, shiftRouteUpsertArgs<ExtArgs>>): Prisma__shiftRouteClient<$Result.GetResult<Prisma.$shiftRoutePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ShiftRoutes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {shiftRouteCountArgs} args - Arguments to filter ShiftRoutes to count.
+     * @example
+     * // Count the number of ShiftRoutes
+     * const count = await prisma.shiftRoute.count({
+     *   where: {
+     *     // ... the filter for the ShiftRoutes we want to count
+     *   }
+     * })
+    **/
+    count<T extends shiftRouteCountArgs>(
+      args?: Subset<T, shiftRouteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ShiftRouteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ShiftRoute.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ShiftRouteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ShiftRouteAggregateArgs>(args: Subset<T, ShiftRouteAggregateArgs>): Prisma.PrismaPromise<GetShiftRouteAggregateType<T>>
+
+    /**
+     * Group by ShiftRoute.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {shiftRouteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends shiftRouteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: shiftRouteGroupByArgs['orderBy'] }
+        : { orderBy?: shiftRouteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, shiftRouteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetShiftRouteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the shiftRoute model
+   */
+  readonly fields: shiftRouteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for shiftRoute.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__shiftRouteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the shiftRoute model
+   */
+  interface shiftRouteFieldRefs {
+    readonly id: FieldRef<"shiftRoute", 'Int'>
+    readonly hour_start: FieldRef<"shiftRoute", 'String'>
+    readonly hour_end: FieldRef<"shiftRoute", 'String'>
+    readonly type: FieldRef<"shiftRoute", 'Int'>
+    readonly isActive: FieldRef<"shiftRoute", 'Boolean'>
+    readonly createdAt: FieldRef<"shiftRoute", 'DateTime'>
+    readonly updatedAt: FieldRef<"shiftRoute", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * shiftRoute findUnique
+   */
+  export type shiftRouteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * Filter, which shiftRoute to fetch.
+     */
+    where: shiftRouteWhereUniqueInput
+  }
+
+  /**
+   * shiftRoute findUniqueOrThrow
+   */
+  export type shiftRouteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * Filter, which shiftRoute to fetch.
+     */
+    where: shiftRouteWhereUniqueInput
+  }
+
+  /**
+   * shiftRoute findFirst
+   */
+  export type shiftRouteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * Filter, which shiftRoute to fetch.
+     */
+    where?: shiftRouteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of shiftRoutes to fetch.
+     */
+    orderBy?: shiftRouteOrderByWithRelationInput | shiftRouteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for shiftRoutes.
+     */
+    cursor?: shiftRouteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` shiftRoutes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` shiftRoutes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of shiftRoutes.
+     */
+    distinct?: ShiftRouteScalarFieldEnum | ShiftRouteScalarFieldEnum[]
+  }
+
+  /**
+   * shiftRoute findFirstOrThrow
+   */
+  export type shiftRouteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * Filter, which shiftRoute to fetch.
+     */
+    where?: shiftRouteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of shiftRoutes to fetch.
+     */
+    orderBy?: shiftRouteOrderByWithRelationInput | shiftRouteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for shiftRoutes.
+     */
+    cursor?: shiftRouteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` shiftRoutes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` shiftRoutes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of shiftRoutes.
+     */
+    distinct?: ShiftRouteScalarFieldEnum | ShiftRouteScalarFieldEnum[]
+  }
+
+  /**
+   * shiftRoute findMany
+   */
+  export type shiftRouteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * Filter, which shiftRoutes to fetch.
+     */
+    where?: shiftRouteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of shiftRoutes to fetch.
+     */
+    orderBy?: shiftRouteOrderByWithRelationInput | shiftRouteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing shiftRoutes.
+     */
+    cursor?: shiftRouteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` shiftRoutes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` shiftRoutes.
+     */
+    skip?: number
+    distinct?: ShiftRouteScalarFieldEnum | ShiftRouteScalarFieldEnum[]
+  }
+
+  /**
+   * shiftRoute create
+   */
+  export type shiftRouteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * The data needed to create a shiftRoute.
+     */
+    data: XOR<shiftRouteCreateInput, shiftRouteUncheckedCreateInput>
+  }
+
+  /**
+   * shiftRoute createMany
+   */
+  export type shiftRouteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many shiftRoutes.
+     */
+    data: shiftRouteCreateManyInput | shiftRouteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * shiftRoute createManyAndReturn
+   */
+  export type shiftRouteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * The data used to create many shiftRoutes.
+     */
+    data: shiftRouteCreateManyInput | shiftRouteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * shiftRoute update
+   */
+  export type shiftRouteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * The data needed to update a shiftRoute.
+     */
+    data: XOR<shiftRouteUpdateInput, shiftRouteUncheckedUpdateInput>
+    /**
+     * Choose, which shiftRoute to update.
+     */
+    where: shiftRouteWhereUniqueInput
+  }
+
+  /**
+   * shiftRoute updateMany
+   */
+  export type shiftRouteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update shiftRoutes.
+     */
+    data: XOR<shiftRouteUpdateManyMutationInput, shiftRouteUncheckedUpdateManyInput>
+    /**
+     * Filter which shiftRoutes to update
+     */
+    where?: shiftRouteWhereInput
+    /**
+     * Limit how many shiftRoutes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * shiftRoute updateManyAndReturn
+   */
+  export type shiftRouteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * The data used to update shiftRoutes.
+     */
+    data: XOR<shiftRouteUpdateManyMutationInput, shiftRouteUncheckedUpdateManyInput>
+    /**
+     * Filter which shiftRoutes to update
+     */
+    where?: shiftRouteWhereInput
+    /**
+     * Limit how many shiftRoutes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * shiftRoute upsert
+   */
+  export type shiftRouteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * The filter to search for the shiftRoute to update in case it exists.
+     */
+    where: shiftRouteWhereUniqueInput
+    /**
+     * In case the shiftRoute found by the `where` argument doesn't exist, create a new shiftRoute with this data.
+     */
+    create: XOR<shiftRouteCreateInput, shiftRouteUncheckedCreateInput>
+    /**
+     * In case the shiftRoute was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<shiftRouteUpdateInput, shiftRouteUncheckedUpdateInput>
+  }
+
+  /**
+   * shiftRoute delete
+   */
+  export type shiftRouteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+    /**
+     * Filter which shiftRoute to delete.
+     */
+    where: shiftRouteWhereUniqueInput
+  }
+
+  /**
+   * shiftRoute deleteMany
+   */
+  export type shiftRouteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which shiftRoutes to delete
+     */
+    where?: shiftRouteWhereInput
+    /**
+     * Limit how many shiftRoutes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * shiftRoute without action
+   */
+  export type shiftRouteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the shiftRoute
+     */
+    select?: shiftRouteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the shiftRoute
+     */
+    omit?: shiftRouteOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model limitSpeed
+   */
+
+  export type AggregateLimitSpeed = {
+    _count: LimitSpeedCountAggregateOutputType | null
+    _avg: LimitSpeedAvgAggregateOutputType | null
+    _sum: LimitSpeedSumAggregateOutputType | null
+    _min: LimitSpeedMinAggregateOutputType | null
+    _max: LimitSpeedMaxAggregateOutputType | null
+  }
+
+  export type LimitSpeedAvgAggregateOutputType = {
+    id: number | null
+    speed_start: number | null
+    speed_end: number | null
+    type: number | null
+  }
+
+  export type LimitSpeedSumAggregateOutputType = {
+    id: number | null
+    speed_start: number | null
+    speed_end: number | null
+    type: number | null
+  }
+
+  export type LimitSpeedMinAggregateOutputType = {
+    id: number | null
+    speed_start: number | null
+    speed_end: number | null
+    type: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LimitSpeedMaxAggregateOutputType = {
+    id: number | null
+    speed_start: number | null
+    speed_end: number | null
+    type: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LimitSpeedCountAggregateOutputType = {
+    id: number
+    speed_start: number
+    speed_end: number
+    type: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LimitSpeedAvgAggregateInputType = {
+    id?: true
+    speed_start?: true
+    speed_end?: true
+    type?: true
+  }
+
+  export type LimitSpeedSumAggregateInputType = {
+    id?: true
+    speed_start?: true
+    speed_end?: true
+    type?: true
+  }
+
+  export type LimitSpeedMinAggregateInputType = {
+    id?: true
+    speed_start?: true
+    speed_end?: true
+    type?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LimitSpeedMaxAggregateInputType = {
+    id?: true
+    speed_start?: true
+    speed_end?: true
+    type?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LimitSpeedCountAggregateInputType = {
+    id?: true
+    speed_start?: true
+    speed_end?: true
+    type?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LimitSpeedAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which limitSpeed to aggregate.
+     */
+    where?: limitSpeedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of limitSpeeds to fetch.
+     */
+    orderBy?: limitSpeedOrderByWithRelationInput | limitSpeedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: limitSpeedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` limitSpeeds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` limitSpeeds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned limitSpeeds
+    **/
+    _count?: true | LimitSpeedCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LimitSpeedAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LimitSpeedSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LimitSpeedMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LimitSpeedMaxAggregateInputType
+  }
+
+  export type GetLimitSpeedAggregateType<T extends LimitSpeedAggregateArgs> = {
+        [P in keyof T & keyof AggregateLimitSpeed]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLimitSpeed[P]>
+      : GetScalarType<T[P], AggregateLimitSpeed[P]>
+  }
+
+
+
+
+  export type limitSpeedGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: limitSpeedWhereInput
+    orderBy?: limitSpeedOrderByWithAggregationInput | limitSpeedOrderByWithAggregationInput[]
+    by: LimitSpeedScalarFieldEnum[] | LimitSpeedScalarFieldEnum
+    having?: limitSpeedScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LimitSpeedCountAggregateInputType | true
+    _avg?: LimitSpeedAvgAggregateInputType
+    _sum?: LimitSpeedSumAggregateInputType
+    _min?: LimitSpeedMinAggregateInputType
+    _max?: LimitSpeedMaxAggregateInputType
+  }
+
+  export type LimitSpeedGroupByOutputType = {
+    id: number
+    speed_start: number
+    speed_end: number
+    type: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: LimitSpeedCountAggregateOutputType | null
+    _avg: LimitSpeedAvgAggregateOutputType | null
+    _sum: LimitSpeedSumAggregateOutputType | null
+    _min: LimitSpeedMinAggregateOutputType | null
+    _max: LimitSpeedMaxAggregateOutputType | null
+  }
+
+  type GetLimitSpeedGroupByPayload<T extends limitSpeedGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LimitSpeedGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LimitSpeedGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LimitSpeedGroupByOutputType[P]>
+            : GetScalarType<T[P], LimitSpeedGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type limitSpeedSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    speed_start?: boolean
+    speed_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["limitSpeed"]>
+
+  export type limitSpeedSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    speed_start?: boolean
+    speed_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["limitSpeed"]>
+
+  export type limitSpeedSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    speed_start?: boolean
+    speed_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["limitSpeed"]>
+
+  export type limitSpeedSelectScalar = {
+    id?: boolean
+    speed_start?: boolean
+    speed_end?: boolean
+    type?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type limitSpeedOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "speed_start" | "speed_end" | "type" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["limitSpeed"]>
+
+  export type $limitSpeedPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "limitSpeed"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      speed_start: number
+      speed_end: number
+      type: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["limitSpeed"]>
+    composites: {}
+  }
+
+  type limitSpeedGetPayload<S extends boolean | null | undefined | limitSpeedDefaultArgs> = $Result.GetResult<Prisma.$limitSpeedPayload, S>
+
+  type limitSpeedCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<limitSpeedFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LimitSpeedCountAggregateInputType | true
+    }
+
+  export interface limitSpeedDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['limitSpeed'], meta: { name: 'limitSpeed' } }
+    /**
+     * Find zero or one LimitSpeed that matches the filter.
+     * @param {limitSpeedFindUniqueArgs} args - Arguments to find a LimitSpeed
+     * @example
+     * // Get one LimitSpeed
+     * const limitSpeed = await prisma.limitSpeed.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends limitSpeedFindUniqueArgs>(args: SelectSubset<T, limitSpeedFindUniqueArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LimitSpeed that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {limitSpeedFindUniqueOrThrowArgs} args - Arguments to find a LimitSpeed
+     * @example
+     * // Get one LimitSpeed
+     * const limitSpeed = await prisma.limitSpeed.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends limitSpeedFindUniqueOrThrowArgs>(args: SelectSubset<T, limitSpeedFindUniqueOrThrowArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LimitSpeed that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {limitSpeedFindFirstArgs} args - Arguments to find a LimitSpeed
+     * @example
+     * // Get one LimitSpeed
+     * const limitSpeed = await prisma.limitSpeed.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends limitSpeedFindFirstArgs>(args?: SelectSubset<T, limitSpeedFindFirstArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LimitSpeed that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {limitSpeedFindFirstOrThrowArgs} args - Arguments to find a LimitSpeed
+     * @example
+     * // Get one LimitSpeed
+     * const limitSpeed = await prisma.limitSpeed.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends limitSpeedFindFirstOrThrowArgs>(args?: SelectSubset<T, limitSpeedFindFirstOrThrowArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LimitSpeeds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {limitSpeedFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LimitSpeeds
+     * const limitSpeeds = await prisma.limitSpeed.findMany()
+     * 
+     * // Get first 10 LimitSpeeds
+     * const limitSpeeds = await prisma.limitSpeed.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const limitSpeedWithIdOnly = await prisma.limitSpeed.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends limitSpeedFindManyArgs>(args?: SelectSubset<T, limitSpeedFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LimitSpeed.
+     * @param {limitSpeedCreateArgs} args - Arguments to create a LimitSpeed.
+     * @example
+     * // Create one LimitSpeed
+     * const LimitSpeed = await prisma.limitSpeed.create({
+     *   data: {
+     *     // ... data to create a LimitSpeed
+     *   }
+     * })
+     * 
+     */
+    create<T extends limitSpeedCreateArgs>(args: SelectSubset<T, limitSpeedCreateArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LimitSpeeds.
+     * @param {limitSpeedCreateManyArgs} args - Arguments to create many LimitSpeeds.
+     * @example
+     * // Create many LimitSpeeds
+     * const limitSpeed = await prisma.limitSpeed.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends limitSpeedCreateManyArgs>(args?: SelectSubset<T, limitSpeedCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LimitSpeeds and returns the data saved in the database.
+     * @param {limitSpeedCreateManyAndReturnArgs} args - Arguments to create many LimitSpeeds.
+     * @example
+     * // Create many LimitSpeeds
+     * const limitSpeed = await prisma.limitSpeed.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LimitSpeeds and only return the `id`
+     * const limitSpeedWithIdOnly = await prisma.limitSpeed.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends limitSpeedCreateManyAndReturnArgs>(args?: SelectSubset<T, limitSpeedCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LimitSpeed.
+     * @param {limitSpeedDeleteArgs} args - Arguments to delete one LimitSpeed.
+     * @example
+     * // Delete one LimitSpeed
+     * const LimitSpeed = await prisma.limitSpeed.delete({
+     *   where: {
+     *     // ... filter to delete one LimitSpeed
+     *   }
+     * })
+     * 
+     */
+    delete<T extends limitSpeedDeleteArgs>(args: SelectSubset<T, limitSpeedDeleteArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LimitSpeed.
+     * @param {limitSpeedUpdateArgs} args - Arguments to update one LimitSpeed.
+     * @example
+     * // Update one LimitSpeed
+     * const limitSpeed = await prisma.limitSpeed.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends limitSpeedUpdateArgs>(args: SelectSubset<T, limitSpeedUpdateArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LimitSpeeds.
+     * @param {limitSpeedDeleteManyArgs} args - Arguments to filter LimitSpeeds to delete.
+     * @example
+     * // Delete a few LimitSpeeds
+     * const { count } = await prisma.limitSpeed.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends limitSpeedDeleteManyArgs>(args?: SelectSubset<T, limitSpeedDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LimitSpeeds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {limitSpeedUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LimitSpeeds
+     * const limitSpeed = await prisma.limitSpeed.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends limitSpeedUpdateManyArgs>(args: SelectSubset<T, limitSpeedUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LimitSpeeds and returns the data updated in the database.
+     * @param {limitSpeedUpdateManyAndReturnArgs} args - Arguments to update many LimitSpeeds.
+     * @example
+     * // Update many LimitSpeeds
+     * const limitSpeed = await prisma.limitSpeed.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LimitSpeeds and only return the `id`
+     * const limitSpeedWithIdOnly = await prisma.limitSpeed.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends limitSpeedUpdateManyAndReturnArgs>(args: SelectSubset<T, limitSpeedUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LimitSpeed.
+     * @param {limitSpeedUpsertArgs} args - Arguments to update or create a LimitSpeed.
+     * @example
+     * // Update or create a LimitSpeed
+     * const limitSpeed = await prisma.limitSpeed.upsert({
+     *   create: {
+     *     // ... data to create a LimitSpeed
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LimitSpeed we want to update
+     *   }
+     * })
+     */
+    upsert<T extends limitSpeedUpsertArgs>(args: SelectSubset<T, limitSpeedUpsertArgs<ExtArgs>>): Prisma__limitSpeedClient<$Result.GetResult<Prisma.$limitSpeedPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LimitSpeeds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {limitSpeedCountArgs} args - Arguments to filter LimitSpeeds to count.
+     * @example
+     * // Count the number of LimitSpeeds
+     * const count = await prisma.limitSpeed.count({
+     *   where: {
+     *     // ... the filter for the LimitSpeeds we want to count
+     *   }
+     * })
+    **/
+    count<T extends limitSpeedCountArgs>(
+      args?: Subset<T, limitSpeedCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LimitSpeedCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LimitSpeed.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LimitSpeedAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LimitSpeedAggregateArgs>(args: Subset<T, LimitSpeedAggregateArgs>): Prisma.PrismaPromise<GetLimitSpeedAggregateType<T>>
+
+    /**
+     * Group by LimitSpeed.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {limitSpeedGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends limitSpeedGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: limitSpeedGroupByArgs['orderBy'] }
+        : { orderBy?: limitSpeedGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, limitSpeedGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLimitSpeedGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the limitSpeed model
+   */
+  readonly fields: limitSpeedFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for limitSpeed.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__limitSpeedClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the limitSpeed model
+   */
+  interface limitSpeedFieldRefs {
+    readonly id: FieldRef<"limitSpeed", 'Int'>
+    readonly speed_start: FieldRef<"limitSpeed", 'Int'>
+    readonly speed_end: FieldRef<"limitSpeed", 'Int'>
+    readonly type: FieldRef<"limitSpeed", 'Int'>
+    readonly isActive: FieldRef<"limitSpeed", 'Boolean'>
+    readonly createdAt: FieldRef<"limitSpeed", 'DateTime'>
+    readonly updatedAt: FieldRef<"limitSpeed", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * limitSpeed findUnique
+   */
+  export type limitSpeedFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * Filter, which limitSpeed to fetch.
+     */
+    where: limitSpeedWhereUniqueInput
+  }
+
+  /**
+   * limitSpeed findUniqueOrThrow
+   */
+  export type limitSpeedFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * Filter, which limitSpeed to fetch.
+     */
+    where: limitSpeedWhereUniqueInput
+  }
+
+  /**
+   * limitSpeed findFirst
+   */
+  export type limitSpeedFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * Filter, which limitSpeed to fetch.
+     */
+    where?: limitSpeedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of limitSpeeds to fetch.
+     */
+    orderBy?: limitSpeedOrderByWithRelationInput | limitSpeedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for limitSpeeds.
+     */
+    cursor?: limitSpeedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` limitSpeeds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` limitSpeeds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of limitSpeeds.
+     */
+    distinct?: LimitSpeedScalarFieldEnum | LimitSpeedScalarFieldEnum[]
+  }
+
+  /**
+   * limitSpeed findFirstOrThrow
+   */
+  export type limitSpeedFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * Filter, which limitSpeed to fetch.
+     */
+    where?: limitSpeedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of limitSpeeds to fetch.
+     */
+    orderBy?: limitSpeedOrderByWithRelationInput | limitSpeedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for limitSpeeds.
+     */
+    cursor?: limitSpeedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` limitSpeeds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` limitSpeeds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of limitSpeeds.
+     */
+    distinct?: LimitSpeedScalarFieldEnum | LimitSpeedScalarFieldEnum[]
+  }
+
+  /**
+   * limitSpeed findMany
+   */
+  export type limitSpeedFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * Filter, which limitSpeeds to fetch.
+     */
+    where?: limitSpeedWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of limitSpeeds to fetch.
+     */
+    orderBy?: limitSpeedOrderByWithRelationInput | limitSpeedOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing limitSpeeds.
+     */
+    cursor?: limitSpeedWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` limitSpeeds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` limitSpeeds.
+     */
+    skip?: number
+    distinct?: LimitSpeedScalarFieldEnum | LimitSpeedScalarFieldEnum[]
+  }
+
+  /**
+   * limitSpeed create
+   */
+  export type limitSpeedCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * The data needed to create a limitSpeed.
+     */
+    data: XOR<limitSpeedCreateInput, limitSpeedUncheckedCreateInput>
+  }
+
+  /**
+   * limitSpeed createMany
+   */
+  export type limitSpeedCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many limitSpeeds.
+     */
+    data: limitSpeedCreateManyInput | limitSpeedCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * limitSpeed createManyAndReturn
+   */
+  export type limitSpeedCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * The data used to create many limitSpeeds.
+     */
+    data: limitSpeedCreateManyInput | limitSpeedCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * limitSpeed update
+   */
+  export type limitSpeedUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * The data needed to update a limitSpeed.
+     */
+    data: XOR<limitSpeedUpdateInput, limitSpeedUncheckedUpdateInput>
+    /**
+     * Choose, which limitSpeed to update.
+     */
+    where: limitSpeedWhereUniqueInput
+  }
+
+  /**
+   * limitSpeed updateMany
+   */
+  export type limitSpeedUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update limitSpeeds.
+     */
+    data: XOR<limitSpeedUpdateManyMutationInput, limitSpeedUncheckedUpdateManyInput>
+    /**
+     * Filter which limitSpeeds to update
+     */
+    where?: limitSpeedWhereInput
+    /**
+     * Limit how many limitSpeeds to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * limitSpeed updateManyAndReturn
+   */
+  export type limitSpeedUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * The data used to update limitSpeeds.
+     */
+    data: XOR<limitSpeedUpdateManyMutationInput, limitSpeedUncheckedUpdateManyInput>
+    /**
+     * Filter which limitSpeeds to update
+     */
+    where?: limitSpeedWhereInput
+    /**
+     * Limit how many limitSpeeds to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * limitSpeed upsert
+   */
+  export type limitSpeedUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * The filter to search for the limitSpeed to update in case it exists.
+     */
+    where: limitSpeedWhereUniqueInput
+    /**
+     * In case the limitSpeed found by the `where` argument doesn't exist, create a new limitSpeed with this data.
+     */
+    create: XOR<limitSpeedCreateInput, limitSpeedUncheckedCreateInput>
+    /**
+     * In case the limitSpeed was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<limitSpeedUpdateInput, limitSpeedUncheckedUpdateInput>
+  }
+
+  /**
+   * limitSpeed delete
+   */
+  export type limitSpeedDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+    /**
+     * Filter which limitSpeed to delete.
+     */
+    where: limitSpeedWhereUniqueInput
+  }
+
+  /**
+   * limitSpeed deleteMany
+   */
+  export type limitSpeedDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which limitSpeeds to delete
+     */
+    where?: limitSpeedWhereInput
+    /**
+     * Limit how many limitSpeeds to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * limitSpeed without action
+   */
+  export type limitSpeedDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the limitSpeed
+     */
+    select?: limitSpeedSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the limitSpeed
+     */
+    omit?: limitSpeedOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -11220,6 +13528,32 @@ export namespace Prisma {
   };
 
   export type VehicleScalarFieldEnum = (typeof VehicleScalarFieldEnum)[keyof typeof VehicleScalarFieldEnum]
+
+
+  export const ShiftRouteScalarFieldEnum: {
+    id: 'id',
+    hour_start: 'hour_start',
+    hour_end: 'hour_end',
+    type: 'type',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ShiftRouteScalarFieldEnum = (typeof ShiftRouteScalarFieldEnum)[keyof typeof ShiftRouteScalarFieldEnum]
+
+
+  export const LimitSpeedScalarFieldEnum: {
+    id: 'id',
+    speed_start: 'speed_start',
+    speed_end: 'speed_end',
+    type: 'type',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LimitSpeedScalarFieldEnum = (typeof LimitSpeedScalarFieldEnum)[keyof typeof LimitSpeedScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11837,8 +14171,8 @@ export namespace Prisma {
     samplingValueAccOff?: IntNullableFilter<"TrackerStatus"> | number | null
     emergencyAlarmSwitch?: BoolNullableFilter<"TrackerStatus"> | boolean | null
     photographRelated?: IntNullableFilter<"TrackerStatus"> | number | null
-    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
-    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    packetLength?: IntFilter<"TrackerStatus"> | number
+    rawData?: StringFilter<"TrackerStatus"> | string
     timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
     createdAt?: DateTimeFilter<"TrackerStatus"> | Date | string
     updatedAt?: DateTimeFilter<"TrackerStatus"> | Date | string
@@ -11865,8 +14199,8 @@ export namespace Prisma {
     samplingValueAccOff?: SortOrderInput | SortOrder
     emergencyAlarmSwitch?: SortOrderInput | SortOrder
     photographRelated?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    packetLength?: SortOrder
+    rawData?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11896,8 +14230,8 @@ export namespace Prisma {
     samplingValueAccOff?: IntNullableFilter<"TrackerStatus"> | number | null
     emergencyAlarmSwitch?: BoolNullableFilter<"TrackerStatus"> | boolean | null
     photographRelated?: IntNullableFilter<"TrackerStatus"> | number | null
-    packetLength?: IntNullableFilter<"TrackerStatus"> | number | null
-    rawData?: StringNullableFilter<"TrackerStatus"> | string | null
+    packetLength?: IntFilter<"TrackerStatus"> | number
+    rawData?: StringFilter<"TrackerStatus"> | string
     timestamp?: DateTimeFilter<"TrackerStatus"> | Date | string
     createdAt?: DateTimeFilter<"TrackerStatus"> | Date | string
     updatedAt?: DateTimeFilter<"TrackerStatus"> | Date | string
@@ -11924,8 +14258,8 @@ export namespace Prisma {
     samplingValueAccOff?: SortOrderInput | SortOrder
     emergencyAlarmSwitch?: SortOrderInput | SortOrder
     photographRelated?: SortOrderInput | SortOrder
-    packetLength?: SortOrderInput | SortOrder
-    rawData?: SortOrderInput | SortOrder
+    packetLength?: SortOrder
+    rawData?: SortOrder
     timestamp?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11960,8 +14294,8 @@ export namespace Prisma {
     samplingValueAccOff?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
     emergencyAlarmSwitch?: BoolNullableWithAggregatesFilter<"TrackerStatus"> | boolean | null
     photographRelated?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
-    packetLength?: IntNullableWithAggregatesFilter<"TrackerStatus"> | number | null
-    rawData?: StringNullableWithAggregatesFilter<"TrackerStatus"> | string | null
+    packetLength?: IntWithAggregatesFilter<"TrackerStatus"> | number
+    rawData?: StringWithAggregatesFilter<"TrackerStatus"> | string
     timestamp?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"TrackerStatus"> | Date | string
@@ -12202,6 +14536,134 @@ export namespace Prisma {
     isActive?: BoolWithAggregatesFilter<"Vehicle"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Vehicle"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Vehicle"> | Date | string
+  }
+
+  export type shiftRouteWhereInput = {
+    AND?: shiftRouteWhereInput | shiftRouteWhereInput[]
+    OR?: shiftRouteWhereInput[]
+    NOT?: shiftRouteWhereInput | shiftRouteWhereInput[]
+    id?: IntFilter<"shiftRoute"> | number
+    hour_start?: StringFilter<"shiftRoute"> | string
+    hour_end?: StringFilter<"shiftRoute"> | string
+    type?: IntFilter<"shiftRoute"> | number
+    isActive?: BoolFilter<"shiftRoute"> | boolean
+    createdAt?: DateTimeFilter<"shiftRoute"> | Date | string
+    updatedAt?: DateTimeFilter<"shiftRoute"> | Date | string
+  }
+
+  export type shiftRouteOrderByWithRelationInput = {
+    id?: SortOrder
+    hour_start?: SortOrder
+    hour_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type shiftRouteWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: shiftRouteWhereInput | shiftRouteWhereInput[]
+    OR?: shiftRouteWhereInput[]
+    NOT?: shiftRouteWhereInput | shiftRouteWhereInput[]
+    hour_start?: StringFilter<"shiftRoute"> | string
+    hour_end?: StringFilter<"shiftRoute"> | string
+    type?: IntFilter<"shiftRoute"> | number
+    isActive?: BoolFilter<"shiftRoute"> | boolean
+    createdAt?: DateTimeFilter<"shiftRoute"> | Date | string
+    updatedAt?: DateTimeFilter<"shiftRoute"> | Date | string
+  }, "id">
+
+  export type shiftRouteOrderByWithAggregationInput = {
+    id?: SortOrder
+    hour_start?: SortOrder
+    hour_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: shiftRouteCountOrderByAggregateInput
+    _avg?: shiftRouteAvgOrderByAggregateInput
+    _max?: shiftRouteMaxOrderByAggregateInput
+    _min?: shiftRouteMinOrderByAggregateInput
+    _sum?: shiftRouteSumOrderByAggregateInput
+  }
+
+  export type shiftRouteScalarWhereWithAggregatesInput = {
+    AND?: shiftRouteScalarWhereWithAggregatesInput | shiftRouteScalarWhereWithAggregatesInput[]
+    OR?: shiftRouteScalarWhereWithAggregatesInput[]
+    NOT?: shiftRouteScalarWhereWithAggregatesInput | shiftRouteScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"shiftRoute"> | number
+    hour_start?: StringWithAggregatesFilter<"shiftRoute"> | string
+    hour_end?: StringWithAggregatesFilter<"shiftRoute"> | string
+    type?: IntWithAggregatesFilter<"shiftRoute"> | number
+    isActive?: BoolWithAggregatesFilter<"shiftRoute"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"shiftRoute"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"shiftRoute"> | Date | string
+  }
+
+  export type limitSpeedWhereInput = {
+    AND?: limitSpeedWhereInput | limitSpeedWhereInput[]
+    OR?: limitSpeedWhereInput[]
+    NOT?: limitSpeedWhereInput | limitSpeedWhereInput[]
+    id?: IntFilter<"limitSpeed"> | number
+    speed_start?: IntFilter<"limitSpeed"> | number
+    speed_end?: IntFilter<"limitSpeed"> | number
+    type?: IntFilter<"limitSpeed"> | number
+    isActive?: BoolFilter<"limitSpeed"> | boolean
+    createdAt?: DateTimeFilter<"limitSpeed"> | Date | string
+    updatedAt?: DateTimeFilter<"limitSpeed"> | Date | string
+  }
+
+  export type limitSpeedOrderByWithRelationInput = {
+    id?: SortOrder
+    speed_start?: SortOrder
+    speed_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type limitSpeedWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: limitSpeedWhereInput | limitSpeedWhereInput[]
+    OR?: limitSpeedWhereInput[]
+    NOT?: limitSpeedWhereInput | limitSpeedWhereInput[]
+    speed_start?: IntFilter<"limitSpeed"> | number
+    speed_end?: IntFilter<"limitSpeed"> | number
+    type?: IntFilter<"limitSpeed"> | number
+    isActive?: BoolFilter<"limitSpeed"> | boolean
+    createdAt?: DateTimeFilter<"limitSpeed"> | Date | string
+    updatedAt?: DateTimeFilter<"limitSpeed"> | Date | string
+  }, "id">
+
+  export type limitSpeedOrderByWithAggregationInput = {
+    id?: SortOrder
+    speed_start?: SortOrder
+    speed_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: limitSpeedCountOrderByAggregateInput
+    _avg?: limitSpeedAvgOrderByAggregateInput
+    _max?: limitSpeedMaxOrderByAggregateInput
+    _min?: limitSpeedMinOrderByAggregateInput
+    _sum?: limitSpeedSumOrderByAggregateInput
+  }
+
+  export type limitSpeedScalarWhereWithAggregatesInput = {
+    AND?: limitSpeedScalarWhereWithAggregatesInput | limitSpeedScalarWhereWithAggregatesInput[]
+    OR?: limitSpeedScalarWhereWithAggregatesInput[]
+    NOT?: limitSpeedScalarWhereWithAggregatesInput | limitSpeedScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"limitSpeed"> | number
+    speed_start?: IntWithAggregatesFilter<"limitSpeed"> | number
+    speed_end?: IntWithAggregatesFilter<"limitSpeed"> | number
+    type?: IntWithAggregatesFilter<"limitSpeed"> | number
+    isActive?: BoolWithAggregatesFilter<"limitSpeed"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"limitSpeed"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"limitSpeed"> | Date | string
   }
 
   export type StatusCreateInput = {
@@ -12828,8 +15290,8 @@ export namespace Prisma {
     samplingValueAccOff?: number | null
     emergencyAlarmSwitch?: boolean | null
     photographRelated?: number | null
-    packetLength?: number | null
-    rawData?: string | null
+    packetLength: number
+    rawData: string
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12856,8 +15318,8 @@ export namespace Prisma {
     samplingValueAccOff?: number | null
     emergencyAlarmSwitch?: boolean | null
     photographRelated?: number | null
-    packetLength?: number | null
-    rawData?: string | null
+    packetLength: number
+    rawData: string
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12883,8 +15345,8 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: IntFieldUpdateOperationsInput | number
+    rawData?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12911,8 +15373,8 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: IntFieldUpdateOperationsInput | number
+    rawData?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12939,8 +15401,8 @@ export namespace Prisma {
     samplingValueAccOff?: number | null
     emergencyAlarmSwitch?: boolean | null
     photographRelated?: number | null
-    packetLength?: number | null
-    rawData?: string | null
+    packetLength: number
+    rawData: string
     timestamp?: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12966,8 +15428,8 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: IntFieldUpdateOperationsInput | number
+    rawData?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12994,8 +15456,8 @@ export namespace Prisma {
     samplingValueAccOff?: NullableIntFieldUpdateOperationsInput | number | null
     emergencyAlarmSwitch?: NullableBoolFieldUpdateOperationsInput | boolean | null
     photographRelated?: NullableIntFieldUpdateOperationsInput | number | null
-    packetLength?: NullableIntFieldUpdateOperationsInput | number | null
-    rawData?: NullableStringFieldUpdateOperationsInput | string | null
+    packetLength?: IntFieldUpdateOperationsInput | number
+    rawData?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13260,6 +15722,140 @@ export namespace Prisma {
     driverName?: StringFieldUpdateOperationsInput | string
     color?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type shiftRouteCreateInput = {
+    hour_start: string
+    hour_end: string
+    type: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type shiftRouteUncheckedCreateInput = {
+    id?: number
+    hour_start: string
+    hour_end: string
+    type: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type shiftRouteUpdateInput = {
+    hour_start?: StringFieldUpdateOperationsInput | string
+    hour_end?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type shiftRouteUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hour_start?: StringFieldUpdateOperationsInput | string
+    hour_end?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type shiftRouteCreateManyInput = {
+    id?: number
+    hour_start: string
+    hour_end: string
+    type: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type shiftRouteUpdateManyMutationInput = {
+    hour_start?: StringFieldUpdateOperationsInput | string
+    hour_end?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type shiftRouteUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hour_start?: StringFieldUpdateOperationsInput | string
+    hour_end?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type limitSpeedCreateInput = {
+    speed_start: number
+    speed_end: number
+    type: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type limitSpeedUncheckedCreateInput = {
+    id?: number
+    speed_start: number
+    speed_end: number
+    type: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type limitSpeedUpdateInput = {
+    speed_start?: IntFieldUpdateOperationsInput | number
+    speed_end?: IntFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type limitSpeedUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    speed_start?: IntFieldUpdateOperationsInput | number
+    speed_end?: IntFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type limitSpeedCreateManyInput = {
+    id?: number
+    speed_start: number
+    speed_end: number
+    type: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type limitSpeedUpdateManyMutationInput = {
+    speed_start?: IntFieldUpdateOperationsInput | number
+    speed_end?: IntFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type limitSpeedUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    speed_start?: IntFieldUpdateOperationsInput | number
+    speed_end?: IntFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14049,6 +16645,90 @@ export namespace Prisma {
 
   export type VehicleSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type shiftRouteCountOrderByAggregateInput = {
+    id?: SortOrder
+    hour_start?: SortOrder
+    hour_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type shiftRouteAvgOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+  }
+
+  export type shiftRouteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    hour_start?: SortOrder
+    hour_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type shiftRouteMinOrderByAggregateInput = {
+    id?: SortOrder
+    hour_start?: SortOrder
+    hour_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type shiftRouteSumOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+  }
+
+  export type limitSpeedCountOrderByAggregateInput = {
+    id?: SortOrder
+    speed_start?: SortOrder
+    speed_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type limitSpeedAvgOrderByAggregateInput = {
+    id?: SortOrder
+    speed_start?: SortOrder
+    speed_end?: SortOrder
+    type?: SortOrder
+  }
+
+  export type limitSpeedMaxOrderByAggregateInput = {
+    id?: SortOrder
+    speed_start?: SortOrder
+    speed_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type limitSpeedMinOrderByAggregateInput = {
+    id?: SortOrder
+    speed_start?: SortOrder
+    speed_end?: SortOrder
+    type?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type limitSpeedSumOrderByAggregateInput = {
+    id?: SortOrder
+    speed_start?: SortOrder
+    speed_end?: SortOrder
+    type?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {

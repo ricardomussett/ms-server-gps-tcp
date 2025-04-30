@@ -272,6 +272,26 @@ exports.Prisma.VehicleScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ShiftRouteScalarFieldEnum = {
+  id: 'id',
+  hour_start: 'hour_start',
+  hour_end: 'hour_end',
+  type: 'type',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LimitSpeedScalarFieldEnum = {
+  id: 'id',
+  speed_start: 'speed_start',
+  speed_end: 'speed_end',
+  type: 'type',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -296,7 +316,9 @@ exports.Prisma.ModelName = {
   TrackerStatus: 'TrackerStatus',
   IButtonData: 'IButtonData',
   WhiteListPseudoIP: 'WhiteListPseudoIP',
-  Vehicle: 'Vehicle'
+  Vehicle: 'Vehicle',
+  shiftRoute: 'shiftRoute',
+  limitSpeed: 'limitSpeed'
 };
 
 /**

@@ -119,8 +119,8 @@ model TrackerStatus {
   samplingValueAccOff  Int?
   emergencyAlarmSwitch Boolean?
   photographRelated    Int?
-  packetLength         Int?
-  rawData              String?
+  packetLength         Int
+  rawData              String
   timestamp            DateTime @default(now())
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
@@ -163,4 +163,24 @@ model Vehicle {
   isActive   Boolean
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+}
+
+model shiftRoute {
+  id         Int      @id @default(autoincrement())
+  hour_start String
+  hour_end   String
+  type       Int
+  isActive   Boolean
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model limitSpeed {
+  id          Int      @id @default(autoincrement())
+  speed_start Int
+  speed_end   Int
+  type        Int
+  isActive    Boolean
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

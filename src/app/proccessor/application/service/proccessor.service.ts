@@ -17,6 +17,7 @@ import { Redis } from 'ioredis'
 import { VehiclelistService } from './vehicle.service'
 import { COMMAND_CODES } from 'src/core/enums/code.enums'
 import { ProccessorRepository } from '../../domain/repository/proccessor.repository'
+import { AlarmService } from './alarm.servicer'
 
 @Injectable()
 export class ProccessorService {
@@ -32,6 +33,7 @@ export class ProccessorService {
   constructor(
     private readonly proccessorRepository: ProccessorRepository,
     private readonly vehiclelistService: VehiclelistService,
+    private readonly alarmService: AlarmService,
   ) {
     this.redis = new Redis({
       host: process.env.REDIS_HOST || 'localhost',
@@ -41,11 +43,6 @@ export class ProccessorService {
 
     // Agregar log para verificar el valor de BUFFER_SIZE
     this.logger.log(`BUFFER_SIZE configurado: ${this.BUFFER_SIZE}`)
-    this.logger.log(`BUFFER_SIZE desde env: ${process.env.BUFFER_SIZE}`)
-  }
-
-  private getOverSpeed(speed: number): string {
-    return speed > 100 ? '1' : '0'
   }
 
   private getNightTraffic(timestamp: Date): string {
@@ -64,7 +61,7 @@ export class ProccessorService {
       //alarma ligera
       const positionDataResult: PositionDataResult = {
         ...parsedData,
-        overSpeed: this.getOverSpeed(parsedData.speed),
+        overSpeed: this.alarmService.getLimitSpeed(parsedData.speed),
         nightTraffic: this.getNightTraffic(parsedData.timestamp),
         vehicleId: vehicle?.id,
         vehiclePlate: vehicle?.plate,
@@ -73,9 +70,9 @@ export class ProccessorService {
       }
       //alarma ligera
 
-      console.log('--------------------------------')
-      console.log(positionDataResult)
-      console.log('--------------------------------')
+      // console.log('--------------------------------')
+      // console.log(positionDataResult)
+      // console.log('--------------------------------')
 
 
       // Agregar al buffer
@@ -123,8 +120,8 @@ export class ProccessorService {
         //alarma ligera
         const positionDataResult: PositionDataResult = {
           ...parsedData,
-          overSpeed: this.getOverSpeed(parsedData.speed),
-          nightTraffic: this.getNightTraffic(parsedData.timestamp),
+          overSpeed: this.alarmService.getLimitSpeed(parsedData.speed),
+          nightTraffic: this.getNightTraffic(parsedData.timestamp), //------------------------------
           vehicleId: vehicle?.id,
           vehiclePlate: vehicle?.plate,
           vehicleColor: vehicle?.color,
