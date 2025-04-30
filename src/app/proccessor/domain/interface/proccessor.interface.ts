@@ -30,40 +30,40 @@ export interface PositionData {
   pseudoIP: string
   sim: string
   rawData: string
-  latitude?: number
-  longitude?: number
-  speed?: number
-  angle?: number
-  gpsStatus?: GpsStatus
-  digitalInputs?: DigitalInputs
+  latitude: number
+  longitude: number
+  speed: number
+  angle: number
+  gpsStatus: GpsStatus
+  digitalInputs: DigitalInputs
   blindAlarms?: BlindAlarms
-  ignition?: boolean
-  oilResistance?: number
-  voltage?: number
-  mileage?: number
-  temperature?: number
-  timestamp?: Date
+  ignition: boolean
+  oilResistance: number
+  voltage: number
+  mileage: number
+  temperature: number
+  timestamp: Date
 }
 
 /**
  * Interface para los datos de alarmas
  */
 export interface AlarmFlags {
-  oilChange?: boolean
-  crossBorder?: boolean
-  overVoltage?: boolean
-  underVoltage?: boolean
-  overload?: boolean
-  overtimeDriving?: boolean
-  enterBorder?: boolean
-  illegalDoorOpen?: boolean
-  illegalStart?: boolean
-  vibration?: boolean
-  centerEnabledAlarm?: boolean
-  powerFailure?: boolean
-  parking?: boolean
-  overSpeed?: boolean
-  emergency?: boolean
+  oilChange: boolean
+  crossBorder: boolean
+  overVoltage: boolean
+  underVoltage: boolean
+  overload: boolean
+  overtimeDriving: boolean
+  enterBorder: boolean
+  illegalDoorOpen: boolean
+  illegalStart: boolean
+  vibration: boolean
+  centerEnabledAlarm: boolean
+  powerFailure: boolean
+  parking: boolean
+  overSpeed: boolean
+  emergency: boolean
 }
 
 /**
@@ -157,6 +157,39 @@ export interface BlindAlarms {
   harshCornering: boolean;
   crashing: boolean;
 }
+
+
+/**
+ * Interface para los datos de posición del GPS
+ */
+export interface PositionDataResult {
+  clientId: string
+  mainCommand: string
+  packetLength: number
+  pseudoIP: string
+  sim: string
+  rawData: string
+  latitude: number
+  longitude: number
+  speed: number
+  angle: number
+  gpsStatus: GpsStatus
+  digitalInputs: DigitalInputs
+  blindAlarms?: BlindAlarms
+  ignition: boolean
+  oilResistance: number
+  voltage: number
+  mileage: number
+  temperature: number
+  timestamp: Date
+  overSpeed: string
+  nightTraffic: string
+  vehicleId?: number
+  vehiclePlate?: string
+  vehicleDistrict?: string
+  vehicleColor?: string
+}
+
 
 export interface Vehicle {
   id: number

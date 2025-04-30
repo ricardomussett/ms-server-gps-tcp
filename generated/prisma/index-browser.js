@@ -163,7 +163,13 @@ exports.Prisma.PositionDataScalarFieldEnum = {
   rawData: 'rawData',
   timestamp: 'timestamp',
   clientId: 'clientId',
-  sim: 'sim'
+  sim: 'sim',
+  overSpeed: 'overSpeed',
+  nightTraffic: 'nightTraffic',
+  vehicleId: 'vehicleId',
+  vehiclePlate: 'vehiclePlate',
+  vehicleColor: 'vehicleColor',
+  vehicleDistrict: 'vehicleDistrict'
 };
 
 exports.Prisma.AlarmDataScalarFieldEnum = {

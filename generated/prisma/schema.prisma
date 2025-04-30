@@ -35,28 +35,34 @@ model GpsData {
 }
 
 model PositionData {
-  id            Int      @id @default(autoincrement())
-  latitude      Float
-  longitude     Float
-  speed         Float?
-  angle         Float?
-  gpsStatus     String?
-  digitalInputs String?
-  ignition      Boolean?
-  oilResistance Int?
-  voltage       Float?
-  mileage       Int?
-  temperature   Float?
-  blindAlarms   String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  mainCommand   String?
-  packetLength  Int?
-  pseudoIP      String?
-  rawData       String?
-  timestamp     DateTime @default(now())
-  clientId      String
-  sim           String?
+  id              Int      @id @default(autoincrement())
+  latitude        Float
+  longitude       Float
+  speed           Float
+  angle           Float
+  gpsStatus       String
+  digitalInputs   String
+  ignition        Boolean
+  oilResistance   Int
+  voltage         Float
+  mileage         Int
+  temperature     Float
+  blindAlarms     String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  mainCommand     String
+  packetLength    Int
+  pseudoIP        String
+  rawData         String
+  timestamp       DateTime @default(now())
+  clientId        String
+  sim             String
+  overSpeed       String
+  nightTraffic    String
+  vehicleId       Int?
+  vehiclePlate    String?
+  vehicleColor    String?
+  vehicleDistrict String?
 }
 
 model AlarmData {
@@ -64,25 +70,25 @@ model AlarmData {
   alarms             String
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
-  mainCommand        String?
-  packetLength       Int?
-  pseudoIP           String?
-  rawData            String?
-  centerEnabledAlarm Boolean?
-  crossBorder        Boolean?
-  emergency          Boolean?
-  enterBorder        Boolean?
-  illegalDoorOpen    Boolean?
-  illegalStart       Boolean?
-  oilChange          Boolean?
-  overSpeed          Boolean?
-  overVoltage        Boolean?
-  overload           Boolean?
-  overtimeDriving    Boolean?
-  parking            Boolean?
-  powerFailure       Boolean?
-  underVoltage       Boolean?
-  vibration          Boolean?
+  mainCommand        String
+  packetLength       Int
+  pseudoIP           String
+  rawData            String
+  centerEnabledAlarm Boolean
+  crossBorder        Boolean
+  emergency          Boolean
+  enterBorder        Boolean
+  illegalDoorOpen    Boolean
+  illegalStart       Boolean
+  oilChange          Boolean
+  overSpeed          Boolean
+  overVoltage        Boolean
+  overload           Boolean
+  overtimeDriving    Boolean
+  parking            Boolean
+  powerFailure       Boolean
+  underVoltage       Boolean
+  vibration          Boolean
   timestamp          DateTime @default(now())
   clientId           String
   sim                String?
@@ -90,18 +96,18 @@ model AlarmData {
 
 model HeartbeatData {
   id               Int      @id @default(autoincrement())
-  calibrationValue Int?
-  mainOrderReply   Int?
-  slaveOrderReply  Int?
+  calibrationValue Int
+  mainOrderReply   Int
+  slaveOrderReply  Int
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
-  mainCommand      String?
-  packetLength     Int?
-  pseudoIP         String?
-  rawData          String?
+  mainCommand      String
+  packetLength     Int
+  pseudoIP         String
+  rawData          String
   timestamp        DateTime @default(now())
   clientId         String
-  sim              String?
+  sim              String
 }
 
 model TrackerStatus {
