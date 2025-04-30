@@ -107,7 +107,7 @@ export class AlarmService {
   getNightTraffic(timestamp: Date, speed: number): string {
     try {
 
-      if (speed < 20) {
+      if (speed < 0) {
         return '0'
       }
       // Validar que exista lista de turnos

@@ -75,15 +75,38 @@ export class ProccessorService {
       // Guardar en Redis
       const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`
 
+      // Seleccion para redis
+      const  positionDataResultRedis = {
+        clientId: positionDataResult.clientId,
+        pseudoIP: positionDataResult.pseudoIP,
+        sim: positionDataResult.sim,
+        latitude: positionDataResult.latitude,
+        longitude: positionDataResult.longitude,
+        speed: positionDataResult.speed,
+        angle: positionDataResult.angle,
+        ignition: positionDataResult.ignition,
+        oilResistance: positionDataResult.oilResistance,
+        voltage: positionDataResult.voltage,
+        mileage: positionDataResult.mileage,
+        temperature: positionDataResult.temperature,
+        timestamp: positionDataResult.timestamp,
+        overSpeed: positionDataResult.overSpeed,
+        nightTraffic: positionDataResult.nightTraffic,
+        vehicleId: positionDataResult.vehicleId,
+        vehiclePlate: positionDataResult.vehiclePlate,
+        vehicleColor: positionDataResult.vehicleColor,
+        vehicleDistrict: positionDataResult.vehicleDistrict,
+      }
+
       // Guardar datos en Redis
-      await this.redis.hset(truckKey, positionDataResult)
+      await this.redis.hset(truckKey, positionDataResultRedis)
 
       // Publicar actualización en el canal de posición
       await this.redis.publish(
         'position-updates',
         JSON.stringify({
           type: 'position',
-          data: positionDataResult,
+          data: positionDataResultRedis,
           timestamp: new Date().toISOString(),
         }),
       )
