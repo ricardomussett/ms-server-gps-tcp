@@ -104,30 +104,58 @@ export class AlarmService {
     }
   }
 
-getNightTraffic(timestamp: Date): string {
-  try {
-    // Obtener la fecha actual en formato "YYYY-MM-DD" para construir la hora completa
-    const dateStr = timestamp.toISOString().split('T')[0]; // "YYYY-MM-DD"
+  getNightTraffic(timestamp: Date, speed: number): string {
+    try {
 
-    // Convertir la hora actual a un objeto Date completo
-    const currentTime = new Date(`${dateStr}T${timestamp.toTimeString().split(' ')[0]}`);
+      if (speed < 20) {
+        return '0'
+      }
+      // Validar que exista lista de turnos
+      if (!this.shiftRouteList || !this.shiftRouteList.length) {
+        this.logger.warn('Lista de rutas shift vacía');
+        return '0';
+      }
 
-    // Buscar el turno (shift) que coincide con la hora
-    const shift = this.shiftRouteList.find((shiftRoute) => {
-      // Convertir hour_start y hour_end a objetos Date completos
-      const startTime = new Date(`${dateStr}T${shiftRoute.hour_start}`);
-      const endTime = new Date(`${dateStr}T${shiftRoute.hour_end}`);
+      const currentTime = new Date(timestamp);
+      
+      // Recorrer cada turno activo
+      for (const route of this.shiftRouteList) {
+        if (!route.isActive) continue;
 
-      // Comparar si la hora actual está dentro del rango
-      return currentTime >= startTime && currentTime <= endTime;
-    });
+        // Extraer horas, minutos y segundos de inicio/fin
+        const [startH, startM, startS = '00'] = route.hour_start.split(':');
+        const [endH, endM, endS = '00'] = route.hour_end.split(':');
 
-    // Si se encuentra un turno, devolver su tipo como string
-    return shift ? shift.type.toString() : '0'; // '0' si no se encuentra ningún turno
-  } catch (error) {
-    this.logger.error(`Error al determinar el tráfico nocturno: ${error.message}`);
-    return '0'; // Devuelve '0' en caso de error
+        // Crear fechas de inicio y fin para el día actual
+        const startTime = new Date(currentTime);
+        startTime.setHours(Number(startH), Number(startM), Number(startS), 0);
+
+        const endTime = new Date(currentTime);
+        endTime.setHours(Number(endH), Number(endM), Number(endS), 0);
+
+        // Si el turno cruza medianoche (hora de fin es menor que hora de inicio)
+        if (Number(endH) < Number(startH)) {
+          // Si la hora actual es mayor o igual a la hora de inicio
+          if (currentTime >= startTime) {
+            return route.type.toString();
+          }
+          // Si la hora actual es menor o igual a la hora de fin
+          if (currentTime <= endTime) {
+            return route.type.toString();
+          }
+        } else {
+          // Turno normal (no cruza medianoche)
+          if (currentTime >= startTime && currentTime <= endTime) {
+            return route.type.toString();
+          }
+        }
+      }
+      
+      // No encaja en ningún turno
+      return '0';
+    } catch (error) {
+      this.logger.error(`Error al determinar tráfico nocturno: ${error.message}`);
+      return '0';
+    }
   }
-}
-
 }

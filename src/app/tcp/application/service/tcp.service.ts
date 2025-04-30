@@ -74,7 +74,7 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
         return
       }
 
-      this.logger.log(`Cliente conectado: ${clientId}`)
+      this.logger.log(`---> Cliente conectado: ${clientId}`)
       this.tcpSocket.setNewClient(clientId, socket)
 
       socket.on('data', (data: Buffer) => {

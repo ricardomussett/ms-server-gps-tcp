@@ -45,10 +45,6 @@ export class ProccessorService {
     this.logger.log(`BUFFER_SIZE configurado: ${this.BUFFER_SIZE}`)
   }
 
-  private getNightTraffic(timestamp: Date): string {
-    return '0'
-  }
-
   /**
    * Procesa y almacena los datos de posición GPS
    */
@@ -58,23 +54,16 @@ export class ProccessorService {
       //Busca el vehiculo por la pseudo ip
       const vehicle = this.vehiclelistService.findVehicle(parsedData.pseudoIP)
 
-      //alarma ligera
       const positionDataResult: PositionDataResult = {
         ...parsedData,
         overSpeed: this.alarmService.getLimitSpeed(parsedData.speed),
-        nightTraffic: this.getNightTraffic(parsedData.timestamp),
+        nightTraffic: this.alarmService.getNightTraffic(parsedData.timestamp, parsedData.speed),
         vehicleId: vehicle?.id,
         vehiclePlate: vehicle?.plate,
         vehicleColor: vehicle?.color,
         vehicleDistrict: vehicle?.district,
       }
-      //alarma ligera
-
-      // console.log('--------------------------------')
-      // console.log(positionDataResult)
-      // console.log('--------------------------------')
-
-
+  
       // Agregar al buffer
       this.positionDataBuffer.push(positionDataResult)
 
@@ -82,7 +71,6 @@ export class ProccessorService {
       if (this.positionDataBuffer.length >= this.BUFFER_SIZE) {
         await this.flushPositionDataBuffer()
       }
-
 
       // Guardar en Redis
       const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`
@@ -121,7 +109,7 @@ export class ProccessorService {
         const positionDataResult: PositionDataResult = {
           ...parsedData,
           overSpeed: this.alarmService.getLimitSpeed(parsedData.speed),
-          nightTraffic: this.getNightTraffic(parsedData.timestamp), //------------------------------
+          nightTraffic: this.alarmService.getNightTraffic(parsedData.timestamp, parsedData.speed),
           vehicleId: vehicle?.id,
           vehiclePlate: vehicle?.plate,
           vehicleColor: vehicle?.color,

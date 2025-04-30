@@ -39,7 +39,8 @@ model PositionData {
   voltage       Float
   mileage       Int
   temperature   Float
-  timestamp     DateTime @default(now())
+  timestamp     DateTime
+  
   overSpeed     String
   nightTraffic  String
   vehicleId     Int?
