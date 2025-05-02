@@ -14763,7 +14763,7 @@ export namespace Prisma {
     voltage: number
     mileage: number
     temperature: number
-    timestamp?: Date | string
+    timestamp: Date | string
     overSpeed: string
     nightTraffic: string
     vehicleId?: number | null
@@ -14794,7 +14794,7 @@ export namespace Prisma {
     voltage: number
     mileage: number
     temperature: number
-    timestamp?: Date | string
+    timestamp: Date | string
     overSpeed: string
     nightTraffic: string
     vehicleId?: number | null
@@ -14886,7 +14886,7 @@ export namespace Prisma {
     voltage: number
     mileage: number
     temperature: number
-    timestamp?: Date | string
+    timestamp: Date | string
     overSpeed: string
     nightTraffic: string
     vehicleId?: number | null
