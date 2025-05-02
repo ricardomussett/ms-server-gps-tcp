@@ -5,6 +5,7 @@ import {
   HeartbeatData,
   IButtonData,
   PositionData,
+  PositionDataResult,
   TrackerStatusData,
 } from '../interface/proccessor.interface'
 import { Prisma } from 'generated/prisma'
@@ -13,9 +14,9 @@ import { Prisma } from 'generated/prisma'
 export class ProccessorRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async createPositionData(positionData: { data: PositionData[] }): Promise<Prisma.BatchPayload> {
+  async createPositionData(positionDataResult: { data: PositionDataResult[] }): Promise<Prisma.BatchPayload> {
     return await this.prisma.positionData.createMany({
-      data: positionData.data.map((data) => ({
+      data: positionDataResult.data.map((data) => ({
         clientId: data.clientId,
         mainCommand: data.mainCommand,
         packetLength: data.packetLength,
@@ -35,6 +36,12 @@ export class ProccessorRepository {
         mileage: data.mileage,
         temperature: data.temperature,
         timestamp: data.timestamp,
+        overSpeed: data.overSpeed,
+        nightTraffic: data.nightTraffic,
+        vehicleId: data.vehicleId,
+        vehiclePlate: data.vehiclePlate,
+        vehicleColor: data.vehicleColor,
+        vehicleDistrict: data.vehicleDistrict,
       })),
     })
   }
@@ -49,21 +56,21 @@ export class ProccessorRepository {
         sim: data.sim,
         rawData: data.rawData,
         alarms: JSON.stringify(data.alarms),
-        oilChange: data.alarms?.oilChange,
-        crossBorder: data.alarms?.crossBorder,
-        overVoltage: data.alarms?.overVoltage,
-        underVoltage: data.alarms?.underVoltage,
-        overload: data.alarms?.overload,
-        overtimeDriving: data.alarms?.overtimeDriving,
-        enterBorder: data.alarms?.enterBorder,
-        illegalDoorOpen: data.alarms?.illegalDoorOpen,
-        illegalStart: data.alarms?.illegalStart,
-        vibration: data.alarms?.vibration,
-        centerEnabledAlarm: data.alarms?.centerEnabledAlarm,
-        powerFailure: data.alarms?.powerFailure,
-        parking: data.alarms?.parking,
-        overSpeed: data.alarms?.overSpeed,
-        emergency: data.alarms?.emergency,
+        oilChange: data.alarms?.oilChange ?? false,
+        crossBorder: data.alarms?.crossBorder ?? false,
+        overVoltage: data.alarms?.overVoltage ?? false,
+        underVoltage: data.alarms?.underVoltage ?? false,
+        overload: data.alarms?.overload ?? false,
+        overtimeDriving: data.alarms?.overtimeDriving ?? false,
+        enterBorder: data.alarms?.enterBorder ?? false,
+        illegalDoorOpen: data.alarms?.illegalDoorOpen ?? false,
+        illegalStart: data.alarms?.illegalStart ?? false,
+        vibration: data.alarms?.vibration ?? false,
+        centerEnabledAlarm: data.alarms?.centerEnabledAlarm ?? false,
+        powerFailure: data.alarms?.powerFailure ?? false,
+        parking: data.alarms?.parking ?? false,
+        overSpeed: data.alarms?.overSpeed ?? false,
+        emergency: data.alarms?.emergency ?? false,
         timestamp: data.timestamp,
       })),
     })

@@ -1,3 +1,6 @@
+import { ConsoleLogger } from '@nestjs/common';
+import { DateTime } from 'luxon';
+
 /**
  * Decodifica un timestamp desde un buffer de 6 bytes
  * @param bytes Buffer de 6 bytes que contiene la fecha y hora codificada
@@ -20,15 +23,21 @@ export function decodeTimestamp(bytes: Buffer): Date {
     second: (bytes[5] >> 4) * 10 + (bytes[5] & 0x0f), // Extrae segundos
   }
 
-  // Crea objeto Date (mes -1 porque en JS los meses van de 0-11)
-  const timestamp = new Date(
-    dateTime.year,
-    dateTime.month - 1,
-    dateTime.day,
-    dateTime.hour,
-    dateTime.minute,
-    dateTime.second,
-  )
+  const dt = DateTime.fromObject(
+    {
+      year: dateTime.year,
+      month: dateTime.month,
+      day: dateTime.day,
+      hour: dateTime.hour,
+      minute: dateTime.minute,
+      second: dateTime.second,
+    },
+    { zone: 'America/Caracas' } // ← ¡Aquí va la zona horaria!
+  );
+
+  const dtCaracas = dt.toUTC()
+
+  const timestamp = dtCaracas.toJSDate(); // Convertir a Date de JavaScript
 
   return timestamp
 }

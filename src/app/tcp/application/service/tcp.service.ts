@@ -66,7 +66,15 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
   private setupServer() {
     this.tcpSocket.getServer.on('connection', (socket: Socket) => {
       const clientId = `${socket.remoteAddress}:${socket.remotePort}`
-      this.logger.log(`Cliente conectado: ${clientId}`)
+      
+      // Verificar si el cliente ya está conectado
+      if (this.tcpSocket.isClientConnected(clientId)) {
+        this.logger.warn(`Cliente ${clientId} ya está conectado. Cerrando nueva conexión.`)
+        socket.end()
+        return
+      }
+
+      this.logger.log(`---> Cliente conectado: ${clientId}`)
       this.tcpSocket.setNewClient(clientId, socket)
 
       socket.on('data', (data: Buffer) => {
@@ -78,22 +86,16 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
           // Decodificar la pseudoIP
           const decodedPseudoIp = this.decodeIp(data)
 
-          // aca va la validacion de la pseudoIP por whitelist
           if (!this.whitelistService.isClientAllowed(decodedPseudoIp)) {
             this.logger.warn(`Cliente ${clientId} no permitido. PseudoIP: ${decodedPseudoIp}`)
             return
           }
 
-          // Decodificar la informacion del paquete
           const packetInfo = this.decodePacketInfo(data, clientId)
-
-          // Log de depuración
           this.logger.log(`Paquete recibido de ${clientId}: ${JSON.stringify(packetInfo)}`)
 
-          // Procesar los datos GPS
           const parsedData = parseGpsData(data, packetInfo, clientId, decodedPseudoIp)
 
-          // Agrega los datos a la cola
           this.queueService
             .addGpsData(
               {
@@ -102,18 +104,28 @@ export class TcpService implements OnModuleInit, OnModuleDestroy {
               'gps',
             )
             .then(() => {
-              // Crear y enviar respuesta al dispositivo
               const response = this.createResponse(data)
-              socket.write(response)
-              this.logger.log(`Respuesta enviada al cliente ${clientId}: ${response.toString('hex')}`)
+              if (socket.writable) {
+                socket.write(response, (error) => {
+                  if (error) {
+                    this.logger.error(`Error al enviar respuesta al cliente ${clientId}: ${error.message}`, error.stack)
+                  } else {
+                    this.logger.log(`Respuesta enviada al cliente ${clientId}: ${response.toString('hex')}`)
+                  }
+                  if (!socket.destroyed) {
+                    socket.end()
+                    this.logger.log(`Conexión cerrada con el cliente ${clientId}`)
+                  }
+                })
+              }
             })
             .catch((error) => {
               this.logger.error(`Error al agregar datos a la cola: ${error.message}`, error.stack)
+              if (!socket.destroyed) {
+                socket.end()
+                this.logger.log(`Conexión cerrada con el cliente ${clientId}`)
+              }
             })
-
-          // Cerrar la conexión después de enviar la respuesta
-          // socket.end();
-          // this.logger.log(`Conexión cerrada con el cliente ${clientId}`);
         } catch (error) {
           this.logger.error(`Error procesando datos de ${clientId}: ${error.message}`, error.stack)
         }

@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common'
 import {
   PositionData,
+  PositionDataResult,
   AlarmData,
   HeartbeatData,
   TrackerStatusData,
@@ -16,12 +17,13 @@ import { Redis } from 'ioredis'
 import { VehiclelistService } from './vehicle.service'
 import { COMMAND_CODES } from 'src/core/enums/code.enums'
 import { ProccessorRepository } from '../../domain/repository/proccessor.repository'
+import { AlarmService } from './alarm.servicer'
 
 @Injectable()
 export class ProccessorService {
   private readonly logger = new Logger(ProccessorService.name)
   private readonly redis: Redis
-  private positionDataBuffer: PositionData[] = []
+  private positionDataBuffer: PositionDataResult[] = []
   private alarmDataBuffer: AlarmData[] = []
   private heartbeatDataBuffer: HeartbeatData[] = []
   private trackerStatusBuffer: TrackerStatusData[] = []
@@ -31,6 +33,7 @@ export class ProccessorService {
   constructor(
     private readonly proccessorRepository: ProccessorRepository,
     private readonly vehiclelistService: VehiclelistService,
+    private readonly alarmService: AlarmService,
   ) {
     this.redis = new Redis({
       host: process.env.REDIS_HOST || 'localhost',
@@ -40,7 +43,6 @@ export class ProccessorService {
 
     // Agregar log para verificar el valor de BUFFER_SIZE
     this.logger.log(`BUFFER_SIZE configurado: ${this.BUFFER_SIZE}`)
-    this.logger.log(`BUFFER_SIZE desde env: ${process.env.BUFFER_SIZE}`)
   }
 
   /**
@@ -48,52 +50,63 @@ export class ProccessorService {
    */
   private async processPositionData(parsedData: PositionData): Promise<void> {
     try {
+
+      //Busca el vehiculo por la pseudo ip
+      const vehicle = this.vehiclelistService.findVehicle(parsedData.pseudoIP)
+
+      const positionDataResult: PositionDataResult = {
+        ...parsedData,
+        overSpeed: this.alarmService.getLimitSpeed(parsedData.speed),
+        nightTraffic: this.alarmService.getNightTraffic(parsedData.timestamp, parsedData.speed),
+        vehicleId: vehicle?.id,
+        vehiclePlate: vehicle?.plate,
+        vehicleColor: vehicle?.color,
+        vehicleDistrict: vehicle?.district,
+      }
+  
       // Agregar al buffer
-      this.positionDataBuffer.push(parsedData)
+      this.positionDataBuffer.push(positionDataResult)
 
       // Si el buffer alcanza el tamaño máximo, procesar el lote
       if (this.positionDataBuffer.length >= this.BUFFER_SIZE) {
         await this.flushPositionDataBuffer()
       }
 
-      //Busca el vehiculo por la pseudo ip
-      const vehicle = this.vehiclelistService.findVehicle(parsedData.pseudoIP)
-
       // Guardar en Redis
       const truckKey = `${process.env.REDIS_KEY_PREFIX || 'truck'}:${parsedData.pseudoIP}`
-      const positionData = {
-        // clientId: parsedData.clientId,
-        gpsMainCommand: parsedData.mainCommand,
-        // packetLength: parsedData.packetLength,
-        gpsPseudoIP: parsedData.pseudoIP,
-        // rawData: parsedData.rawData,
-        gpsSim: parsedData.sim,
-        positionLatitude: parsedData.latitude?.toString() || '0',
-        positionLongitude: parsedData.longitude?.toString() || '0',
-        positionSpeed: parsedData.speed?.toString() || '0',
-        positionAngle: parsedData.angle?.toString() || '0',
-        positionIgnition: parsedData.ignition ? '1' : '0',
-        positionVoltage: parsedData.voltage?.toString() || '0',
-        positionMileage: parsedData.mileage?.toString() || '0',
-        positionTemperature: parsedData.temperature?.toString() || '0',
-        vehicleId: vehicle?.id,
-        vehiclePlate: vehicle?.plate,
-        vehicleModel: vehicle?.model,
-        vehicleColor: vehicle?.color,
-        vehicleDistrict: vehicle?.district,
-        vehicleDriver: vehicle?.driverName,
-        lastUpdate: new Date().toISOString(),
+
+      // Seleccion para redis
+      const  positionDataResultRedis = {
+        clientId: positionDataResult.clientId,
+        pseudoIP: positionDataResult.pseudoIP,
+        sim: positionDataResult.sim,
+        latitude: positionDataResult.latitude,
+        longitude: positionDataResult.longitude,
+        speed: positionDataResult.speed,
+        angle: positionDataResult.angle,
+        ignition: positionDataResult.ignition,
+        oilResistance: positionDataResult.oilResistance,
+        voltage: positionDataResult.voltage,
+        mileage: positionDataResult.mileage,
+        temperature: positionDataResult.temperature,
+        timestamp: positionDataResult.timestamp,
+        overSpeed: positionDataResult.overSpeed,
+        nightTraffic: positionDataResult.nightTraffic,
+        vehicleId: positionDataResult.vehicleId,
+        vehiclePlate: positionDataResult.vehiclePlate,
+        vehicleColor: positionDataResult.vehicleColor,
+        vehicleDistrict: positionDataResult.vehicleDistrict,
       }
 
       // Guardar datos en Redis
-      await this.redis.hset(truckKey, positionData)
+      await this.redis.hset(truckKey, positionDataResultRedis)
 
       // Publicar actualización en el canal de posición
       await this.redis.publish(
         'position-updates',
         JSON.stringify({
           type: 'position',
-          data: positionData,
+          data: positionDataResultRedis,
           timestamp: new Date().toISOString(),
         }),
       )
@@ -111,9 +124,24 @@ export class ProccessorService {
    */
     private async processBlindData(parsedData: PositionData): Promise<void> {
       try {
-        
+
+        //Busca el vehiculo por la pseudo ip
+        const vehicle = this.vehiclelistService.findVehicle(parsedData.pseudoIP)
+
+        //alarma ligera
+        const positionDataResult: PositionDataResult = {
+          ...parsedData,
+          overSpeed: this.alarmService.getLimitSpeed(parsedData.speed),
+          nightTraffic: this.alarmService.getNightTraffic(parsedData.timestamp, parsedData.speed),
+          vehicleId: vehicle?.id,
+          vehiclePlate: vehicle?.plate,
+          vehicleColor: vehicle?.color,
+          vehicleDistrict: vehicle?.district,
+        }
+        //alarma ligera
+
        // Agregar al buffer
-        this.positionDataBuffer.push(parsedData);
+        this.positionDataBuffer.push(positionDataResult);
   
         // Si el buffer alcanza el tamaño máximo, procesar el lote
         if (this.positionDataBuffer.length >= this.BUFFER_SIZE) {
@@ -156,6 +184,12 @@ export class ProccessorService {
           mileage: data.mileage,
           temperature: data.temperature,
           timestamp: data.timestamp,
+          overSpeed: data.overSpeed,
+          nightTraffic: data.nightTraffic,
+          vehicleId: data.vehicleId,
+          vehiclePlate: data.vehiclePlate,
+          vehicleColor: data.vehicleColor,
+          vehicleDistrict: data.vehicleDistrict,
         })),
       })
 
