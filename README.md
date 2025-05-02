@@ -138,7 +138,7 @@ REDIS_KEY_PREFIX=truck
 # Configuración de Whitelist
 WHITELIST_REFRESH_INTERVAL=120000
 VEHICLE_REFRESH_INTERVAL = 120000
-
+LIGHT_ALARM_REFRESH_INTERVAL = 120000
 
 # Cantidad items a esperar para guardar en postgres
 BUFFER_SIZE=1
