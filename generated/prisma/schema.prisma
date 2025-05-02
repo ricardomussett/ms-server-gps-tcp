@@ -23,23 +23,24 @@ model Status {
 }
 
 model PositionData {
-  id              Int      @id @default(autoincrement())
-  pseudoIP        String
-  sim             String
-  clientId        String
-  mainCommand     String
-  latitude        Float
-  longitude       Float
-  speed           Float
-  angle           Float
-  gpsStatus       String
-  digitalInputs   String
-  ignition        Boolean
-  oilResistance   Int
-  voltage         Float
-  mileage         Int
-  temperature     Float
-  timestamp       DateTime @default(now())
+  id            Int      @id @default(autoincrement())
+  pseudoIP      String
+  sim           String
+  clientId      String
+  mainCommand   String
+  latitude      Float
+  longitude     Float
+  speed         Float
+  angle         Float
+  gpsStatus     String
+  digitalInputs String
+  ignition      Boolean
+  oilResistance Int
+  voltage       Float
+  mileage       Int
+  temperature   Float
+  timestamp     DateTime
+
   overSpeed       String
   nightTraffic    String
   vehicleId       Int?

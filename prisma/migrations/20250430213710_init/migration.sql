@@ -31,7 +31,7 @@ CREATE TABLE "PositionData" (
     "voltage" DOUBLE PRECISION NOT NULL,
     "mileage" INTEGER NOT NULL,
     "temperature" DOUBLE PRECISION NOT NULL,
-    "timestamp" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "timestamp" TIMESTAMP(3) NOT NULL,
     "overSpeed" TEXT NOT NULL,
     "nightTraffic" TEXT NOT NULL,
     "vehicleId" INTEGER,
