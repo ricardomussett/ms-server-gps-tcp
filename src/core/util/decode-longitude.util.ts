@@ -1,4 +1,4 @@
-import { convertCoordinate } from './decode-latitude.util'
+import { convertCoordinade } from './convert-coordinate.util'
 
 /**
  * Decodifica la longitud desde un buffer BCD de 4 bytes a grados decimales.
@@ -33,7 +33,7 @@ export function decodeLongitude(bytes: Buffer): number {
   ]
 
   // Calcular la longitud en grados decimales a partir del arreglo BCD
-  const longitude = convertCoordinate(array)
+  const longitude = convertCoordinade(array)
 
   // Mostrar el resultado en consola (para depuración)
   console.log('longitude', longitude)
