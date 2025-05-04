@@ -14,6 +14,10 @@
  * @returns {number} Velocidad en km/h
  */
 export function decodeSpeed(bytes: Buffer): number {
+
+    // Validar que el buffer contenga exactamente 2 bytes
+    if (bytes.length !== 2) throw new Error('Se requieren 2 bytes')
+
   const speed =
     (bytes[0] >> 4) * 1000 + // Nibble superior del primer byte * 1000
     (bytes[0] & 0x0f) * 100 + // Nibble inferior del primer byte * 100

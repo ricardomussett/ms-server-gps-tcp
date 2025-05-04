@@ -13,6 +13,10 @@
  * @returns {number} Ángulo en grados (0-359)
  */
 export function decodeAngle(bytes: Buffer): number {
+
+  // Validar que el buffer contenga exactamente 2 bytes
+  if (bytes.length !== 2) throw new Error('Se requieren 2 bytes')
+
   const angle =
     (bytes[0] & 0xff) * 100 + // Toma el byte completo como centenas
     ((bytes[1] & 0xf0) >> 4) * 10 + // Toma el nibble superior como decenas
